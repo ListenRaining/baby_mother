@@ -1,0 +1,11 @@
+<view class='title'>授权委托书</view>
+<view class='text'>
+  <view class='content'>委托方：</view>
+  <view class='content tcon'>授托方：菲蓓尔（北京）国际文化传媒有限公司</view>
+  <view class='content'>　　为了委托方在受托方运营的网站（网址为：www.fableedu.com或“菲蓓尔+”小程序）上便利地签署有关电子文件，委托方给予受托方如下代理权限并将在受托方网站进行如下业务：</view>
+  <view class='content'>　　一、	授权受托方提交相关材料向 CA 机构申请颁发数字证书（以下简称 CA 证书）；</view>
+  <view class='content'>　　二、	在受托方网站使用自己的 CA 证书进行电子文件自动签署，签署的文件范围仅限于委托方同意购买的项目所涉及的所有应签署的电子文件。</view>
+  <view class='content'>　　本委托书有效期为壹年，自双方签字（或盖章）之日起生效。</view>
+  <view class='content date'>委托方签字（或盖章）：	受托方签字（或盖章）</view>
+  <view class='content'>日期：	年	月	日		　　　　日期：	年	月	日</view>
+</view>

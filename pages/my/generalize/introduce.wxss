@@ -1,0 +1,32 @@
+.intr {
+  text-align: center;
+}
+
+.intr image {
+  width: 100%;
+  display: block;
+}
+
+.intr button {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size:30rpx;
+  background-color: #27a938;
+  color: white;
+  border-radius: 0;
+}
+
+
+/* .intr button {
+  border-radius: 0;
+  border: 1rpx solid #f7f7fa;
+  height: 50rpx;
+  width: 42rpx;
+  text-align: center;
+  padding-left:0;
+  padding-right: 46rpx;
+  line-height: 50rpx;
+} */

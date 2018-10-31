@@ -1,0 +1,126 @@
+<view class="order_warp" wx:if="{{is_show == 1}}">
+	<form bindsubmit="formSubmit">
+		<scroll-view scroll-y enable-back-to-top="true">
+            <view class='input_con'>
+                <view class='input_text'>姓名<view class='must_star'>*</view></view>
+                <input name="username" value="{{info.username}}" placeholder='请输入姓名' placeholder-class='input_place'/>
+            </view>
+
+            <!--已绑定手机-->
+            <view class='input_con input_con4' wx:if="{{info.mobile}}">
+                <view class='input_text'>手机号<view class='must_star'>*</view></view>
+                <input name="mobile" type="number" maxlength="11" value="{{info.mobile}}" disabled="true" />
+            </view>
+
+            <!--没有绑定手机-->
+            <view wx:else>
+                <view class='input_con input_con1'>
+                    <view class='input_text'>手机号<view class='must_star'>*</view></view>
+                    <input name="mobile" type="number" maxlength="11" value="{{mobile}}" bindinput="mobileInputEvent" placeholder='请输入手机号' placeholder-class='input_place'/>
+                    <button class="{{selected1?'element_show':'element_hidden'}}" bindtap="getphone">获取验证码</button>
+                    <button class="{{selected?'element_show':'element_hidden'}}">{{second}}s后重新获取</button>
+                </view>
+                <view class='input_con'>
+                    <view class='input_text'>验证码<view class='must_star'>*</view></view>
+                    <input name="code" type="number" maxlength="6" placeholder='请输入验证码' placeholder-class='input_place'/>
+                </view>
+            </view>
+
+            <view class='input_con'>
+                <view class='input_text'>微信号<view class='must_star'>*</view></view>
+                <input name="weixin" placeholder='请输入微信号' placeholder-class='input_place' />
+            </view>
+
+            <view class="input_con input_con_sf">
+               <view class='input_text'>所在城市<view class='must_star'>*</view></view>
+                <picker class="content" bindchange="bindCityChange" value="{{cIndex}}" name="cityid" range="{{citylist}}">
+                    <view class='picker'>
+                    <view class="picker">{{citylist[cIndex]}}</view>
+                    <view class='clist_arrow'><image src="../../../image/select_icon.jpg" style="width:40rpx; height:40rpx;"></image></view>
+                    </view>
+                </picker>
+            </view>
+
+            <view class="input_con">
+                <view>性别<view class='must_star'>*</view></view>
+                <radio-group name="gender">
+                    <radio value="男"/>先生
+                    <radio class='r' value="女"/>女士
+                </radio-group>
+            </view>
+
+            <view class='input_con input_con_sf'>
+                <view>身份证号<view class='must_star'>*</view></view>
+                <input name="identity_card" placeholder='请输入身份证号' placeholder-class='input_place'/>
+            </view>
+
+            <view class='input_con2'>
+                <view class='le'>身份证正面照片<view class='must_star'>*</view></view>
+                <view class='le'>身份证背面照片<view class='must_star'>*</view></view>
+            </view>
+
+            <view class="imageNode">
+                <image wx:if="{{forwardCard == ''}}" class="addImage" data-type='forward' src="{{rootRelativePath+ 'image/addImage.png'}}" bindtap="chooseImage">+</image>
+                <image wx:if="{{forwardCard != ''}}" class="addImage" data-type='forward' src="{{forwardCard}}" bindtap="chooseImage">+</image>
+                <image wx:if="{{backCard == ''}}" class="addImage" data-type='back' src="{{rootRelativePath+ 'image/addImage.png'}}" bindtap="chooseImage">+</image>
+                <image wx:if="{{backCard != ''}}" class="addImage" data-type='back' src="{{backCard}}" bindtap="chooseImage">+</image>
+            </view>
+
+            <view class='input_con'>
+                <view>身份<view class='must_star'>*</view></view>
+            </view>
+
+            <view class='input_con inpub_con_rad'>
+                <label>
+                    <radio-group bindchange="clickType">
+                        <radio value="1"/>个人　
+                        <radio value="2"/>自媒体　
+                        <radio value="3"/>艺术培训　
+                        <radio value="4"/>孕婴童店　
+                    </radio-group>
+                </label>
+            </view>
+
+            <view class='input_con input_con_gz' hidden="{{wxgzh}}">
+                <view class='input_id'>微信公众号ID<view class='must_star'>*</view></view>
+                <input name="wx_Accounts" placeholder='请输入微信公众号ID' placeholder-class='input_place'/>
+            </view>
+
+            <view class='input_con input_con_gz' hidden="{{wxgzh}}">
+                <view class='input_fans'>关注粉丝量<view class='must_star'>*</view></view>
+                <input name="fans" placeholder='请输入关注粉丝量' placeholder-class='input_place'/>
+            </view>
+
+            <view class='input_con input_con_sf' hidden="{{wxgzh}}">
+                <view>更新频率<view class='must_star'>*</view></view>
+                <radio-group name="frequency">
+                    <radio value="1"/>每天　
+                    <radio value="2"/>每周　
+                    <radio value="3"/>不定期　
+                </radio-group>
+            </view>
+
+            <!-- <view class='input_con5' hidden="{{wxgzh}}">
+                
+            </view> -->
+
+            <view class='input_con6' hidden="{{jigou}}">
+                <view class="input_addr">免费寄送推广物料收货地址<view class='must_star'>*</view></view>
+                <view class='input_addr2'><input name="address" placeholder='请输入收货地址' placeholder-class='input_place'/></view>
+            </view>
+
+            <view class='input_con7'>
+                <checkbox-group bindchange="clickVerify" class='checkboxs'>
+                    <checkbox value="1" />
+                    请确认填写资料属实，申请提现时，推广奖金将直接转入本微信号钱包
+                </checkbox-group>
+            </view>
+
+		</scroll-view>
+		<input hidden="true" name="longitude" value="{{longitude}}" />
+		<input hidden="true" name="latitude" value="{{latitude}}" />
+		<input hidden="true" name="is_authorise" value="{{is_authorise}}" />
+		<input hidden="true" name="memberLength" value="{{memberLength}}" />
+        <button class='submit_form' formType="submit">提交</button>
+	</form>
+</view>

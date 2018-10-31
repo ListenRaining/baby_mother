@@ -1,0 +1,24 @@
+/* result.wxss */
+.content_wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+icon{
+    margin-top: 114rpx;
+}
+
+.result{
+    margin-top: 48rpx;
+    font-size: 32rpx;
+}
+
+.resultMsg{
+    /*text-indent: 50rpx;*/
+    width: 500rpx;
+    line-height: 46rpx;
+    margin-top: 47rpx;
+    font-size: 28rpx;
+    text-align: center;
+}

@@ -1,0 +1,88 @@
+/* success.wxss */
+
+/*.content{
+  display: flex;
+  flex-direction: column;
+  align-items :center;
+}*/
+
+page {
+  background-color: #f2f0f0;
+}
+
+.title {
+  width: 147rpx;
+  height: 147rpx;
+  margin: 0 auto;
+  display: block;
+  padding-top: 140rpx;
+}
+
+.text {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 35rpx;
+  margin-bottom: 35rpx; 
+  font-size: 45rpx;
+}
+
+.t1 {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 35rpx;
+  margin-bottom: 35rpx; 
+  font-size: 28rpx;
+  color: #6e6e6e;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.text1 {
+  display: flex;
+  margin: 10rpx auto;
+  text-align: center;
+  font-size: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.submit_form {
+  height: 64rpx;
+  width: 490rpx;
+  text-align: center;
+  line-height: 64rpx;
+  margin-top: 60rpx;
+}
+
+.copy {
+  padding-top: 100rpx; 
+  width: 100%;
+  height: 800rpx;
+  /* line-height: 60rpx; */
+}
+
+.copy_text{
+  text-align: center;
+  font-size: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.othergift{
+  width: 100%;
+  text-align: center;
+  margin-top: 60rpx;  
+  font-size: 30rpx;
+}
+
+
+.backindex {
+  height: 64rpx;
+  width: 490rpx;
+  text-align: center;
+  line-height: 64rpx;
+  margin-top: 120rpx;
+}
+

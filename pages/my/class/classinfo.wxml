@@ -1,0 +1,63 @@
+<view>
+    <view class="info">
+        <image mode="widthFix" src="../../../image/member_banner.jpg" style="width:100%"></image>
+        <view class="info_des">
+            <view>
+                <label class="info_name">{{info.ins_name}}（{{info.class_id}}班）</label>
+            </view>
+            <view class="info_dt">
+                <label class="info_date" bindtap='location' data-lat="{{info.lat}}" data-lng="{{info.lng}}" data-name="{{info.ins_name}}" data-address="{{info.address}}">
+                    机构地址：<image class="activity_icon" src="../../../image/distance_icon1.jpg"></image> {{info.address}}
+                </label>
+            </view>
+            <view class="info_dt">
+                <label class="info_date">课程名称：{{info.product}}</label>
+            </view>
+            <view class="info_dt">
+                <label class="info_date">教师名称：{{info.name}}
+                    <image wx:for="{{starArr}}" wx:key="star" wx:if="{{item <= info.level}}" src="../../../image/star.png" style="width:21rpx; height:20rpx;"></image>
+                </label>
+            </view>
+            <view class="info_dt">
+                <label class="info_date">上课时间：{{info.week}} {{info.time}}</label>
+            </view>
+            <view class="info_dt">
+                <label class="info_date">班级状态：</label>
+                <label class="info_state">{{info.status_text}}</label>
+                <form hidden='{{accept}}' bindsubmit='changeClass' report-submit='true'>
+                  <input name='change_times' hidden='true' value='{{studentinfo.change_times}}'></input>
+                  <input name="lesson_id" hidden='true' value='{{studentinfo.lession_id}}'></input>
+                  <!--<button form-type='submit'>申请转班</button>-->
+                </form>
+            </view>
+        </view>
+    </view>
+
+    <view class="clist">
+        <view class="clist_des">
+            <view class="picker" wx:if="{{monthClass}}">课程列表
+              <label class="picker_label" wx:if="{{info.type==1}}">
+                <button wx:if="{{studentinfo.lession_id>0}}" bindtap="babyshow" data-student_id="{{studentinfo.student_id}}" data-lesson_id="{{studentinfo.lession_id}}" data-class_id="{{info.class_id}}">宝宝表现</button>
+                </label>
+            </view>
+            <view class="picker" wx:else>暂无课程安排</view>
+        </view> 
+
+        <view class="clist_data" wx:for="{{monthClass}}" wx:key="{{monthClass}}">
+            <view class="clist_class clist_cfirst">
+                <label>{{item.l_stime}} {{item.week}} {{item.timesimp}}</label>
+                <label class="clist_lesson">{{item.number}}</label>
+                <label wx:if="{{info.type == 1}}">
+                    <button class="btn" wx:if="{{item.lesson_status==1}}" bindtap="handle" data-lesson_status="{{item.lesson_status}}" data-student_id="{{item.student_id}}" data-lesson_id="{{item.id}}" data-class_id="{{item.class_id}}">请假</button>
+                    <button class="btn" wx:elif="{{item.lesson_status==2}}" bindtap="warning" data-lesson_status="{{item.lesson_status}}" data-student_id="{{item.student_id}}" data-lesson_id="{{item.id}}" data-class_id="{{item.class_id}}">等待安排补课</button>
+                    <button class="btn" wx:elif="{{item.lesson_status==3}}" bindtap="handle" data-lesson_status="{{item.lesson_status}}" data-student_id="{{item.student_id}}" data-lesson_id="{{item.id}}" data-class_id="{{item.class_id}}">确认补课时间</button>
+                    <button class="btn" wx:elif="{{item.lesson_status==4}}" bindtap="buke" data-student_id="{{item.student_id}}" data-lesson_id="{{item.id}}" data-class_id="{{item.class_id}}">查看补课</button>
+                    <button class="btn" wx:elif="{{item.lesson_status==6}}" disabled="true">老师未评价</button>
+                    <button class="btn" wx:elif="{{item.lesson_status==5}}" bindtap="handle" data-lesson_status="{{item.lesson_status}}" data-student_id="{{item.student_id}}" data-lesson_id="{{item.id}}" data-class_id="{{item.class_id}}">评价老师</button>
+                    <button class="btn" wx:elif="{{item.lesson_status==7}}">缺勤</button>
+                </label>
+                <label wx:else></label>
+            </view>
+        </view>
+    </view>
+</view>

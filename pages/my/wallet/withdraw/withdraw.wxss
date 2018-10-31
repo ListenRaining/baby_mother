@@ -1,0 +1,91 @@
+page{
+    background-color: #ffffff;
+}
+
+.content{
+    background-color: #ffffff;
+    margin-top: 15rpx;
+}
+
+.withdraw_msg{
+
+    padding: 42rpx 25rpx 22rpx 43rpx;
+    border-bottom: solid 1px #e8e8e8;
+}
+
+.withdraw_msg .title{
+    font-size: 31rpx;
+}
+.withdraw
+{
+    margin-top: 37rpx;
+    flex-flow:row;
+}
+
+.withdraw input{
+    font-size: 28rpx;
+    /* width: 250rpx; */
+}
+.withdraw .tax{
+    /* display: flex;
+    justify-content:flex-start; */
+    /* width: 500rpx; */
+    font-size: 26rpx;
+    color: #51c155;
+    align-self:flex-end;
+    flex-shrink: 0;
+    margin-bottom:10rpx;
+}
+
+.withdraw .error_msg{
+    /* display: flex;
+    justify-content:flex-start; */
+    width: 300rpx;
+    font-size: 30rpx;
+    color: #d82733;
+    align-self:flex-end;
+    flex-shrink: 0;
+    margin-bottom:7rpx;
+}
+
+button{
+    margin: 25rpx 0;
+    height: 80rpx;
+    background-color: #3db049;
+    color: #fff;
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+
+.withdraw{
+    display: flex;
+    align-items: center;
+}
+
+
+.withdraw_wrap{
+    height: 350rpx;
+    padding: 25rpx 27rpx 0 27rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.submit{
+    color: #7fb4de;
+}
+
+.withdraw_money_msg{
+    font-size: 26rpx;
+    color: #b5b5b5;
+}
+
+.withdraw_end_msg{
+    align-self: center;
+    font-size:26rpx;
+}
+
+.rule{
+    font-size: 26rpx;
+    color: #e93b3b;
+    margin-top: 18rpx;
+}

@@ -1,0 +1,35 @@
+page {
+  background-color: #f2f0f0;
+}
+
+image {
+  width: 147rpx;
+  height: 147rpx;
+  margin: 0 auto;
+  display: block;
+  padding-top: 140rpx;
+}
+
+.title {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 86rpx;
+  font-size: 44rpx;
+}
+
+.content {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 24rpx;
+  font-size: 34rpx;
+}
+
+.submit_form {
+  height: 64rpx;
+  width: 490rpx;
+  text-align: center;
+  line-height: 64rpx;
+  margin-top: 92rpx;
+  background:#27a938;
+  color:#fff;
+}

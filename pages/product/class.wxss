@@ -1,0 +1,142 @@
+/**index.wxss**/
+
+page {
+  background-color: #fff;
+}
+.container {
+  width: 100%;
+  height: auto;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-family: "iconfont" !important;
+  background: #fff;
+}
+
+/**内容**/
+
+.content_wrap {
+  width: 100%;
+  height: auto;
+}
+
+.content_scroll {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20rpx;
+  
+}
+
+.content_main {
+  width: 100%;
+  height: 95px;
+  /* border-radius: 4px; *//* margin-bottom: 14px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.content_main .content_flex1 {
+  margin-left: 25rpx;
+  margin-right: 29rpx;
+  width: 142rpx;
+  height: 142rpx;
+  font-size: 11px;
+  color: #858585;
+}
+
+.content_main .content_flex1 image {
+  width: 142rpx;
+  height: 142rpx;
+  border-radius: 4px;
+}
+
+.content_main .content_flex2 {
+  flex: 70%;
+  font-size: 11px;
+  /* padding: 2px 5px; */
+  color: #6c6c6c;
+}
+
+.content_flex2 .txt1 {
+  color: #040504;
+  font-size: 14px;
+}
+
+.content_flex2 .txt2 {
+  margin-top: 16rpx;
+}
+
+.fontcolor {
+  color: red;
+  font-weight: bold;
+}
+
+.activity_icon {
+  width: 23rpx;
+  height: 23rpx;
+  display: inline-block;
+}
+
+.button {
+  text-align: center;
+  height: 80rpx;
+  width: 300rpx;
+  color: white;
+  font-size: 30rpx;
+  background-color: #27a938;
+} 
+
+.red {
+  background-color: #ff0000;
+}
+
+.chooseClass {
+  padding: 5rpx 20rpx;
+  font-size: 25rpx;
+}
+
+ .chooseClass .classinfo {
+  padding: 5rpx;
+} 
+
+.publish_comment{
+    position:fixed;
+    width: 100%;
+    display: flex;
+    /* align-items: center; */
+    padding-bottom:20rpx;
+    padding-left: 7%; 
+    background-color: #fff;
+    bottom: -1rpx;  
+    box-sizing:border-box;
+}
+
+.title {
+  font-size: 30rpx;
+  color: #ff0000; 
+  margin: 20rpx;
+  display: flex;
+}
+
+.cont {
+  padding-left: 10rpx; 
+}
+
+.content {
+  text-align: center;
+  margin-top: 40rpx;
+  font-size: 34rpx;
+}
+
+.image {
+  width: 147rpx;
+  height: 147rpx;
+  margin: 0 auto;
+  display: block;
+  padding-top: 80rpx;
+}

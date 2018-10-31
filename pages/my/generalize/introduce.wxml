@@ -1,0 +1,7 @@
+<view class='intr'>
+<image mode="widthFix" src="https://act.fableedu.com/public/tuiguang.jpg"></image>
+<view>
+<button wx:if="{{is_generalize==3}}" bindtap='gotoGene'>立刻成为推广员</button>
+<button wx:else bindtap='gotoGene'>立即推广</button>
+</view>
+</view>

@@ -1,0 +1,45 @@
+<view class='title' wx:if="{{class_from == 2}}">
+    <icon type='warn'></icon><text class='cont'>每个人有2次转班的机会，您还剩余{{left_times}}次机会</text>
+</view>
+
+<view wx:if="{{list.length>0}}" class="container">
+    <radio-group class="radio-group" bindchange="radioChange">
+        <view class="content_wrap" wx:for="{{list}}" wx:key="ins_list">
+            <view class="content_scroll">
+                <view class="content_main" id="{{item.id}}" data-key="{{index}}" bindtap='showClass'>
+                    <view class='content_flex1' wx:if="{{item.img}}">
+                        <image src="{{item.img}}"></image>
+                    </view>
+                    <view class='content_flex1' wx:else>
+                        <image src="../../image/img.jpg"></image>
+                    </view>
+                    <view class='content_flex2'>
+                        <view class='txt1' data-key="{{index}}" bindtap='showClass'>{{item.ins_name}}</view>
+                        <view class='txt2' bindtap='location' data-lat="{{item.lat}}" data-lng="{{item.lng}}" data-name="{{item.ins_name}}" data-address="{{item.address}}">
+                        <image class="activity_icon" src="../../image/distance_icon1.jpg"></image>
+                        {{item.address}}
+                    </view>
+                    <view class='txt2'>{{item.distance}}</view>
+                </view>
+            </view>
+            <view class='chooseClass' wx:if="{{index == showkey || type==1}}">
+                <view class='classinfo' wx:for="{{item.class}}" wx:for-item="c" wx:key='class'>
+                    <radio value="{{c.class_id}}?{{item.ins_name}} {{c.week}} {{c.time}} {{c.lesson}}?{{c.state}}?{{c.stime}}" />上课时间：{{c.week}} {{c.time}} {{c.lesson}} {{c.state}} </view>
+                </view>
+            </view>
+        </view>
+    </radio-group>
+    <view hidden='{{showbutton}}' class='publish_comment'>
+        <form bindsubmit="toast" report-submit='true'>
+        <input name="confirm" value='{{confirm}}' hidden='true'></input>
+        <button class='button' wx:if="{{confirm==1}}" form-type='submit'>确认</button>
+        <button class='button' wx:if="{{confirm==2}}" form-type='submit'>预约</button>
+        </form>
+        <button class='button red' bindtap="cancel">取消</button>
+    </view>
+</view>
+
+<view wx:if="{{list.length==0}}">
+    <icon class="image" type="warn" size="70" color="green" />
+    <view class="content">抱歉！当前城市暂未创建班级</view>
+</view>

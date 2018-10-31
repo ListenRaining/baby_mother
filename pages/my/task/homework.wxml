@@ -1,0 +1,70 @@
+<!--pages/my/task/homework.wxml-->
+ <view class="logo">
+  <image src="{{baseurl}}{{info.banner}}"></image>
+</view> 
+<view class='task_a'>
+  <audio src="{{src}}" id="myAudio" action="{{audioAction}}"></audio>
+  <view class='task_l'>
+    <image src="{{task_play}}" bindtap="{{task_status}}"></image>  
+  </view>
+  <view class='task_r'>
+    <view class='t_ti'>任务说明</view>
+    <view class='t_c'>{{info.introduce}}</view>
+  </view>
+</view>
+<view class='content'>
+  <image wx:if="{{info.pic.length>0}}" wx:for="{{info.pic}}" wx:key="pic" src='{{baseurl}}{{item}}'></image>
+  <video class='video' wx:if="{{info.video}}" objectFit='cover' src='{{baseurl}}{{info.video}}'></video>
+  <audio class='tmusic' wx:if="{{info.music}}" src="{{src}}" controls id="music" name='{{info.music_name}}' author='菲蓓尔' bindplay='audioPlay1' action="{{musicAction}}"></audio>
+</view>
+<view class='incomplete' wx:if="{{complete==0}}">
+  <image src='../../../image/task.png'></image>
+</view>
+<form bindsubmit='formSubmit'>
+  <view class='content' wx:if="{{complete>0}}">
+    <textarea maxlength="-1" name="content" value="{{info.content.content}}" placeholder="分享孩子的表现吧...." />
+  </view>
+  <!--如果选择图文内容  -->
+  <view wx:if="{{info.type==2 && imageArr.length>0}}">
+    <view class="imageNode">
+      <view class="imageView" wx:for="{{imageArr}}" wx:key="img">
+        <image mode="aspectFit" src="{{item}}">
+        </image>
+        <icon type="clear" bindtap="removeImage" size="20" data-index="{{index}}" />
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{info.content.img.length>0}}">
+    <view class="imageNode">
+      <view class="imageView" wx:for="{{info.content.img}}" wx:key="img">
+        <image mode="aspectFit" src="{{baseurl}}{{item}}">
+        </image>
+      </view>
+    </view>
+  </view>
+
+
+  <!--如果选择视频任务  -->
+  <view wx:if="{{info.type==1 && src}}">
+    <view class="imageNode">
+      <view wx:if="{{src}}" class="imageView">
+        <video mode="aspectFit" class='video' src="{{src}}">
+        </video>
+      </view>
+
+    </view>
+  </view>
+
+  <view wx:if="{{info.content.video_url}}">
+    <view class="imageNode">
+        <video mode="aspectFit" class='video' src="{{info.content.video_url}}">
+        </video>
+
+    </view>
+  </view>
+
+  <button wx:if="{{complete == 1 && info.content.length == 0}}" class="submit" form-type="submit">发布</button>
+</form>
+
+<image wx:if="{{complete == 0}}" class="complete" bindtap='dotask' data-type='{{info.type}}' src='../../../image/complete.png'></image>

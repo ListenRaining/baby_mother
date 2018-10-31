@@ -1,0 +1,33 @@
+page{
+  background-color: #ffffff;
+}
+
+.content_wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.role_title{
+    display: block;
+    font-size: 38rpx;
+    margin-top: 40rpx;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.role_content{
+    margin-top: 43rpx;
+    font-size: 32rpx;
+}
+
+.item{
+    display: flex;
+    flex-direction: column; 
+    /*align-items: center*/
+}
+
+.title{
+    margin-left: 20rpx;
+    margin-top: 14rpx;
+}

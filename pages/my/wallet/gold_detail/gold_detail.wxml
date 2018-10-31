@@ -1,0 +1,18 @@
+<view class="content_wrap" wx:if="{{list.length > 0}}">
+    <view class="item" wx:for="{{list}}" wx:key="{{list}}">
+        <view class="content_1">
+            <label class="msg">提现</label>
+            <label class="goldDeal">-{{item.change_num}}</label>
+        </view>
+        <view class="content_2">
+            <label class="time">{{item.ctime}}</label>
+            <label class="goldRemain" wx:if="{{item.progress==2}}">提现成功</label>
+            <label class="goldRemain" wx:else>审核中</label>
+        </view>
+    </view>
+</view>
+
+<view class="item_nosch" wx:else>
+    <image src="../../../../image/schedule.png" style="width:142rpx; height:149rpx;"></image>
+    <view>您没有提现记录！</view>
+</view>

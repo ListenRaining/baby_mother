@@ -1,0 +1,165 @@
+<view class="order_warp" wx:if="{{id!=4}}">
+    <form bindsubmit="formSubmit" bindreset="formRes" report-submit="true">
+        <scroll-view scroll-y enable-back-to-top="true">
+            <view class="checkNode" wx:if="{{showbaby==1}}">
+                <view class='input_con7'>
+                    <label class='label_chose'>宝宝</label>
+                    <radio-group class='checkboxs'>
+                        <radio checked='true' value='{{member.mid}}' />{{member.name}}
+                    </radio-group>
+                    <input name="babyinfo" hidden='true' value='{{member.mid}}'></input>
+                </view>
+            </view>
+
+            <view class="checkNode" wx:if="{{showbaby==2}}">
+                <view class='input_con7'>
+                    <label class='label_chose'>选择宝宝</label>
+                    <radio-group bindchange="listenCheckboxChange" class='checkboxs'>
+                        <label class="checkbox" wx:for="{{memberlist}}" wx:for-item="item" wx:key="institutionInfo">
+                            <label wx:if="{{item.mid == babyinfo}}">
+                                <radio checked="true" value="{{item.mid}}" />{{item.name}}
+                            </label>
+                            <label wx:else>
+                                <radio value="{{item.mid}}" />{{item.name}}
+                            </label>
+                        </label>
+                    </radio-group>
+                    <input name="babyinfo" hidden='true' value='{{babyinfo}}'></input>
+                </view>
+            </view>
+
+            <view wx:if="{{showbaby==0}}">
+                <view class='input_con'>
+                    <label>宝宝姓名</label>
+                    <input name="name" value="{{name}}" bindinput="nameInputEvent" placeholder="请输入宝宝姓名" placeholder-style="color:#c4c3c0" />
+                </view>
+                <view class='input_con'>
+                    <label>宝宝性别</label>
+                    <picker bindchange="bindGenderChange" name="gender" value="{{genderIndex}}" range="{{gender}}" class='picker_con'>
+                        <view class="picker">
+                            {{gender[genderIndex]}}
+                        </view>
+                    </picker>
+                </view>
+                <view class='input_con'>
+                    <label>宝宝出生日期</label>
+                    <picker mode="date" bindchange="bindBirthdayChange" value="{{birthday}}" name="birthday">
+                        <view class="picker">{{birthday}}</view>
+                    </picker>
+                </view>
+                <input hidden="true" name="babyinfo" value="0" />
+            </view>
+
+            <view class='input_con input_con4'>
+                <label>宝妈姓名</label>
+                <input name="username" type="text" value="{{username}}" placeholder="请输入宝妈姓名" placeholder-style="color:#c4c3c0" />
+            </view>
+
+            <view class='input_con input_con4' wx:if="{{mobile}}">
+                <label>手机号</label>
+                <input name="mobile" type="number" maxlength="11" value="{{mobile}}" placeholder="请输入手机号" placeholder-style="color:#c4c3c0" disabled="true" />
+            </view>
+
+            <view wx:else>
+                <view class='input_con input_con1'>
+                    <label>手机号</label>
+                    <input name="mobile" type="number" maxlength="11" value="{{mobiles}}" placeholder="请输入手机号" placeholder-style="color:#c4c3c0" bindinput="mobileInputEvent" />
+                    <button class="{{selected1?'element_show':'element_hidden'}}" bindtap="getphone">获取验证码</button>
+                    <button class="{{selected?'element_show':'element_hidden'}}">{{second}}s后重新获取</button>
+                </view>
+                <view class='input_con'>
+                    <label>短信验证码</label>
+                    <input placeholder="请输入验证码" name="code" bindinput="codeInputEvent" type="number" maxlength="6" value='{{code}}' placeholder-style="color:#c4c3c0" />
+                </view>
+            </view>
+
+            <view class='input_con input_con4'>
+                <label>所在城市</label>
+                <picker wx:if="{{city_cn == ''}}" bindchange="changeCity" value="{{city_index}}" range="{{city}}">
+                    {{city[city_index]}}
+                </picker>
+                <input wx:else name="city_cn" value="{{city_cn}}" disabled placeholder-style="color:#c4c3c0" />
+            </view>
+
+            <view class='pricestype' wx:if="{{is_gift != 1}}">
+                <view>
+                    <label>总金额：</label>
+                    <label class='totalfee'>{{price}}元</label>
+                </view>
+            </view>
+        </scroll-view>
+        <button wx:if="{{is_gift==1}}" class='submit_form' formType="submit">确认领取</button>
+        <button wx:else disabled='{{showbutton}}' class='submit_form' formType="submit">支付</button>
+    </form>
+</view>
+
+<view class="order_warp" wx:else>
+    <form bindsubmit="meiyue" bindreset="formRes" report-submit>
+        <scroll-view scroll-y enable-back-to-top="true">
+            <view class='input_con input_con4'>
+                <label>真实姓名</label>
+                <input name="username" type="text" value="{{username}}" placeholder="请输入真实姓名" placeholder-style="color:#c4c3c0" />
+            </view>
+
+            <view class='input_con input_con4'>
+                <label>身份证号</label>
+                <input name="idcard" type="text" value="{{idcard}}" placeholder="请输入身份证号" placeholder-style="color:#c4c3c0" />
+            </view>
+
+            <view class='input_con input_con4' wx:if="{{mobile}}">
+                <label>手机号</label>
+                <input name="mobile" type="number" maxlength="11" value="{{mobile}}" placeholder="请输入手机号" placeholder-style="color:#c4c3c0" disabled="true" />
+            </view>
+
+            <view wx:else>
+                <view class='input_con input_con1'>
+                    <label>手机号</label>
+                    <input name="mobile" type="number" maxlength="11" value="{{mobiles}}" placeholder="请输入手机号" placeholder-style="color:#c4c3c0" bindinput="mobileInputEvent" />
+                    <button class="{{selected1?'element_show':'element_hidden'}}" bindtap="getphone">获取验证码</button>
+                    <button class="{{selected?'element_show':'element_hidden'}}">{{second}}s后重新获取</button>
+                </view>
+                <view class='input_con'>
+                    <label>短信验证码</label>
+                    <input placeholder="请输入验证码" name="code" bindinput="codeInputEvent" type="number" maxlength="6" value='{{code}}' placeholder-style="color:#c4c3c0" />
+                </view>
+            </view>
+
+            <view class='input_con input_con4'>
+                <label>邮箱</label>
+                <input name="email" type="text" value="{{email}}" placeholder="请输入邮箱地址" placeholder-style="color:#c4c3c0" />
+            </view>
+
+            <view class='input_con input_con4'>
+                <label>所在城市</label>
+                <picker wx:if="{{city_cn == ''}}" bindchange="changeCity" value="{{city_index}}" range="{{city}}">
+                    {{city[city_index]}}
+                </picker>
+                <input wx:else name="city_cn" value="{{city_cn}}" disabled placeholder-style="color:#c4c3c0" />
+            </view>
+
+            <view class='input_con input_con4'>
+                <label>邀请人手机号</label>
+                <input name="invite" type='number' value="" placeholder-style="color:#c4c3c0" />
+            </view>
+
+            <view class='pricestype'>
+                <view>
+                    <label>总金额：</label>
+                    <label wx:if="{{is_gift != 1}}" class='totalfee'>{{price}}元</label>
+                </view>
+            </view>
+        </scroll-view>
+        <view class='buy_confirm_hh'>
+          <checkbox bindtap='agreexy' name="agreexy" value="{{agreeval}}" class='agreechk' color='red'/>
+          您已同意<label bindtap='gotoAgree' data-id="{{id}}">《合作协议》</label>和
+          <label bindtap='gotoCA' data-id="{{id}}">《CA证书授权协议》</label>
+        </view>
+        <button disabled='{{showbutton}}' class='hh_submit' formType="submit">支付</button>
+    </form>
+</view>
+
+<view wx:if="{{id==3}}" class='buy_confirm'>
+    <checkbox bindtap='agreexy' name="agreexy" value="{{agreeval}}" class='agreechk' color='red'/>
+    我已阅读并同意
+    <label bindtap='gotoAgree' data-id="{{id}}">《菲蓓尔魔法乐理用户协议》</label>
+</view>

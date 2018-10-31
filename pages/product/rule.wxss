@@ -1,0 +1,44 @@
+/* rule.wxss */
+page{
+  background-color: #f0eff5;
+}
+
+.content_wrap{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10rpx;
+}
+
+.role_title{
+    font-size: 32rpx;
+    margin-top: 40rpx;
+    margin-left: 20rpx;
+    font-weight:bold;
+}
+
+.role_title2{
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    margin-top: 8rpx;
+    color:#a9a9a9;
+}
+
+.role_title3{
+    font-size: 32rpx;
+    margin-top: 40rpx;
+    margin-left: 20rpx;
+    font-weight:bold;
+}
+
+.content{
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    margin-top: 9rpx;
+    color:#a9a9a9;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    /*align-items: center*/
+}

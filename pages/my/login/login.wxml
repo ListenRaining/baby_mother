@@ -1,0 +1,4 @@
+<view class='container'>
+    <image src='{{baseurl}}public/small/login_bg.png' class='bg'></image>
+    <button open-type="getUserInfo" bindgetuserinfo="getuser" class="authorization"><image src='../../../image/weixin-icon.png'></image> 微信授权登录</button>
+</view>

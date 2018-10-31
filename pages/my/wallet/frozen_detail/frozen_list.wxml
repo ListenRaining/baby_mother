@@ -1,0 +1,45 @@
+<view class='banner'>
+    <view class='ybimg'><image src="../../../../image/yb.png"></image></view>
+    <view class='ybdes'>待结算金额</view>
+    <view class='ybnum'>{{info.frozen_money}}</view>
+</view>
+
+<view class='task'>
+    <view class='content' wx:if="{{info.experience_poor>0}}">已邀请<text style='color:red;'>{{info.experience}}</text>个人参与线下体验，剩余<text style='color:red;'>{{info.experience_poor}}</text>人未完成</view>
+    <view class='content' wx:else>钱包解冻任务已完成</view>
+</view>
+
+<view class='title tp' wx:if="{{info.level==4}}">
+    <view class='tvbp'>
+      <view class='name'>合伙人</view>
+      <view class='des' data-type='1' bindtap="goDetail">查看明细</view>
+    </view>
+    <view class='tvp'>
+      <view class='tvl'><view class='td'>{{info.inviteCount}}</view><view class='td'>已邀请</view></view>
+      <view class='tvr'><view class='td'>{{info.thawCount}}</view><view class='td'>已解冻</view></view>
+    </view>
+</view>
+
+<view class='title tmember tp'>
+    <view class='tvbp'>
+      <view class='name'>会员</view>
+      <view class='detail' data-type='2' bindtap="goDetail">查看明细</view>
+    </view>
+    <view class='tvp'>
+      <view class='tvu'><view class='td'>{{info.userApplyCount}}</view><view class='atd'>已报名</view></view>
+      <view class='tvu'><view class='td'>{{info.userExperienceCount}}</view><view class='atd'>已体验</view></view>
+      <view class='tvu'><view class='td'>{{info.userPayCount}}</view><view class='atd'>已付费</view></view>
+      <view class='tvu'><view class='td'>{{info.userThawCount}}</view><view class='atd'>已解冻</view></view>
+    </view>
+</view>
+
+<view class='titlebottom'>
+    <view class='tvbp'>
+      <view class='name'>二级收益</view>
+      <view class='detailed' data-type='3' bindtap="goDetail">查看明细</view>
+    </view>
+    <view class='tvp'>
+      <view class='tvl'><view class='td'>{{info.secondCount}}</view><view class='td'>已邀请</view></view>
+      <view class='tvr'><view class='td'>{{info.secondThawingCount}}</view><view class='td'>已解冻</view></view>
+    </view>
+</view>

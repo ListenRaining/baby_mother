@@ -1,0 +1,60 @@
+/* pages/product/gift.wxss */
+page {
+  background-color: #ffffff;
+  font-size: 30rpx; 
+}
+
+.name {
+  border-top: solid 1rpx #d5d5d5;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 25rpx 33rpx;
+  border-bottom: solid 1rpx #d5d5d5;
+}
+
+.title {
+  width: 30%;
+}
+
+.price {
+  margin-left: 320rpx;
+  color:#ff0000;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  margin-left: 300rpx;
+  text-align: center;
+}
+
+.count input {
+  width: 60rpx;
+}
+
+.counts {
+  margin: 0 30rpx;
+}
+
+button {
+  margin: 40rpx 20rpx;
+  height: 80rpx;
+  color: white;
+  font-size: 30rpx;
+  background-color: #27a938;
+} 
+
+.buy_confirm {
+  position: fixed;
+  bottom: 8rpx;
+  font-size: 25rpx;
+  text-align: center;
+  width: 100%;
+}
+
+.buy_confirm label {
+  color: #7387a8;
+}

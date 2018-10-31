@@ -1,0 +1,5 @@
+<view class="content_wrap">
+    <icon type="success" size="75" color="green"/>
+    <label class="result">提现成功</label>
+    <text class= "resultMsg">请等待后台系统审核，审核成功后会转到您的微信零钱，请注意查收</text>
+</view>

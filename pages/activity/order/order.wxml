@@ -1,0 +1,126 @@
+<view class="order_warp">
+	<form bindsubmit="formSubmit" bindreset="formRes">
+		<scroll-view scroll-y enable-back-to-top="true">
+            <view class= "checkNode" wx:if="{{institutionInfo.memberlist && is_allow_child==1}}">
+                <view class='input_con7'>
+                    <label class='label_chose'>选择宝宝</label>
+                     <checkbox-group bindchange="listenCheckboxChange" class='checkboxs'>
+                        <label class="checkbox" wx:for="{{institutionInfo.memberlist}}" wx:for-item="item" wx:key="institutionInfo">
+                            <checkbox checked="{{item.is_checked}}" value="{{item.mid}}" />{{item.name}}
+                        </label>
+                        <view class="addBaby" bindtap="goAddBaby" wx:if="{{institutionInfo.memberlist.length<3}}">
+                            <image class="btn addBabyBtn" src="../../../image/add.jpg"></image>
+                            继续添加
+                        </view>
+                     </checkbox-group>
+                </view>
+                <input hidden="true" name="babyinfo" value="1" />
+            </view>
+
+            <view wx:elif="{{is_allow_child==1}}">
+                <view class='input_con'>
+                    <label>宝宝姓名</label>
+                    <input name="name" value="{{name}}" auto-focus bindinput="nameInputEvent" placeholder="请输入宝宝姓名" placeholder-style="color:#c4c3c0"/>
+                </view>
+                <view class='input_con'>
+                    <label>宝宝性别</label>
+                    <picker bindchange="bindGenderChange" name="gender" value="{{genderIndex}}" range="{{gender}}" class='picker_con'>
+                        <view class="picker">
+                            {{gender[genderIndex]}}
+                        </view>
+                    </picker>
+                </view>
+                <view class='input_con'>
+                    <label>宝宝出生日期</label>
+                    <picker mode="date" bindchange="bindBirthdayChange" value="{{birthday}}" name="birthday">
+                        <view class="picker">{{birthday}}</view>
+                    </picker>
+                </view>
+                <input hidden="true" name="babyinfo" value="0" />
+            </view>
+
+            <view class='input_con input_con4' wx:if="{{username}}">
+                <label>宝妈姓名</label>
+                <input name="username" type="text" value="{{username}}" placeholder-style="color:#c4c3c0" disabled="true" />
+            </view>
+
+            <view class='input_con input_con4' wx:else>
+                <label>宝妈姓名</label>
+                <input name="username" type="text" placeholder="请输入宝妈姓名" placeholder-style="color:#c4c3c0" />
+            </view>
+
+            <view class='input_con input_con4' wx:if="{{mobile}}">
+                <label>手机号</label>
+                <input name="mobile" type="number" maxlength="11" value="{{mobile}}" placeholder-style="color:#c4c3c0" disabled="true" />
+            </view>
+
+            <view wx:else>
+                <view class='input_con input_con1'>
+                      <label>手机号</label>
+                      <input name="mobile" type="number" maxlength="11" value="{{mobiles}}" placeholder="请输入手机号" placeholder-style="color:#c4c3c0" bindinput="mobileInputEvent" />
+                      <button class="{{selected1?'element_show':'element_hidden'}}" bindtap="getphone">获取验证码</button>
+                      <button class="{{selected?'element_show':'element_hidden'}}">{{second}}s后重新获取</button>
+                  </view>
+                  <view class='input_con'>
+                      <label>短信验证码</label>
+                      <input placeholder="请输入验证码" name="code" value="{{code}}" bindinput="codeInputEvent" type="number" maxlength="6" placeholder-style="color:#c4c3c0"/>
+                  </view>
+            </view>
+
+            <view class='input_con5' wx:if="{{is_select_ins == 1}}">
+                <label>选择机构</label>
+                <view class='input_ins'>
+                <input wx:if="{{is_ins==1}}" placeholder='请选择机构' placeholder-style="color:#c4c3c0" name="ins_name" type="number" value="{{ins_name}}" disabled="true" />
+                <button class='selectIns' bindtap="selectIns">选择机构</button>
+                </view>
+            </view>
+
+            <checkbox-group class="box" bindchange="useQuan">
+                <checkbox value='1'>使用兑换/优惠码</checkbox>
+            </checkbox-group>
+
+            <view class='input_con input_con8' wx:if="{{quan==1}}">
+                <input name="quan" bindinput='getQuan' value="{{quan_code}}" placeholder='请输入兑换码' />
+                <button class='checkquan' data-quan_code='{{quan_code}}' bindtap="checkQuan">立即使用</button>
+            </view>
+		</scroll-view>
+
+    <view wx:if="{{act_id == 19}}" class='select_cc'>
+        <label>选择场次</label>
+        <view class="select_date">
+          <view wx:for="{{jianianhua_date}}" wx:for-item="jitem" wx:key="jianianhua_date">
+              <view wx:if="{{jdate == jitem}}" class='sjdate' data-jdate='{{jitem}}' bindtap="selectJdate">{{jitem}}</view>
+              <view wx:else class='jdate' data-jdate='{{jitem}}' bindtap="selectJdate">{{jitem}}</view>
+          </view>
+        </view>
+
+        <view class="select_con" wx:if="{{is_showtime == 1}}">
+          <view class="select_time">
+            <view wx:for="{{jianianhua_time}}" wx:for-index="jindex" wx:for-item="jtitem" wx:key="jianianhua_time">
+                <view wx:if="{{jtitem<200}}">
+                  <view wx:if="{{jtime == jindex}}" class='sjtime' data-jdate='{{jindex}}' bindtap="selectJtime">{{jindex}}</view>
+                  <view wx:else class='jtime' data-jtime='{{jindex}}' bindtap="selectJtime">{{jindex}}</view>
+                </view>
+                <view wx:else>
+                  <view class='nojtime'>{{jindex}}</view>
+                </view>
+            </view>
+          </view>
+        </view>
+    </view>
+
+    <view class='pricestype'>
+        <label>总金额：</label>
+        <label class='saleoff' wx:if="{{quan_info}}">{{money}}</label>
+        <label class='totalfee'>{{act_price}}元</label>
+    </view>
+
+		<view wx:if="{{act_price > 0}}">
+            <button class='submit_form' formType="submit" disabled="{{go_to_pay}}">{{pay_title}}</button>
+        </view>
+
+        <view wx:else>
+            <button class='submit_form' formType="submit" disabled="{{go_to_pay}}">报名</button>
+        </view>
+	</form>
+</view>

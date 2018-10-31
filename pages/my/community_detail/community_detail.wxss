@@ -1,0 +1,42 @@
+/* community_detail.wxss */
+.li{
+    display: flex;
+    padding: 30rpx 40rpx;
+    align-items: center;
+    border-bottom: solid 1rpx #d5d5d5;
+}
+
+.headIcon{
+    width: 130rpx;
+}
+
+.msg{
+    display: flex;
+    flex-flow: column;
+    margin-left: 25rpx;
+}
+
+.msg .name{
+    margin-bottom: 6rpx;
+    font-size: 33rpx;
+    display: flex;
+    align-items: center;
+}
+
+.msg .type{
+    margin-left: 10rpx;
+    margin-bottom: 3rpx;
+    width: 120rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: 27rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 5rpx;
+}
+
+.addFrom, .time{
+    margin-bottom: 5rpx;
+    font-size: 26rpx;
+    color: #87868d;
+}

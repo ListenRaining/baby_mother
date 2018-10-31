@@ -1,0 +1,12 @@
+<view class="association"  >
+    <view class="li" wx:for="{{infors}}" wx:key="{{infors}}">
+        <image class="headIcon" mode= "widthFix" src="{{item.avatar}}"></image>
+        <view class="msg">
+             <label class="name">{{item.name}}
+                <view class="type" style="background-color:{{memberTypeColorTB[item.level]}}">{{item.level}}</view>
+            </label>
+            <label class="addFrom">{{item.ins_name}}</label>
+            <label class="time">{{item.vtime}}</label>
+        </view>
+    </view>
+</view>

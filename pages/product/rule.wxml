@@ -1,0 +1,21 @@
+<view class="content_wrap">
+    <label class="role_title">暑期特惠拼团规则：</label>
+    <label class="role_title2">用户在【菲蓓尔+】微信小程序参与暑期特惠拼团玩法：</label>
+    <view class="item">
+        <label class="content">1、通过团长发起的拼团专属海报进入拼团页面，点击右下角立即参团，填写宝宝基础信息，完成拼团费用支付，即完成参团操作，根据提示转发拼团页面给微信好友；</label>
+        <label class="content">2、好友通过分享链接进入小程序拼团专属页面，参与拼团，完成订单支付；</label>
+        <label class="content">3、参团人数在有效期内达到门槛值，该团即完成拼团，所有参团用户享受对应活动优惠；</label>
+        <label class="content">4、拼团成功后，将有菲蓓尔专属成长顾问与用户电话联系，协助用户完成选班以及相关操作，请在参团成功后，注意接听专属成长顾问专线电话：010-86395353</label>
+    </view>
+
+    <label class="role_title3">取消规则：</label>
+    <view class="item">
+        <label class="content">1、未成团时不可主动取消订单；</label>
+        <label class="content">2、本次拼团活动将给予用户更大程度的优惠力度，因此通过本次活动拼团加入的付费会员，不可在任何情况下申请退费；</label>
+    </view>
+
+    <label class="role_title3">参与规则：</label>
+    <view class="item">
+        <label class="content">活动用户需依照页面提示进行操作，如出现无法完成支付，无法填写信息，无法参团等情况或对活动规则等有任何疑问，请致电客服专线：400-600-3918 ，将由客服人员为您服务解决。</label>
+    </view>
+</view>

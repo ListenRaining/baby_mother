@@ -1,0 +1,32 @@
+<view wx:if="{{length>0 || need_formal_class > 0}}" >
+    <view class="item" wx:for="{{list}}" wx:key="list">
+        <view class="item_img">
+            <image wx:if="{{item.type==1}}" src="../../../image/mofayueli.jpg" style="width:180rpx; height:120rpx;"></image>
+            <image wx:if="{{item.type==2}}" src="../../../image/demo.jpg" style="width:180rpx; height:120rpx;"></image>
+        </view>
+        <view class="item_txt">
+            <view class="item_time">{{item.class_id}}</view>
+            <view class="item_time">{{item.week}} {{item.time}}</view>
+            <view class="item_time">{{item.status}}</view>
+        </view>
+        <view class="item_btn">
+            <button bindtap='goclassinfo' data-class_id="{{item.class_id}}">查看详情</button>
+        </view>
+    </view>
+    <view wx:if="{{need_formal_class==1}}" bindtap='selectClass' data-type='1' class='select_mf'><image src="../../../image/add.png" style="width:60rpx; height:60rpx;"></image>
+      <view class='select_txt'>选择正课班级</view>
+    </view>
+    <view wx:if="{{need_formal_class==2}}" bindtap='selectClass' data-type='2' class='select_mf'><image src="../../../image/add.png" style="width:60rpx; height:60rpx;"></image>
+      <view class='select_txt'>选择体验课班级</view>
+    </view>
+</view>
+
+<view wx:else class="register">
+  <view class="hint_icon">
+    <image src="../../../image/no_open_new.jpg"></image>
+    <view class="hint_content">
+      <view class="c1">您还没有加入任何班级</view>
+      <view class="c2">赶快去报名吧.....</view>
+    </view>
+  </view>
+</view>

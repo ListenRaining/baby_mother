@@ -1,0 +1,15 @@
+<!--ruler.wxml-->
+<view class="panel">
+  <view class="text_panel">
+    <text>1.上传宝宝学习成长文字+（视频，图片）素材文字+图片的5积分/篇；文字+视频得20积分/篇数。</text>
+  </view> 
+   <view class="text_panel">
+    <text>2.文章投稿得100积分/篇数。</text>
+  </view> 
+   <view class="text_panel">
+    <text>3.活动邀请得50积分/人。</text>
+  </view> 
+   <view class="text_panel">
+    <text>4.投稿被收录得200积分/篇数。</text>
+  </view> 
+</view>

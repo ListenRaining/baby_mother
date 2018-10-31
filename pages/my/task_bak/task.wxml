@@ -1,0 +1,87 @@
+<view>
+    <view class="head">
+        <view class="head_cnt">
+            <view>累计获得</view>
+            <view class="cnt_num">{{cardCount}}张</view>
+            <view>音乐能量卡</view>
+        </view>
+        <image mode="widthFix" src="../../../image/task_banner.png"></image>
+    </view>
+
+    <view class="prog" wx:if="{{is_result==1}}">
+        <view class="prog_date">{{info.monday}}-{{info.sunday}} 已完成任务{{info.sum}}天</view>
+        <view class="prog_img" wx:if="{{info.sum==0}}"><image mode="widthFix" src="../../../image/prog0.png"></image></view>
+        <view class="prog_img" wx:elif="{{info.sum==1}}"><image mode="widthFix" src="../../../image/prog1.png"></image></view>
+        <view class="prog_img" wx:elif="{{info.sum==2}}"><image mode="widthFix" src="../../../image/prog2.png"></image></view>
+        <view class="prog_img" wx:elif="{{info.sum==3}}"><image mode="widthFix" src="../../../image/prog3.png"></image></view>
+        <view class="prog_img" wx:else><image mode="widthFix" src="../../../image/prog4.png"></image></view>
+        <view class="prog_cnt">{{info.sum}}/4</view>
+    </view>
+
+    <view class="task" wx:if="{{is_result==1}}">
+        <view class="task_bg"></view>
+        <view class="task_date">{{info.today}} {{info.week}}</view>
+        <view class="task_nece">
+            <view class="nece_info">
+                完成课后作业APP闯关与录制（必要任务）
+                <image wx:if="{{info.type_1==1}}" mode="widthFix" src="../../../image/task_02.png"></image>
+                <image wx:else mode="widthFix" src="../../../image/task_03.png"></image>
+            </view>
+            <view class="task_arrow"><image mode="widthFix" src="../../../image/task_arrow.png"></image></view>
+            <view class="nece_des">5-15分钟、陪伴宝宝完成《勇闯音乐岛》课后APP的拼一拼、听一听、敲一敲、涂一涂四个对应关卡并让宝宝回答其中的问题录制小视频、并上传至“菲蓓尔+”发现频道。</view>
+        </view>
+
+        <view class="task_select">
+            <view class="select_head">选择性任务（至少完成一项）</view>
+            <view class="select_info" wx:if="{{info.type_2==1}}">
+                录制宝宝家中唱儿歌小视频，上传至"发现"频道。
+                <image class="select_01" mode="widthFix" src="../../../image/task_01.png"></image>已完成
+            </view>
+            <view class="select_info" wx:else>
+                录制宝宝家中唱儿歌小视频，上传至"发现"频道。
+                <image class="select_01" bindtap="goSend" data-addType="1" data-mission_index="1" mode="widthFix" src="../../../image/task_03.png"></image>未完成
+            </view>
+
+            <view class="select_info" wx:if="{{info.type_3==1}}">
+                录制宝宝家中跳舞的小视频，上传至"发现"频道。
+                <image class="select_03" mode="widthFix" src="../../../image/task_01.png"></image>已完成
+            </view>
+            <view class="select_info" wx:else>
+                录制宝宝家中跳舞的小视频，上传至"发现"频道。
+                <image class="select_03" bindtap="goSend" data-addType="1" data-mission_index="2" mode="widthFix" src="../../../image/task_03.png"></image>未完成
+            </view>
+
+            <view class="select_info" wx:if="{{info.type_4==1}}">
+                分享一张宝宝在音乐学习成长过程中的图。
+                <image class="select_03" mode="widthFix" src="../../../image/task_01.png"></image>已完成
+            </view>
+            <view class="select_info" wx:else>
+                分享一张宝宝在音乐学习成长过程中的图。
+                <image class="select_03" bindtap="goSend" data-addType="0" data-mission_index="3" mode="widthFix" src="../../../image/task_03.png"></image>未完成
+            </view>
+
+            <view class="select_info" wx:if="{{info.type_5==1}}">
+                邀请朋友购买《声音的游戏》音乐主题活动包。
+                <image class="select_03" mode="widthFix" src="../../../image/task_01.png"></image>已完成
+            </view>
+            <view class="select_info" wx:else>
+                邀请朋友购买《声音的游戏》音乐主题活动包。
+                <image class="select_03" mode="widthFix" src="../../../image/task_03.png"></image>未完成
+            </view>
+
+            <view class="select_info" wx:if="{{info.type_6==1}}">
+                邀请朋友参与活动。
+                <image class="select_03" mode="widthFix" src="../../../image/task_01.png"></image>已完成
+            </view>
+            <view class="select_info" wx:else>
+                邀请朋友参与活动。
+                <image class="select_03" mode="widthFix" src="../../../image/task_03.png"></image>未完成
+            </view>
+        </view>
+    </view>
+
+    <view class="item_nosch" wx:if="{{is_result==2}}">
+        <image src="../../../image/blank.png" style="width:142rpx; height:149rpx;"></image>
+        <view>{{reason}}</view>
+    </view>
+</view>

@@ -1,0 +1,34 @@
+<view bindtap='createOutbound' class='select_mf' wx:if="{{infocount == 0}}">
+    <image src="../../../image/add.png" style="width:60rpx; height:60rpx;"></image>
+    <view class='select_txt'>添加机构外访</view>
+</view>
+
+<view bindtap='createOutbound' class='select_source' wx:elif="{{infocount > 0}}">
+    <image src="../../../image/add.png" style="width:60rpx; height:60rpx;"></image>
+    <view class='select_txt'>添加机构外访</view>
+</view>
+
+<view wx:if="{{infocount > 0}}" class="item" wx:for="{{list}}" wx:key="list">
+    <view class="item_txt">
+        <view class="title">所在城市：{{item.cityname}}</view>
+        <view class="title">所在区域：{{item.ins_area}}</view>
+        <view class="title">机构名称：{{item.ins_name}}</view>
+        <view class="title">机构地址：{{item.ins_address}}</view>
+        <view class="title" wx:if="{{item.ins_category}}">机构性质：{{item.ins_category}}</view>
+        <view class="title" wx:if="{{item.ins_proportion}}">机构面积：{{item.ins_proportion}}</view>
+
+        <view class="title" wx:if="{{item.room_long}}">教室长度：{{item.room_long}}</view>
+        <view class="title" wx:if="{{item.room_wide}}">教室宽度：{{item.room_wide}}</view>
+        <view class="title" wx:if="{{item.room_height}}">教室房高：{{item.room_height}}</view>
+        <view class="title" wx:if="{{item.ins_network}}">是否有50～100M网络：{{item.ins_network}}</view>
+        <view class="title" wx:if="{{item.ins_wall}}">是否有实体墙：{{item.ins_wall}}</view>
+        <view class="title" wx:if="{{item.students_age}}">学员年龄段：{{item.students_age}}</view>
+        <view class="title" wx:if="{{item.ins_years}}">经营年限：{{item.ins_years}}</view>
+
+        <view class="title" wx:if="{{item.ins_students}}">现有学员数量：{{item.ins_students}}</view>
+        <view class="title" wx:if="{{item.ins_matching}}">是否有匹配教室：{{item.ins_matching}}</view>
+        <view class="title" wx:if="{{item.ins_cooperation}}">合作意愿：{{item.ins_cooperation}}</view>
+        <view class="title">初访时间：{{item.ctime}}</view>
+        <button class='btn' data-id="{{item.id}}" bindtap='goChange'>编辑</button>
+    </view>
+</view>

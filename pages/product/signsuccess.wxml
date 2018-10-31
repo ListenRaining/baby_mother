@@ -1,0 +1,6 @@
+<view class="image">
+    <image class='title' src="{{rootRelativePath+ 'image/success.jpg'}}"></image>
+</view>
+<view class="text">签订成功</view>
+
+<button class='submit_form' bindtap='gotoorder' type='primary'>查看协议</button>

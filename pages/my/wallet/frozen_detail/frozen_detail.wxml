@@ -1,0 +1,220 @@
+<view wx:if="{{type==1}}">
+    <view class='banner p_banner'>
+        <view class='yb'>
+            <view class='ybimg'><image src="../../../../image/yb.png"></image></view>
+            <view class='ybdes'>待结算乐币</view>
+            <view class='ybnum'>{{info.unfreezeMoney}}</view>
+        </view>
+        <view class='des p_des' data-type='1' bindtap="show">结算说明</view>
+    </view>
+
+    <view class='task'>
+        <view class='tvl'><view class='td'>{{info.inviteCount}}</view><view class='tdt'>
+          <image src="../../../../image/invite_ff.png"></image></view></view>
+        <view class='tvr'><view class='td'>{{info.thawCount}}</view><view class='tdt'>
+          <image src="../../../../image/invite_jd.png"></image></view></view>
+    </view>
+
+    <view class="modal-box" wx:if="{{explainValue == 1}}">
+        <view class="modal-body">
+            <view class="modal-content">
+                <view class='conta'>此页面包含了菲蓓尔美乐合伙人（“邀请人”）邀请用户进入自己的美乐团队产生收益结果及结算进度信息。</view>
+                <view class='cont'>获得邀请奖励的条件：</view>
+                <view class='contb'>被邀请用户成为美乐合伙人，完成4个10课包用户邀请请，则满足获得奖励条件，系统自动进行对应的奖励金额结算。</view>
+                <view class='confirm' bindtap="hide">知道了</view>
+            </view>
+        </view>
+    </view>
+
+    <view class='p_con'>
+        <view wx:for="{{list}}" wx:key="{{list}}">
+            <view class='p_head' wx:if="{{item.avatar}}"><image class='avatar' src="{{item.avatar}}"></image></view>
+            <view class='p_head' wx:else><image src="../../../../image/play.png"></image></view>
+            <view class='p_name'>{{item.name}}</view>
+            <view class='p_type'>美乐合伙人</view>
+            <view class='p_inv' wx:if="{{item.inviteCount==0}}">
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+                <view class='p_line'><image src="../../../../image/partner_line2.png"></image></view>
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+                <view class='p_line'><image src="../../../../image/partner_line2.png"></image></view>
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+                <view class='p_line'><image src="../../../../image/partner_line2.png"></image></view>
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+            </view>
+
+            <view class='p_inv' wx:elif="{{item.inviteCount==1}}">
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar0}}"></image></view>
+                    <view class='p_iname'>{{item.name0}}</view>
+                    <view class='p_itime'>{{item.vtime0}}</view>
+                </view>
+                <view class='p_line'><image src="../../../../image/partner_line1.png"></image></view>
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+                <view class='p_line'><image src="../../../../image/partner_line2.png"></image></view>
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+                <view class='p_line'><image src="../../../../image/partner_line2.png"></image></view>
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+            </view>
+
+            <view class='p_inv' wx:elif="{{item.inviteCount==2}}">
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar0}}"></image></view>
+                    <view class='p_iname'>{{item.name0}}</view>
+                    <view class='p_itime'>{{item.vtime0}}</view>
+                </view>
+                <view class='p_line'><image src="../../../../image/partner_line1.png"></image></view>
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar1}}"></image></view>
+                    <view class='p_iname'>{{item.name1}}</view>
+                    <view class='p_itime'>{{item.vtime1}}</view>
+                </view>
+                <view class='p_line'><image src="../../../../image/partner_line1.png"></image></view>
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+                <view class='p_line'><image src="../../../../image/partner_line2.png"></image></view>
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+            </view>
+
+            <view class='p_inv' wx:elif="{{item.inviteCount==3}}">
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar0}}"></image></view>
+                    <view class='p_iname'>{{item.name0}}</view>
+                    <view class='p_itime'>{{item.vtime0}}</view>
+                </view>
+                <view class='p_line'><image src="../../../../image/partner_line1.png"></image></view>
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar1}}"></image></view>
+                    <view class='p_iname'>{{item.name1}}</view>
+                    <view class='p_itime'>{{item.vtime1}}</view>
+                </view>
+                <view class='p_line'><image src="../../../../image/partner_line1.png"></image></view>
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar2}}"></image></view>
+                    <view class='p_iname'>{{item.name2}}</view>
+                    <view class='p_itime'>{{item.vtime2}}</view>
+                </view>
+                <view class='p_line'><image src="../../../../image/partner_line1.png"></image></view>
+                <view class='p_nhead'><image src="../../../../image/partner_head.png"></image></view>
+            </view>
+
+            <view class='p_inv' wx:elif="{{item.inviteCount==4}}">
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar0}}"></image></view>
+                    <view class='p_iname'>{{item.name0}}</view>
+                    <view class='p_itime'>{{item.vtime0}}</view>
+                </view>
+                <view class='p_line'><image src="../../../../image/partner_line1.png"></image></view>
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar1}}"></image></view>
+                    <view class='p_iname'>{{item.name1}}</view>
+                    <view class='p_itime'>{{item.vtime1}}</view>
+                </view>
+                <view class='p_line'><image src="../../../../image/partner_line1.png"></image></view>
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar2}}"></image></view>
+                    <view class='p_iname'>{{item.name2}}</view>
+                    <view class='p_itime'>{{item.vtime2}}</view>
+                </view>
+                <view class='p_line'><image src="../../../../image/partner_line1.png"></image></view>
+                <view class='p_ihead'>
+                    <view><image class='avatar' src="{{item.avatar3}}"></image></view>
+                    <view class='p_iname'>{{item.name3}}</view>
+                    <view class='p_itime'>{{item.vtime3}}</view>
+                </view>
+            </view>
+            <view class='p_eline'></view>
+        </view>
+    </view>
+</view>
+
+<view wx:elif="{{type==2}}">
+    <view class='banner p_banner2'>
+        <view class='yb'>
+            <view class='ybimg'><image src="../../../../image/yb.png"></image></view>
+            <view class='ybdes'>待结算乐币</view>
+            <view class='ybnum'>{{info.unfreezeMoney}}</view>
+        </view>
+        <view class='des p_des' data-type='2' bindtap="show">结算说明</view>
+    </view>
+
+    <view class='task'>
+        <view class='tv'><view class='td'>{{info.userApplyCount}}</view><view class='tdt'>
+          <image src="../../../../image/invite_bm.png"></image></view></view>
+        <view class='tv'><view class='td'>{{info.userExperienceCount}}</view><view class='tdt'>
+          <image src="../../../../image/invite_ty.png"></image></view></view>
+        <view class='tv'><view class='td'>{{info.userPayCount}}</view><view class='tdt'>
+          <image src="../../../../image/invite_ff.png"></image></view></view>
+        <view class='tv'><view class='td'>{{info.userThawCount}}</view><view class='tdt'>
+          <image src="../../../../image/invite_jd.png"></image></view></view>
+    </view>
+
+    <view class="modal-box" wx:if="{{explainValue == 2}}">
+        <view class="modal-body">
+            <view class="modal-content">
+                <view class='conta'>此页面包含了菲蓓尔付费会员（“邀请人”）参加邀请新用户体验产生的体验结果及相关进度信息。</view>
+                <view class='cont'>获得邀请奖励的条件：</view>
+                <view class='contb'>被邀请用户从付费成为菲蓓尔年费会员并完成班级选择，从该班级正式开课起，在已选班级一个月内完成8课时学习（不含请假）且未退费，则满足获得奖励条件，系统自动进行对应的奖励金额结算。</view>
+                <view class='confirm' bindtap="hide">知道了</view>
+            </view>
+        </view>
+    </view>
+
+    <view wx:for="{{list}}" wx:key="{{list}}">
+        <view class='con'>
+            <view class='cdes' data-uid="{{item.uid}}">
+                <view class='chead'><image src="{{item.avatar}}"></image></view>
+                <view>姓名:{{item.name}}</view>
+                <view wx:if="{{item.earnings_level==1}}">级别:全额奖励</view>
+                <view wx:else>级别:一级</view>
+                <view>奖励:{{item.return_money}}</view>
+            </view>
+            <view class='cimg' wx:if="{{item.status==1}}"><image src="../../../../image/invite_ybm.png"></image></view>
+            <view class='cimg' wx:elif="{{item.status==2}}"><image src="../../../../image/invite_yty.png"></image></view>
+            <view class='cimg' wx:elif="{{item.status==3}}"><image src="../../../../image/invite_yff.png"></image></view>
+            <view class='cimg' wx:elif="{{item.status==4}}"><image src="../../../../image/invite_yjd.png"></image></view>
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{type==3}}">
+    <view class='banner p_banner p_banner3'>
+        <view class='yb'>
+            <view class='ybimg'><image src="../../../../image/yb.png"></image></view>
+            <view class='ybdes'>待结算乐币</view>
+            <view class='ybnum'>{{info.unfreezeMoney}}</view>
+        </view>
+        <view class='des p_des' data-type='3' bindtap="show">结算说明</view>
+    </view>
+
+    <view class='task'>
+        <view class='tvl'><view class='td'>{{info.inviteCount}}</view><view class='tdt'>
+          <image src="../../../../image/invite_ff.png"></image></view></view>
+        <view class='tvr'><view class='td'>{{info.thawCount}}</view><view class='tdt'>
+          <image src="../../../../image/invite_jd.png"></image></view></view>
+    </view>
+
+    <view class="modal-box" wx:if="{{explainValue == 3}}">
+        <view class="modal-body">
+            <view class="modal-content">
+                <view class='conta'>此页面包含了菲蓓尔付费会员（“邀请人”）参加邀请新用户体验产生的体验结果及相关进度信息。</view>
+                <view class='cont'>获得邀请奖励的条件：</view>
+                <view class='contb'>被邀请用户从付费成为菲蓓尔年费会员并完成班级选择，从该班级正式开课起，在已选班级一个月内完成8课时学习（不含请假）且未退费，则满足获得奖励条件，系统自动进行对应的奖励金额结算。</view>
+                <view class='confirm' bindtap="hide">知道了</view>
+            </view>
+        </view>
+    </view>
+
+    <view wx:for="{{list}}" wx:key="{{list}}">
+        <view class='con'>
+            <view class='cdes' data-uid="{{item.uid}}">
+                <view class='chead'><image src="{{item.avatar}}"></image></view>
+                <view>姓名:{{item.name}}</view>
+                <view>级别:{{item.earnings_level}}</view>
+                <view>奖励:{{item.return_money}}</view>
+            </view>
+            <view class='cimg' wx:if="{{item.status==1}}"><image src="../../../../image/invite_ybm.png"></image></view>
+            <view class='cimg' wx:elif="{{item.status==2}}"><image src="../../../../image/invite_yty.png"></image></view>
+            <view class='cimg' wx:elif="{{item.status==3}}"><image src="../../../../image/invite_yff.png"></image></view>
+            <view class='cimg' wx:elif="{{item.status==4}}"><image src="../../../../image/invite_yjd.png"></image></view>
+        </view>
+    </view>
+</view>

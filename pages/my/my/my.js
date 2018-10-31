@@ -1,0 +1,167 @@
+//我的
+var app = getApp()
+
+Page({
+
+    data: {
+        is_login:0,
+        baseurl: app.globalData.baseUrl,
+        rootRelativePath: '../../../',
+        class_id:0,        //班级id
+        info:'',           //用户信息
+        type:0             //选择班级类型
+    },
+
+    onShow: function () {
+        var that = this;
+        wx.getStorage({
+            key: 'userinfo',
+            success: function (info) {
+                var timestamp = app.createTimeStamp()
+                var str = "uid=" + info.data.uid + '&timestamp=' + timestamp
+                var signature = app.createSignatureStr(str);
+                wx.request({
+                    url: app.globalData.baseUrl + 'little/operate/getUserInfo',
+                    data: {
+                        uid:info.data.uid,
+                        timestamp:timestamp,
+                        getMore:1,
+                        signature:signature
+                    },
+                    success: function (res) {
+                        console.log('用户信息',res.data.info);
+                        if (res.data.result == 'succ') {
+                            that.setData({
+                                info: res.data.info,
+                                class_id:res.data.class_id,
+                                type:res.data.info.type,
+                                is_outbound:res.data.is_outbound,    //外访机构人员
+                                test_coupons:res.data.test_coupons,  //活动验券人员
+                                is_login:1                           //是否登录
+                            })
+                        } else {
+                            wx.showModal({
+                                title: '提示',
+                                content:res.data.reason,
+                                showCancel: false
+                            })
+                            return false;
+                        }
+                    }
+                })
+            }
+        })
+    },
+
+    //我的宝宝
+    toBaby:function () {
+        if(this.data.info.baby_count == 0){
+            //没有添加宝宝，跳到添加页面
+            wx.navigateTo({
+                url: '/pages/my/my/babyinfo'
+            })
+        }else{
+            //跳到宝宝列表页面
+            wx.navigateTo({
+                url: '/pages/my/my/babylist'
+            })
+        }
+    },
+
+    //基本信息
+    toUserinfo:function () {
+        wx.navigateTo({
+            url: '/pages/my/my/user'
+        })
+    },
+
+    //绑定手机号
+    toBindmobile:function () {
+        wx.navigateTo({
+            url: '/pages/my/my/mobile_change'
+        })
+    },
+
+
+
+
+  //机构入驻 Institutions-in
+  toInstitutionsIn: function () {
+    wx.navigateTo({
+      url: '/pages/my/InstitutionsIn/InstitutionsIn'
+    })
+  },
+
+
+  //外访记录 Outbound records
+  toOutboundRecords: function () {
+    wx.navigateTo({
+      url: '/pages/my/OutboundRecords/list'
+    })
+  },
+
+
+
+
+    //订单
+    toOrder:function () {
+        wx.navigateTo({
+            url: '/pages/my/orderlist/orderlist'
+        })
+    },
+
+    //经营管理
+    toManager:function () {
+        wx.navigateTo({
+            url: '/pages/my/business/index'
+        })
+    },
+
+    //宝妈点击班级到班级列表
+    clickactivity:function () {
+        wx.navigateTo({
+            url: '/pages/my/class/classlist'
+        })
+    },
+
+    //协议
+    gotosign:function (e) {
+      var sign_flag = e.currentTarget.dataset.id;
+      if (sign_flag == 3){
+          var url = '/pages/product/signsuccess';
+      }else{
+          var url = '/pages/product/sign';
+      }
+        wx.navigateTo({
+            url: url
+        })
+    },
+
+    //外访机构
+    clickOutbound:function () {
+        wx.navigateTo({
+            url: '/pages/my/outbound/list'
+        })
+    },
+
+    //活动验券
+    clickCoupons:function () {
+        wx.navigateTo({
+            url: '/pages/my/outbound/coupons'
+        })
+    },
+
+    //授权操作
+    getuser:function (e) {
+        if(e.detail.encryptedData){
+            wx.setStorage({
+                key: 'gourl',
+                data: '/pages/my/my/my',
+            })
+
+            app.getUserInfoNew(e.detail.encryptedData,e.detail.iv);
+        }else{
+            console.log('拒绝授权');
+        }
+    }
+})
