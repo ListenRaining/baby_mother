@@ -1,0 +1,71 @@
+<view class="rim_content_wrap">
+    <form bindsubmit='formSubmit'>
+      <view class="rim_top_text">周边基本情况</view>
+ 
+          <view class="rim_li verificationLi">
+            <label class= "rim_title">交通状况</label>
+
+              <picker class="rim_Number" placeholder="请输入实际交通状况" bindchange="bindTraChange" value="{{typeIndex1}}" name="traid" range="{{ins_tra}}">
+                    <view class="picker">{{ins_tra[typeIndex1]}}</view>
+                </picker>
+
+             <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请输入实际交通状况" name="ins_name" value="{{ins_name}}"/> -->
+             <view class='rim_top_person_2_flex1'>
+                    <image src="../../../images/icon-play/arrow.png"></image>
+                  </view>
+          </view>
+
+           <view class="rim_li verificationLi">
+                <label class= "rim_title">基础设施</label>
+                 <picker class="rim_Number" placeholder="请输入周边基础设施" bindchange="bindBasChange" value="{{typeIndex2}}" name="basid" range="{{ins_bas}}">
+                    <view class="rim_picker">{{ins_tra[typeIndex2]}}</view>
+                </picker>
+                 <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请输入周边基础设施" name= "code" /> -->
+                <view class='rim_top_person_2_flex1'>
+                    <image src="../../../images/icon-play/arrow.png"></image>
+                  </view>
+          </view>
+
+          <view class="rim_li verificationLi">
+                <label class= "rim_title">周边社区</label>
+                 <picker class="rim_Number" placeholder="请选择周边社区情况" bindchange="bindComChange" value="{{typeIndex3}}" name="comid" range="{{ins_com}}">
+                    <view class="picker">{{ins_com[typeIndex3]}}</view>
+                </picker>
+                 <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择周边社区情况" name= "code" /> -->
+                <view class='rim_top_person_2_flex1'>
+                    <image src="../../../images/icon-play/arrow.png"></image>
+                  </view>
+          </view>
+
+           <view class="rim_li verificationLi">
+                <label class= "rim_title">常住人口</label>
+                 <picker class="rim_Number" placeholder="请选择合适人口范围" bindchange="bindInhChange" value="{{typeIndex4}}" name="inhid" range="{{ins_inh}}">
+                    <view class="picker">{{ins_inh[typeIndex4]}}</view>
+                </picker>
+                 <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择合适人口范围" name= "code" /> -->
+                <view class='rim_top_person_2_flex1'>
+                    <image src="../../../images/icon-play/arrow.png"></image>
+                  </view>
+          </view>
+          
+
+          <view class="rim_li verificationLi">
+                <label class= "rim_title">同类机构</label>
+                 <input class= "rim_Number" placeholder-class="phcolor" placeholder="0代表没有" name= "code" />
+                <view class='rim_top_person_2_flex1 '>
+                    个
+                  </view>
+          </view>
+
+           <view class="rim_li verificationLi">
+                <label class= "rim_title">幼儿园</label>
+                 <input class= "rim_Number" placeholder-class="phcolor" placeholder="0代表没有" name= "code" />
+                <view class='rim_top_person_2_flex1 '>
+                    个
+                  </view>
+          </view>
+
+         
+        <button class='rim_button' form-type='submit'>提交</button>
+    </form>
+</view>

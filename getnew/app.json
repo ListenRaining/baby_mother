@@ -1,0 +1,26 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/my/InstitutionsIn/InstitutionsIn",
+    "pages/my/InstitutionsIn/person",
+    "pages/my/InstitutionsIn/organization",
+    "pages/my/InstitutionsIn/rim",
+    "pages/my/InstitutionsIn/Audit_failure",
+    "pages/my/InstitutionsIn/success",
+    "pages/my/OutboundRecords/OutboundRecords",
+    "pages/my/OutboundRecords/list",
+    "pages/my/OutboundRecords/add",
+    "pages/my/OutboundRecords/detail",
+    "pages/my/OutboundRecords/coupons",
+    "pages/my/OutboundRecords/Out-records",
+    "pages/my/OutboundRecords/organization",
+    "pages/my/OutboundRecords/Outdetails"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}

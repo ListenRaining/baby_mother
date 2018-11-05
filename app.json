@@ -75,6 +75,7 @@
     "pages/my/InstitutionsIn/person",
     "pages/my/InstitutionsIn/organization",
     "pages/my/InstitutionsIn/rim",
+    "pages/my/InstitutionsIn/Audit_failure",
     "pages/my/OutboundRecords/list",
     "pages/my/OutboundRecords/add",
     "pages/my/OutboundRecords/detail",

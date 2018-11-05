@@ -38,11 +38,13 @@
   font-size: 30rpx;
   float: left
 }
+
 .Number{
   width: 505rpx;
   height:90rpx; 
   line-height: 90rpx;
   display: block;
+  /* color: #afb5ca; */
   font-size: 26rpx;
   float: left
 }
@@ -62,3 +64,8 @@
   font-family: "PingFangSC";
   margin:22px 0 0 0
 }
+
+.phcolor{
+    color: #afb5ca;
+}
+

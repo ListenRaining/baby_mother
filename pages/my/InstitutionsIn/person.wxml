@@ -11,7 +11,7 @@
 
         <view class="li verificationLi">
                 <label class= "title">联系人</label>
-                <input class= "Number" placeholder="请输入6个字符以内的字符" name= "code" />
+                 <input class= "Number" placeholder-class="phcolor" placeholder="请输入6个字符以内的字符" name= "code" />
         </view>
 
         <view class="li phoneNumLi" wx:if="{{info.mobile && is_authorise!=2}}">

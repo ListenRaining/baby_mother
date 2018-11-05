@@ -1,0 +1,226 @@
+page{
+  background-color: #ffffff;
+}
+/* 机构信息 */
+.content_wrap {
+  font-family: "PingFangSC";
+ 
+}
+
+.top_text_1{
+  width: 100%;
+  height: 55rpx;
+  background-color: #dfe3ed;
+  padding-left: 35rpx;
+  line-height: 55rpx;
+  color: #f5c88f;
+  font-size: 22rpx;
+  
+}
+.top_text{
+  width: 100%;
+  height: 55rpx;
+  background-color: #dfe3ed;
+  padding-left: 35rpx;
+  line-height: 55rpx;
+  color: #b3b9cd;
+  font-size: 22rpx;
+ float: left
+}
+
+.for-out{
+ width: 100%;
+ height: 183rpx;
+ background-color: #ffffff;
+ position: relative;
+ margin-bottom: 45rpx;
+ float: left
+
+}
+
+
+.two-imgshow3{
+    width:680rpx;
+  height:55rpx;
+  font-size:11px;
+  color:#000000;
+  margin-top:20rpx; 
+  margin-left: 40rpx;
+  float: LEFT;
+
+  }
+
+.title1{
+  width:210rpx;
+  font-size: 34rpx;
+  color:#131212;
+  margin-left: 75rpx;
+  margin-top: 52rpx;
+  float: LEFT;
+  }
+  .title2{
+  width:360rpx;
+   height:55rpx;
+  line-height: 45rpx;
+  font-size:24rpx;
+  color: #c0c5d6;
+  margin-left: 10rpx;
+  margin-top: 52rpx;
+  text-align: left;
+  float: LEFT;
+  }
+
+  .address{
+
+  width:22rpx;
+  height:27rpx;
+   margin-top: 28rpx;
+   margin-left: 75rpx;
+  float: left
+}
+   .title3{
+  width:480rpx;
+  font-size:24rpx;
+  color: #949cb5;
+  margin-top: 25rpx;
+  margin-left: 5rpx;
+  text-align: left;
+  float: LEFT;
+  }
+
+  .two-no-go-2{
+    position: absolute;
+    right:25rpx;
+    top: 78rpx;
+    z-index: 10;
+    height:28rpx;
+    width:16rpx;
+ 
+  }
+  .two-no-go-2 image{
+    height:28rpx;
+    width:16rpx;
+
+  }
+
+
+.upphoto{
+  width: 100%;
+  height: 308rpx;
+  background: #ffffff;
+  border-bottom: 10rpx solid #eef0f6;
+  float: left
+
+}
+
+.addImg_wrap {
+  width: 50%;
+  display: flex;
+  padding-top: 40rpx;
+  padding-left: 115rpx;
+  flex-direction: column;
+  font-size: 28rpx;
+  float: left;
+}
+
+.addImg_wrap .image_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.addImg_wrap .image_wrap image {
+  position: relative;
+  width: 189rpx;
+  height: 190rpx;
+  flex-shrink: 0;
+  margin-bottom: 20rpx;
+}
+
+.addImg_wrap .image_wrap image icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+
+
+.li{
+  width: 680rpx;
+  height:90rpx; 
+  margin-left: 35rpx;
+  padding-left: 5rpx;
+  display: block;
+  align-items: center;
+  border-bottom: solid 1rpx #d5d5d5;
+}
+
+.title{
+  width: 165rpx;
+  height:90rpx; 
+  line-height: 90rpx;
+  display: block;
+   color: #afb5ca;
+  font-size: 30rpx;
+  float: left
+
+}
+.Number{
+  width: 405rpx;
+  height:90rpx; 
+  line-height: 90rpx;
+  display: block;
+  color: #afb5ca;
+  font-size: 26rpx;
+  float: left
+}
+
+
+.top_person_2_flex1{
+  width:30rpx;
+  height:30rpx;
+  font-size: 26rpx;
+  font-family: "PingFangSC";
+  color:#d4d7e2;
+  margin-top:30rpx; 
+  margin-right: 20rpx;
+  float: left
+  }
+.top_person_2_flex1 image{
+  width:30rpx;
+  height:30rpx;
+ 
+  }
+
+.bottom{
+  
+ width:750rpx;
+ height: 130rpx;
+ color: #dfe3ed;
+ background-color: #dfe3ed;
+
+
+}
+
+
+ .button{
+   position: fixed;
+   left: 31rpx;
+   bottom: 0;
+   z-index: 10;
+  height:80rpx;
+  width: 688rpx;
+  background:#00b438;
+  color:#fff;
+  text-align:center;
+  line-height:80rpx;
+  margin:22px 0 0 0
+} 
+
+
+.phcolor{
+    color: #02040c;
+}
+

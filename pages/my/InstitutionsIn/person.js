@@ -1,4 +1,4 @@
-//绑定手机号
+//个人信息
 var app = getApp();
 
 Page({

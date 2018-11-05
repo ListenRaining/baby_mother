@@ -1,0 +1,116 @@
+page{
+  background-color: #ffffff;
+}
+
+/* 审核信息 */
+.Au_content_wrap {
+  font-family: "PingFangSC";
+  padding: 0 40rpx;
+  background-color: #f8f8f8;
+}
+
+.Au_top_text{
+  width: 100%;
+  height: 50rpx;
+  background-color: #dfe3ed;
+  padding-left: 35rpx;
+  line-height: 50rpx;
+  color: #A5A9AF;
+  font-size: 24rpx;
+ 
+}
+
+.Au_li-one{
+  width: 100%;
+  height:345rpx; 
+  background-color: #f8f8f8;
+  display: block;
+  align-items: center;
+  padding-top:90rpx; 
+  
+}
+.Au_top_person_2_flex1{
+  width:115rpx;
+  height:115rpx;
+  margin-left: 277.5rpx; 
+  font-size: 26rpx;
+  font-family: "PingFangSC";
+  color:#d4d7e2;
+  
+  }
+.Au_top_person_2_flex1 image{
+   width:115rpx;
+   height:115rpx;
+  }
+
+.Au_title{
+  width: 165rpx;
+  height:90rpx; 
+  line-height: 90rpx;
+  display: block;
+  font-size: 26rpx;
+  margin-left: 252.5rpx;
+  text-align: center
+  
+}
+.Au_Number{
+  width: 405rpx;
+  height:90rpx; 
+  line-height: 90rpx;
+  display: block;
+   color: #afb5ca;
+  font-size: 26rpx;
+  float: left
+}
+
+
+.Au_li-two{
+  width: 100%;
+  height:310rpx; 
+  background-color: #ffffff;
+  padding-left: 5rpx;
+  display: block;
+  align-items: center;
+  border: solid 1rpx #cacfdc;
+  border-radius:5rpx; 
+}
+.Au_title-2{
+  width: auto;
+  height:90rpx; 
+  line-height: 90rpx;
+  display: block;
+  font-size: 26rpx;
+  margin-left: 25rpx;
+  margin-right: 20rpx;
+  float: left;
+  text-align: center；
+  
+}
+.Au_Number-2{
+  width: 405rpx;
+  height:90rpx; 
+  line-height: 90rpx;
+  display: block;
+  font-size: 26rpx;
+  float: left;
+  text-align: left;
+   color: #afb5ca;
+}
+
+.Au_bottom{
+ width: 100%;
+ height: 130rpx;
+ color: #dfe3ed
+
+}
+
+ .Au_button{
+   margin-top: 90rpx;
+  height:80rpx;
+  width: 680rpx;
+  background:#00b438;
+  color:#fff;
+  text-align:center;
+  line-height:80rpx;
+  margin:22px 0 0 0
+} 

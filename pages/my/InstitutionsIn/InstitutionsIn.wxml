@@ -71,7 +71,7 @@
       
 
 
-         <button class='button' formType="submit">提交</button>
+         <button class='button' formType="submit" bindtap="toAudit">提交</button>
 
       </view>  
 </view>

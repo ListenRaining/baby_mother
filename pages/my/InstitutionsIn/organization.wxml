@@ -4,214 +4,214 @@
  
           <view class="li verificationLi">
             <label class= "title">机构名称</label>
-            <input class= "Number" placeholder="请输入机构名称" name="ins_name" value="{{ins_name}}"/>
+            <input class= "Number" placeholder-class="phcolor" placeholder-class="phcolor"   placeholder="请输入机构名称" name="ins_name" value="{{ins_name}}"/>
           </view>
+
            <view class="li verificationLi">
                 <label class= "title">机构类型</label>
-                <input class= "Number" placeholder="请输入机构类型" name= "code" />
+                 <picker class="Number" placeholder="请输入机构类型" bindchange="bindTypeChange" value="{{typeIndex1}}" name="typeid" range="{{ins_type}}">
+                    <view class="picker">{{ins_type[typeIndex1]}}</view>
+                </picker>
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
           </view>
 
-       
+          <view class="li verificationLi">
+                <label class= "title">所在地区</label>
 
+           <picker class= "Number" placeholder-class="phcolor" placeholder="省份 城市 县区" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+               <view class="picker">
+                 {{region[0]}}，{{region[1]}}，{{region[2]}}
+                </view>
+           </picker>
+           <view class='top_person_2_flex1'>
+             <image src="../../../image/icon-play/arrow.png"></image>
+           </view> 
+       </view>
 
+          <view class="li verificationLi">
+            <label class= "title">详细信息</label>
+            <input class= "Number" placeholder-class="phcolor" placeholder="街道门牌信息" name="ins_name" value="{{ins_name}}"/>
+          </view>
+          
 
+          <view class="li verificationLi">
+                <label class= "title">机构层高</label>
+               
+                <input class= "Number" placeholder-class="phcolor" placeholder="请输入机构层高" name= "code" />
+                <view class='top_person_2_flex1 '>
+                    m
+                  </view>
+          </view>
 
+          <view class="li verificationLi">
+                <label class= "title">总面积</label>
 
-        <view class="menu_wrap">
-            <view class="item">
-                <label class='label' bindtap="getAddress">获取定位</label><label class='mandatory'>*</label>
-                <input class="content" name="ins_address" value="{{ins_address}}" placeholder-style='color:#C4C4C4' placeholder="请输入机构地址" />
-            </view>
-
-            <view class="item">
-                机构名称<label class='mandatory'>*</label>
-                <input class="content" name="ins_name" value="{{ins_name}}" placeholder="请输入机构名称" placeholder-style='color:#C4C4C4'/>
-            </view>
-
-            <view class="item">
-                机构所在城市<label class='mandatory'>*</label>
-                <picker class="content_picker" bindchange="bindCityChange" value="{{cityIndex}}" name="cityid" range="{{citylist}}">
-                    <view class="picker">{{citylist[cityIndex]}}</view>
+                 <picker class="Number" placeholder="请选择机构总面积" bindchange="bindAreaChange" value="{{typeIndex2}}" name="areaid" range="{{ins_area}}">
+                    <view class="picker">{{ins_area[typeIndex2]}}</view>
                 </picker>
-            </view>
+                <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择机构总面积" name= "code" /> -->
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="item">
-                机构所在区域<label class='mandatory'>*</label>
-                <input class="content" name="ins_area" value="{{ins_area}}" placeholder="请输入机构所在区域" placeholder-style='color:#C4C4C4'/>
-            </view>
+           <view class="li verificationLi">
+                <label class= "title">租赁期</label>
+                <input class= "Number" placeholder-class="phcolor" placeholder="请输入租赁期" name= "code" />
+                <view class='top_person_2_flex1 '>
+                    年
+                  </view>
+           </view>
 
-            <view class="item">
-                经营年限
-                <input class="content" value="{{ins_years}}" name="ins_years" placeholder="请填写经营年限" placeholder-style='color:#C4C4C4'/>
-            </view>
-
-            <view class="item">
-                机构性质
-                <radio-group name="ins_category" class="category">
-                    <label wx:for="{{category}}" wx:key="{{category}}">
-                        <label wx:if="{{item == ins_category}}">
-                            <radio checked="true" value="{{item}}"/>{{item}}
-                        </label>
-                        <label wx:else>
-                            <radio value="{{item}}" />{{item}}
-                        </label>
-                    </label>
-                </radio-group>
-            </view>
-
-            <view class="item">
-                机构面积
-                <picker class="content_picker" bindchange="bindProportionChange" value="{{proportionIndex}}" name="ins_proportion" range="{{proportion}}">
-                    <view class="picker">{{proportion[proportionIndex]}}</view>
+           <view class="li verificationLi">
+                <label class= "title">发票类型</label>
+                 <picker class="Number" placeholder="请选择发票类型" bindchange="bindInvoiceChange" value="{{typeIndex3}}" name="invoice_id" range="{{ins_invoice}}">
+                    <view class="picker">{{ins_invoice[typeIndex3]}}</view>
                 </picker>
-            </view>
+                <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择发票类型" name= "code" /> -->
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="item">
-                机构现有学员数量
-                <input type="number" class="content" value="{{ins_students}}" name="ins_students" placeholder="请填写现有生源数量" placeholder-style='color:#C4C4C4'/>
-            </view>
+          <view class="li verificationLi">
+                <label class= "title">经营年限</label>
+                 <picker class="Number" placeholder="请选择发票类型" bindchange="bindAgeChange" value="{{typeIndex4}}" name="age_id" range="{{ins_age}}">
+                    <view class="picker">{{ins_age[typeIndex4]}}</view>
+                </picker>
+                <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择经营年限" name= "code" /> -->
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="item">
-                学员年龄段
-                <input class="content" value="{{students_age}}" name="students_age" placeholder="请填写学员年龄段" placeholder-style='color:#C4C4C4'/>
-            </view>
+          <view class="top_text">机构员工信息</view>
+          
+          <view class="li verificationLi">
+                <label class= "title">教务人数</label>
+                <picker class="Number" placeholder="请选择教务或市场人数" bindchange="bindEduChange" value="{{typeIndex5}}" name="edu_id" range="{{ins_edu}}">
+                    <view class="picker">{{ins_edu[typeIndex5]}}</view>
+                </picker>
+                <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择教务或市场人数" name= "code" /> -->
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="item">
-                教室长度
-                <input class="content" value="{{room_long}}" name="room_long" placeholder="请填写教室长度" placeholder-style='color:#C4C4C4'/>
-            </view>
+          <view class="top_text">机构生源信息</view>
+          
+          <view class="li verificationLi">
+                <label class= "title">年龄段</label>
+                <picker class="Number" placeholder="请选择学员人数" bindchange="bindEnrChange" value="{{typeIndex6}}" name="enrollment_id" range="{{ins_enrollment}}">
+                    <view class="picker">{{ins_enrollment[typeIndex6]}}</view>
+                </picker>
+               
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="item">
-                教室宽度
-                <input class="content" value="{{room_wide}}" name="room_wide" placeholder="请填写教室宽度" placeholder-style='color:#C4C4C4'/>
-            </view>
+          <view class="li verificationLi">
+                <label class= "title">人数</label>
+                <picker class="Number" placeholder="请选择学员人数" bindchange="bindNumChange" value="{{typeIndex7}}" name="num_id" range="{{ins_num}}">
+                    <view class="picker">{{ins_num[typeIndex7]}}</view>
+                </picker>
+                <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择学员人数" name= "code" /> -->
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="item">
-                教室房高
-                <input class="content" value="{{room_height}}" name="room_height" placeholder="请填写教室房高" placeholder-style='color:#C4C4C4'/>
-            </view>
 
-            <view class="item">
-                是否有实体墙
-                <radio-group name="ins_wall" class="category">
-                    <label wx:for="{{wall}}" wx:key="{{wall}}">
-                        <label wx:if="{{item == ins_wall}}">
-                            <radio checked="true" value="{{item}}"/>{{item}}
-                        </label>
-                        <label wx:else>
-                            <radio value="{{item}}" />{{item}}
-                        </label>
-                    </label>
-                </radio-group>
-            </view>
+          <view class="top_text">机构教室信息</view>
+          
+          <view class="li verificationLi">
+                <label class= "title">教室数量</label>
+                <picker class="Number" placeholder="请选择教室数量" bindchange="bindRoomChange" value="{{typeIndex8}}" name="room_id" range="{{ins_room}}">
+                    <view class="picker">{{ins_room[typeIndex8]}}</view>
+                </picker>
+              
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="item">
-                是否有50~100M网络
-                <radio-group name="ins_network" class="category">
-                    <label wx:for="{{network}}" wx:key="{{network}}">
-                        <label wx:if="{{item == ins_network}}">
-                            <radio checked="true" value="{{item}}"/>{{item}}
-                        </label>
-                        <label wx:else>
-                            <radio value="{{item}}" />{{item}}
-                        </label>
-                    </label>
-                </radio-group>
-            </view>
+          <view class="li verificationLi">
+                <label class= "title">所在楼层</label>
+                <input class= "Number" placeholder-class="phcolor" placeholder="请输入教室所在楼层" name= "code" />
+                <view class='top_person_2_flex1 '>
+                    层
+                  </view>
+           </view>
 
-            <view class="item">
-                是否有匹配教室
-                <radio-group name="ins_matching" class="category">
-                    <label wx:for="{{matching}}" wx:key="{{matching}}">
-                        <label wx:if="{{item == ins_matching}}">
-                            <radio checked="true" value="{{item}}"/>{{item}}
-                        </label>
-                        <label wx:else>
-                            <radio value="{{item}}" />{{item}}
-                        </label>
-                    </label>
-                </radio-group>
-            </view>
+           <view class="li verificationLi">
+                <label class= "title">教室长</label>
+                <input class= "Number" placeholder-class="phcolor" placeholder="请输入教室长度" name= "code" />
+                <view class='top_person_2_flex1 '>
+                    m
+                  </view>
+           </view>
 
-            <view class="item">
-                合作意愿
-                <radio-group name="ins_cooperation" class="category">
-                    <label wx:for="{{cooperation}}" wx:key="{{cooperation}}">
-                        <label wx:if="{{item == ins_cooperation}}">
-                            <radio checked="true" value="{{item}}"/>{{item}}
-                        </label>
-                        <label wx:else>
-                            <radio value="{{item}}" />{{item}}
-                        </label>
-                    </label>
-                </radio-group>
-            </view>
+           <view class="li verificationLi">
+                <label class= "title">教室宽</label>
+                <input class= "Number" placeholder-class="phcolor" placeholder="请输入教室宽度" name= "code" />
+                <view class='top_person_2_flex1 '>
+                    m
+                  </view>
+           </view>
 
-            <view class="item">
-                负责人所有资源
-                <textarea class="js" name="head_resources" value="{{head_resources}}" placeholder-style='color:#C4C4C4' />
-            </view>
 
-            <view class="item">
-                周边情况汇总（周边商场、幼儿园、社区数量）
-                <textarea class="js" name="summary" value="{{summary}}" placeholder-style='color:#C4C4C4' />
-            </view>
+            <view class="li verificationLi">
+                <label class= "title">承重墙</label>
 
-            <view class="item">
-                合作建议
-                <textarea class="js" name="advice" value="{{advice}}" placeholder-style='color:#C4C4C4' />
-            </view>
+                  <picker class="Number" placeholder="请选择承重墙类型" bindchange="bindWallChange" value="{{typeIndex9}}" name="wall_id" range="{{ins_wall}}">
+                    <view class="picker">{{ins_wall[typeIndex9]}}</view>
+                </picker>
 
-            <view class="addImg_wrap">
-                <view class="image_wrap">
-                    <image clas="addImg_item" src="{{insDoorVal}}" wx:if="{{insDoorVal}}">
-                        <icon type="clear" size="20" color="gray" bindtap='delDoorImg' />
-                    </image>
-                    <image bindtap='addDoorImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
-              </view>
-              机构门头照片（一张）
-            </view>
+                <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择承重墙类型" name= "code" /> -->
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="addImg_wrap">
-                <view class="image_wrap">
-                    <image clas="addImg_item" src="{{insSurroundingVal}}" wx:if="{{insSurroundingVal}}">
-                        <icon type="clear" size="20" color="gray" bindtap='delSurroundingImg' />
-                    </image>
-                    <image bindtap='addSurroundingImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
-              </view>
-              周边环境照片（一张）
-            </view>
+           <view class="li verificationLi">
+                <label class= "title">网络</label>
 
-            <view class="addImg_wrap">
-                <view class="image_wrap">
-                    <image clas="addImg_item" src="{{insReceptionVal}}" wx:if="{{insReceptionVal}}">
-                        <icon type="clear" size="20" color="gray" bindtap='delReceptionImg' />
-                    </image>
-                    <image bindtap='addReceptionImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
-              </view>
-              机构前台照片（一张）
-            </view>
+                <picker class="Number" placeholder="请选择网络类型" bindchange="bindNetChange" value="{{typeIndex10}}" name="net_id" range="{{ins_net}}">
+                    <view class="picker">{{ins_net[typeIndex10]}}</view>
+                </picker>
+                <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择网络类型" name= "code" /> -->
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="addImg_wrap">
-                <view class="image_wrap">
-                    <image clas="addImg_item" src="{{insClassroomVal}}" wx:if="{{insClassroomVal}}">
-                        <icon type="clear" size="20" color="gray" bindtap='delClassroomImg' />
-                    </image>
-                    <image bindtap='addClassroomImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
-              </view>
-              匹配教室照片（一张）
-            </view>
+          <view class="li verificationLi">
+                <label class= "title">带宽</label>
+                
+                <input class= "Number" placeholder-class="phcolor" placeholder="请输入网络带宽" name= "code" />
+                <view class='top_person_2_flex1 '>
+                    M
+                  </view>
+           </view>
+            
+             <view class="li verificationLi">
+                <label class= "title">闲置时间</label>
+                <picker class="Number" placeholder="请选择教室闲置时间段" bindchange="bindBwChange" value="{{typeIndex11}}" name="bw_id" range="{{ins_bw}}">
+                    <view class="picker">{{ins_bw[typeIndex11]}}</view>
+                </picker>
+                <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择教室闲置时间段" name= "code" /> -->
+                <view class='top_person_2_flex1'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+          </view>
 
-            <view class="addImg_wrap">
-                <view class="image_wrap">
-                    <image clas="addImg_item" src="{{insGroupphotoVal}}" wx:if="{{insGroupphotoVal}}">
-                        <icon type="clear" size="20" color="gray" bindtap='delGroupphotoImg' />
-                    </image>
-                    <image bindtap='addGroupphotoImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
-              </view>
-              与负责人合影照片（一张）
-            </view>
-        </view>
-        <button form-type='submit'>提交</button>
+
+
+        <view class='bottom'></view>
+
+        <button class='.button' form-type='submit'>保存</button>
     </form>
 </view>

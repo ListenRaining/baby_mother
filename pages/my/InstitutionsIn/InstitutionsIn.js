@@ -60,6 +60,12 @@ Page({
     })
   },
 
+  //审核未通过
+  toAudit: function () {
+    wx.navigateTo({
+      url: '/pages/my/InstitutionsIn/Audit_failure'
+    })
+  },
 
  
 

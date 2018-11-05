@@ -1,0 +1,61 @@
+<view wx:if="{{queryBean == 1}}">
+<view class="image" >
+    <image wx:if="{{status!=3}}" src="../../../images/icon-play/success.jpg"></image>
+    <image wx:else src="../../../images/icon-play/blank.png"></image>
+</view>
+
+<view wx:if="{{status==1}}" class="title">提交成功！</view>
+<view wx:if="{{status==1}}" class="content">请等待审核，审核结果会通过微信发送服务通知。</view>
+<view wx:if="{{status==1}}" class="content2">审核通过后，您还需要提交以下资料的扫描件或照片发送至jggl@fableedu.com邮箱（邮件中备注机构名称）：</view>
+<view wx:if="{{status==1}}" class="remark">1、经营资质：营业执照/民办学校许可证/民办非企业单位登记证书；</view>
+<view wx:if="{{status==1}}" class="remark">2、场地合法使用证明；</view>
+<view wx:if="{{status==1}}" class="remark">3、银行开户许可证；</view>
+<view wx:if="{{status==1}}" class="remark">4、负责人及实际经营者身份证（正反面）；</view>
+<view wx:if="{{status==1}}" class="remark">5、机构外观、前台、走廊、教室全景；</view>
+<view wx:if="{{status==1}}" class="remark">6、设备安装墙的长、高、面积；</view>
+
+<view wx:if="{{status==2}}" class="title">审核通过！</view>
+<view wx:if="{{status==2}}" class="content2">您还需要提交以下资料的扫描件或照片发送至jggl@fableedu.com邮箱（邮件中备注机构名称）：</view>
+<view wx:if="{{status==2}}" class="remark">1、经营资质：营业执照/民办学校许可证/民办非企业单位登记证书；</view>
+<view wx:if="{{status==2}}" class="remark">2、场地合法使用证明；</view>
+<view wx:if="{{status==2}}" class="remark">3、银行开户许可证；</view>
+<view wx:if="{{status==2}}" class="remark">4、负责人及实际经营者身份证（正反面）；</view>
+<view wx:if="{{status==2}}" class="remark">5、机构外观、前台、走廊、教室全景；</view>
+<view wx:if="{{status==2}}" class="remark">6、设备安装墙的长、高、面积；</view>
+
+<view wx:if="{{status==3}}" class="title">审核不通过！</view>
+<view wx:if="{{status==3}}" class="content3">原因：{{comment}}</view>
+<view wx:if="{{status==3}}" class="edit">
+    <button class='submit_next' bindtap='toedit'>编辑申请</button>
+</view>
+</view>
+
+
+
+<!-- 不通过。。。。。。。。。。。。。 -->
+
+<view class="content_wrap" wx:if="{{queryBean == 0}}">
+    <form bindsubmit='formSubmit'>
+     
+          <view class="Au_li-one ">
+          <view class='Au_top_person_2_flex1'>
+                    <image src="../../../images/icon-play/Audit_failure.png"></image>
+                  </view>
+            <label class= "Au_title">审核不通过</label>
+           
+          </view>
+          
+           <view class="Au_li-two ">
+                <label class= "Au_title-2">原因：</label>
+                <input class= "Au_Number-2" placeholder="由于XX原因，审核未通过"  />
+                <view class='Au_top_person_2_flex1'>
+                    <!-- <image src="../../../images/icon-play/arrow.png"></image> -->
+                  </view>
+          </view>
+        <button class='Au_button' form-type='submit'>重新编辑</button>
+    </form>
+</view>
+
+
+
+

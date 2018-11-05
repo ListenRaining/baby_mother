@@ -1,0 +1,21 @@
+<view class="content_wrap">
+    <form bindsubmit='formSubmit'>
+     
+          <view class="Au_li-one ">
+          <view class='Au_top_person_2_flex1'>
+                    <image src="../../../images/icon-play/Audit_failure.png"></image>
+                  </view>
+            <label class= "Au_title">审核不通过</label>
+           
+          </view>
+          
+           <view class="Au_li-two ">
+                <label class= "Au_title-2">原因：</label>
+                <input class= "Au_Number-2" placeholder="由于XX原因，审核未通过"  />
+                <view class='Au_top_person_2_flex1'>
+                    <!-- <image src="../../../images/icon-play/arrow.png"></image> -->
+                  </view>
+          </view>
+        <button class='Au_button' form-type='submit'>重新编辑</button>
+    </form>
+</view>
