@@ -1,0 +1,13 @@
+<view class="content_wrap">
+    <label class="role_title">菲蓓尔小程序乐币提现说明</label>
+    <view class="role_content">
+        <view class="item">
+            <label class="title">1、请先关注公众号"菲蓓尔(公众号ID:fableedu)"。</label>
+            <label class="title">2、单笔单日限额2W。</label>
+            <label class="title">3、每次提现需扣除20%的个人所得税。</label>
+            <label class="title">4、每月25日零点之前提交的提现申请在25日后的5-10个工作日内完成审核与付款。</label>
+            <label class="title">5、25日0:00之后提交的提现申请则在下一个提现申请审核周期内完成审核与付款。</label>
+            <label class="title">6、对应提现金额将转账至您的微信钱包账户中。</label>
+        </view>
+    </view>
+</view>

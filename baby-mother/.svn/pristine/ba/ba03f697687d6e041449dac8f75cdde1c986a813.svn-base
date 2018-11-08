@@ -1,0 +1,52 @@
+<view class='box'>
+    <view class='section section1'>
+        <view class='section1_view section1_border'>
+            <view class='t_money'>{{allfreezeMoney}}</view>
+            <view>冻结乐币</view>
+        </view>
+
+        <view class='section1_view' bindtap='toWithdrawal'>
+            <view class='k_money'>{{withdrawalMoney}}</view>
+            <view>可提现乐币</view>
+        </view>
+    </view>
+
+    <view class='section section2'>
+        <view class='title'>
+            <picker mode="date" value="{{date}}" fields='month' start="2018-01" end="{{date}}" bindchange="bindDateChange">
+                <view class="picker">{{date}}</view>
+            </picker>
+        </view>
+
+        <view class='section1_view section1_border'>
+            <view class='font_x'>一级收益</view>
+            <view class='h_money'>{{oneLevelIncome}}</view>
+        </view>
+
+        <view class='section1_view'>
+            <view class='font_x'>二级收益</view>
+            <view class='h_money'>{{twoLevelIncome}}</view>
+        </view>
+
+        <view wx:if="{{list.length > 0}}">
+            <view class='item' wx:for="{{list}}" wx:for-item="item" wx:key="list">
+                <view class='item_view'>
+                    <view class='item_title'>{{item.title}}</view>
+                    <view class='item_money'>实付：{{item.price}}元</view>
+                    <view class='item_time'>{{item.ctime}}</view>
+                </view>
+
+                <view class='item_view right'>
+                    <view class='item_earming'>+{{item.money}}</view>
+                    <view class='item_bi'>乐币</view>
+                    <view class='item_type'>{{item.level}}</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="item_nosch" wx:else>
+            <image src="../../../../image/schedule.png" style="width:142rpx; height:149rpx;"></image>
+            <view>暂无收益记录！</view>
+        </view>
+    </view>
+</view>

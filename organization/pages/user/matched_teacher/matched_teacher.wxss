@@ -1,0 +1,88 @@
+/* pages/user/matched_teacher/matched_teacher.wxss */
+
+page {
+  background-color: #f2f2f2;
+}
+
+.content_pane {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  line-height: 18rpx;
+  font-size: 25rpx;
+  border-top: solid 1rpx #f2f2f2;
+  background-color: white;
+}
+
+.lists_panel {
+  width: 670rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 30rpx;
+  padding-bottom: 15rpx;
+  min-height: 140rpx;
+}
+
+.lists_panel image {
+  width: 125rpx;
+  height: 125rpx;
+  border-radius: 50%;
+}
+
+.left_info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 18rpx;
+}
+
+.right_info {
+  min-width: 158rpx;
+  display: flex;
+  flex-direction: column;
+  padding-top: 18rpx;
+}
+
+.contact {
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+  background-color: rgb(95, 177, 87);
+  width: 150rpx;
+  height: 45rpx;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lists_panel text {
+  padding-bottom: 25rpx;
+}
+
+.name {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-bottom: 25rpx;
+}
+
+.name image {
+  width: 18rpx;
+  height: 18rpx;
+}
+.star_panel {
+  margin-left: 15rpx;
+}
+
+.item_nosch {
+  height: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #a4a7aa;
+  padding-top: 200rpx;
+}
+
+.item_nosch image {
+  margin-bottom: 40rpx;
+}

@@ -1,0 +1,20 @@
+<view>
+    <form bindsubmit="formSubmit">
+        <view class='title'>
+            <label>机构名称：{{info.ins_name}}</label>
+        </view>
+        <view class='title'>
+            <label>上课时间：{{info.date}} {{info.timesimp}}</label>
+        </view>
+        <view class='title'>
+            <label>请假课时：{{info.number}}</label>
+        </view>
+        <view class="sum">
+            <textarea name="introduce" placeholder='请填写请假理由' placeholder-style='color:#a6a4a4;font-size:27rpx;' value="{{lessonStudent.parent_leave_comment}}" />
+        </view>
+        <view>
+            <button class="btn" form-type='submit' wx:if="{{is_allow==1}}" disabled="true">提交</button>
+            <button class="btn" form-type='submit' wx:else>提交</button>
+        </view>
+    </form>
+</view>

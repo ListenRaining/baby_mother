@@ -1,0 +1,29 @@
+/* pages/product/ca.wxss */
+page{
+  background-color: #fff;
+}
+
+.title{
+  text-align: center;
+  font-size: 34rpx;
+  margin: 20rpx 50rpx;
+  font-weight: bold;
+}
+
+.text {
+  margin: 0 10rpx;
+}
+
+.tcon {
+  padding-bottom: 50rpx;
+}
+
+.content {
+  margin: 20rpx;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.date {
+  margin-top: 70rpx;
+}

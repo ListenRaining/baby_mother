@@ -1,0 +1,26 @@
+<view class="image">
+    <image class='title' src="{{rootRelativePath+ 'image/success.jpg'}}"></image>
+</view>
+
+<view wx:if="{{is_activity == 1}}">
+    <view class="text">拼团成功</view>
+    <view class='t1'>您的专属成长顾问将与您电话联系</view>
+    <view class='t1'>请注意接听电话</view>
+    <view class='t1 bold'>成长专线：010-86385353</view>
+    <button class='backindex' type='primary' bindtap='toIndex'>返回首页</button>
+</view>
+
+<view wx:else>
+    <view class="text" wx:if="{{is_gift != 1}}">购买成功</view>
+    <view class='text bold' wx:if="{{(pid == 6 || pid==1) && is_gift == 1}}">领取成功</view>
+
+    <view wx:if="{{pid==6}}">
+        <view class='t1'>您的专属成长顾问将与您电话联系</view>
+        <view class='t1'>请注意接听电话</view>
+        <view class='t1 bold'>成长专线：010-86385353</view>
+        <button class='backindex' type='primary' bindtap='toIndex'>返回首页</button>
+    </view>
+
+    <button wx:if="{{pid==1 || pid==3}}" class='submit_form' bindtap='chooseClass' type='primary'>马上选班级</button>
+    <button wx:if="{{pid==4}}" class='submit_form' bindtap='chooseClass' type='primary'>查看订单</button>
+</view>

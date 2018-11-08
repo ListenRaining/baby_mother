@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/login/authorize",
+    "pages/money/draw/draw",
+    "pages/user/time_manager/time_manager",
+    "pages/class/schedule/schedule",
+    "pages/user/user_center/user_center",
+    "pages/money/detail/detail",
+    "pages/user/member_center/member_center",
+    "pages/user/matched_teacher/matched_teacher",
+    "pages/user/worker_manager/worker_manager",
+    "pages/user/show_code/show_code",
+    "pages/teamwork/agreement",
+    "pages/teamwork/teamwork",
+    "pages/teamwork/success",
+    "pages/activity/activity_apply/activity_apply",
+    "pages/activity/activity_manager/activity_manager",
+    "pages/activity/show_code/show_code",
+    "pages/activity/activity_detail/activity_detail",
+    "pages/class/class_message/class_message",
+    "pages/line/line"
+  ],
+  "tabBar": {
+    "color": "#7e8387",
+    "selectedColor": "#40af36",
+    "borderStyle": "#bfbfc3",
+    "list": [
+      {
+        "selectedIconPath": "/images/1_1.png",
+        "iconPath": "/images/1_2.png",
+        "pagePath": "pages/class/schedule/schedule",
+        "text": "日程"
+      },
+      {
+        "selectedIconPath": "/images/2_1.png",
+        "iconPath": "/images/2_2.png",
+        "pagePath": "pages/activity/activity_manager/activity_manager",
+        "text": "活动"
+      },
+      {
+        "selectedIconPath": "/images/3_1.png",
+        "iconPath": "/images/3_2.png",
+        "pagePath": "pages/user/user_center/user_center",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

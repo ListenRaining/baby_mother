@@ -1,0 +1,74 @@
+/* pages/class/class_message/class_message.wxss */
+
+.class_info {
+  padding-top: 30rpx;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #ebebf1;
+}
+
+.class_info_row {
+  height: 71rpx;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 30rpx;
+}
+
+.class_info_row_content {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  margin-left: 44rpx;
+  margin-right: 44rpx;
+}
+
+.students_info_panel {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.student_info {
+  height: 70rpx;
+  display: flex;
+  font-size: 24rpx;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.student_info text{
+  padding-left: 50rpx; 
+}
+
+.impression {
+  background-color: rgb(56, 181, 73);
+  border-radius: 10rpx;
+  width: 140rpx;
+  height: 30rpx;
+  color: white;
+  font-size: 18rpx;
+  text-align: center;
+  line-height: 30rpx;
+}
+
+.detail {
+  margin-top: 88rpx;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.detail_btn {
+  border-radius: 10rpx;
+  background-color: rgb(56, 181, 73);
+  width: 662rpx;
+  height: 45rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 45rpx;
+  color: white;
+}

@@ -1,0 +1,74 @@
+page{
+  background-color:#ffffff;
+}
+.content{
+  box-sizing:border-box;
+  width: 100%;
+  padding: 0 33rpx;
+}
+
+.li{
+  box-sizing:border-box;
+  padding: 20rpx 0;
+  overflow: hidden;
+  border-bottom: solid 1rpx #d5d5d5;
+  margin-top:60rpx;
+}
+
+.title{
+  display:block;
+  float:left;
+  font-size:40rpx;
+  padding-left: 20rpx;
+}
+
+.coupons{
+  width: auto;
+  display: block;
+  margin-left: 150rpx;
+  font-size: 40rpx;
+  color: #88878f;
+}
+
+.button{
+  height:90rpx;
+  background:#27a938;
+  color:#fff;
+  text-align:center;
+  line-height:90rpx;
+  margin:18rpx 0 0 0
+}
+
+.succ{
+  padding: 6rpx 0;
+  text-align: center;
+  margin-top:90rpx;
+  font-size: 70rpx;
+  color:#f79393;
+}
+
+.fail{
+  padding: 6rpx 0;
+  text-align: center;
+  margin-top:90rpx;
+  font-size: 70rpx;
+  color:#88878f;
+}
+
+.username{
+  padding: 6rpx 0;
+  margin-top:70rpx;
+  font-size: 36rpx;
+  border-bottom: solid 1rpx #d5d5d5;
+}
+
+.list{
+  padding: 6rpx 0;
+  overflow: hidden;
+  border-bottom: solid 1rpx #d5d5d5;
+  font-size: 36rpx;
+}
+
+.info{
+  color: #88878f;
+}

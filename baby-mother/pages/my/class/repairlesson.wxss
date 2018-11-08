@@ -1,0 +1,22 @@
+page {
+  background-color: white;
+}
+
+.title {
+  padding-top: 24rpx;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+}
+
+.btn {
+  margin:20rpx;
+  height: 80rpx;
+  line-height:80rpx;
+  background-color: #5fb157;
+  color: white;
+  font-size: 30rpx;
+}
+
+.status{
+  color:#ff0000;
+}

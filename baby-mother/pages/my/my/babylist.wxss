@@ -1,0 +1,77 @@
+page {
+  background-color: white;
+}
+
+.list{
+  display: flex;
+  width: 100%;
+  justify-content:center;
+  flex-direction: column;
+}
+
+.list-item{
+  display: flex;
+  height: 100rpx;
+  width: 91%;
+  border-bottom: 1px solid #dededc;
+  justify-content:flex-start;
+  line-height: 100rpx;
+  margin-left: 33rpx;
+}
+
+text{
+  font-size: 32rpx;
+  color: #7e7e87;
+  line-height: 32rpx;
+}
+
+label{
+  font-size: 28rpx;
+  line-height: 32rpx;
+}
+
+.name{
+  width: 330rpx;
+}
+.gender{
+  width: 90rpx;
+}
+.date{
+  width: 280rpx;
+}
+
+.navigator-arrow {
+  padding-right: 26rpx;
+  position: relative;
+}
+.navigator-arrow:after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #888888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  top: 50%;
+  margin-top: -8rpx;
+  right: 28rpx;
+}
+
+.add_info{
+  display: flex;
+  margin-top: 34rpx;
+  margin-right: 33rpx;
+  margin-bottom: 33rpx;
+  flex-direction:row-reverse;
+}
+
+.add_info image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 13rpx;
+}
+
+.add_btn {
+  margin-bottom: 10rpx;
+}

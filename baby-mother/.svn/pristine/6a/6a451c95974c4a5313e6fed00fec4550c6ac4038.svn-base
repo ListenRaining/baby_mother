@@ -1,0 +1,119 @@
+<view class="content_wrap" wx:if="{{is_login == 1}}">
+    <view class="NewcontentImage">
+        <image class="back" mode="widthFix" src="{{rootRelativePath+ 'image/my_img.jpg'}}"></image>
+        <view class="head">
+            <image class="headIcon" wx:if="{{info.avatar}}" src="{{info.avatar}}"></image>
+            <image class="headIcon" wx:else src="{{rootRelativePath+'image/peo_img.png'}}"></image>
+            <view>{{info.name}}</view>
+            <view class="mobile_box">{{info.mobile}}</view>
+        </view>
+    </view>
+
+    <view class="list">
+        <view class="item" bindtap="toBaby">
+            <view class='img_fa'><image class="icon" style='width:28rpx;height:34rpx;' mode="widthFix" src="../../../image/icon/baby.png"></image></view>
+            <label class="title">我的宝宝</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="toUserinfo">
+            <view class='img_fa'><image class="icon" style='width:30rpx;height:30rpx;' mode="widthFix" src="../../../image/icon/info.png"></image></view>
+            <label class="title">基本信息</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="toBindmobile">
+            <view class='img_fa'><image class="icon" style='width:23rpx;height:32rpx;padding-left:7rpx;' mode="widthFix" src="../../../image/icon/phone.png"></image></view>
+            <label class="title">绑定手机号</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+      
+      <!-- wx:if="{{is_outbound==1}}" -->
+        <view class="item" bindtap="toOutboundRecords" >
+            <image class="icon" mode= "widthFix" src="../../../image/icon/class.png"></image>
+            <label class="title">外访机构</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+
+        <view class="item" bindtap="toOrder">
+            <view class='img_fa'><image class="icon" mode="widthFix" src="../../../image/icon/activity.png" style='width:36rpx;height:34rpx;'></image></view>
+            <label class="title">订单</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="toWallet" wx:if="{{info.level > 0}}">
+            <view class='img_fa'><image class="icon" style='width:40rpx;height:33rpx;' mode="widthFix" src="../../../image/icon/wallet.png"></image></view>
+            <label class="title">钱包</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="toManager" wx:if="{{info.level > 0}}">
+            <view class='img_fa'><image class="icon" style='width:40rpx;height:33rpx;' mode="widthFix" src="../../../image/icon/woshou.png"></image></view>
+            <label class="title">经营管理</label>
+            <label class="content" style='padding-right:10rpx;color:#fa2626;font-size:24rpx;font-weight:600'>乐币收益移到这里了哦！</label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view wx:if="{{info.level > 0 && info.sign_flag >= 1}}" class="item" bindtap="gotosign" data-id="{{info.sign_flag}}">
+            <view class='img_fa'><image class="icon" mode= "widthFix" src="../../../image/icon/contacts.png" style='width:44rpx;height:33rpx;'></image></view>
+            <label class="title">协议</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="toClass" data-cid="{{class_id}}" wx:if="{{info.dis_classModel==1}}">
+            <view class='img_fa'><image class="icon" mode= "widthFix" src="../../../image/icon/class.png" style='width:36rpx;height:28rpx;'></image></view>
+            <label class="title">班级</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="clickOutbound" wx:if="{{is_outbound==1}}">
+            <view class='img_fa'><image class="icon" mode= "widthFix" src="../../../image/icon/class.png" style='width:36rpx;height:28rpx;'></image></view>
+            <label class="title">外访机构</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="clickCoupons" wx:if="{{test_coupons==1}}">
+            <view class='img_fa'><image class="icon" mode= "widthFix" src="../../../image/icon/class.png" style='width:36rpx;height:28rpx;'></image></view>
+            <label class="title">活动验券</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class='container' wx:else>
+    <image src='{{baseurl}}public/small/login_bg.png' class='bg'></image>
+    <button open-type="getUserInfo" bindgetuserinfo="getuser" class="authorization"><image src='../../../image/weixin-icon.png'></image> 微信授权登录</button>
+</view>

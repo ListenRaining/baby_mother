@@ -1,0 +1,52 @@
+//个人信息
+var app = getApp();
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        rootRelativePath: '../../../../',
+        info:[]
+    },
+
+    formSubmit:function(e){
+
+        var that= this;
+
+        if (e.detail.value.coupons == ''){
+            wx.showModal({
+                title: '提示',
+                content:'请输入券号！',
+                showCancel: false,
+            })
+            return false;
+        }
+
+        var timestamp = app.createTimeStamp()
+        var str = "coupons=" + e.detail.value.coupons + '&timestamp=' + timestamp;
+        var signature = app.createSignatureStr(str);
+        wx.request({
+            url: app.globalData.baseUrl + 'little/operate/checkCoupons',
+            data:{
+                coupons:e.detail.value.coupons,
+                timestamp: timestamp,
+                signature: signature
+            },
+            success:function(result){
+                if(result.data.result == 'succ'){
+                    that.setData({
+                        info:result.data.info,
+                        reason:result.data.reason
+                    })
+                }else{
+                    that.setData({
+                        reason:result.data.reason,
+                        info:[]
+                    })
+                }
+            }
+        })
+    }
+})

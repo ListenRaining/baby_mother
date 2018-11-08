@@ -1,0 +1,28 @@
+<!--<view class="image">
+    <image wx:if="{{result=='succ'}}" src="{{rootRelativePath+ 'image/success.jpg'}}"></image>
+</view>
+
+<view class="text">{{text}}</view>-->
+
+<view class="item_nosch" wx:if="{{is_login == 0}}">
+    <image src="../../../image/schedule.png" style="width:142rpx; height:149rpx;"></image>
+    <view class='nologin'>登录获取课程信息！</view>
+    <button class='impower' open-type="getUserInfo" bindgetuserinfo="getuser">微信一键登录</button>
+</view>
+
+<view class="item_nosch" wx:elif="{{is_login == 1 && is_lesson == 0}}">
+    <image src="../../../image/schedule.png" style="width:142rpx; height:149rpx;" wx:if="{{is_lesson==0}}"></image>
+    <view class='nologin' wx:if="{{is_lesson==0}}">您今天没有体验课课程！</view>
+</view>
+
+<view class="item" wx:elif="{{is_login == 1 && is_lesson == 1}}">
+    <view class="item_txt">
+        <view class="item_time">机构名称：{{info.ins_name}}</view>
+        <view class="item_time">上课教师：{{info.teacher_name}}</view>
+        <view class="item_time">上课时间：{{info.class_time}}</view>
+        <view class="item_time" wx:if="{{info.status == 1}}">课程状态：待签到</view>
+        <view class="item_time" wx:elif="{{info.status == 2}}">课程状态：已上完</view>
+        <view class="item_time" wx:elif="{{info.status == 99}}">课程状态：已签到</view>
+        <view wx:if="{{is_button == 1}}"><button class='signin' bindtap="sign_in">签到</button></view>
+    </view>
+</view>

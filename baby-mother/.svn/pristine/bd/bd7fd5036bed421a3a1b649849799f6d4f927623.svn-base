@@ -1,0 +1,83 @@
+<view>
+    <view class='view_bg'></view>
+    <view class="info">
+        <view><image src="../../../image/comment_bg.png" class="info_bg"></image></view>
+        <view class="info_des">
+            <view>{{tname}}老师</view>
+            <view>{{ctime}}</view>
+            <view class='picker' wx:if="{{confirm != 1}}">
+                <picker class="content_picker" bindchange="changeLesson" mode='selector' name="ins_type" range="{{ltimes}}" value="{{lindex}}">
+                    <view class="select_icon"><label>{{ltimes[lindex]}}</label><image src="../../../image/select_icon.jpg"></image></view>
+                </picker>
+            </view>
+        </view>
+    </view>
+
+    <view wx:if="{{nocomment==0}}">
+        <view class="com">
+            <view class="com_list">律动表现
+                <label class="com_img">
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item<=lvdong}}" data-type='1' data-name="lvdong" data-key="{{item}}" src="../../../image/comment_icon.png" class="info_bg"></image>
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item>lvdong}}" data-type='2' data-name="lvdong" data-key="{{item}}" src="../../../image/comment_icon2.png" class="info_bg"></image>
+                </label>
+            </view>
+
+            <view class="com_list">节奏表现
+                <label class="com_img">
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item<=jiezou}}" data-type='1' data-name="jiezou"  data-key="{{item}}" src="../../../image/comment_icon.png" class="info_bg"></image>
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item>jiezou}}" data-type='2' data-name="jiezou" data-key="{{item}}" src="../../../image/comment_icon2.png" class="info_bg"></image>
+                 </label>
+            </view>
+
+            <view class="com_list">乐理掌握
+                <label class="com_img">
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item<=yueli}}" data-type='1' data-name="yueli" data-key="{{item}}" src="../../../image/comment_icon.png" class="info_bg"></image>
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item>yueli}}" data-type='2' data-name="yueli" data-key="{{item}}" src="../../../image/comment_icon2.png" class="info_bg"></image>
+                </label>
+            </view>
+
+            <view class="com_list">性格发育
+                <label class="com_img">
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item<=xingge}}" data-type='1' data-name="xingge" data-key="{{item}}" src="../../../image/comment_icon.png" class="info_bg"></image>
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item>xingge}}" data-type='2' data-name="xingge" data-key="{{item}}" src="../../../image/comment_icon2.png" class="info_bg"></image>
+                </label>
+            </view>
+
+            <view class="com_list">语言能力
+                <label class="com_img">
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item<=yuyan}}" data-type='1' data-name="yuyan" data-key="{{item}}" src="../../../image/comment_icon.png" class="info_bg"></image>
+                    <image wx:for="{{star}}" wx:key="star" wx:if="{{item>yuyan}}" data-type='2' data-name="yuyan" data-key="{{item}}" src="../../../image/comment_icon2.png" class="info_bg"></image>
+                </label>
+            </view>
+        </view>
+
+        <view class="sum" wx:if="{{teacher_comment}}">
+            <view>讲师评语</view>
+            <view class='com_py'>{{teacher_comment}}</view>
+        </view>
+
+        <view class="sum tyty" wx:if="{{baby_say}}">
+            <view>童言童语</view>
+            <view class='com_py'>{{baby_say}}</view>
+        </view>
+        <text wx:if="{{content_id>0}}" class='act' bindtap='showAct' data-cid="{{content_id}}">课堂表现>></text>
+        <form wx:if="{{confirm == 1}}" bindsubmit='comment' report-submit='true'>
+          <button class="confirm" form-type='submit'>确认</button>
+        </form>
+    </view>
+    <view  wx:if="{{nocomment>0}}" class="nocom">
+    <label wx:if="{{nocomment==1}}">本节课您请假了</label>
+    <label wx:if="{{nocomment==2}}">本节课还未点评</label>
+</view>
+
+    <input name="lsid" hidden='true' value='{{lsid}}'></input>
+
+    <view class='comment_bg' wx:if="{{nocomment==0}}">
+        <image class='comment_image' src="../../../image/comment_bg2.png" mode='widthFix'></image>
+    </view>
+
+    <view class='comment_bg2' wx:if="{{nocomment>0}}">
+        <image class='comment_image' src="../../../image/comment_bg2.png" mode='widthFix'></image>
+    </view>
+    
+</view>

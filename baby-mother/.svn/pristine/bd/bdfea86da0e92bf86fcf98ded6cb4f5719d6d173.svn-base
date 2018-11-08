@@ -1,0 +1,92 @@
+// myinfo2.js
+var app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    rootRelativePath: '../../../../',
+    info: [],
+    list:[
+        {
+            icon: "image/icon/info.png",
+            title: "基本信息",
+            link: "pages/my/myinfo/user/user"
+        },
+        {
+            icon: "image/icon/phone.png",
+            title: "绑定手机",
+            link: "pages/my/myinfo/mobile_change/mobile_change"
+        },
+        {
+            icon: "image/icon/baby.png",
+            title: "我的宝宝",
+            link: ["pages/my/myinfo/memberinfo/memberinfo", "pages/my/myinfo/memberlist/memberlist"]
+        },
+    ]
+  },
+
+
+  //个人信息
+  click: function (_e) {
+      var index = _e.currentTarget.dataset.index;
+      var link = this.data.list[index]["link"];
+      console.log("--------------link---------------", link);
+      if (link) {
+          var _url = link;
+          if (link instanceof Array)//宝宝信息界面
+          {
+              var _url = link[0];
+              if (this.data.info.count > 0) {
+                  _url = link[1];
+              }
+          }
+          wx.navigateTo({
+              url: this.data.rootRelativePath + _url,
+          })
+      }
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+      var that = this;
+      wx.getStorage({
+          key: 'userinfo',
+          success: function (info) {
+              if (info.data.uid) {
+                //拼装验证参数
+                var timestamp = app.createTimeStamp()
+                var str = "uid=" + info.data.uid + '&timestamp=' + timestamp;
+                var signature = app.createSignatureStr(str);
+                  wx.request({
+                      url: app.globalData.baseUrl + 'api/member/getuserinfo',
+                      data: {
+                          uid: info.data.uid,
+                          timestamp: timestamp,
+                          signature: signature,
+                      },
+                      header: {
+                          'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                      },
+                      success: function (res) {
+                        console.log(res);
+                          if (res.data.result == 'fail') {
+                              wx.showToast({
+                                  title: res.data.reason
+                              })
+                              return false;
+                          } else {
+                              that.setData({
+                                  info: res.data.info
+                              })
+                          }
+                      }
+                  })
+              }
+          },
+      })
+  }
+})

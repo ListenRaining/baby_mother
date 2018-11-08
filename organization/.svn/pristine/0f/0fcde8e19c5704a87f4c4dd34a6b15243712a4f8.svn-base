@@ -1,0 +1,85 @@
+page {
+  background-color: #ebebeb;
+}
+
+.banner_wrap {
+  position: relative;
+  width: 100%;
+}
+
+.banner_wrap .banner_img {
+  width: 100%;
+}
+
+.banner_wrap .msg_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  padding: 26rpx 0 55rpx 0;
+  color: #fff;
+}
+
+.banner_wrap .msg_wrap .head_icon {
+  width: 120rpx;
+  border: solid 2rpx #ad9d9b;
+  border-radius: 65rpx;
+}
+
+.banner_wrap .msg_wrap .earnings {
+  margin-top: 23rpx;
+  font-size: 25rpx;
+}
+
+.banner_wrap .msg_wrap .earnings_cnt {
+  margin-top: 15rpx;
+  font-size: 35rpx;
+}
+
+.banner_wrap .msg_wrap .operate {
+  display: flex;
+  justify-content: space-between;
+  width: 252rpx;
+  margin-top: 15rpx;
+  font-size: 28rpx;
+}
+
+.banner_wrap .msg_wrap .operate view {
+  /* width: 97rpx; */
+  padding: 10rpx;
+  height: 34rpx;
+  border: solid 1px #fff;
+  text-align: center;
+  line-height: 34rpx;
+  border-radius: 10rpx;
+  margin-left: 40rpx;
+}
+
+.ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.ul .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25rpx;
+  padding: 19rpx 30rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+
+.ul .item .arrow {
+  width: 20rpx;
+}
+
+.ul .item .circle {
+  display: block;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 10rpx;
+  background-color: red;
+}

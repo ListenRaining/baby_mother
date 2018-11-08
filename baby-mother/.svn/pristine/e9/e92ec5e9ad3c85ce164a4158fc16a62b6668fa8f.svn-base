@@ -1,0 +1,33 @@
+<view style='height:10rpx;border-bottom:solid 1rpx #ebebeb;'></view>
+<view class='title' wx:if="{{send==1}}">
+    <image class='icon' src='{{user.avatarUrl}}'></image>
+    <label class='name'>{{user.nickName}} </label> 赠送给您
+</view>
+
+<view class='vpic'>
+    <image class='pic' mode="widthFix" src='{{item_url}}{{info.pic}}'></image>
+</view>
+
+<view class='product'>
+    <view class='product_name'>{{info.name}}</view>
+    <view class='price'>￥{{info.price}}</view>
+</view>
+
+<view class='zy_info'>
+    <view class='zy_des'>
+        <view class='zy_left'></view>
+        <view class='zy_txt'>赠言</view>
+        <view class='zy_right'></view>
+    </view>
+    <view class='zy_con'>{{info.zengyan}}</view>
+</view>
+
+<button wx:if="{{info.dead == 1}}" class='sendnow' disabled='true'>已过期</button>
+<form bindsubmit='formsub' report-submit='true'>
+    <button wx:if="{{send == 0 && info.dead == 0}}" open-type='share' type='primary' form-type='submit' class='sendnow'>赠送好友</button>
+</form>
+
+<button wx:if="{{send == 1 && info.use == 1 && info.dead == 0 && is_login == 1}}" bindtap='recive' type='primary'
+class='sendnow'>领取礼物</button>
+<button wx:if="{{send == 1 && info.use == 1 && info.dead == 0 && is_login == 0}}" type='primary' class='sendnow' open-type="getUserInfo" bindgetuserinfo="getuser">领取礼物</button>
+<button wx:if="{{send == 1 && info.use == 0 && info.dead == 0}}" class='sendnow' disabled='true'>已领完</button>

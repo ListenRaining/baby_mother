@@ -1,0 +1,142 @@
+page {
+  background-color: #efeff4;
+}
+
+.info {
+  margin:30rpx 40rpx;
+  border-radius: 10rpx;
+  font-size: 23rpx;
+  background-color: white;
+  height: 100%;
+}
+
+.info image {
+  border-top-right-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+
+.info_des {
+  margin:30rpx 40rpx;
+}
+
+.info_name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.info_state {
+  color:#5fb157;
+  font-size: 26rpx;
+}
+
+.info_dt {
+  display: flex;
+  margin-top:15rpx;
+  font-size: 25rpx;
+}
+
+.info_dt button{
+  display: flex;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 25rpx;
+  margin-left: 20rpx;
+  padding: 0 20rpx;
+  /* background-color: #fff; */
+}
+
+.info_date{
+  font-size: 26rpx;
+}
+
+.activity_icon {
+  width: 23rpx;
+  height: 23rpx;
+  display: inline-block;
+}
+
+.info_time{
+  float: right;
+}
+
+.clist {
+  margin:30rpx 40rpx;
+  border-radius: 10rpx;
+  background-color: #efeff4;
+}
+
+.clist_des {
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  padding:20rpx 45rpx;
+  font-size: 28rpx;
+  background-color: white;
+  margin-bottom: 5rpx;
+}
+
+.clist_arrow {
+  float:right;
+}
+
+.clist_tnum {
+  float: right;
+}
+
+.clist_data{
+  padding:20rpx 20rpx;
+  font-size:23rpx;
+  background-color: white;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+
+.clist_class{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin-top:20rpx;
+  font-size: 25rpx;
+}
+
+.btn{
+  height: 35rpx;
+  width: 200rpx;
+  line-height: 35rpx;
+  font-size: 23rpx;
+  background-color: #5fb157;
+  color: white;
+}
+
+.picker {
+  display: flex;
+}
+
+.picker_label {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.picker_label button {
+  height:   rpx;
+  width: 150rpx;
+  line-height: 35rpx;
+  font-size: 23rpx;
+  background-color: #e3c048;
+  color: white;
+}
+
+.clist_cfirst {
+  margin-top:0;
+}
+
+.audit_btn {
+  margin:30rpx 45rpx;
+}
+
+.audit_btn button {
+  background-color: #5fb157;
+  height:80rpx;
+  color: white;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}

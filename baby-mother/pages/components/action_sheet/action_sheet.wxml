@@ -1,0 +1,9 @@
+<!--action_sheet.wxml-->
+
+<template name="action_sheet">
+  <view  bindtouchstart="clickCancel" class="commentDel" style="display:{{commentActionSheetFlag?'flex':'none'}}">
+        <view catchtouchstart="clickAct" data-index="{{index}}" class="item" wx:for="{{itemList}}" wx:key="content">
+            <label>{{item.msg}}</label>
+        </view>
+  </view>
+</template>

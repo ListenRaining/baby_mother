@@ -1,0 +1,22 @@
+<form bindsubmit='formSubmit'>
+    <view class='form'>
+        <view class='input_panel'>
+            <input name="name" type='text' placeholder='被授权工作人员姓名'></input>
+        </view>
+        <view class='input_panel'>
+            <input name="mobile" type='number' placeholder='填写被授权工作人员手机号'></input>
+        </view>
+        <button class='impower' form-type='submit'>确认授权</button>
+    </view>
+</form>
+
+<view class='worker_list' wx:if="{{list.length>0}}">
+    <view class='title'>已授权工作人员</view>
+    <view class='worker_info' wx:for="{{list}}" wx:key="manager">
+        <view class='content'>
+            <text>{{item.name}}</text>
+            <text>{{item.mobile}}</text>
+            <view class='impower_del' data-id='{{item.id}}' bindtap='cancelAuth'>取消授权</view>
+        </view>
+    </view>
+</view>

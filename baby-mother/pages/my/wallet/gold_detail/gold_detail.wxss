@@ -1,0 +1,40 @@
+page{
+  background-color: white;
+}
+
+.item{
+    box-sizing: border-box;
+    width: 750rpx;
+    padding: 28rpx 32rpx;
+    border-bottom:solid 1rpx #d7d7d7;
+}
+
+.content_1
+{
+    display: flex;
+    font-size: 30rpx;
+}
+
+.content_2
+{
+    font-size: 25rpx;
+    color: #7e7d85;
+    margin-top: 14rpx;
+    display: flex;
+}
+
+.goldDeal, .goldRemain{
+    margin-left: auto
+}
+
+.item_nosch {
+    height: 100%;
+    text-align: center;
+    font-size: 32rpx;
+    color: #a4a7aa;
+    padding-top: 280rpx;
+}
+
+.item_nosch image {
+    margin-bottom: 22rpx;
+}

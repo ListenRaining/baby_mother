@@ -1,0 +1,134 @@
+page{
+    background-color: #ffffff;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: solid 5rpx #f2f2f2;
+}
+
+.tab {
+    height: 80rpx;
+    width: 160rpx;
+    font-size: 30rpx;
+    color: rgb(139, 139, 139);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* XXX 两个像素的偏差，不然有视觉误差*/
+    margin-bottom: -3rpx;
+    justify-content: space-around;
+}
+
+.underline {
+    color: #5fb157;
+    border-bottom: solid 5rpx #5fb157;
+}
+
+.select_mf {
+    display: flex;
+    justify-content: center;
+    font-size: 30rpx;
+    margin-top: 460rpx;
+}
+
+.select_source {
+    display: flex;
+    justify-content: center;
+    font-size: 28rpx;
+    margin-top: 20rpx;
+}
+
+.select_txt {
+    margin: 10rpx 0 0 10rpx;
+}
+
+.item {
+    display: flex;
+    margin-top: 12rpx;
+    background-color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 1rpx;
+    border-bottom-color: #ebebeb;
+    padding:16rpx 0 16rpx 2rpx;
+}
+
+.item_txt {
+    margin-left:22rpx;
+    width: 96%;
+}
+
+.title {
+    font-size:32rpx;
+    margin-top:8rpx;
+}
+
+.del {
+    color:red;
+}
+
+.item_nosch {
+    height: 100%;
+    text-align: center;
+    color: #a4a7aa;
+    padding-top: 250rpx;
+}
+
+.item_nosch image {
+    margin-bottom: 16rpx;
+}
+
+.nolist{
+    font-size: 32rpx;
+    padding-top: 8rpx;
+}
+
+.rad{
+    margin-left: 8rpx;
+    margin-top: 16rpx;
+}
+
+.rax{
+    margin-top: 16rpx;
+}
+
+.gender{
+    margin-top:7rpx;
+}
+
+.quit{
+    width: 26%;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin-left:0;
+    margin-top:20rpx;
+    margin-right: auto;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #5fb157;
+}
+
+.feedback{
+    width: 92%;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 0;
+    margin-top: 20rpx;
+    margin-bottom: 4rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #5fb157;
+}
+
+.btn {
+    width: 96%;
+    line-height: 80rpx;
+    height: 80rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    font-size: 34rpx;
+    color: #fff;
+    background-color: #5fb157;
+}

@@ -1,0 +1,15 @@
+/* pages/user/show_code/show_code.wxss */
+page {
+  height: 100%;
+}
+.code {
+  
+  width: 20rem;
+  height:20rem;
+}
+
+.show {
+  height: 100%;
+  text-align: center;
+  margin-top:100rpx;
+}

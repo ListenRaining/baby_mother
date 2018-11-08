@@ -1,0 +1,22 @@
+<!--my_baby.wxml-->
+<view class="list">
+    <view wx:for="{{infos}}" class="list-item" wx:key="infos">
+        <view class="name" id="{{item.mid}}" bindtap='modify_event'>
+            <text>{{item.name}}</text><label wx:if="{{item.is_class == 1}}">(上课)</label>
+        </view>
+        <view class="gender" id="{{item.mid}}" bindtap='modify_event'>
+            <text>{{item.gender}}</text>
+        </view>
+        <view class="date" id="{{item.mid}}" bindtap='modify_event'>
+            <text>{{item.birthday}}</text>
+        </view>
+        <view class="button" id="{{item.mid}}" bindtap='modify_event'>
+            <view class="modify" class="navigator-arrow"></view>
+        </view>
+    </view>
+</view>
+
+<view hidden="{{canAdd ?  false:true}}" class="add_info">
+  <text bindtap="add_baby" class="add_btn">添加宝宝</text>
+  <image src="../../../../image/add.jpg"></image>
+</view>

@@ -1,0 +1,64 @@
+page{
+  background-color: #ffffff;
+}
+/* 机构信息 */
+.content_wrap {
+  font-family: "PingFangSC";
+  padding: 0 40rpx;
+}
+
+.top_text{
+  width: 100%;
+  height: 50rpx;
+  background-color: #dfe3ed;
+  padding-left: 35rpx;
+  line-height: 50rpx;
+  color: #A5A9AF;
+  font-size: 24rpx;
+ 
+}
+
+.li{
+  width: 680rpx;
+  height:90rpx; 
+  margin-left: 35rpx;
+  padding-left: 5rpx;
+  display: block;
+  align-items: center;
+  padding: 35rpx 33rpx;
+  border-bottom: solid 1rpx #d5d5d5;
+}
+
+.title{
+  width: 165rpx;
+  height:90rpx; 
+  line-height: 90rpx;
+  display: block;
+  font-size: 30rpx;
+  float: left
+}
+.Number{
+  width: 505rpx;
+  height:90rpx; 
+  line-height: 90rpx;
+  display: block;
+  font-size: 26rpx;
+  float: left
+}
+
+
+
+
+
+ .button{
+   position: absolute;
+   left: 0;
+   bottom: 0;
+  height:90rpx;
+  width: 100%;
+  background:#27a938;
+  color:#fff;
+  text-align:center;
+  line-height:90rpx;
+  margin:22px 0 0 0
+} 

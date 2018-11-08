@@ -1,0 +1,240 @@
+/* time_manager.wxss */
+
+page{
+    background-color: #fff;
+}
+
+.head_wrap{
+    background-color: #efeff4;
+    display: flex;
+    justify-content:space-around;
+    border-bottom: solid 1rpx #d1d1d1;
+}
+
+.head_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25rpx;
+    width: 150rpx;
+    height: 72rpx;
+}
+
+.icon{
+    margin-right: 12rpx;
+    width: 27rpx;
+    height: 27rpx;
+    border-radius: 24rpx;
+}
+
+.head_magic{
+    border-bottom: solid 6rpx #d93389;
+}
+.head_experience{
+    border-bottom: solid 6rpx #55b737;
+}
+.head_activity{
+    border-bottom: solid 6rpx #e48c6d;
+}
+
+.icon{
+    background-color: #d93389;
+}
+.tyb_icon{
+    background-color: #55b737;
+    margin-right: 12rpx;
+    width: 27rpx;
+    height: 27rpx;
+    border-radius: 24rpx;
+}
+.hdicon{
+    background-color: #e48c6d;
+    margin-right: 12rpx;
+    width: 27rpx;
+    height: 27rpx;
+    border-radius: 24rpx;
+}
+
+
+.time_wrap{
+    display: flex;
+    background-color: #efeff4;
+}
+
+.date_wrap{
+    display: flex;
+    box-sizing: border-box;
+    padding: 13rpx 7rpx 2rpx 12rpx;
+    flex-direction: column;
+    width: 190rpx;
+    height: 1000rpx;
+    /* background-color: #e48c6d; */
+}
+.date_wrap .head{
+    width: 162rpx;
+    height: 46rpx;
+    background-color: #ffffff;
+    font-size: 25rpx;
+    border-radius: 10rpx;
+    line-height: 46rpx;
+    text-align: center;
+}
+
+.date_wrap .time{
+    margin-top: 20rpx;
+    width: 162rpx;
+    height: 46rpx;
+    background-color: #ffffff;
+    border-radius: 10rpx;
+    font-size: 25rpx;
+    line-height: 46rpx;
+    text-align: center;
+}
+
+.day_wrap{
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    padding: 13rpx 0 2rpx 0;
+    width: 554rpx;
+    height: 1000rpx;
+    flex-direction: column;
+}
+
+.day_wrap .head{
+    display: flex;
+     /* margin-right: 10rpx;  */
+    /* padding-right: 16rpx; */
+    /* flex-shrink: 0; */
+    /* width: 554rpx; */
+}
+.day{
+    width: 70rpx;
+    height: 46rpx;
+    font-size: 25rpx;
+    background-color: #ffffff;
+    border-radius: 10rpx;
+    text-align: center;
+    line-height: 45rpx;
+    margin-right: 16rpx;
+    flex-shrink: 0;
+}
+
+.pos_item{
+    display: flex;
+}
+
+/*白色可选择单元格样式*/
+.pos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22rpx;
+    color: #fff;
+    width: 70rpx;
+    height: 46rpx;
+    margin-top: 20rpx;
+    margin-right: 16rpx;
+    border-radius: 10rpx;
+    flex-shrink: 0;
+}
+/*白色可选*/
+.bs{
+    background-color:#ffffff;
+}
+/*灰色不可选*/
+.gray{
+    background-color:#b7b7b7;
+}
+/*魔法乐理已选择单元格样式*/
+.mfyl{
+    background-color:#d93389;
+}
+/*体验课已选择单元格样式*/
+.tyk{
+    background-color:#b1e6a1;
+}
+/*活动已选择单元格样式*/
+.hd{
+    background-color:#e48c6d;
+}
+/*魔法乐理两个单元格连一起*/
+.mfyl .block{
+    display: flex;
+    width: 70rpx;
+    padding: 0 12rpx;
+    height: 105rpx;
+    border-radius: 10rpx;
+    /* margin-top: -46px; */
+    opacity: 0.99;
+    font-size: 23rpx;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    align-self: flex-start;
+    background-color: #d93389;
+}
+.appoint_wrap{
+    /* overflow-x: auto;
+    overflow-y: hidden; */
+    box-sizing: border-box;
+    display: flex;
+    /* padding: 0 20rpx;
+    margin-top: 33rpx;
+    margin-bottom: 33rpx; */
+    margin: 20rpx 20rpx;
+    align-items: center;
+}
+.appoint{
+    display: flex;
+    width: 160rpx;
+    height: 45rpx;
+    margin-right: 20rpx;
+    justify-content: center;
+    align-items: center;
+    font-size: 22rpx;
+    border: solid 1rpx #a1a1a1;
+    flex-shrink: 0;
+    border-radius: 10rpx;
+}
+.appoint .close{
+    margin-left: 15rpx;
+    width: 13rpx;
+    height: 13rpx;
+    flex-shrink: 0;
+}
+
+.appoint_wrap .hint{
+    display: flex;
+    flex-direction:row;
+    font-size: 22rpx;
+    color: red;
+    font-weight:bold;
+    /* flex-shrink: 0; */
+}
+
+.submit{
+    padding: 0 20rpx 0 20rpx;
+    margin-bottom: 10rpx;
+}
+
+.submit button{
+    display: flex;
+    background-color: #5fb157;
+    font-size: 28rpx;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.submit button2{
+    display: flex;
+    background-color: #5fb157;
+    font-size: 30rpx;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight:bold;
+}

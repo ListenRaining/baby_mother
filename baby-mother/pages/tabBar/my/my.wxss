@@ -1,0 +1,294 @@
+page {
+  background-color: #f0eff4;
+}
+
+/*icon*/
+.mobile {
+  width: 35rpx;
+  height: 30rpx;
+  display: inline-block;
+}
+
+.mobile_box {
+  padding-top: 10rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+}
+
+.NewcontentImage .back {
+  width: 100%;
+  height: 287rpx;
+}
+
+.my_bg {
+  width: 750rpx;
+}
+
+.head_icon {
+  width: 113rpx;
+  height: 113rpx;
+  border: solid 2px #9c9895;
+  border-radius: 50%;
+  background-color: #9c9895;
+}
+
+.phone_num {
+  margin-top: 8rpx;
+}
+
+.my_info {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 42rpx;
+  padding-right: 42rpx;
+  position: absolute;
+  top: 105rpx;
+  display: flex;
+  align-items: center;
+}
+
+.my_info .arrow {
+  margin-left: auto;
+  width: 24rpx;
+  height: 40rpx;
+  filter: Invert();
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 60rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.item {
+  height: 55rpx;
+  margin-top: 25rpx;
+  padding: 10rpx 42rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+
+.item .title {
+  margin-left: 22rpx;
+}
+
+.item .icon {
+  width: 30rpx;
+}
+
+.item .content {
+  margin-left: auto;
+  color: #9b9b9b;
+}
+
+.item .content_right {
+  margin-left: auto;
+  margin-right: 30rpx;
+  color: #9b9b9b;
+}
+
+.item .arrow {
+  width: 13rpx;
+  height: 24rpx;
+}
+
+.item .point_icon{
+    background: red;
+    width: 18rpx;
+    height: 18rpx;
+    border-radius: 18rpx;
+}
+.item .point_icon_rigth{
+    margin-left: auto;
+    background: red;
+    width: 18rpx;
+    height: 18rpx;
+    border-radius: 18rpx;
+}
+
+.item .arrow_right {
+  margin-left: auto;
+  width: 13rpx;
+  height: 24rpx;
+}
+
+/*铃铛的样式*/
+.NewcontentImage .message {
+  position: relative; 
+  top: -220rpx;
+  left: 640rpx;
+  width: 55rpx;
+  height: 63rpx;
+}
+
+/*下面是非交费会员的页面样式*/
+
+/*铃铛的样式*/
+.contentImage .message {
+  position: relative; 
+  top: -220rpx;
+  left: 640rpx;
+  width: 55rpx;
+  height: 63rpx;
+}
+
+.contentImage image {
+  width: 100%;
+  height: 287rpx;
+}
+
+.contents {
+  margin-top: 30rpx;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 46rpx 34rpx;
+  background-color: #fff;
+  padding-bottom: 88rpx;
+  font-size: 30rpx;
+}
+
+.head {
+  width: 100%;
+  position: absolute;
+  top: 95rpx;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+}
+
+.head .name {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.head .headIcon {
+  display: block;
+  width: 122rpx;
+  height: 120rpx;
+  margin-bottom: 23rpx;
+  border: solid 2px #9c9895;
+  border-radius: 65rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.li {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px #d5d5d5;
+  font-size: 30rpx;
+  padding: 30rpx 0;
+}
+
+.li .btn {
+  width: 18rpx;
+  height: 30rpx;
+  float: right;
+  padding-left: 20rpx;
+}
+
+.li label {
+  margin-left: auto;
+  color: #cdcdcd;
+}
+
+.myInfoBtn, .acitvity {
+  margin-left: auto;
+}
+
+.li .icon {
+  width: 36rpx;
+  margin-right: 22rpx;
+}
+
+.zhezhao {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.7;
+  opacity: 0.70;
+  filter: alpha(opacity=70);
+}
+
+.show {
+  display: none;
+  text-align: center;
+  position: fixed;
+  top: 45%;
+  left: 20%;
+  width: 60%;
+  height: 19%;
+  padding: 8px;
+  border: 1px solid #e8e9f7;
+  background-color: white;
+  z-index: 1002;
+  overflow: auto;
+}
+.txt{
+  margin-top: 26rpx;
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.authorization{
+  border-top: 1rpx solid #e1e1e1;
+  margin-top:52rpx;
+  font-size: 34rpx;
+  color: royalblue;
+  background: none !important;
+}
+
+.authorization::after{
+  border: none;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.container .bg{
+  height:100vh;
+  width:100%;
+}
+
+.container button{
+  position: absolute;
+  bottom: 160rpx;
+  left: 50%;
+  width: 584rpx;
+  height: 80rpx;
+  background: #00c66b !important;
+  border-radius: 26rpx;
+  margin-left:-292rpx;
+  color:#ffffff;
+  line-height: 80rpx;
+  font-size: 30rpx;
+}
+
+.container button image{
+  width: 57rpx;
+  height: 46rpx;
+  vertical-align: middle;
+}
+.img_fa{
+  width: 36rxp;
+}

@@ -1,0 +1,38 @@
+<view class='tab'>
+    <view class="{{tabNum==1?'active':''}}" bindtap='tabCheck' id='1'>新用户({{newCount}})</view>
+    <view class="{{tabNum==2?'active':''}}" bindtap='tabCheck' id='2'>意向用户({{intentionCount}})</view>
+</view>
+
+<!-- 新用户 -->
+<view class="{{tabNum==1?'newUser':'none'}}">
+    <view class='item' wx:for="{{userlist}}" wx:for-item="item" wx:key="userlist">
+        <view class='img_box'>
+            <image wx:if="{{item.avatar}}" src='{{item.avatar}}'></image>
+            <image wx:else src="{{rootRelativePath+'image/peo_img.png'}}"></image>
+        </view>
+        <view class='text_box'>
+            <view class='title'>{{item.nickname}}</view>
+            <view class='time' wx:if="{{item.ctime}}">产生时间：{{item.ctime}}</view>
+        </view>
+        <view class="{{share_id ? 'check_box' : 'none'}}">
+            <checkbox/>
+        </view>
+    </view>
+</view>
+
+<!-- 意向用户 -->
+<view class="{{tabNum=='2'?'intenUser':'none'}}">
+    <view class='item' wx:for="{{userlist}}" wx:for-item="item" wx:key="userlist">
+        <view class='img_box'>
+            <image wx:if="{{item.avatar}}" src='{{item.avatar}}'></image>
+            <image wx:else src="{{rootRelativePath+'image/peo_img.png'}}"></image>
+        </view>
+        <view class='text_box'>
+            <view class='title'>{{item.nickname}}</view>
+            <view class='time' wx:if="{{item.ctime}}">产生时间：{{item.ctime}}</view>
+        </view>
+        <view class="{{isShare==='true'?'check_box':'none'}}">
+            <checkbox/>
+        </view>
+    </view>
+</view>

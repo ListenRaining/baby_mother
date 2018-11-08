@@ -1,0 +1,240 @@
+<view class="content_wrap">
+    <form class="fromHe" bindsubmit='formSubmit' >
+      <view class="top_text_1">
+        <view class="distance"> 预约外访时间：2018年10月15日 9:00</view>         
+     </view>
+      
+      <view class='for-out' bindtap='turnTodetails'>
+            <view class="two-imgshow3" > 
+             <label class= "title1">长歌行艺术馆</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+               <view class="address" ><image  src="../../../images/icon-play/location.png"></image> </view>
+               <label class= "title3">
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+
+           <view class="two-no-go-2" > 
+              <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+       </view>
+  
+      <view class="top_text">
+       <view class="distance"> 备注：这里是回访人员备注的信息，可参考此信息去和机构谈合作</view>
+      </view>
+
+
+
+      <view class="upphoto">
+
+            <view class="addImg_wrap">
+                 <view class="image_wrap">
+                    <block  wx:if="{{doorImg_big}}">
+                      <image clas="addImg_item" src="{{baseUrl}}{{doorImg_big}}">
+                          <icon type="clear" size="20" color="gray" bindtap='delDoorImg' />
+                      </image>
+                    </block>
+                    <block wx:else>
+                      <image bindtap='addDoorImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                    </block>
+                 </view>
+              <view class="image_wrap_text" >机构门头照片</view> 
+            </view>
+
+            <view class="addImg_wrap">
+                <view class="image_wrap image_right">
+                    <block wx:if="{{receptionImg_big}}">
+                      <image clas="addImg_item" src="{{baseUrl}}{{receptionImg_big}}">
+                          <icon type="clear" size="20" color="gray" bindtap='delReceptionImg' />
+                      </image>
+                    </block>
+                    <block wx:else>
+                      <image bindtap='addReceptionImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                    </block>
+              </view>
+              <view class="image_right_text_right" >机构前台照片</view> 
+            </view>
+      </view>
+
+
+
+      <view class='room'>
+            <label class= "title">匹配教室</label>
+            <picker class="Number" placeholder="请选择有无匹配教室" bindchange="bindInsmatchingChange" value="{{ins_matchingSelect[ins_matchingIndex]}}" name="ins_matching" range="{{ins_matchingSelect}}">
+                <view class="picker">{{ins_matchingSelect[ins_matchingIndex]}}</view>
+             </picker>
+             <view class='top_person_2_flex1'>
+                 <image src="../../../image/icon-play/arrow.png"></image>
+              </view>
+      </view>
+
+ <block wx:if="{{show_classroomImg || ins_matchingSelect[ins_matchingIndex] =='有'}}">
+      <view class="upphoto">
+         <view class="addImg_wrap add3">
+                <view class="image_wrap add">
+
+                   <block wx:if="{{classroomImg_big}}">
+                      <image clas="addImg_item" src="{{baseUrl}}{{classroomImg_big}}">
+                          <icon type="clear" size="20" color="gray" bindtap='delClassroomImg' />
+                      </image>
+                   </block>
+
+                   <block wx:else> 
+                       <image bindtap='addClassroomImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                   </block>
+
+              </view>
+              <view class="image_wrap_text add2" >匹配教室照片</view> 
+            </view>
+      </view>
+</block>
+
+      <view class="upphoto">
+
+         <view class="addImg_wrap">
+                <view class="image_wrap">
+                 <block wx:if="{{surroundingImg_big}}">
+                    <image clas="addImg_item" src="{{baseUrl}}{{surroundingImg_big}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delSurroundingImg' />
+                    </image>
+                 </block>
+                 <block wx:else>   
+                    <image bindtap='addSurroundingImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                 </block>
+              </view>
+              <view class="image_wrap_text" >周围环境照片</view> 
+            </view>
+
+
+            <view class="addImg_wrap">
+                <view class="image_wrap image_right">
+                   <block wx:if="{{groupphotoImg_big}}">
+                      <image clas="addImg_item" src="{{baseUrl}}{{groupphotoImg_big}}">
+                          <icon type="clear" size="20" color="gray" bindtap='delGroupphotoImg' />
+                      </image>
+                   </block>
+                   <block wx:else>
+                    <image bindtap='addGroupphotoImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                   </block>
+
+              </view>
+              <view class="image_right_text_right" >与负责人合影</view> 
+            </view>
+
+      
+      </view>
+
+
+      <view class='room'>
+             <label class= "title">审核结果</label>
+             <picker class="Number" placeholder="请选择审核结果" bindchange="bindStatusChange" value="{{statusSelect[statusIndex]}}" name="status" range="{{statusSelect}}">
+                <view class="picker">{{statusSelect[statusIndex]}}</view>
+             </picker>
+             <view class='top_person_2_flex1'>
+                 <image src="../../../image/icon-play/arrow.png"></image>
+             </view>
+      </view>
+
+
+      <block wx:if="{{show_comment || statusSelect[statusIndex] =='未通过'}}">
+        <view class='audit'>
+              <label class= "title">未通过原因</label>
+              <textarea class= "Number-result" placeholder-class="phcolor" name="comment"  placeholder="请输入审核结果"  minlength="{{textareamin}}" maxlength="{{textareamax}}" bindinput="inputComment"> 
+              <text class="currentWordNumber">{{commentworld|0}}/{{textareamax}}</text>
+              <!-- <text class="hint">{{texts}}</text>   -->
+            </textarea>
+      </view>
+    </block>
+
+
+    <view class="top_text">补充信息(选填)</view>
+
+      <view class="upphoto">
+
+            <view class="addImg_wrap">
+                <view class="image_wrap">
+
+                  <block wx:if="{{businessImgOne_big}}">
+                    <image clas="addImg_item" src="{{baseUrl}}{{businessImgOne_big}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delBusinessImgOne' />
+                    </image>
+                  </block>
+                  <block wx:else>  
+                    <image bindtap='addBusinessImgOne' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                  </block>
+                 
+              </view>
+              <view class="image_wrap_text-4" >负责人身份证（正面）</view> 
+            </view>
+
+
+            <view class="addImg_wrap">
+                <view class="image_wrap image_right">
+
+                  <block wx:if="{{businessImgTwo_big}}">
+                    <image clas="addImg_item" src="{{baseUrl}}{{businessImgTwo_big}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delBusinessImgTwo' />
+                    </image>
+                  </block>  
+                  <block wx:else>
+                    <image bindtap='addBusinessImgTwo' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                  </block>
+
+              </view>
+              <view class="image_right_text_right-4" >负责人身份证（反面）</view> 
+           </view>
+      
+      </view>
+
+   
+    <view class="upphoto">
+        <view class="addImg_wrap add3">
+              <view class="image_wrap add">
+                <block wx:if="{{licenseImg_big}}">
+                    <image clas="addImg_item" src="{{baseUrl}}{{licenseImg_big}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delLicenseImg' />
+                    </image>
+                </block>
+                <block wx:else>   
+                  <image bindtap='addLicenseImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                </block>  
+            </view>
+            <view class="image_wrap_text add5-1" >营业执照</view> 
+        </view>
+    </view>
+
+     
+    <view class="upphoto">
+            <view class="addImg_wrap add3">
+               <view class="image_wrap add">
+                 <block wx:if="{{legalImg_big}}">
+                    <image clas="addImg_item" src="{{baseUrl}}{{legalImg_big}}">
+                        <icon type="clear" size="20" color="gray" bindtap='deLegalImg' />
+                    </image>
+                 </block>
+                 <block wx:else>  
+                  <image bindtap='addLegalImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                 </block> 
+            </view>
+            <view class="image_wrap_text add6-1" >场地合法使用证明</view> 
+          </view>
+    </view>
+
+
+ <!-- 负责人资源-->
+   <view class='audit'>
+          <label class= "title8-1">负责人所有资源</label>
+          <textarea class= "Number-result" placeholder-class="phcolor"  placeholder="请输入资源信息" name="head_resources" minlength="{{textareamin}}" maxlength="{{textareamax}}" bindinput="inputHeadResources"> 
+            <text class="currentWordNumber">{{resourcesworld|0}}/{{textareamax}}</text>
+            <!-- <text class="hint">{{texts}}</text>   -->
+          </textarea>
+    </view>
+
+     <view class='bottom'>
+      <button class='button' form-type='submit'>保存并提交</button>
+     </view>
+       
+    </form>
+    
+</view>
+ 

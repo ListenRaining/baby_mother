@@ -1,0 +1,56 @@
+<view wx:if="{{send == 0}}" class='nav'>
+    <view class='tab underline'>未赠出</view>
+    <view class='tab' bindtap='switchChoose' data-id='1'>已赠出</view>
+</view>
+<view wx:if="{{send == 1}}" class='nav'>
+    <view class='tab' bindtap='switchChoose' data-id='0'>未赠出</view>
+    <view class='tab underline'>已赠出</view>
+</view>
+
+<!--未赠出-->
+<view class='lists' wx:if="{{length > 0 && send == 0}}">
+    <view wx:for="{{info}}" wx:key="class_list" class='list'>
+        <!--头像-->
+        <image class='icon' src='{{item_url}}{{item.pic}}'></image>
+        <view class='info'>
+            <view class='info_rol'>
+                <text>{{item.name}}</text>
+            </view>
+            <view class='info_rol time'>
+                <text>{{item.ctime}}</text>
+            </view>
+            <view class='info_rol'>
+                <view bindtap='tosend' data-id="{{item.id}}" class='btn'>赠 送</view>
+            </view>
+        </view>
+
+        <view class='limc'>
+            <view class='leftnum'>
+                <view>{{item.limit_num}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!--已赠出-->
+<view class="association" wx:if="{{length>0 && send==1}}">
+    <view class="li" wx:for="{{info}}" wx:key="{{infors}}">
+        <image class="headIcon" mode= "aspectFill" src="{{item.avatar}}"></image>
+        <view class="msg">
+            <label class="name">{{item.nickname}}<label wx:if="{{item.username}}">({{item.username}})</label></label>
+            <!-- <label class="phoneNum">{{item.mobile}}</label> -->
+            <label class="time">领取时间：{{item.ctime}}</label>
+            <label class="addFrom">{{item.ins_name}}</label>
+            <label class='addFrom'> 上课时间：{{item.timesort}}</label>
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{length == 0}}" class="register">
+    <view class="hint_icon">
+        <image src="{{'../../../image/no_open_new.jpg'}}"></image>
+            <view class="hint_content">
+            <view class="c1">暂时还没有人领取您的卡券，赶快去赠送好友卡券吧！</view>
+        </view>
+    </view>
+</view> 

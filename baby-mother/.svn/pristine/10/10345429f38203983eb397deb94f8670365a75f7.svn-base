@@ -1,0 +1,39 @@
+<view class="img_ctn">
+    <image mode="widthFix" bindtap='topro' data-top_url="{{topInfo.top_url}}" src="{{topInfo.top_image}}"></image>
+</view>
+<view wx:if="{{length>0}}">
+    <view class="list_warp">
+        <view wx:for="{{list}}" wx:key="list">
+            <view class="content_main" bindtap="toast" id="{{item.id}}">
+                <view class='content_flex1'>
+                    <image wx:if="{{item.index_image}}" src="{{item.index_image}}"></image>
+                    <image wx:else src="{{rootRelativePath+ 'image/list_img.jpg'}}"></image>
+                </view>
+                <view class='content_flex2'>
+                    <view class='txt1'>{{item.name}}</view>
+                    <view class='txt2'>
+                        <view class='txt2_time'>{{item.starttime}}～{{item.endtime}}</view>
+                        <view class='txt2_state'>{{item.status}}</view>
+                    </view>
+                    <view class='txt3'>
+                        <view class='txt3_submit'>{{item.apply_count}}人已报名</view>
+                        <view wx:if="{{item.state==1}}">
+                        <view class='txt3_price' wx:if="{{item.price > 0}}">￥{{item.price}}</view>
+                        <view class='txt3_price_free' wx:else>免费</view>
+                        <view class='txt3_price_ori' wx:if="{{item.ori_price > 0}}">￥{{item.ori_price}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view wx:else class="register">
+    <view class="hint_icon">
+        <image src="{{rootRelativePath+ 'image/no_open_new.jpg'}}"></image>
+        <view class="hint_content">
+            <view class="c1">很抱歉！还没有活动.... </view>
+        </view>
+    </view>
+</view>

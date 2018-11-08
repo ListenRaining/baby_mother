@@ -1,0 +1,35 @@
+<!-- 导航栏 -->
+<view class='nav' wx:if="{{end == 0}}">
+    <view class='tab underline'>正在进行</view>
+    <view class='tab' bindtap='switchChoose' data-end='1'>已完成</view>
+</view>
+<view class='nav' wx:if="{{end == 1}}">
+    <view class='tab' bindtap='switchChoose' data-end='0'>正在进行</view>
+    <view class='tab underline'>已完成</view>
+</view>
+
+<view wx:if="{{length>0}}">
+    <view class='activity_panel' wx:for="{{list}}" wx:key="{{list}}">
+        <view class='activity_row' data-ins_act_id='{{item.ins_act_id}}' data-is_online="{{item.is_online}}" bindtap='toActDetail'>
+            <image src='{{item_url}}{{item.title_image}}'></image>
+            <view class='activity_info'>
+                <view class='info_row'>
+                    <text>活动名称： {{item.name}}</text>
+                    <text>活动时间： {{item.l_start}}</text>
+                    <text>报名人数：{{item.apply_count}}人</text>
+                    <text>活动状态：{{item.status_text}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="item_nosch" wx:elif="{{length == 0 && end == 1}}">
+    <image src="../../../images/schedule.png" style="width:142rpx; height:149rpx;"></image>
+    <view>暂无已完成的活动</view>
+</view>
+
+<view class="item_nosch" wx:elif="{{length == 0 && end == 0}}">
+    <image src="../../../images/schedule.png" style="width:142rpx; height:149rpx;"></image>
+    <view>暂无正在进行的活动</view>
+</view>

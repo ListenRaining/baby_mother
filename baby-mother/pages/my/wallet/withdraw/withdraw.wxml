@@ -1,0 +1,24 @@
+<view class="content_wrap">
+    <form bindsubmit="submit">
+        <view class="content">
+            <view class="withdraw_msg">
+                <label class="title">提现金额</label>
+                <view class="withdraw">
+                    <label class="yuan">￥</label>
+                    <input type="number" placeholder="请输入金额" value="{{do_withdrawal}}" bindinput="mobileInputEvent" name="money"/>
+                    <label class="tax" wx:if="{{formula}}">个人所得税：{{formula}}</label>
+                    <label class="error_msg" wx:if="{{error_msg}}">{{error_msg}}</label>
+                </view>
+            </view>
+
+            <view class="withdraw_wrap">
+                <view class="withdraw_money_msg">
+                    <label class="msg">乐币账户余额{{userinfo.balance}}，</label>
+                    <label bindtap="allDo" class="submit" data-balance="{{userinfo.balance}}" data-pay_taxes="{{userinfo.pay_taxes}}" data-formula="{{userinfo.formula}}">全部提现</label>
+                </view>
+                <input hidden="true" name="pay_taxes" value="{{pay_taxes}}" />
+                <button formType="submit">确认</button>
+            </view>
+        </view>
+    </form>
+</view>

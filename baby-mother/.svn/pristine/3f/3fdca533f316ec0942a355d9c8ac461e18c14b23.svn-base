@@ -1,0 +1,116 @@
+{
+  "pages": [
+    "pages/tabBar/my/my",
+    "pages/find/index/index",
+    "pages/find/publish_article/publish_article",
+    "pages/find/PGC_details/PGC_details",
+    "pages/find/UGC_details/UGC_details",
+    "pages/activity/activitylist/activitylist",
+    "pages/activity/activityinfo/activityinfo",
+    "pages/activity/inslist/inslist",
+    "pages/activity/order/order",
+    "pages/activity/noopen/noopen",
+    "pages/activity/sign/sign",
+    "pages/activity/success/success",
+    "pages/find/mycontent/mycontent",
+    "pages/components/action_sheet/action_sheet",
+    "pages/product/buy",
+    "pages/product/sign",
+    "pages/product/signsuccess",
+    "pages/product/introduce",
+    "pages/product/index",
+    "pages/product/class",
+    "pages/product/success",
+    "pages/product/agree",
+    "pages/product/ca",
+    "pages/product/rule",
+    "pages/product/gift",
+    "pages/login/login"
+  ],
+  "tabBar": {
+    "color": "#7e8387",
+    "selectedColor": "#40af36",
+    "borderStyle": "#bfbfc3",
+    "list": [
+      {
+        "selectedIconPath": "image/1_1.png",
+        "iconPath": "image/1_0.png",
+        "pagePath": "pages/find/index/index",
+        "text": "发现"
+      },
+      {
+        "selectedIconPath": "image/4_1.png",
+        "iconPath": "image/4_0.png",
+        "pagePath": "pages/product/index",
+        "text": "产品"
+      },
+      {
+        "selectedIconPath": "image/2_1.png",
+        "iconPath": "image/2_0.png",
+        "pagePath": "pages/activity/activitylist/activitylist",
+        "text": "活动"
+      },
+      {
+        "selectedIconPath": "image/3_1.png",
+        "iconPath": "image/3_0.png",
+        "pagePath": "pages/tabBar/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "菲蓓尔+",
+    "navigationBarTextStyle": "black"
+  },
+  "subpackages": [
+    {
+      "root": "pages/my/",
+      "pages": [
+        "sign_in/sign_in",
+        "generalize/prolist",
+        "generalize/success",
+        "generalize/introduce",
+        "my/babyinfo",
+        "my/babylist",
+        "my/user",
+        "my/mobile_change",
+        "generalize/generalize",
+        "generalize/card",
+        "class/comment",
+        "class/show",
+        "class/classinfo",
+        "class/leave",
+        "class/repairlesson",
+        "orderinfo/orderinfo",
+        "orderinfo/contract",
+        "orderlist/orderlist",
+        "integral/integral",
+        "ruler/ruler",
+        "wallet/withdraw/withdraw",
+        "wallet/wallet/wallet",
+        "wallet/rule/rule",
+        "wallet/result/result",
+        "wallet/gold_detail/gold_detail",
+        "wallet/frozen_detail/frozen_list",
+        "wallet/frozen_detail/frozen_detail",
+        "community/community",
+        "community_detail/community_detail",
+        "contacts/contacts",
+        "class/classlist",
+        "task/task",
+        "send/send",
+        "send/send_detail",
+        "task/homework",
+        "outbound/list",
+        "outbound/add",
+        "outbound/detail",
+        "outbound/coupons",
+        "login/login",
+        "business/index",
+        "business/userList",
+        "business/earnings"
+      ]
+    }
+  ]
+}

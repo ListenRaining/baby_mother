@@ -1,0 +1,252 @@
+<import src="../../utils/wxParse/wxParse.wxml" />
+
+<!--夏日特惠拼团活动-->
+<view class="body" wx:if="{{id==3 && is_activity==1}}">
+    <view class='content_bg'>
+        <image mode="widthFix" src="{{item_url}}{{info.pic}}"></image>
+    </view>
+
+    <view class="priti">
+        <view class="price">
+          <view class="nowsale">¥9000</view>
+          <view>
+            <view class="oldp">¥9800</view>
+            <view class='ptnum'>{{detailinfo.pinCount}}人拼团成功</view>
+          </view>
+        </view>
+        <view class="time">
+            <lable class="lefttime">距离结束仅剩</lable>
+            <label>
+                <view>
+                    <label class="voteText1">{{countDownDay}}天</label>
+                    <label class="voteText">{{countDownHour}}时</label>
+                    <label class="voteText">{{countDownMinute}}分</label>
+                    <label class="voteText">{{countDownSecond}}秒</label>
+                </view>
+            </label>
+        </view>
+    </view>
+
+    <view class='content_list'>
+        <view class='b_title'>{{info.name}}<label class='age'>适龄：{{info.range}}</label></view>
+        <view class='pro_info'>
+            <view class='bag_des'>
+                <view>{{bag_c.intro1}}</view>
+            </view>
+            <view class='bag_price'>
+              <view class="hdgz" bindtap='show'>查看活动规则</view>
+              <view class="undernum"> 有效期{{bag_c.time}}天</view>
+            </view>
+        </view>
+
+        <view class="play">
+            <label class="play_title">拼团玩法</label>
+            <label class="play_text"><image src='../../image/bmzf.png'></image>报名支付</label>
+            <label class="play_text"><image src='../../image/yqhy.png'></image>邀请好友</label>
+            <label class="play_text"><image src='../../image/ptcg.png'></image>拼团成功</label>
+            <label class="play_text"><image src='../../image/xsyh.png'></image>享受优惠</label>
+        </view>
+
+        <view class="progress">
+            <view class="joindetail" wx:if="{{detailinfo.count > detailinfo.joinCount}}">
+                <label class="jp">{{detailinfo.joinCount}}</label>人已参团，还差<label class="jp">{{detailinfo.count - detailinfo.joinCount}}</label>人
+            </view>
+            <view class="joindetail" wx:elif="{{detailinfo.count <= detailinfo.joinCount}}">
+                <label class="jp">{{detailinfo.joinCount}}</label>人已参团，拼团成功
+            </view>
+            <view class="joiner">
+                <image class="avatar" src="{{detailinfo.tuanzhang_avatar}}"></image>
+            </view>
+            <view class='jointz'><image src='../../image/pttz.png'></image></view>
+            <view class='tname'>{{detailinfo.tuanzhang_name}}</view>
+
+            <!--4人团-->
+            <view class='joinlist' wx:if="{{detailinfo.count == 4}}">
+                <view wx:if="{{member.name_0}}">
+                    <view class='joindyqha'>
+                        <image class="tyavatar" src="{{member.avatar_0}}"></image>
+                    </view>
+                    <view class='jointext'>{{member.name_0}}</view>
+                </view>
+                <view wx:else>
+                    <view><view class='joindyq'></view><view class='jointext'>待邀请</view></view>
+                </view>
+
+                <view wx:if="{{member.name_1}}">
+                    <view class='joindyqha'>
+                        <image class="tyavatar" src="{{member.avatar_1}}"></image>
+                    </view>
+                    <view class='jointext'>{{member.name_1}}</view>
+                </view>
+                <view wx:else>
+                    <view><view class='joindyq'></view><view class='jointext'>待邀请</view></view>
+                </view>
+
+                <view wx:if="{{member.name_2}}">
+                    <view class='joindyqha'>
+                        <image class="tyavatar" src="{{member.avatar_2}}"></image>
+                    </view>
+                    <view class='jointext'>{{member.name_2}}</view>
+                </view>
+                <view wx:else>
+                    <view><view class='joindyq'></view><view class='jointext'>待邀请</view></view>
+                </view>
+
+                <view wx:if="{{member.name_3}}">
+                    <view class='joindyqha'>
+                        <image class="tyavatar" src="{{member.avatar_3}}"></image>
+                    </view>
+                    <view class='jointext'>{{member.name_3}}</view>
+                </view>
+                <view wx:else>
+                    <view><view class='joindyq'></view><view class='jointext'>待邀请</view></view>
+                </view>
+            </view>
+
+            <!--3人团-->
+            <view class='joinlist' wx:elif="{{detailinfo.count == 3}}">
+                <view wx:if="{{member.name_0}}">
+                    <view class='joindyqha'>
+                        <image class="tyavatar" src="{{member.avatar_0}}"></image>
+                    </view>
+                    <view class='jointext'>{{member.name_0}}</view>
+                </view>
+                <view wx:else>
+                    <view><view class='joindyq'></view><view class='jointext'>待邀请</view></view>
+                </view>
+
+                <view wx:if="{{member.name_1}}">
+                    <view class='joindyqha'>
+                        <image class="tyavatar" src="{{member.avatar_1}}"></image>
+                    </view>
+                    <view class='jointext'>{{member.name_1}}</view>
+                </view>
+                <view wx:else>
+                    <view><view class='joindyq'></view><view class='jointext'>待邀请</view></view>
+                </view>
+
+                <view wx:if="{{member.name_2}}">
+                    <view class='joindyqha'>
+                        <image class="tyavatar" src="{{member.avatar_2}}"></image>
+                    </view>
+                    <view class='jointext'>{{member.name_2}}</view>
+                </view>
+                <view wx:else>
+                    <view><view class='joindyq'></view><view class='jointext'>待邀请</view></view>
+                </view>
+            </view>
+            <view class='invitebt' wx:if="{{detailinfo.count > detailinfo.joinCount}}">
+              <button open-type="share">帮TA邀请好友</button>
+            </view>
+        </view>
+
+        <view class='input_con activity'>
+            <view wx:if="{{info.video}}" class='video'>
+                <video objectFit="fill" style="width:100%;" src="{{info.video}}"></video>
+            </view>
+            <label class="content activity_info"><template is="wxParse" data="{{wxParseData:detail.nodes}}"/></label>
+        </view>
+    </view>
+
+    <view class='float_con'>
+        <view class='float_icon'>
+            <view class='float_kf'><button class="icon_btn" open-type="contact"><image  src="../../image/pro_kf.png"></image></button></view>
+            <view class='float_wx'><button class="icon_btn" open-type="share"><image  src="../../image/pro_wx.png"></image></button></view>
+             <view class='float_pyq'><button class='icon_btn' data-id="{{id}}" bindtap='gotoGene' wx:if="{{userinfo.level==5 || userinfo.level == 4}}"><image src="../../image/pro_pyq.png"></image></button></view>
+        </view>
+        <view class='float_btn'>
+            <button class='buttonok' wx:if="{{detailinfo.count <= detailinfo.joinCount}}">已成团</button>
+            <button class='button' wx:else bindtap="gotobuy" id="{{id}}">立即参团</button>
+        </view>
+    </view>
+</view>
+
+<!--非活动-->
+<view class="body" wx:else>
+    <view class='content_bg'>
+        <image mode="widthFix" src="{{item_url}}{{info.pic}}"></image>
+    </view>
+
+    <view class='content_list'>
+        <view wx:if="{{id==3}}" class='b_title'>{{info.name}}<label class='age'>适龄：{{info.range}}</label></view>
+        <view class='pro_info' wx:if="{{id==3}}">
+            <view class='bag_des'>
+                <view>{{bag_c.intro1}}</view>
+                <view class='red intro2'>{{bag_c.intro2}}</view>
+            </view>
+            <view class='bag_price'>
+                <view class="num red">总价：￥{{bag_c.price}}</view>
+                <view class="undernum"> 有效期{{bag_c.time}}天</view>
+            </view>
+        </view>
+        <view class='pro_info' wx:else>
+            <view class='pro_des'>
+                <view class='pro_name'>{{info.name}}</view>
+                <view>适龄：{{info.range}}</view>
+            </view>
+
+            <view wx:if="{{id==1}}" class='pro_gift'>
+                <view class="num">{{total}}</view>
+                <view class="undernum"> 家庭加入学习</view>
+            </view>
+            <view wx:else bindtap='buyGift' class='pro_gift'>
+                <image src='../../image/pro_gift.png'></image>
+                <view>送好友</view>
+            </view>
+        </view>
+
+        <view class='bags' wx:if="{{id==3}}">
+            <label class='bag_title'>请选择购买服务</label>
+            <view class='bag_info'>
+                <view wx:for="{{bags}}" wx:key="bag">
+                    <view wx:if="{{bag_k == index}}" class='bag_c' data-bag="{{index}}" bindtap='chooseBag'>
+                        {{item.title}}
+                    </view>
+                    <view wx:else class='bag' data-bag="{{index}}" bindtap='chooseBag'>
+                        {{item.title}}
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class='input_con activity'>
+            <view wx:if="{{info.video}}" class='video'>
+                <video objectFit="fill" style="width:100%;" src="{{info.video}}"></video>
+            </view>
+            <label class="content activity_info"><template is="wxParse" data="{{wxParseData:detail.nodes}}"/></label>
+        </view>
+    </view>
+
+    <view class='float_con'>
+        <view class='float_icon'>
+            <view class='float_kf'><button class="icon_btn" open-type="contact"><image  src="../../image/pro_kf.png"></image></button></view>
+            <!--<view class='float_wx'><button class="icon_btn" open-type="share"><image  src="../../image/pro_wx.png"></image></button></view>
+             <view wx:if="{{id == 6 && status != 0}}" class='float_pyq'><button class='icon_btn' data-id="{{id}}" bindtap='gotoGene'><image src="../../image/pro_fxiang.png"></image></button></view>-->
+        </view>
+        <view wx:if="{{info.stop == 0 && double==0}}" class='float_btn'>
+            <button wx:if="{{id == 6 && status != 0}}" class='button'>已领取</button>
+            <button wx:elif="{{id == 6 && status == 0}}" class='button' bindtap="gotobuy" data-fee="{{info.price}}" id="{{id}}">立即领取</button>
+            <button wx:elif="{{id == 1 && status == 1}}" class='button' bindtap="gotobuy" data-fee="{{info.price}}" id="{{id}}">选择班级</button>
+            <button wx:elif="{{id == 1 && status == -2}}" class='button' bindtap="buyGift">赠送好友</button>
+            <button wx:elif="{{id == 1 && status == -1}}" class='button'>已加入</button>
+            <view wx:elif="{{id == 1 && status == 0}}">
+                <button class='button'>免费领取</button>
+                <button class='button' bindtap="gotobuy" data-fee="{{info.price}}" id="{{id}}">立即购买</button>
+            </view>
+            <button wx:else class='button' bindtap="gotobuy" data-fee="{{info.price}}" id="{{id}}">立即购买</button>
+        </view>
+        <view wx:if="{{info.stop == 0 && double ==1}}" class='float_btn1'>
+            <button class='button' style='background-color:#46b135;' bindtap='forFree'>免费领取</button>
+            <button class='button' bindtap="gotobuy" data-fee="{{info.price}}" id="{{id}}">立即购买</button>
+        </view>
+        <view wx:if="{{info.stop == 1}}" class='float_btn'>
+            <button class='button' style='background-color:grey;'>已满员</button>
+        </view>
+    </view>
+</view>
+
+<view class="zhezhao" style='display:{{display}}'></view>
+<view class="show" style='display:{{display}}'>
+    <view class='txt'>授权后才可以进行操作哦!</view>
+    <button open-type="getUserInfo" bindgetuserinfo="getuser" class="authorization">微信一键登录</button>
+</view>

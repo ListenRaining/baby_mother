@@ -1,0 +1,12 @@
+<view class="content_wrap">
+    <view class="item" wx:for="{{list}}" wx:key="{{list}}">
+        <view class="content_1">
+            <label class="msg">{{item.content}}</label>
+            <label class="goldDeal">{{item.change_num}}</label>
+        </view>
+        <view class="content_2">
+            <label class="time">{{item.ctime}}</label>
+            <label class="goldRemain">余额：{{item.balance}}</label>
+        </view>
+    </view>
+</view>

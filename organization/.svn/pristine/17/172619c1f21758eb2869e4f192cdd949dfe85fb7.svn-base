@@ -1,0 +1,25 @@
+<view class="item_nosch" wx:if="{{list.length == 0}}">
+    <image src="../../../images/blank.png" style="width:142rpx; height:149rpx;"></image>
+        <view>暂无明细数据</view>
+    </view>
+<view wx:if="{{list.length>0}}" class="content_wrap">
+    <view wx:for="{{list}}" wx:key="wallet">
+        <view class="item{{item.type}}" wx:if="{{item.type==2 || item.month==show}}" data-show='{{item.month}}' bindtap='showDetail'>
+            <view class="msg{{item.type}}">
+                <label class="title">{{item.content}}</label>
+                <label class="time">{{item.ctime}}
+                <label class='status' wx:if="{{item.type == 2}}">
+                    <label wx:if="{{item.change_money == '账单已生成,请寄发票'}}" class='re'>{{item.change_money}}</label>
+                    <label wx:if="{{item.change_money == '账单未生成'}}">{{item.change_money}}</label>
+                    <label wx:if="{{item.change_money == '已打款'}}">{{item.change_money}}</label>
+                </label>
+            </label>
+        </view>
+        <label wx:if="{{item.type == 1}}" class="money{{item.type}}">{{item.change_money}}</label>
+        <label wx:if="{{item.type==2}}">
+            <label wx:if="{{show==item.month}}" class="showd">查看详情 <image class='arrow' src='../../../images/arrow_top.png'></image></label>
+            <label wx:else class="showd">查看详情 <image class='arrow' src='../../../images/arrow_bottom.png'></image></label>
+        </label>
+      </view>
+    </view>
+</view>

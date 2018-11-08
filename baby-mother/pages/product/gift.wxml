@@ -1,0 +1,19 @@
+<view>
+    <ul>
+        <li class="name">{{name}}</li>
+        <li>
+            <label class='title'>总金额</label>
+            <label class='price'>￥{{total_price}}</label>
+        </li>
+        <li>
+            <label class='title'>数量</label>
+            <label class='count'>
+                <label bindtap='countdesc' class='counts'>-</label>
+                <input bindinput='changeCount' type='number' value='{{count}}'></input>
+                <label bindtap='countasc' class='counts'>+</label>
+            </label>
+        </li>
+    </ul>
+    <button bindtap='pay' wx:if="{{total_price > 0}}" type='primary'>立即支付</button>
+    <button wx:else disabled='true' type='primary'>立即支付</button>
+</view>

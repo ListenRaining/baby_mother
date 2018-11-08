@@ -1,0 +1,41 @@
+.content_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.role_content{
+  margin-top: 6rpx;
+  font-size: 28rpx;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  margin: 0 20rpx;
+}
+
+.title{
+  margin-left: 14rpx;
+  margin-top: 16rpx;
+}
+.content{
+  margin-left: 44rpx;
+  margin-top: 16rpx;
+}
+.checkbox{
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  color: #27a938;
+}
+
+.submit_next{
+  margin-left: 44rpx;
+  margin-top: 40rpx;
+  width:90%;
+  height:90rpx;
+  background:#27a938;
+  color:#fff;
+  text-align:center;
+  line-height:90rpx;
+}

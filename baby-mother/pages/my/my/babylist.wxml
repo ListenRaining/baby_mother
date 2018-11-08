@@ -1,0 +1,21 @@
+<view class="list">
+    <view wx:for="{{info}}" class="list-item" wx:key="info">
+        <view class="name" id="{{item.mid}}" bindtap='seeBaby'>
+            <text>{{item.name}}</text><label wx:if="{{item.is_class == 1}}"> [上课]</label>
+        </view>
+        <view class="gender" id="{{item.mid}}" bindtap='seeBaby'>
+            <text>{{item.gender}}</text>
+        </view>
+        <view class="date" id="{{item.mid}}" bindtap='seeBaby'>
+            <text>{{item.birthday}}</text>
+        </view>
+        <view class="button" id="{{item.mid}}" bindtap='seeBaby'>
+            <view class="modify" class="navigator-arrow"></view>
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{info.length < 3}}" class="add_info">
+    <text bindtap="addBaby" class="add_btn">添加宝宝</text>
+    <image src="../../../../image/add.jpg"></image>
+</view>

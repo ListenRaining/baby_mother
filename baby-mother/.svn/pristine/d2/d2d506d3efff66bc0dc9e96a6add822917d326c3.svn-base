@@ -1,0 +1,380 @@
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="bindChange">待外访</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="bindChange">已完成</view>
+    <view class='swiper-tab-right'></view>
+</view>
+ 
+
+
+    
+<view > 
+  <block wx:if="{{currentTab == '0'}}">
+   <block wx:for="{{info}}" wx:for-index="index" wx:key="">
+      <block wx:if="{{item.aging =='future'}}">
+         <view class='for-out' bindtap="showOutbound" data-id="{{item.id}}" data-ins_name="{{item.ins_name}}" data-username="{{item.username}}" data-mobile="{{item.mobile}}" data-address="{{item.address}}">
+              <view class="for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+                <view class="imgshow"> 
+                  <image src="../../../image/icon-play/annuli.png"></image>
+                </view>
+                <view  class="text1">   
+                  {{item.outbound_md}} {{item.outbound_hour}}
+                </view>
+              </view>
+
+              <view class="imgshow2{{item.news ==1 ? '-2' : ''}}" >
+                <block wx:if="{{item.news==1}}">
+                  <image class="new" src="../../../image/icon-play/new.png"></image>
+                </block> 
+                  <image  class="{{item.news ==1 ? 'new2' : ''}}" src="../../../image/icon-play/arrow.png"></image>
+              </view>
+
+              <view class="imgshow3" > 
+                <label class= "title1">{{item.ins_name}}</label>
+                <label class= "title2">（{{item.username}}:{{item.mobile}}）</label>
+              
+                  <label class= "title3">
+                  <view class="address" ><image  src="../../../image/icon-play/location.png"></image> </view>
+                    {{item.address}}
+                  </label>
+              </view>
+              
+              <view class="line"></view>
+              <view class="line_2"></view>
+         </view>
+      </block>
+      <block wx:elif="{{item.aging =='goby'}}">
+      <view class='for-out' bindtap="showOutbound" data-id="{{item.id}}" data-ins_name="{{item.ins_name}}" data-username="{{item.username}}" data-mobile="{{item.mobile}}" data-address="{{item.address}}">
+              <view class="for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+                <view class="imgshow"> 
+                  <image src="../../../image/icon-play/await.png"></image>
+                </view>
+                <view  class="text1">   
+                  {{item.outbound_md}} {{item.outbound_hour}}
+                </view>
+              </view>
+
+              <view class="imgshow2{{item.news ==1 ? '-2' : ''}}" >
+                 <block wx:if="{{item.news==1}}">
+                    <image class="new" src="../../../image/icon-play/new.png"></image>
+                 </block>
+                    <image class="{{item.news ==1 ? 'new2' : ''}}" src="../../../image/icon-play/arrow.png"></image>
+              </view>
+
+              <view class="imgshow3" > 
+                  <label class= "title1">{{item.ins_name}}</label>
+                  <label class= "title2">（{{item.username}}:{{item.mobile}}）</label>
+              
+                  <label class= "title3">
+                  <view class="address" ><image  src="../../../image/icon-play/location.png"></image> </view>
+                    {{item.address}}
+                  </label>
+              </view>
+               <block wx:if="{{item.status ==9 || item.status==3}}"> 
+                 <view class="no-go" > <image src="../../../image/icon-play/{{item.status=='9' ? 'Novisit.png' : item.status=='3' ? 'undetermined.png' : ''}}"></image></view>
+               </block>
+              <view class="line"></view>
+              <view class="line_2"></view>
+         </view>
+      </block>
+   </block>
+
+
+ <!--+++++++++++++++++-->
+      <!--
+      <view class='for-out' bindtap="toOutorg">
+         <view class="for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+         <view class="imgshow"> 
+           <image src="../../../image/icon-play/annuli.png"></image>
+         </view>
+         <view  class="text1">   
+           10月15日 9：00
+         </view>
+          </view>
+
+           <view class="imgshow2" > 
+           <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+            <view class="imgshow3" > 
+             <label class= "title1">长歌行艺术馆1</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+             
+               <label class= "title3">
+                <image class="address"  src="../../../image/icon-play/location.png"></image>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+           <view class="line"></view>
+           <view class="line_2"></view>
+       </view>
+     <!--
+      <view class='for-out' bindtap="toOutorg">
+         <view class="for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+         <view class="imgshow"> 
+           <image src="../../../image/icon-play/annuli.png"></image>
+         </view>
+         <view  class="text1">   
+           10月15日 9：00
+         </view>
+          </view>
+           <view class="imgshow2-2" > 
+           <image class="new" src="../../../image/icon-play/new.png"></image>
+           <image class="new2" src="../../../image/icon-play/arrow.png"></image>
+           </view>
+            <view class="imgshow3" > 
+             <label class= "title1">长歌行艺术馆2</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+              
+               <label class= "title3">
+               <image class="address"  src="../../../image/icon-play/location.png"></image>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+             <view class="line"></view>
+       </view>
+
+      <view class='for-out' bindtap="toOutorg">
+        <view class="for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+         <view class="imgshow"> 
+           <image src="../../../image/icon-play/await.png"></image>
+         </view>
+         <view  class="text1">   
+           10月15日 9：00
+         </view>
+          </view>
+           <view class="imgshow2" > 
+           <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+            <view class="imgshow3" > 
+             <label class= "title1">长歌行艺术馆3</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+             
+               <label class= "title3">
+                <image class="address" src="../../../image/icon-play/location.png"></image>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+        <view class="no-go" > <image src="../../../image/icon-play/Novisit.png"></image></view>
+        <view class="line"></view>
+       </view>
+
+      <view class='for-out' bindtap="toOutorg">
+         <view class="for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+         <view class="imgshow"> 
+           <image src="../../../image/icon-play/await.png"></image>
+         </view>
+         <view  class="text1">   
+           10月15日 9：00
+         </view>
+          </view>
+           <view class="imgshow2" > 
+           <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+            <view class="imgshow3" > 
+             <label class= "title1">长歌行艺术馆4</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+              
+               <label class= "title3">
+               <image class="address"  src="../../../image/icon-play/location.png"></image>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+             <view class="no-go" > <image src="../../../image/icon-play/undetermined.png"></image></view>
+        <view class="line"></view>
+       </view>
+
+      <view class='for-out' bindtap="toOutorg">
+         <view class="for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+         <view class="imgshow"> 
+           <image src="../../../image/icon-play/await.png"></image>
+         </view>
+         <view  class="text1">   
+           10月15日 9：00
+         </view>
+          </view>
+           <view class="imgshow2" > 
+           <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+            <view class="imgshow3" > 
+             <label class= "title1">长歌行艺术馆4</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+              
+               <label class= "title3">
+               <image class="address"  src="../../../image/icon-play/location.png"></image>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+             <view class="no-go" > <image src="../../../image/icon-play/undetermined.png"></image></view>
+        <view class="line"></view>
+       </view>
+     
+        <view class='for-out' bindtap="toOutorg">
+         <view class="for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+         <view class="imgshow"> 
+           <image src="../../../image/icon-play/await.png"></image>
+         </view>
+         <view  class="text1">   
+           10月15日 9：00
+         </view>
+          </view>
+           <view class="imgshow2" > 
+           <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+            <view class="imgshow3" > 
+             <label class= "title1">长歌行艺术馆4</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+              
+               <label class= "title3">
+               <image class="address"  src="../../../image/icon-play/location.png"></image>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+             <view class="no-go" > <image src="../../../image/icon-play/undetermined.png"></image></view>
+        <view class="line"></view>
+       </view>
+       -->
+     </block>
+    </view>
+
+    
+<view>
+
+
+ <!-- 第二--1个 -->
+<block wx:if="{{currentTab == '1'}}">
+     
+    <block wx:for="{{info}}" wx:for-index="index" wx:key="">
+          <view class='for-out' bindtap="showOutbound" data-id="{{item.id}}" data-ins_name="{{item.ins_name}}" data-username="{{item.username}}" data-mobile="{{item.mobile}}" data-address="{{item.address}}">
+              <view class="two-imgshow3" > 
+                <label class= "title1">{{item.ins_name}}</label>
+                <label class= "title2">（{{item.username}}:{{item.mobile}}）</label> 
+                  <label class= "title3"> 
+                    <view class="address" ><image  src="../../../image/icon-play/location.png"></image> </view>
+                      {{item.address}}
+                  </label>
+              </view>
+            <view class="two-for-out-1"  style="background-image: url('../../../image/icon-play/back1.png'"> 
+              <view  class="text1">   
+                {{item.utime_md}} {{item.utime_hour}}
+              </view>
+            </view>
+
+  
+    
+    
+   
+    
+            <view class="two-no-go-2" > 
+              <image src="../../../image/icon-play/arrow.png"></image>
+            </view>
+
+            <view class="two-no-go" > 
+              <image src="../../../image/icon-play/{{item.status ==1 ? 'pass.png' : 'nopass.png'}}"></image>
+            </view>
+
+    
+    </view>
+    </block>
+
+
+
+      <!--
+      <view class='for-out' bindtap="toOutorg">
+            <view class="two-imgshow3" > 
+             <label class= "title1">长歌行艺术馆11</label>
+              <label class= "title2">（刘老师:18723232323）</label> 
+             
+               <label class= "title3"> 
+                 <view class="address" ><image  src="../../../image/icon-play/location.png"></image> </view>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+            <view class="two-for-out-1"  style="background-image: url('../../../image/icon-play/back1.png'"> 
+         <view  class="text1">   
+           10月15日 9：00
+         </view>
+          </view>
+           <view class="two-no-go-2" > 
+           <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+             <view class="two-no-go" > 
+             <image src="../../../image/icon-play/pass.png"></image>
+             </view>
+       </view>
+
+ 
+      <view class='for-out' bindtap="toOutorg">
+            <view class="two-imgshow3" > 
+             <label class= "title1">长歌行艺术馆22</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+              
+               <label class= "title3">
+               <view class="address" ><image  src="../../../image/icon-play/location.png"></image> </view>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+             <view class="two-for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+          <view  class="text1">   
+            10月15日 9：00
+          </view>
+          </view>
+           <view class="two-no-go-2" > 
+           <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+             <view class="two-no-go" > 
+             <image src="../../../image/icon-play/pass.png"></image>
+             </view>
+       </view>
+
+
+
+      <view class='for-out' bindtap="toOutorg">
+            <view class="two-imgshow3" > 
+             <label class= "title1">长歌行艺术馆</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+              
+               <label class= "title3">
+                <view class="address" ><image  src="../../../image/icon-play/location.png"></image> </view>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+            <view class="two-for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+            <view  class="text1">   
+              10月15日 9：00
+            </view>
+          </view>
+           <view class="two-no-go-2" > 
+           <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+             <view class="two-no-go" > 
+             <image src="../../../image/icon-play/pass.png"></image>
+             </view>
+       </view>
+
+      
+      <view class='for-out' bindtap="toOutorg">
+            <view class="two-imgshow3" > 
+             <label class= "title1">长歌行艺术馆</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+              
+               <label class= "title3">
+                <view class="address" ><image  src="../../../image/icon-play/location.png"></image> </view>
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+          <view class="two-for-out-1" style="background-image: url('../../../image/icon-play/back1.png'"> 
+         <view  class="text1">   
+           10月15日 9：00
+         </view>
+          </view>
+           <view class="two-no-go-2" > 
+           <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+             <view class="two-no-go" > 
+             <image src="../../../image/icon-play/nopass.png"></image>
+             </view>
+       </view>
+    -->
+  </block>
+</view>
+        
+

@@ -1,0 +1,56 @@
+//宝宝列表页
+var app = getApp();
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        infos: [],
+        canAdd: false
+    },
+    add_baby: function () {
+        wx.navigateTo({
+            url: '../memberinfo/memberinfo'
+        })
+    },
+    modify_event: function (e) {
+      wx.navigateTo({
+        url: '../memberinfo/memberinfo?mid=' + e.currentTarget.id
+      })
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+      var that = this;
+      wx.getStorage({
+        key: 'userinfo',
+        success: function (res) {
+          that.setData({ openId: res.data.uid });
+          wx.request({
+            url: app.globalData.baseUrl + 'api/member/memberlist',
+            data: {
+              uid: res.data.uid
+            },
+            method: 'post',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            success: function (data) {
+              if (data.data.info.length >= 3) {
+                that.setData({ canAdd: false });
+              } else {
+                that.setData({ canAdd: true });
+              }
+              that.setData({
+                infos: data.data.info
+              })
+            }
+          })
+        },
+      })
+    },
+})

@@ -1,0 +1,46 @@
+<view class='activity_row'>
+    <view class='activity_row_line'>
+        <image src='{{info.title_image}}'></image>
+        <view class='activity_info'>
+            <view class='info_row'>
+                <text class='actname'>活动名称： {{info.name}}</text>
+                <text>活动时间： {{info.l_start}}</text>
+                <text>已报名／最大报名人数：{{info.apply_count}}/{{info.limit_num}}人</text>
+                <view wx:if="{{is_online == 0}}" bindtap='signCode' class='sign_in'>二维码签到</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!--手机号搜索-->
+<form bindsubmit='formSubmit'>
+    <view class='search_flex'>
+        <view class='search_panel'>
+            <view class='input_bg'>
+                <input name="mobile" placeholder="请输入手机号搜索签到" />
+                <input name="ins_act_id" hidden='true' value='{{ins_act_id}}'/>
+            </view>
+            <button class='search_btn' form-type='submit'>搜索</button>
+        </view>
+    </view>
+</form>
+
+<view class='students_info_panel' wx:if="{{list}}">
+    <view class='student_bottom_line' wx:for="{{list}}" wx:key="{{list}}">
+        <view class='student_info'>
+            <text class='name'>{{item.name}}</text>
+            <text class='gender'>{{item.gender}}</text>
+            <text class='age'>{{item.age}}岁</text>
+            <text class='mobile'>{{item.mobile}}</text>
+            <view wx:if="{{is_online == 0 && item.sign_time == 0}}">
+                <view class='get' bindtap='signUp' data-uid="{{item.uid}}">签到</view>
+            </view>
+            <view wx:if="{{is_online == 0 && item.sign_time > 0}}">
+                <view class='signed'>已签到</view>
+            </view>
+            <view wx:if="{{is_online == 1}}">
+                <view class='get'>{{item.act_code}}</view>
+            </view>
+        </view>
+    </view>
+</view>

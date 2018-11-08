@@ -1,0 +1,28 @@
+//报名成功页
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        rootRelativePath: '../../../', 
+        out_trade_no:'',
+        act_id:0, //活动id
+        code:''   //活动码
+    },
+
+    onLoad: function (options) {
+        this.setData({
+            out_trade_no:options.out_trade_no,
+            act_id:options.act_id,
+            code:options.code,
+        });
+    },
+
+    //订单详情
+    toast: function(e){
+        wx.redirectTo({
+            url: '/pages/my/orderinfo/orderinfo?orderid='+this.data.out_trade_no
+        })
+    }
+})

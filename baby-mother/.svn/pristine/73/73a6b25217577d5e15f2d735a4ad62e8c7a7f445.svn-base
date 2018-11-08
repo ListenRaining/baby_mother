@@ -1,0 +1,90 @@
+page {
+  background-color: white;
+}
+
+.con {
+  margin: 20rpx 40rpx 60rpx 40rpx;
+}
+
+.introduction{
+  font-size: 30rpx;
+}
+
+.title{
+  font-size:34rpx;
+  color: #45b035;
+  margin-top: 12rpx;
+  font-weight: bold;
+}
+
+.contenta{
+  font-size:30rpx;
+  margin-top: 4rpx;
+  font-weight: bold;
+}
+
+.content{
+  font-size:30rpx;
+  margin-top: 4rpx;
+}
+
+.contentb{
+  font-size:30rpx;
+  margin-top: 20rpx;
+}
+
+.fw{
+  font-size:29rpx;
+  font-weight: bold;
+}
+
+.bb{
+  text-decoration: underline;
+}
+
+.contract_title {
+  text-align: center;
+}
+
+.contract_id {
+  text-align: right;
+  margin: 30rpx 30rpx;
+}
+
+.con_fg {
+  margin-top: 30rpx;
+}
+
+.table {
+  display: flex;
+  width: 100%;
+  border: solid 1rpx #000;
+  margin: 30rpx 0;
+}
+
+.table_title {
+  width: 20%;
+  text-align: center;
+  padding-top: 20rpx;
+}
+
+.table_con {
+  width: 40%;
+  border-left: solid 1rpx #000;
+  text-align: center;
+}
+
+.table_yb {
+  border-top: solid 1rpx #000;
+}
+
+/********魔法乐理 8.8 add********/
+.contentc{
+  font-size:30rpx;
+  margin-top: 6rpx;
+  text-indent:1.9em;
+}
+
+.cu{
+  font-weight:bold;
+}

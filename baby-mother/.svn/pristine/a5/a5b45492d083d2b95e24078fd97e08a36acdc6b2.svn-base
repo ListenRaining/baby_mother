@@ -1,0 +1,18 @@
+<form bindsubmit="formSubmit">
+    <view class="content">
+        <view class="li">
+            <label class="title">券号：</label>
+            <input class="coupons" name="coupons" placeholder="请输入券号" />
+        </view>
+
+        <button class='button' formType="submit">验 证</button>
+
+        <view class="succ" wx:if="{{info.username}}">{{reason}}</view>
+        <view class="fail" wx:else>{{reason}}</view>
+
+        <view class="username" wx:if="{{info.username}}">活动报名人：<label class='info'>{{info.username}}</label></view>
+        <view class="list" wx:if="{{info.username}}">参加活动：<label class='info'>勇闯音乐岛·音乐嘉年华</label></view>
+        <view class="list" wx:if="{{info.mobile}}">手机号：<label class='info'>{{info.mobile}}</label></view>
+        <view class="list" wx:if="{{info.babyStr}}">宝宝姓名：<label class='info'>{{info.babyStr}}</label></view>
+    </view>
+</form>

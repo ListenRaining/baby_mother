@@ -1,0 +1,127 @@
+.order_warp{width:92%;height:100%;overflow:hidden;background:#f6f6f9;padding:2% 4%;font-size:14px;}
+.input_con{height:20px;padding:15px 0;display:flex;border-bottom:1px solid #dededc;line-height:1.8;}
+.input_con label{flex:30%;color:#000;}
+.input_con input,.input_con picker{flex:76%;}
+.input_con1 input{flex:40%;}
+.input_con1 button{flex:36%;height:24px;font-size:12px;border:none;backgrodund:none;line-height:2;color:#00a63b;border-rdius:4px;border:1px solid #00a63b;}
+
+.input_con2 button{flex:58%;height:50rpx;font-size:27rpx;border:none;backgrodund:none;line-height:50rpx;color:#00a63b;border-rdius:4px;border:1px solid #00a63b;margin-right: 150rpx;}
+
+.input_con3{height:90px;padding:10px 0;border-bottom:1px solid #dededc;line-height:1.8;
+  color:#3b3736;font-size:12px;}
+.input_pro{display:flex;margin-top:6px;}
+.input_pro .input_img{flex:20%;border-radius:4px;}
+.input_pro .input_img image{width:60px;height:60px;border-radius:4px;}
+.input_pro .input_intro{flex:70%;}
+.input_goods{font-size:15px;}
+.input_price{color:#cbcac8;flex:20%;display:flex;}
+.input_cost{color:#d82733;flex:20%;margin-left:4px;}
+.submit_form{height:80rpx;background:#27a938;color:#fff;text-align:center;line-height:80rpx;margin:22px 0 0 0}
+.hh_submit{position: absolute;bottom: 20rpx;height:80rpx;background:#27a938;color:#fff;text-align:center;line-height:80rpx;margin:22px 0 0 0;width: 92%;}
+.input_con4 input{flex:76%;}
+
+.input_con5{height:20px;padding:15px 0;display:flex;border-bottom:1px solid #dededc;line-height:1.8;}
+.input_con5 label{flex:30%;color:#000;}
+.input_con5 input,.input_con5 picker{flex:40%;color:#c4c3c0;}
+.selectIns{font-size:27rpx;height:50rpx;background:#27a938;color:#fff;text-align:center;line-height:50rpx;margin-left: 0;}
+.input_con7{width:100%;height:20px;padding:15px 0;display:flex;border-bottom:1px solid #dededc;line-height:1.8;}
+.input_con7 label{color:#000;}
+.input_con8 input{flex: 52%; color: #000; text-align: center;}
+.pricestype{flex: 100%; text-align: right; font-size: 27rpx;padding-top: 30rpx;}
+.totalfee {margin-right:45rpx; color: #ff5000; font-size: 35rpx;}
+.saleoff {text-decoration: line-through;padding-right: 10rpx;}
+
+.checkNode{
+  overflow: hidden;display:flex;
+}
+
+checkbox{
+  transform: scale(0.7);
+  font-size:30rpx;
+}
+.addBaby{display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0;
+  margin-left:6px;margin-top:23rpx;
+  flex:70%;text-align:right;font-size:12px;
+}
+.addBabyBtn{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 9rpx;
+}
+.label_chose{flex:20%;}
+.checkboxs{display:flex;flex:65%;}
+.checkbox{flex:80%;}
+/*********按钮*************/
+
+.paybotton {
+  position: absolute;
+  bottom: 0;
+  height: 175rpx;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+ .pay {
+  /* margin: 100rpx 0 0 0; */
+  height: 80rpx;
+  width: 670rpx;
+  color: white;
+  font-size: 30rpx;
+  background-color: #27a938;
+} 
+
+.input_ins {
+  display: flex;
+  flex:76%;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.buy_confirm {
+  position: fixed;
+  bottom: 40rpx;
+  font-size: 28rpx;
+  text-align: center;
+  width: 100%;
+}
+
+.buy_confirm_hh {
+  position: fixed;
+  bottom: 120rpx;
+  font-size: 28rpx;
+  width: 90%;
+}
+
+.buy_confirm_hh label {
+  color: #7387a8;
+}
+
+.agreechk {
+  width: 6%;
+}
+
+.buy_confirm label {
+  color: #7387a8;
+}
+
+.checkquan {
+  width: 24%;
+  font-size:27rpx;
+  height:50rpx;
+  background:#27a938;
+  color:#fff;
+  text-align:center;
+  line-height:50rpx;
+  margin-left: 0;
+}
+
+.box {
+  font-size: 30rpx;
+  margin-left: -38rpx; 
+  padding-top: 10rpx; 
+}

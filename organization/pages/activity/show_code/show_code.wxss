@@ -1,0 +1,5 @@
+/* pages/activity/sign_code/sign_code.wxss */
+.code {
+  width: 20rem;
+  height:20rem;
+}

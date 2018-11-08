@@ -1,0 +1,19 @@
+/* ruler.wxss */
+
+page {
+  background-color: #f0eff5;
+}
+
+text {
+  font-size: 30rpx;
+  color: #7e7e86;
+  line-height: 37rpx;
+}
+
+.panel {
+  padding: 20rpx 42rpx;
+}
+
+.text_panel {
+  padding: 6rpx 0rpx;
+}

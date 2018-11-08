@@ -1,0 +1,54 @@
+<!--pages/class/schedule/schedule.wxml-->
+
+<!-- 导航栏 -->
+<view wx:if="{{end == 0}}" class='nav'>
+  <view class='tab underline'>正在进行</view>
+  <view class='tab' bindtap='switchChoose' data-id='1'>已完成</view>
+</view>
+<view wx:if="{{end == 1}}" class='nav'>
+  <view class='tab' bindtap='switchChoose' data-id='0'>正在进行</view>
+  <view class='tab underline'>已完成</view>
+</view>
+
+<view class='lists' wx:if="{{length > 0}}">
+  <view wx:for="{{list}}" wx:key="class_list" class='list'>
+    <!--头像-->
+    <image wx:if="{{item.avatar != ''}}" class='icon' src='{{item_url}}{{item.avatar}}'>
+    </image>
+    <image wx:else class='icon' src='../../../images/schedule/icon.png'>
+    </image>
+
+    <view class='info'>
+      <view class='info_rol'>
+        <text class='left_text'>班级名称 </text>
+        <text>{{item.class_id}}</text>
+      </view>
+      <view class='info_rol'>
+        <text class='left_text'>上课时间 </text>
+        <text>{{item.week}} {{item.time}}</text>
+      </view>
+      <view class='info_rol'>
+        <text class='left_text'>当前状态 </text>
+        <text wx:if="{{item.status == 1}}" class='class_status in_audit'>{{item.status_text}}</text>
+        <text wx:if="{{item.status == 2}}" class='class_status in_admissions'>{{item.status_text}}</text>
+        <text wx:if="{{item.status == 3}}" class='class_status in_class_status'>{{item.status_text}}</text>
+         <text wx:if="{{item.status == -1}}" class='class_status today_status'>{{item.status_text}}</text><text>{{item.count}}人</text>
+      </view>
+      <view class='info_rol'>
+        <text class='left_text'>授课老师 </text>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+    <view class='btn' bindtap='classDetail' data-id='{{item.class_id}}'>详细</view>
+  </view>
+</view>
+
+<view class="item_nosch" wx:if="{{length == 0 && end == 0}}">
+    <image src="../../../images/schedule.png" style="width:142rpx; height:149rpx;"></image>
+    <view>暂无日程安排，请到<label class="nosch_txt" bindtap="gotoCreateclass">时间管理</label>创建班级。</view>
+  </view>
+
+  <view class="item_nosch" wx:if="{{length == 0 && end == 1}}">
+    <image src="../../../images/schedule.png" style="width:142rpx; height:149rpx;"></image>
+    <view>暂无已完成日程</view>
+  </view>

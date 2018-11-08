@@ -1,0 +1,136 @@
+// pages/my/OutboundRecords/Out-records.js
+
+var app = getApp()
+Page({
+  data: {
+    //默认显示等外访
+    types:'foroutbound'
+  },
+
+  //下拉刷新
+  onPullDownRefresh: function () {
+    /*
+      wx.showNavigationBarLoading() //在标题栏中显示加载
+      //模拟加载
+      setTimeout(function () {
+        // complete
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      }, 1500);
+    */
+  },
+
+  onLoad: function () {
+    var that = this;
+    /**
+     * 获取系统宽高自动调整高度
+     */
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          winWidth: res.windowWidth,
+          winHeight: res.windowHeight
+        });
+      }
+    });
+  },
+
+  onShow:function(){
+
+    var that = this;
+    wx.getStorage({
+      key: 'userinfo',
+      success: function (info) {
+
+        var timestamp = app.createTimeStamp()
+        var str = "uid=" + info.data.uid + '&timestamp=' + timestamp
+        var signature = app.createSignatureStr(str);
+
+        wx.request({
+          url: app.globalData.baseUrl + 'little/operate/insOutboundListV10',
+          data: {
+            uid: info.data.uid,
+            timestamp: timestamp,
+            signature: signature,
+            
+          },
+          success: function (result) {
+            that.setData({
+              
+            })
+          }
+        })
+      },
+    })
+  },
+
+  /**
+     * 滑动切换tab
+     */
+  bindChange: function (e) {
+    var that = this;
+    that.setData({ 
+      currentTab: e.detail.current 
+    });
+  },
+
+  /**
+   * 点击tab切换
+   */
+  swichNav: function (e) {
+    var that = this;
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+  },
+
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+
+
+  //跳转机构页
+  toOutorg: function () {
+    var index = 2
+    var queryBean = JSON.stringify(index)
+    wx.navigateTo({
+      url: '/pages/my/outboundv10/add' 
+    })
+  },
+
+
+
+})

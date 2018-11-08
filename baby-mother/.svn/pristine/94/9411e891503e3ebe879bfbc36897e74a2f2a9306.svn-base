@@ -1,0 +1,27 @@
+/* myinfo2.wxss */
+
+page{
+  background-color: #f0eff4;
+}
+
+.item{
+    margin-top: 25rpx;
+    padding: 36rpx 43rpx;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    border-bottom:solid 1rpx #d7d7d7;
+}
+
+.item .icon{
+    width:36rpx; 
+}
+.item .title{
+    margin-left: 22rpx;
+}
+
+.item .arrow{
+    width: 13rpx;
+    height: 24rpx; 
+    margin-left: auto; 
+}

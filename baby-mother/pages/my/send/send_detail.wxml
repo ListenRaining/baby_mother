@@ -1,0 +1,64 @@
+<view style='height:10rpx;border-bottom:solid 1rpx #ebebeb;'></view>
+
+<view class='title' wx:if="{{send==1}}">
+    <image class='icon' src='{{info.avatarUrl}}'></image>
+    <label class='name'>{{info.nickname}} </label> 赠送给您
+</view>
+
+<view class='vpic'>
+    <image class='pic' mode="widthFix" src='{{item_url}}{{info.pic}}'></image>
+</view>
+
+<view class='product'>
+    <view class='product_name'>{{info.name}}</view>
+    <view class='price'>￥{{info.price}}</view>
+</view>
+
+<view class='zy_info'>
+    <view class='zy_des'>
+        <view class='zy_left'></view>
+        <view class='zy_txt'>赠言</view>
+        <view class='zy_right'></view>
+    </view>
+    <view class='zy_con'>{{info.zengyan}}</view>
+</view>
+
+<!--<form bindsubmit='formsub' report-submit='true'>
+    <button wx:if="{{send == 0}}" open-type='share' type='primary' form-type='submit' class='sendnow'>赠送好友</button>
+</form>-->
+
+<button wx:if="{{send == 0}}" bindtap='doShare' type='primary' class='sendnow'>赠送好友</button>
+
+
+<!-- 领取按钮 -->
+<button wx:if="{{send == 1 && info.limit_num > info.use_num && is_login == 1}}" bindtap='doRecive' type='primary'
+class='sendnow'>领取礼物</button>
+<button wx:elif="{{send == 1 && info.limit_num > info.use_num && is_login == 0}}" type='primary' class='sendnow' open-type="getUserInfo" bindgetuserinfo="getuser">领取礼物</button>
+<button wx:elif="{{send == 1 && info.limit_num <= info.use_num}}" class='sendnow' disabled='true'>已领完</button>
+<button wx:elif="{{send == 1 && info.is_demo_status == 1}}" class='sendnow' disabled='true'>您已领取过该产品</button>
+
+
+
+<!-- 点击分享好友弹窗 -->
+<view class="{{isShow?'alert':'none'}}">
+    <view class='alert_item'>
+        <button class='alert_box' open-type='share'>
+            <image src='../../../image/icon/weixin_icon.png' class='alert_img1'></image>
+        </button>
+        <view class='t_view'>
+            <view>微信好友</view>
+        </view>
+    </view>
+
+    <view class='alert_item' bindtap='goUserList'>
+        <button class='alert_box'>
+            <image src='../../../image/icon/logo.png' class='alert_img2'></image>
+        </button>
+        <view class='t_view'>
+            <view>平台用户</view>
+        </view>
+    </view>
+</view>
+
+<!-- 全局阴影 -->
+<view class="{{isShow?'shadow':'none'}}" bindtap='doClose'></view>

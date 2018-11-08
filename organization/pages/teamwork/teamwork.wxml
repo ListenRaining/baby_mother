@@ -1,0 +1,142 @@
+<view class="content_wrap">
+    <form bindsubmit='formSubmit' report-submit='true'>
+        <view class="menu_wrap">
+            菲蓓尔会员中心合作申请
+            <view class="item">
+                联系人
+                <input class="content" name="name" value="{{info.username}}" placeholder="请输入联系人" placeholder-style='color:#C4C4C4'/>
+                <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item">
+                联系电话
+                <input class="content" type="number" name="mobile" value="{{info.mobile}}" placeholder="请输入联系电话" placeholder-style='color:#C4C4C4'/>
+                <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item">
+                联系邮箱
+                <input class="content" name="email" value="{{info.email}}" placeholder="请输入联系邮箱" placeholder-style='color:#C4C4C4'/>
+                <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item">
+                机构名称
+                <input class="content" name="ins_name" value="{{info.ins_name}}" placeholder="请输入机构名称" placeholder-style='color:#C4C4C4'/>
+                <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item">
+                机构类型
+                <picker class="content_picker" bindchange="bindPickerChange" mode='selector' name="ins_type" range="{{Type}}" value="{{areaIndex}}">
+                    <view class="picker">{{Type[areaIndex]}}</view>
+                </picker>
+                <image mode="widthFix" class="arrow" src="../../images/arrow_bottom.png"></image>
+            </view>
+
+            <view class="item">
+                机构地址
+                <input class="content" name="ins_address" value="{{info.address}}" placeholder="请输入机构所在的详细地址" placeholder-style='color:#C4C4C4'/>
+                <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item">
+                机构面积
+                <input class="content" type='digit' name="ins_area" value="{{info.ins_area}}" placeholder="请输入机构面积(单位:平方米)" placeholder-style='color:#C4C4C4'/>
+                <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item">
+                机构层高
+                <input class="content" type='digit' name="ins_high" value="{{info.ins_high}}" placeholder="请输入机构层高(单位:米)" placeholder-style='color:#C4C4C4'/>
+                <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item age_wrap">
+                机构实体墙
+                <radio-group bindchange="wallChange">
+                    <view class="radio_wrap">
+                        <label>
+                            <radio name='ins_wall' value='1' wx:if="{{info.ins_wall==1}}" checked="true">实体墙</radio>
+                            <radio name='ins_wall' value='1' wx:else>实体墙</radio>
+                        </label>
+                        <label>
+                            <radio name='ins_wall' value='2' wx:if="{{info.ins_wall==2}}" checked="true">隔断墙无龙骨</radio>
+                            <radio name='ins_wall' value='2' wx:else>隔断墙无龙骨</radio>
+                        </label>
+                        <label>
+                            <radio name='ins_wall' value='3' wx:if="{{info.ins_wall==3}}" checked="true">隔断墙有龙骨</radio>
+                            <radio name='ins_wall' value='3' wx:else>隔断墙有龙骨</radio>
+                        </label>
+                    </view>
+                </radio-group>
+            </view>
+
+            <view class="item">
+                目标教室长
+                <input class="content" type='digit' value="{{info.room_long}}" name="room_long" placeholder="请输入目标教室长(单位:米)" placeholder-style='color:#C4C4C4'/>
+                 <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item">
+                目标教室宽
+                <input class="content" type='digit' value="{{info.room_wide}}" name="room_wide" placeholder="请输入目标教室宽(单位:米)" placeholder-style='color:#C4C4C4'/>
+                 <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item">
+                目标教室所在楼层
+                <input class="content" type="number" value="{{info.room_floor}}" name="room_floor" placeholder="请输入目标教室所在楼层" placeholder-style='color:#C4C4C4'/>
+                <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item">
+                生源数量
+                <input class="content" type="number" value="{{info.students}}" name="stu_num" placeholder="请输入机构现有生源数量" placeholder-style='color:#C4C4C4'/>
+                <image mode="widthFix" class="star" src="../../images/star_icon.png"></image>
+            </view>
+
+            <view class="item age_wrap">
+                现在生源年龄段
+                <checkbox-group bindchange="checkboxChange">
+                    <view class="radio_wrap">
+                        <label>
+                            <checkbox name='age_range' value='0-3岁' wx:if="{{info.one==1}}" checked="true">0-3岁</checkbox>
+                            <checkbox name='age_range' value='0-3岁' wx:else>0-3岁</checkbox>
+                        </label>
+                        <label>
+                            <checkbox name='age_range' value='3-6岁' wx:if="{{info.two==1}}" checked="true">3-6岁</checkbox>
+                            <checkbox name='age_range' value='3-6岁' wx:else>3-6岁</checkbox>
+                        </label>
+                        <label>
+                            <checkbox name='age_range' value='6-12岁' wx:if="{{info.three==1}}" checked="true">6-12岁</checkbox>
+                            <checkbox name='age_range' value='6-12岁' wx:else>6-12岁</checkbox>
+                        </label>
+                        <label>
+                            <checkbox name='age_range' value='12岁以上' wx:if="{{info.four==1}}" checked="true">12岁以上</checkbox>
+                            <checkbox name='age_range' value='12岁以上' wx:else>12岁以上</checkbox>
+                        </label>
+                    </view>
+                </checkbox-group>
+            </view>
+
+            <view class="item age_wrap">
+                发票类型
+                <radio-group bindchange="invoiceChange">
+                    <view class="radio_wrap">
+                        <label>
+                            <radio name='invoice_type' value='1' wx:if="{{info.invoice_type==1}}" checked="true">增值税专用发票</radio>
+                            <radio name='invoice_type' value='1' wx:else>增值税专用发票</radio>
+                        </label>
+                        <label>
+                            <radio name='invoice_type' value='2' wx:if="{{info.invoice_type==2}}" checked="true">增值税普通发票</radio>
+                            <radio name='invoice_type' value='2' wx:else>增值税普通发票</radio>
+                        </label>
+                    </view>
+                </radio-group>
+            </view>
+        </view>
+
+        <button form-type='submit' disabled='{{sub_state}}'>提交</button>
+    </form>
+</view>

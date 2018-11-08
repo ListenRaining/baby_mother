@@ -1,0 +1,66 @@
+<view class="monologue" wx:for="{{list}}" wx:for-index= "arrIndex" wx:key="monologueArr">
+    <view class="title">
+        <image class="head_icon" src="{{item.user.avatar}}"></image>
+        <view class="name_msg">
+            <view wx:if="{{item.user_type > 0}}" class="name">
+                <label style="color:#09bb05">{{item.user.username}}</label>
+                <view class="official_icon">官方</view>
+            </view>
+            <view wx:elif="{{item.user.level == 5}}" class="name">
+                <label style="color:#09bb05">{{item.user.username}}</label>
+                <view class="identity_icon guorou">海岛居民</view>
+            </view>
+            <view wx:elif="{{item.user.level == 4}}" class="name">
+                <label style="color:#09bb05">{{item.user.username}}</label>
+                <view class="hehuoren">美乐合伙人</view>
+            </view>
+            <view wx:else class="name">
+                <label>{{item.user.username}}</label>
+            </view>
+
+            <view class="msg">
+                <label class="time">{{item.ctime}}</label>
+                <label class="read_cnt">{{item.read_num}}人阅读</label>
+                <view wx:if="{{item.sort > 0}}" class="stick">置顶</view>
+            </view>
+        </view>
+        
+         <view data-index="{{arrIndex}}" bindtap="clickAdmire" class="admire" >
+            <image data-index="{{arrIndex}}"  class= "admire_icon" animation="{{animationArr[arrIndex].ani}}" mode="widthFix" src="{{item.is_zan?(rootRelativePath+ 'image/icon/admire_red.png'):(rootRelativePath+ 'image/icon/admire_gray.png')}}"></image>
+            <label class="admire_cnt">{{list[arrIndex].zan_num}}</label>
+         </view>
+    </view>
+    <view wx:if="{{item.video_url == ''}}" class="content" bindtap="toDetail" id="{{item.id}}" data-user_type="{{item.user_type}}" data-key="{{arrIndex}}">
+    <view class="content">
+      <label class="content_title">{{item.title}}</label>
+      <text class="text"></text>
+    </view>
+
+    <view>
+      <view class="imageContent">
+        <image wx:if="{{item.thumb_img.length > 1}}" wx:for="{{item.thumb_img}}" wx:for-item="imageItem" src="{{baseurl}}{{imageItem}}" data-src="{{baseurl}}{{imageItem}}" data-index="{{arrIndex}}" mode="aspectFill" class="{{imageClassName[item.thumb_img.length- 1]}}"
+          wx:key="mediaArr"></image>
+        <image wx:if="{{item.thumb_img.length == 1}}" wx:for="{{item.thumb_img}}" wx:for-item="imageItem" src="{{baseurl}}{{imageItem}}" data-src="{{baseurl}}{{imageItem}}" data-index="{{arrIndex}}" mode="widthFix" class="image_when_one" wx:key="mediaArr"></image>
+      </view>
+
+    </view>
+  </view>
+  <view wx:else>
+    <view class="content" class="content" bindtap="toDetail" id="{{item.id}}" data-user_type="{{item.user_type}}" data-key="{{arrIndex}}">
+      <label class="content_title">{{item.title}}</label>
+      <text class="text"></text>
+    </view>
+
+    <view>
+      <view class="imageContent">
+        <video class="vid" objectFit="cover" src="{{baseurl}}{{item.video_url}}"></video>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="zhezhao" style='display:{{display}}'></view>
+<view class="show" style='display:{{display}}'>
+    <view class='txt'>授权后才可以进行操作哦!</view>
+    <button open-type="getUserInfo" bindgetuserinfo="getuser" class="authorization">微信一键登录</button>
+</view>

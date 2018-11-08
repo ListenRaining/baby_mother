@@ -1,0 +1,4 @@
+<view class="container">
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+    <button type="primary" id="{{type}}" bindtap="changeP">切换产品</button>
+</view>

@@ -1,0 +1,62 @@
+<import src="../../../utils/wxParse/wxParse.wxml" />
+<view class="body">
+    <view class='content_bg'>
+        <image mode="widthFix" wx:if="{{info.title_image}}" src="{{info.title_image}}"></image>
+        <image mode="widthFix" wx:else src="../../../image/list_img.jpg"></image>
+    </view>
+    <view class='content_list'>
+        <view class='input_con'>
+            <label class="title">活动时间</label>
+            <label class="content">{{info.starttime}} ~ {{info.endtime}}</label>
+        </view>
+
+        <!--<view class='input_con input_con1' wx:if="{{info.limit_num>0}}">
+            <label class="title">活动人数</label>
+            <label class="content">{{info.limit_num}}人</label>
+        </view>
+
+        <view class='input_con input_con1' wx:else>
+            <label class="title">活动人数</label>
+            <label class="content">不限</label>
+        </view>-->
+
+        <view class='input_con input_con1' wx:if="{{info.id == 19}}">
+            <label class="title">活动地址</label>
+            <label class="content" bindtap='location' data-lat="39.990310" data-lng="116.492650" data-name="中国电影导演中心"><image class="activity_icon" src="../../../image/distance_icon1.jpg"></image> 北京市朝阳区酒仙桥北路9号中国电影导演中心</label>
+        </view>
+
+        <view class='input_con'>
+            <label class="title">活动费用</label>
+            <label wx:if="{{price>0 && price!=info.price}}" class="content cost">￥{{price}} <label class="content_old">￥{{info.price}}</label></label>
+            <label wx:else class="content cost">￥{{info.price}}</label>
+        </view>
+
+        <view class='input_con activity'>
+            <view wx:if="{{info.video_url}}" class='video'>
+                <video objectFit="fill" style="width:100%;" src="{{info.video_url}}"></video>
+            </view>
+            <label class="content activity_info">
+             <template is="wxParse" data="{{wxParseData:contents.nodes}}"/> 
+            <!-- {{info.contents}} -->
+            </label>
+        </view>
+    </view>
+
+    <view class='float_con'>
+        <view class='float_icon'>
+            <view class='float_kf'><button class="icon_btn" open-type="contact"><image  src="../../../image/pro_kf.png"></image></button></view>
+            <view wx:if="{{info.id == 18}}" class='float_wx2'><button class="icon_btn" open-type="share"><image  src="../../../image/pro_wx.png"></image></button></view>
+            <view wx:else class='float_wx'><button class="icon_btn" open-type="share"><image  src="../../../image/pro_wx.png"></image></button></view>
+            <view wx:if="{{info.id == 19}}" class='float_pyq'><button class='icon_btn' data-id="{{act_id}}" bindtap='gotoGene'><image src="../../../image/pro_pyq.png"></image></button></view>
+        </view>
+        <view class='float_btn' wx:if="{{info.status == 1}}">
+            <button class='button' disabled>活动已结束</button>
+        </view>
+        <view class='float_btn' wx:elif="{{info.status == 2}}">
+            <button class='button' disabled>报名已满额</button>
+        </view>
+        <view class='float_btn' wx:else>
+            <button class='button' bindtap="goBuy" type='submit'>立即报名</button>
+        </view>
+    </view>
+</view>

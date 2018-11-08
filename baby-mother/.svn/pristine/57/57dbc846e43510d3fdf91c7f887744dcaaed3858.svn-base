@@ -1,0 +1,98 @@
+<view class="activity_body" wx:if="{{info_type==1}}">
+    <view class="activity_info">
+        <view class="content">
+            <view class='item_content'>
+                <label class="item_content_left">活动名称</label>
+                <label class="item_content_right">{{info.act_info.name}}</label>
+            </view>
+            <view class='item_content'>
+                <label class="item_content_left">活动周期</label>
+                <label class="item_content_right">{{info.ins_act_info.l_starttime}}~{{info.ins_act_info.l_endtime}}</label>
+            </view>
+            <view class='item_content' wx:if="{{info.ins_info}}">
+                <label class="item_content_left">机构名称</label>
+                <label class="item_content_right">{{info.ins_info.ins_name}}</label>
+            </view>
+            <view class='item_content' wx:if="{{info.applyinfo.is_pay==0}}">
+                <label class="item_content_left">订单状态</label>
+                <label class="item_content_right no_pay">未支付</label>
+            </view>
+            <view class='item_content' wx:elif="{{info.applyinfo.is_pay==1}}">
+                <label class="item_content_left">订单状态</label>
+                <label class="item_content_right no_pay">已支付</label>
+            </view>
+            <view class='item_content'>
+                <label class="item_content_left">订单金额</label>
+                <label class="item_content_right">{{info.applyinfo.sale_price}}元</label>
+            </view>
+            <view class='item_content'>
+                <label class="item_content_left">手机号</label>
+                <label class="item_content_right">{{info.userinfo.mobile}}</label>
+            </view>
+            <view class='item_content' wx:if="{{info.baby_name_str}}">
+                <label class="item_content_left">报名宝宝</label>
+                <label class="item_content_right">{{info.baby_name_str}}</label>
+            </view>
+            <view class='item_content' wx:if="{{info.applyinfo.act_id == 19}}">
+                <label class="item_content_left">场次时间</label>
+                <label class="item_content_right">{{info.applyinfo.comment}}</label>
+            </view>
+            <view class='item_content' wx:elif="{{info.applyinfo.join_time}}">
+                <label class="item_content_left">场次时间</label>
+                <label class="item_content_right">{{info.applyinfo.join_time}}</label>
+            </view>
+            <view class='item_content' wx:if="{{info.applyinfo.act_id == 19 && info.applyinfo.is_pay==1}}">
+                <label class="item_content_left">电子兑换码</label>
+                <label class="item_content_right">{{info.applyinfo.code}}</label>
+            </view>
+        </view>
+    </view>
+
+    <view class="submit_form" wx:if="{{info.go_pay == 2}}">
+        <button class='button' disabled>活动已结束</button>
+    </view>
+    <view class="submit_form" wx:elif="{{info.go_pay == 3}}">
+        <button class='button' disabled>名额已满</button>
+    </view>
+    <view class="submit_form" wx:elif="{{info.applyinfo.sale_price>0 && info.go_pay == 1}}">
+        <button class='button' type='submit' bindtap="toast" id="{{info.applyinfo.act_id}}">去支付</button>
+    </view>
+</view>
+
+<view class="activity_body" wx:if="{{info_type == 2}}">
+<view class="activity_info">
+        <view class="content">
+            <view class='item_content'>
+                <label class="item_content_left">产品名称</label>
+                <label class="item_content_right">{{info.name}}</label>
+            </view>
+            <view wx:if="{{info.ins_name}}" class='item_content'>
+                <label class="item_content_left">机构名称</label>
+                <label class="item_content_right">{{info.ins_name}}</label>
+            </view>
+            <view wx:if="{{info.ins_address}}" class='item_content'>
+                <label class="item_content_left">机构地址</label>
+                <label class="item_content_right">{{info.ins_address}}</label>
+            </view>
+            <view wx:if="{{info.class}}" class='item_content'>
+                <label class="item_content_left">上课时间</label>
+                <label class="item_content_right">{{info.class}}</label>
+            </view>
+            <view class='item_content'>
+                <label class="item_content_left">订单号</label>
+                <label class="item_content_right">{{info.orderid}}</label>
+            </view>
+            <view class='item_content'>
+                <label class="item_content_left">订单金额</label>
+                <label class="item_content_right">{{info.price}}元</label>
+            </view>
+            <view class='item_content item_contract' wx:if="{{info.viewpdf_url}}" bindtap='gotoContract' data-orderid='{{info.orderid}}'>
+              查看合同
+            </view>
+            <view class='item_content cen'>
+                我已阅读并同意
+                <label class='ux' bindtap='gotoAgree'>《菲蓓尔魔法乐理用户协议》</label>
+            </view>
+        </view>
+    </view>
+</view>

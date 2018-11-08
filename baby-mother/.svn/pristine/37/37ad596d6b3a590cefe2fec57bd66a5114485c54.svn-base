@@ -1,0 +1,117 @@
+<view class="content_wrap" wx:if="{{info.level>0}}"> 
+    <view class="NewcontentImage" bindtap="goMyInfo">
+            <image class="back" mode= "widthFix" src="{{rootRelativePath+ 'image/my_img.jpg'}}"></image>
+            <view class="head">
+                <image class="headIcon" wx:if="{{info.avatar}}" src="{{info.avatar}}"></image>
+                <image class="headIcon" wx:else src="{{rootRelativePath+'image/peo_img.png'}}"></image>
+                <view>{{info.name}}</view>
+                <view class="mobile_box">
+                {{info.mobile}}
+                </view>
+            </view>
+            <!-- <image src="{{rootRelativePath+'image/icon/message.png'}}"></image> -->
+    </view>
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:key="{{list}}" bindtap="click" data-index= "{{index}}">
+            <image class="icon" mode= "widthFix" src="{{rootRelativePath+ item.icon}}"></image>
+
+            <label class="title">{{item.title}}</label>
+            <label class="content_right" wx:if="{{item.cnt != null}}">{{item.cnt}}</label>
+            <label class="content" wx:else>{{item.cnt}}</label>
+
+            <view class="link" wx:if="{{item.linkInconIsPoint}}">
+                <view wx:if="{{item.cnt != null}}" class="point_icon" ></view>
+                <view wx:else class="point_icon_rigth" ></view>
+            </view>
+
+            <view class="link" wx:else>
+                <image wx:if="{{item.cnt != null}}" class="arrow" mode= "widthFix" src="{{rootRelativePath+ 'image/arrow.png'}}"></image>
+                <image wx:else class="arrow_right" mode= "widthFix" src="{{rootRelativePath+ 'image/arrow.png'}}"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="clickactivity" data-cid="{{class_id}}" wx:if="{{info.dis_classModel==1}}">
+            <image class="icon" mode= "widthFix" src="../../../image/icon/class.png"></image>
+            <label class="title">班级</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view wx:if="{{info.sign_flag >= 1}}" class="item" bindtap="gotosign" data-id="{{info.sign_flag}}">
+            <image class="icon" mode= "widthFix" src="../../../image/icon/contacts.png"></image>
+            <label class="title">协议</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="clickCoupons" wx:if="{{test_coupons==1}}">
+            <image class="icon" mode= "widthFix" src="../../../image/icon/class.png"></image>
+            <label class="title">活动验券</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+    </view>
+</view>
+
+<view wx:else>
+    <view class="contentImage">
+        <image mode= "widthFix" src="{{rootRelativePath+ 'image/my_img.jpg'}}"></image>
+        <view class="head">
+            <image class="headIcon" wx:if="{{info.avatar}}" src="{{info.avatar}}"></image>
+            <image class="headIcon" wx:else src="{{rootRelativePath+'image/peo_img.png'}}"></image>
+            {{info.name}}
+        </view>
+        <!-- <image class="message" src="{{rootRelativePath+'image/icon/message.png'}}"></image> -->
+    </view>
+
+    <view class="list">
+        <view class="item" wx:for="{{list2}}" wx:key="{{list2}}" bindtap="click" data-index= "{{index}}">
+            <image class="icon" mode= "widthFix" src="{{rootRelativePath+ item.icon}}"></image>
+            <label class="title">{{item.title}}</label>
+            <label class="content_right" wx:if="{{item.cnt != null}}">{{item.cnt}}</label>
+            <label class="content" wx:else>{{item.cnt}}</label>
+            <image wx:if="{{item.cnt != null}}" class="arrow" mode= "widthFix" src="{{rootRelativePath+ 'image/arrow.png'}}"></image>
+            <image wx:else class="arrow_right" mode= "widthFix" src="{{rootRelativePath+ 'image/arrow.png'}}"></image>
+        </view>
+
+        <view class="item" bindtap="clickactivity" data-cid="{{class_id}}" wx:if="{{info.dis_classModel==1}}">
+            <image class="icon" mode= "widthFix" src="../../../image/icon/class.png"></image>
+            <label class="title">班级</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="clickOutbound" wx:if="{{is_outbound==1}}">
+            <image class="icon" mode= "widthFix" src="../../../image/icon/class.png"></image>
+            <label class="title">外访机构</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+
+        <view class="item" bindtap="clickCoupons" wx:if="{{test_coupons==1}}">
+            <image class="icon" mode= "widthFix" src="../../../image/icon/class.png"></image>
+            <label class="title">活动验券</label>
+            <label class="content"></label>
+            <view class="link">
+                <image class="arrow_right" mode= "widthFix" src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="zhezhao" style='display:{{display}}'></view>
+<view class="show" style='display:{{display}}'>
+    <view class='txt'>授权后才可以进行操作哦!</view>
+    <button open-type="getUserInfo" bindgetuserinfo="getuser" class="authorization">微信一键登录</button>
+</view>

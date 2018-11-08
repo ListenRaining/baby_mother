@@ -1,0 +1,76 @@
+<view class="order_warp" wx:if="{{is_show>0}}">
+	<form bindsubmit="formSubmit" bindreset="formRes">
+		<scroll-view scroll-y enable-back-to-top="true">
+            <view class='input_con'>
+                <label>姓名</label>
+                <input name="username" value="{{info.username}}" placeholder="请输入姓名" placeholder-style="color:#c4c3c0"/>
+            </view>
+
+            <view class='input_con input_con4' wx:if="{{mobile}}">
+                <label>手机号</label>
+                <input name="mobile" type="number" maxlength="11" value="{{mobile}}" placeholder="请输入手机号" placeholder-style="color:#c4c3c0" disabled="true" />
+            </view>
+
+            <view wx:else>
+                <view class='input_con input_con1'>
+                    <label>手机号</label>
+                    <input name="mobile" type="number" maxlength="11" value="{{mobiles}}" placeholder="请输入手机号" placeholder-style="color:#c4c3c0" bindinput="mobileInputEvent" />
+                    <button class="{{selected1?'element_show':'element_hidden'}}" bindtap="getphone">获取验证码</button>
+                    <button class="{{selected?'element_show':'element_hidden'}}">{{second}}s后重新获取</button>
+                </view>
+                <view class='input_con'>
+                    <label>短信验证码</label>
+                    <input placeholder="请输入验证码" name="code" type="number" maxlength="6" placeholder-style="color:#c4c3c0"/>
+                </view>
+            </view>
+
+            <view class='input_con'>
+                <label>获取定位</label>
+                <input name="address" class="address" value="{{address}}" placeholder-style="color:#c4c3c0" disabled="true" />
+                <button class="getAdress" bindtap="getAddress">点击获取</button>
+            </view>
+
+            <view class='input_con orderNumber'>
+                <label>交易号</label>
+                <input name="orderid" class="wxr" placeholder="请输入交易号" placeholder-style="color:#c4c3c0"/>
+            </view>
+
+            <view class= "checkNode" wx:if="{{memberList.length>0}}">
+                <view class='input_con7'>
+                    <label class='label_chose'>选择上课宝宝</label>
+                     <radio-group bindchange="bindRadioChange" name="mid" class="checkboxs">
+                         <label wx:for="{{memberList}}" wx:key="{{memberList}}">
+                             <radio class='rar' value="{{item.mid}}"/>{{item.name}}
+                         </label>
+                     </radio-group>
+                </view>
+            </view>
+
+            <!--没有宝宝信息，显示宝宝输入区域-->
+            <view wx:else>
+                <view class='input_con'>
+                    <label>宝宝姓名</label>
+                    <input name="babyname" value="{{babyname}}" auto-focus placeholder="请输入宝宝姓名" placeholder-style="color:#c4c3c0"/>
+                </view>
+                <view class='input_con'>
+                    <label>宝宝性别</label>
+                    <picker bindchange="bindGenderChange" name="babygender" value="{{genderIndex}}" range="{{gender}}" class='picker_con'>
+                        <view class="picker">
+                            {{gender[genderIndex]}}
+                        </view>
+                    </picker>
+                </view>
+                <view class='input_con'>
+                    <label>宝宝出生日期</label>
+                    <picker mode="date" bindchange="bindBirthdayChange" value="{{birthday}}" name="birthday">
+                        <view class="picker">{{birthday}}</view>
+                    </picker>
+                </view>
+            </view>
+		</scroll-view>
+		<input hidden="true" name="longitude" value="{{longitude}}" />
+		<input hidden="true" name="latitude" value="{{latitude}}" />
+		<input hidden="true" name="memberLength" value="{{memberLength}}" />
+        <button class='submit_form' formType="submit">提交</button>
+	</form>
+</view>

@@ -1,0 +1,117 @@
+/* publish_article.wxss */
+
+page{
+  background-color: #f0eff4;
+}
+
+
+.content{
+    padding: 50rpx 40rpx;
+    background-color: #fff;
+}
+textarea{
+    box-sizing:border-box;
+    width: 100%;
+    height: 260rpx;
+    border: solid 1rpx #a3a3a3;
+    padding: 7rpx 10rpx;
+}
+.imageNode{ 
+    padding: 25rpx 0 28rpx  0;
+    min-height: 432rpx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content:flex-start;
+}
+
+.imageNodeOther{
+    padding: 45rpx 0 28rpx  0;
+    min-height: 432rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-content:flex-start;
+}
+
+.addImage{
+    width: 190rpx;
+    height: 190rpx;
+}
+
+.addImageOther{
+    width: 190rpx;
+    height: 190rpx;
+    margin-left: 40rpx;
+}
+
+.imageView
+{
+    position: relative;
+    margin-bottom: 40rpx;
+}
+image{
+     width: 190rpx;
+     height: 190rpx; 
+}
+icon{
+    position: absolute;
+    left: 170rpx;
+}
+
+
+.submit{
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #3fa734;
+    color: #fff;
+}
+
+
+.contribute{
+    display: block;
+    margin-top: 25rpx;
+}
+
+checkbox{
+    transform:scale(.7);
+    border-radius: 5rpx;
+    outline: none;
+}
+.contribute{
+    display: flex;
+    color: #aaaaaa;
+    align-items: center;
+}
+.contribute label
+{
+    color: #000;
+    margin-right: 20rpx;
+    font-size: 23rpx;
+}
+
+.picker {
+  padding: 0;
+  margin-left: 10rpx;
+  margin-top: -5rpx;
+  box-sizing: border-box;
+  width: 200rpx;
+  height: 43rpx;
+  border: solid 1rpx #959595;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10rpx;
+  font-size: 25rpx;
+  color: #000000; 
+}
+
+.picker .arrow{
+  position: absolute;
+  right: 375rpx;
+  top:370rpx;
+}
+
+.arrow {
+  width: 23rpx;
+}

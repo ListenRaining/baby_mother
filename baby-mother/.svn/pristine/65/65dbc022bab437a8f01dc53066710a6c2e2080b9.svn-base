@@ -1,0 +1,153 @@
+page{
+  background: #f6f6f9;
+}
+
+.activity_info {
+  width: 100%;
+  margin-top: 26rpx;
+  background: #fff;
+  overflow: hidden;
+}
+
+.activity_title {
+  margin-top: 52rpx;
+}
+
+.title {
+  font-size: 14px;
+}
+
+.item {
+  width: 100%;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+}
+
+.item-ico {
+  flex: 20%;
+}
+
+.item-right {
+  flex: 70%;
+}
+
+.activity_ico {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+}
+
+.activity_name {
+  display: block;
+}
+
+.input_goods {
+  font-size: 33rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.input_price {
+  color: #cbcac8;
+  display: flex;
+  font-size: 28rpx;
+}
+
+.input_cost {
+  color: #d82733;
+  margin-left: 4px;
+}
+
+.item_content {
+  align-items:center;
+  padding-top: 32rpx;
+  border-top: 1px solid #dededc;
+  margin-right: 10rpx;
+  margin-bottom: 32rpx;
+  display: flex;
+  width: 100%;
+  font-size: 32rpx;
+}
+
+.item_content_left {
+  flex: 25%;
+}
+
+.item_content_right {
+  flex: 80%;
+  margin-left: 14rpx;
+}
+
+.item_contract {
+  font-size: 32rpx;
+  text-decoration-line: underline;
+  color: #7387a8;
+}
+
+.user_info {
+  width: 100%;
+  margin-top: 26rpx;
+  margin-bottom: 26rpx;
+  background: #fff;
+  padding-top: 26rpx;
+}
+
+.user_info_item_content {
+  padding-top: 35rpx;
+  padding-bottom: 35rpx;
+  display: flex;
+  border-bottom: 1px solid #dededc;
+}
+
+.user_info_left {
+  font-size: 28rpx;
+  flex: 30%;
+}
+
+.user_info_right {
+  flex: 60%;
+  /*margin-right: 32rpx;*/
+  font-size: 28rpx;
+  text-align:right;
+}
+
+.content {
+  width: 91.5%;
+  margin: 0 auto;
+}
+
+.submit_form{
+  margin-top: 21rpx;
+}
+
+.submit_form .button{
+  height:90rpx;
+  width: 687rpx;
+  background:#3db049;
+  color:#fff;
+  text-align:center;
+  line-height:90rpx;
+  font-weight: bold;
+}
+
+.no_pay{
+  color: #d82733;
+}
+
+.map{
+  width: 30rpx;
+  height: 30rpx;
+  float: left;
+  margin-right: 10rpx;
+  margin-top:5rpx;
+}
+.direct{
+  width: 20rpx;
+  height: 26rpx;
+  float: rigth;
+}
+
+.ux {
+  color: #7387a8;
+}

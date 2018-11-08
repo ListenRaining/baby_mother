@@ -1,0 +1,48 @@
+<!--member_center.wxml-->
+<view class="content_wrap">
+    <image wx:if="{{info.big_img}}" class="banner_img" mode="widthFix" src="{{info.big_img}}"> </image>
+     <image wx:else class="banner_img" mode="widthFix" src="../../../images/ins_default.jpg"> </image>
+    <view class="ul">
+        <view class="item">
+            会员中心授权ID
+            <label class="msg">{{info.auth_code}}</label>
+        </view>
+        <view class="item">
+            会员中心名称
+            <label class="msg">{{info.ins_name}}</label>
+        </view>
+        <view class="item" wx:if="{{location == 0}}" bindtap='checkLocation'>
+            <label class='exadr'>会员中心地址</label>
+            <label class="msg adr" style="color:#9b9b9b;">{{info.address}}</label>
+            <image class="arrow" mode="widthFix" src="../../../images/gray_arrow.png"></image>
+        </view>
+        <view wx:if="{{location == 1}}" class="item">
+            <label class='exadr'>会员中心地址</label>
+            <label class="msg adr">{{info.address}}</label>
+        </view>
+        <view class="item">
+            已授权产品
+            <label class="msg">{{info.auth_product}}</label>
+        </view>
+        <view class="item">
+            营业时间
+            <label class="msg">{{info.work_time}}</label>
+        </view>
+
+        <view class="item">
+            市场经理
+            <label class="msg">{{info.manager}}</label>
+        </view>
+
+        <view class="item">
+            联系电话
+            <label class="msg">{{info.manage_mobile}}</label>
+        </view>
+
+        <!-- <view class="item" bindtap='getQrcode'>
+            会员中心二维码
+            <label class="msg"></label>
+            <image class="arrow" mode="widthFix" src="../../../images/gray_arrow.png"></image>
+        </view> -->
+    </view>
+</view>

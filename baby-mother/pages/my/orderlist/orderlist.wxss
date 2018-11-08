@@ -1,0 +1,57 @@
+/**my.wxss**/
+.my_wrap{width:100%;overflow:hidden;display:flex;flex-direction:column;align-items:center; 
+justify-content:space-between;box-sizing:border-box;font-family:"iconfont" !important;background:#eee;padding-bottom:14px;}
+.my_img,.my_img image{width:100%;height:144px;}
+.my_img{width:100%;position:relative;}
+.my_img image{position:absolute}
+.my_mess{width:68px;height:96px;position:absolute;top:35px;left:155px;}
+.my_img .my_peo{position:absolute;width:68px;height:68px;border-radius:68px;background:rgba(219,219,219,0.6);}
+.my_img .my_peo image{color:#fff;position:absolute;width:60px;height:60px;border-radius:60px;top:4px;left:4px;}
+.my_img .my_name{width:168px;text-align:center;color:#fff;font-size:14px;position:absolute;top:72px;left:-50px;}
+/**内容**/
+.content_wrap{width:90%;height:auto;margin-top:14px;}
+.content_scroll{width:100%;height:auto;}
+.content_main{width:100%;height:95px;background:#fff;border-radius:4px;display:flex;
+justify-content:center;padding:12px 12px;box-sizing:border-box}
+.content_main .content_flex1{flex:25%;width:84px;height:70px;font-size:11px;color:#858585;}
+.content_main .content_flex1 image{width:84px;height:70px;border-radius:4px;}
+.content_main .content_flex2{flex:70%;font-size:12px;padding:2px 5px;color:#6c6c6c;}
+.content_flex2 .txt1{color:#040504;font-size:28rpx;margin-bottom:3px;}
+.content_flex2 .txt2{margin-right:0px;}
+.content_flex2 .txt3{margin:2px 0 0 0px;}
+.content_main1{position:relative;background:rgba(255,255,255,0.8);}
+.content_main1 .content_flex2::after{content:"\e848";position:absolute;top:-1px;right:0;color:#84d97c;font-size:46px;border-radius:0 4px 0 0;}
+.used{position:absolute;top:3px;right:1px;color:#fff;z-index:2;font-weight:900;font-size:11px;line-height:2;}
+
+.register{
+  width: 100%;
+  height: 1334rpx;
+  overflow: hidden;
+  background-color: #f0eff4;
+}
+
+.hint_icon{
+  height: 445rpx;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 200rpx;
+}
+
+.hint_icon image{
+  display: block;
+  margin-top: 58rpx;
+  width: 170rpx;
+  height: 155rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hint_icon .hint_content view{
+  /*word-break: break-all;*/
+  /*text-indent:25px;*/
+  /*letter-spacing:0rpx;*/
+  font-size: 30rpx;
+  margin-top: 36rpx;
+  color: #6e6e6b;
+}

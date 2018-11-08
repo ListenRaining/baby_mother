@@ -1,0 +1,116 @@
+/* wallet.wxss */
+page{
+  background-color: #f8f8f8;
+}
+
+.bag {
+  margin: 60rpx 50rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content_icon{
+    width: 309rpx;
+    height: 160rpx;
+    margin:30rpx 0 30rpx 20rpx;
+}
+.title{
+    font-size: 32rpx;
+}
+
+.gold{
+    display: flex;
+    margin-top: 16rpx;
+    align-items: center;
+    font-size: 46rpx;
+    font-weight:bold;
+}
+
+.gold_Icon
+{
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 11rpx;
+}
+
+button {
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-top: 70rpx;
+    margin: 80rpx 50rpx 125rpx 50rpx;
+    margin-bottom: 125rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #5fb157;
+}
+
+.operate{
+    margin-top:40rpx;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1rpx #f8f8f8;
+    margin: 25rpx 33rpx;
+    padding-bottom: 33rpx;
+    font-size:28rpx;
+}
+
+.item2{
+    display: flex;
+    align-items: center;
+    padding: 0 33rpx 100rpx 33rpx;
+    font-size:28rpx;
+}
+
+.money{
+    color:#808080;
+}
+
+.arrow{
+    width: 13rpx;
+    margin-left: auto;
+}
+
+.mori{
+    margin-left: auto;
+    margin-right: 20rpx;
+    color: #9b9b9b;
+}
+
+.arrows{
+    width: 13rpx;
+}
+
+.je{
+    color:red;
+    margin-left: auto;
+}
+
+.jet{
+    color:#aaaaaa;
+    margin-left: auto;
+}
+
+.detail{
+    align-items: center;
+    border-bottom: solid 1rpx #d5d5d5;
+    font-size:26rpx;
+    color:#1E90FF;
+    position:fixed;
+    padding-bottom:60rpx;
+    bottom: -1rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.question{
+    padding-left: 16rpx;
+}

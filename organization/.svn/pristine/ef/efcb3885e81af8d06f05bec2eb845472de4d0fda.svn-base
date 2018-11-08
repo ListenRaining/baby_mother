@@ -1,0 +1,375 @@
+<!--pages/teamwork/information.wxml-->
+
+<form bindsubmit='formSubmit' report-submit='true' data-submitType='{{types}}' data-province="{{province ? province : myCityArray[0][myCityIndex[0]]['id']}}" data-city="{{city ? city : myCityArray[1][myCityIndex[1]]['id']}}" data-area="{{area ? area : myCityArray[2][myCityIndex[2]]['id']}}">
+
+<!--个人-->
+<block wx:if="{{types == 'personal'}}">
+      <view class="person_content">
+
+      <view class="person_top_text">
+        <view class='distance'> 个人基本信息</view>      
+        
+      </view>
+
+          <view class="person_li verificationLi">
+                  <label class= "person_title">联系人</label>
+                  <input class= "person_Number fontcolor" placeholder-class="phcolor" bindinput="get_Username"  placeholder="请输入6个字符以内的字符" name= "username"  value='{{username}}'/>
+          </view>
+
+          <view class="person_li phoneNumLi" >
+              <label class="person_title">联系电话</label>
+              <input class="person_Number fontcolor" type="number" placeholder-style="color:#88878f" name="mobile" value="{{mobile}}" disabled="true"/>
+          </view>
+      </view>
+</block>
+
+<!--机构-->
+
+<block wx:if="{{types == 'organization'}}">
+
+  <view class="content_wrap" >
+        <view class="top_text">
+         <view class='distance'> 机构基本信息</view>   
+        </view>
+  
+            <view class="li verificationLi">
+              <label class= "title">机构名称</label>
+              <input class= "Number fontcolor"  placeholder-class="phcolor" placeholder-class="phcolor" bindinput="get_Ins_name"   placeholder="请输入机构名称" name="ins_name" value="{{ins_name}}"/>
+            </view>
+
+            <view class="li verificationLi">
+                  <label class= "title">机构类型</label>
+                  <picker class="Number" style="color:{{typecolor}};" placeholder="请输入机构类型" bindchange="bindTypeChange" value="{{typeSelect[typeIndex]}}" name="ins_types" range="{{typeSelect}}">
+                      <view class="picker">{{typeSelect[typeIndex]}}</view>
+                  </picker>
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+<!--
+          <view class="li verificationLi">
+            <label class= "title">所在地区:</label>
+            <picker class= "Number" placeholder-class="phcolor" placeholder="省份 城市 县区" mode="region" bindchange="bindProvinceChange"  name="province" value="{{info.province ? info.province : ''}}" custom-item="{{customItem}}">
+                <view class="picker">
+                   <block wx:if='{{info.province}}'>{{info.province[0]}} {{info.province[2]}}</block><block wx:else> {{province[0] ? province[0] : '省份'}} {{province[1] ? province[1] : '城市' }} {{province[2] ? province[2] : '区县'}}</block>
+                </view>
+            </picker>
+            <view class='top_person_2_flex1'>
+              <image src="../../images/icon-play/arrow.png"></image>
+            </view> 
+          </view>
+-->
+
+
+            <view class="li verificationLi">
+              <label class= "title">所在地区:</label>
+              <picker class= "Number" placeholder-class="phcolor" style="color:{{provincecolor}};"   mode="multiSelector" bindchange="bindProvinceChange"  data-province="{{province ? province : myCityArray[0][myCityIndex[0]]['id']}}" data-city="{{city ? city : myCityArray[1][myCityIndex[1]]['id']}}" data-area="{{area ? area : myCityArray[2][myCityIndex[2]]['id']}}"  bindcolumnchange="bindMyCityPickerColumnChange" name="province" value="[{{myCityArray[0][myCityIndex[0]]['id']}},{{myCityArray[1][myCityIndex[1]]['id']}},{{myCityArray[2][myCityIndex[2]]['id']}}]"    range-key="name" range="{{myCityArray}}">
+               
+              <view class="weui-input" >
+               <block wx:if='{{myCityArray}}' >
+               {{provinceName ? provinceName : !province ? myCityArray[0][myCityIndex[0]]['name'] : sheng }}，
+               {{cityName ? cityName : !city ? myCityArray[1][myCityIndex[1]]['name'] : shi}}，
+               {{areaName ? areaName : !area ? myCityArray[2][myCityIndex[2]]['name'] : qu}}
+               </block>
+               <block wx:else > 省份 城市 区县</block>
+              </view>
+              </picker>
+              <view class='top_person_2_flex1'>
+                <image src="../../images/icon-play/arrow.png"></image>
+              </view> 
+            </view>
+
+        
+            <view class="li verificationLi">
+              <label class= "title">详细地址</label>
+              <input class= "Number fontcolor" placeholder-class="phcolor" placeholder="街道门牌信息" bindinput="get_Address" name="address" value="{{address}}"/>
+            </view>
+            
+
+            <view class="li verificationLi">
+                  <label class= "title">机构层高</label>
+                
+                  <input class= "Number fontcolor" placeholder-class="phcolor" placeholder="请输入机构层高" bindinput="get_Ins_high" name= "ins_high" value='{{ins_high}}'/>
+                  <view class='top_person_2_flex1 '>
+                      m
+                  </view>
+            </view>
+
+            <view class="li verificationLi">
+                  <label class= "title">总面积</label>
+
+                  <picker class="Number" style="color:{{areacolor}};" placeholder="请选择机构总面积" bindchange="bindAreaChange"  value="{{ins_areaSelect[ins_areaIndex]}}" name="ins_area" range="{{ins_areaSelect}}">
+                      <view class="picker">{{ins_areaSelect[ins_areaIndex]}}</view>
+                  </picker>
+                  
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+             <view class="li verificationLi">
+                  <label class= "title">场地性质</label>
+                  <picker class="Number" style="color:{{sitecolor}};" placeholder="请选择场地性质" bindchange="bindSitepropertiesChange" value="{{site_propertiesSelect[site_propertiesIndex]}}" name="site_properties" range="{{site_propertiesSelect}}">
+                      <view class="picker">{{site_propertiesSelect[site_propertiesIndex]}}</view>
+                  </picker>
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+            <block wx:if="{{show_leasehold || site_propertiesSelect[site_propertiesIndex] =='租赁'}}">
+              <view class="li verificationLi">
+                    <label class= "title">租赁期</label>
+                    <input class= "Number fontcolor" placeholder-class="phcolor" placeholder="请输入租赁期"  bindinput="get_Leasehold" name= "leasehold" value='{{leasehold}}'/>
+                    <view class='top_person_2_flex1 '>
+                        <text>年</text>
+                    </view>
+              </view>
+            </block>
+
+            <view class="li verificationLi">
+                  <label class= "title">发票类型</label>
+                  <picker class="Number" style="color:{{invoicecolor}};" placeholder="请选择发票类型" bindchange="bindInvoiceChange" value="{{invoice_typeIndex}}" name="invoice_type" range="{{invoice_typeSelect}}">
+                      <view class="picker">{{invoice_typeSelect[invoice_typeIndex]}}</view>
+                  </picker>
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+            <view class="li_top verificationLi">
+                  <label class= "title">经营年限</label>
+                  <picker class="Number" style="color:{{operateyearcolor}};" placeholder="请选择发票类型" bindchange="bindOperateyearChange" value="{{operateyearSelect[operateyearIndex]}}" name="operateyear" range="{{operateyearSelect}}">
+                      <view class="picker">{{operateyearSelect[operateyearIndex]}}</view>
+                  </picker>
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+            <view class="top_text_middle">
+             <view class='distance'> 机构员工信息</view></view>
+            
+            <view class="li verificationLi">
+                  <label class= "title">教务人数</label>
+                  <picker class="Number" style="color:{{educolor}};" placeholder="请选择教务或市场人数" bindchange="bindEduNumChange" value="{{edu_numSelect[edu_numIndex]}}" name="edu_num" range="{{edu_numSelect}}">
+                      <view class="picker">{{edu_numSelect[edu_numIndex]}}</view>
+                  </picker>
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+            <view class="li_top verificationLi">
+                  <label class= "title">教师人数</label>
+                  <picker class="Number" style="color:{{teacolor}};" placeholder="请选择教师人数" bindchange="bindTeaNumChange" value="{{tea_numSelect[tea_numIndex]}}" name="tea_num" range="{{tea_numSelect}}">
+                      <view class="picker">{{tea_numSelect[tea_numIndex]}}</view>
+                  </picker>
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+            <view class="top_text_middle">
+             <view class='distance'> 机构生源信息</view>
+            </view>
+            
+            <view class="li verificationLi">
+                  <label class= "title">年龄段</label>
+                  <picker class="Number" style="color:{{agecolor}};" placeholder="请选择学员人数" bindchange="bindAgestrChange" value="{{agestrSelect[agestrIndex]}}" name="agestr" range="{{agestrSelect}}">
+                      <view class="picker">{{agestrSelect[agestrIndex]}}</view>
+                  </picker>
+                
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+            <view class="li_top verificationLi">
+                  <label class= "title">人数</label>
+                  <picker class="Number" style="color:{{studentscolor}};" placeholder="请选择学员人数" bindchange="bindStudentsChange" value="{{studentsSelect[studentsIndex]}}" name="students" range="{{studentsSelect}}">
+                      <view class="picker">{{studentsSelect[studentsIndex]}}</view>
+                  </picker>
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+
+            <view class="top_text_middle">
+             <view class='distance'> 机构教室信息</view>
+            </view>
+            
+            <view class="li verificationLi">
+                  <label class= "title">教室数量</label>
+                  <picker class="Number" style="color:{{classroomcolor}};" placeholder="请选择教室数量" bindchange="bindClassRoomnumChange" value="{{classroom_numSelect[classroom_numIndex]}}" name="classroom_num" range="{{classroom_numSelect}}">
+                      <view class="picker">{{classroom_numSelect[classroom_numIndex]}}</view>
+                  </picker>
+                
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+            <view class="li verificationLi">
+                  <label class= "title">所在楼层</label>
+                  <input class= "Number fontcolor" placeholder-class="phcolor" placeholder="请输入教室所在楼层" bindinput="get_Room_floor" name= "room_floor" value='{{room_floor}}'/>
+                  <view class='top_person_2_flex1 '>
+                      <text>层</text>
+                  </view>
+            </view>
+
+            <view class="li verificationLi">
+                  <label class= "title">教室长</label>
+                  <input class= "Number fontcolor" placeholder-class="phcolor" placeholder="请输入教室长度" bindinput="get_Room_long" name= "room_long"  value="{{room_long}}" />
+                  <view class='top_person_2_flex1 '>
+                      m
+                  </view>
+            </view>
+
+            <view class="li verificationLi">
+                  <label class= "title">教室宽</label>
+                  <input class= "Number fontcolor" placeholder-class="phcolor" placeholder="请输入教室宽度" bindinput="get_Room_wide" value="{{room_wide}}" name="room_wide"  />
+                  <view class='top_person_2_flex1 '>
+                      m
+                    </view>
+            </view>
+
+
+              <view class="li verificationLi">
+                  <label class= "title">承重墙</label>
+
+                    <picker class="Number" style="color:{{wallcolor}};" placeholder="请选择承重墙类型" bindchange="bindInswalllChange" value="{{ins_wallSelect[ins_wallIndex]}}" name="ins_wall" range="{{ins_wallSelect}}">
+                      <view class="picker">{{ins_wallSelect[ins_wallIndex]}}</view>
+                  </picker>
+
+                  <!-- <input class= "Number" placeholder-class="phcolor" placeholder="请选择承重墙类型" name= "code" /> -->
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+
+        
+            <view class="li verificationLi">
+                  <label class= "title">网络</label>
+
+                  <picker class="Number" style="color:{{networkcolor}};" placeholder="请选择网络类型" bindchange="bindNetworkChange" value="{{networkSelect[networkIndex]}}" name="network" range="{{networkSelect}}">
+                      <view class="picker">{{networkSelect[networkIndex]}}</view>
+                  </picker>
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                    </view>
+            </view>
+           
+
+           <block wx:if="{{show_network || networkSelect[networkIndex] !='没有网络'}}">
+              <view class="li verificationLi">
+                    <label class= "title">带宽</label>
+                    
+                    <input class= "Number fontcolor" placeholder-class="phcolor" placeholder="请输入网络带宽" bindinput="get_Broadband" value="{{broadband}}" name="broadband" />
+                    <view class='top_person_2_flex1 '>
+                        M
+                    </view>
+              </view>
+           </block>
+
+              <view class="li verificationLi">
+                  <label class= "title">闲置时间</label>
+                  <picker class="Number" style="color:{{idlecolor}};" placeholder="请选择教室闲置时间段" bindchange="bindIdletimeChange" value="{{idle_timeSelect[idle_timeIndex]}}" name="idle_time" range="{{idle_timeSelect}}">
+                      <view class="picker">{{idle_timeSelect[idle_timeIndex]}}</view>
+                  </picker>
+                  <view class='top_person_2_flex1'>
+                      <image src="../../images/icon-play/arrow.png"></image>
+                  </view>
+            </view>
+
+
+          <view class='bottom'></view>
+          
+  </view>
+
+</block>
+
+
+
+
+
+<block wx:if="{{types == 'periphery'}}">
+<!-- 周边-->
+<view class="rim_content_wrap">
+      <view class="rim_top_text">
+      <view class='distance'> 周边基本情况</view>
+      </view>
+ 
+          <view class="rim_li verificationLi">
+            <label class= "rim_title">交通状况</label>
+
+              <picker class="rim_Number" style="color:{{transportcolor}};" placeholder="请输入实际交通状况" bindchange="bindTransportChange" value="{{transportSelect[transportIndex]}}" name="transport" range="{{transportSelect}}">
+                    <view class="picker">{{transportSelect[transportIndex]}}</view>
+              </picker>
+
+             <view class='rim_top_person_2_flex1'>
+                    <image src="../../images/icon-play/arrow.png"></image>
+            </view>
+          </view>
+
+           <view class="rim_li verificationLi">
+                <label class= "rim_title">基础设施</label>
+                 <picker class="rim_Number" style="color:{{infrascolor}};" placeholder="请输入周边基础设施" bindchange="bindInfrastructureChange" value="{{infrastructureSelect[infrastructureIndex]}}" name="infrastructure" range="{{infrastructureSelect}}">
+                 <view class="rim_picker">{{infrastructureSelect[infrastructureIndex]}}</view>
+                </picker>
+                <view class='rim_top_person_2_flex1'>
+                    <image src="../../images/icon-play/arrow.png"></image>
+                  </view>
+          </view>
+
+          <view class="rim_li verificationLi">
+                <label class= "rim_title">周边社区</label>
+                 <picker class="rim_Number" style="color:{{communitycolor}};"  placeholder="请选择周边社区情况" bindchange="bindCommunityChange" value="{{communitySelect[communityIndex]}}" name="community" range="{{communitySelect}}">
+                    <view class="picker">{{communitySelect[communityIndex]}}</view>
+                </picker>
+                <view class='rim_top_person_2_flex1'>
+                    <image src="../../images/icon-play/arrow.png"></image>
+                  </view>
+          </view>
+
+           <view class="rim_li verificationLi">
+                <label class= "rim_title">常住人口</label>
+                 <picker class="rim_Number" style="color:{{inhabitcolor}};" placeholder="请选择合适人口范围" bindchange="bindInhabitantChange" value="{{inhabitantSelect[inhabitantIndex]}}" name="inhabitant" range="{{inhabitantSelect}}">
+                  <view class="picker">{{inhabitantSelect[inhabitantIndex]}}</view>
+                </picker>
+                <view class='rim_top_person_2_flex1'>
+                    <image src="../../images/icon-play/arrow.png"></image>
+                </view>
+           </view>
+          
+
+          <view class="rim_li verificationLi">
+                <label class= "rim_title">同类机构</label>
+                 <input class= "rim_Number fontcolor" style="color:{{similarcolor}};" placeholder-class="phcolor" placeholder="0代表没有" bindinput="get_Peer_group" name="peer_group" value="{{peer_group}}"  />
+                  <view class='rim_top_person_2_flex1 '>
+                    <text>个</text>
+                  </view>
+          </view>
+
+           <view class="rim_li verificationLi">
+                <label class= "rim_title">幼儿园</label>
+                 <input class= "rim_Number fontcolor" style="color:{{kindergartencolor}};" placeholder-class="phcolor" placeholder="0代表没有" bindinput="get_Kindergarten" name="kindergarten" value="{{kindergarten}}" />
+                <view class='rim_top_person_2_flex1 '>
+                     <text>个</text>
+                </view>
+          </view>
+
+         
+        
+</view>
+</block>
+
+<button class="{{types == 'periphery' ? 'person_button' : types == 'organization' ? 'button' : 'rim_button' }}" formType="submit">保存</button>
+
+</form>
+
+
+
+

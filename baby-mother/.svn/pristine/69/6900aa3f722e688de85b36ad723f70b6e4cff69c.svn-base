@@ -1,0 +1,32 @@
+<form bindsubmit="formSubmit">
+    <view class="content">
+        <view class='content_head'>
+            <image wx:if="{{info.avatar}}" name='icon' bindtap="change_icon" src="{{info.avatar}}"></image>
+            <image wx:if="{{info.avatar==''}}" name='icon' bindtap="change_icon" src="{{rootRelativePath +'image/peo_img.png'}}"></image>
+            <input hidden="true" name='avatar' value='{{avatar}}'/>
+        </view>
+
+        <view class="li name">
+            <label class= "title">姓名</label>
+            <input wx:if="{{info.username == ''}}" class= "nameInput other otherContent" value="{{info.username}}" name= "username" placeholder="请输入姓名" />
+            <input wx:else class="nameInput other otherContent" value="{{info.username}}" name="username" placeholder="请输入姓名" disabled='true' />
+        </view>
+
+        <view class="li sex">
+            <label class="title">性别</label>
+            <picker bindchange="bindGenderChange" name="gender" value="{{genderIndex}}" range="{{genderOption}}" class='sexPicker other picker_con'>
+                <view class="picker otherContent">{{genderOption[genderIndex]}}</view>
+            </picker>
+        </view>
+
+        <view class="li sex">
+            <label class= "title">出生日期</label>
+            <picker mode = "date" bindchange="bindAeChange" name="birthday" value="{{ageDate}}" class='birthdayPicker other picker_con'>
+                <view class="picker otherContent">
+                    {{ageDate}}
+                </view>
+            </picker>
+        </view>
+        <button class='button' formType="submit">保存</button>
+    </view>
+</form>

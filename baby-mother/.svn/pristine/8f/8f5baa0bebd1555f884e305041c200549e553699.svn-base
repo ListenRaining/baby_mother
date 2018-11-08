@@ -1,0 +1,50 @@
+<view class="content_wrap">
+    <view class="menu_wrap">
+        <view class="item">城市：{{info.cityname}}</view>
+        <view class="item">区域：{{info.ins_area}}</view>
+        <view class="item">机构名称：{{info.ins_name}}</view>
+        <view class="item">机构地址：{{info.ins_address}}</view>
+        <view class="item">机构性质：{{info.ins_category}}</view>
+        <view class="item">机构面积：{{info.ins_proportion}}</view>
+        <view class="item">机构生源数量：{{info.ins_students}}</view>
+        <view class="item">是否有匹配教室：{{info.ins_matching}}</view>
+        <view class="item">合作意愿：{{info.ins_cooperation}}</view>
+        <view class="item">周边情况汇总：{{info.summary}}</view>
+        <view class="item">合作建议：{{info.advice}}</view>
+
+        <view class="addImg_wrap">
+            机构门头照片
+            <view class="image_wrap">
+                <image clas="addImg_item" mode="widthFix" src="{{item_url}}{{info.doorImg}}"></image>
+            </view>
+        </view>
+
+        <view class="addImg_wrap">
+            周边环境照片
+            <view class="image_wrap">
+                <image clas="addImg_item" mode="widthFix" src="{{item_url}}{{info.surroundingImg}}"></image>
+            </view>
+        </view>
+
+        <view class="addImg_wrap">
+            机构前台照片
+            <view class="image_wrap">
+                <image clas="addImg_item" mode="widthFix" src="{{item_url}}{{info.receptionImg}}"></image>
+            </view>
+        </view>
+
+        <view class="addImg_wrap">
+            匹配教室照片
+            <view class="image_wrap">
+                <image clas="addImg_item" mode="widthFix" src="{{item_url}}{{info.classroomImg}}"></image>
+            </view>
+        </view>
+
+        <view class="addImg_wrap">
+            与负责人合照照片
+            <view class="image_wrap">
+                <image clas="addImg_item" mode="widthFix" src="{{item_url}}{{info.groupphotoImg}}"></image>
+            </view>
+        </view>
+    </view>
+</view>

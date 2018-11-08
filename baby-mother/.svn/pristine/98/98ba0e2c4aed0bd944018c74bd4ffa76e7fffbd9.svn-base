@@ -1,0 +1,6 @@
+<view class="image">
+  <image src="{{rootRelativePath+ 'image/success.jpg'}}"></image>
+</view>
+<view class="title">恭喜您完成会员注册</view>
+<view class="content">请前往个人中心选择上课时间与班级</view>
+<button class='submit_form' bindtap="toast">进入个人中心</button>

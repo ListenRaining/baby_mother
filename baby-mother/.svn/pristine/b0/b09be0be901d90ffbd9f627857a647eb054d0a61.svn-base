@@ -1,0 +1,112 @@
+page{
+  background-color: #f0eff4;
+}
+.content{
+  box-sizing:border-box;
+  width: 100%;
+  padding: 0 33rpx;
+}
+
+.li{
+  box-sizing:border-box;
+  padding: 35rpx  0;
+  overflow: hidden;
+  border-bottom: solid 1rpx #d5d5d5;
+}
+
+.li .title{
+  display: block;
+  float: left;
+}
+label{
+  font-size: 29rpx;
+  /*font-weight: 900;*/
+}
+.li .other{
+  display: block;
+  float: left;
+
+}
+
+.otherContent{
+  font-size: 29rpx;
+  /*font-weight: 900;*/
+  color: #88878f;
+  width: 400rpx;
+}
+
+
+.nameInput{
+  display: block;
+  margin-left: 133rpx;
+  height: 29rpx;
+  /*width: 200rpx;*/
+  line-height: 29rpx;
+  /*min-height: 29rpx;*/
+  margin-top: -1rpx;
+  /*color: black;*/
+}
+.sexPicker
+{
+  margin-left: 130rpx;
+}
+
+.birthdayPicker
+{
+  margin-left: 72rpx;
+}
+
+
+ /* .button{
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top: 45rpx;
+  background-color: #3db049;
+  color: #fff;
+  font-size: 28rpx;
+}  */
+ .button{
+  height:90rpx;
+  background:#27a938;
+  color:#fff;
+  text-align:center;
+  line-height:90rpx;
+  margin:22px 0 0 0
+} 
+
+
+.content_head {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.content_head image {
+  width: 132rpx;
+  height: 132rpx;
+  border-radius: 50%;
+  margin-bottom: 33rpx;
+  margin-top: 30rpx;
+}
+
+.input_con{height:20px;padding:15px 0;display:flex;border-bottom:1px solid #dededc;line-height:1.8;}
+.input_con label{color:#000;}
+.input_con input,.input_con picker{flex:35%;color:#c4c3c0;}
+
+.getAdress{
+    margin: 0;
+    padding: 0;
+    border: solid 1rpx #3db049;
+    border-radius: 15rpx;
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    color:  #3db049;
+    font-size: 27rpx;
+}
+
+
+.address{
+  margin-left:66rpx;
+}

@@ -1,0 +1,171 @@
+/* pages/schedule/schedule.wxss */
+page {
+  height: 100%;
+  background-color: #ffffff; 
+}
+
+.info_bg {
+  background-color: #ebebeb;
+  padding:30rpx 0 30rpx 0;
+}
+
+.info {
+  height: 245rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  display: flex;
+}
+
+.info_head {
+  margin-top: 40rpx;
+  margin-left:80rpx;
+}
+
+.info_head image {
+  border-radius: 100rpx;
+}
+
+.info_star {
+  width:131rpx;
+  margin-left:80rpx;
+  text-align: center;
+  margin-top:5rpx;
+}
+
+.info_star image {
+  padding-bottom: 20rpx;
+  margin-left:5rpx;
+  margin-right: 5rpx;
+}
+
+.info_txt {
+  margin-left:80rpx;
+  margin-top:50rpx;
+  font-size:30rpx;
+}
+
+.info_name {
+  display: flex;
+}
+
+.info_level {
+  background-color: #da3b31;
+  border-radius: 15rpx;
+  font-size: 26rpx;
+  width:200rpx;
+  text-align: center;
+  margin-left: 20rpx;
+  color: white;
+}
+
+.info_txt view {
+  margin-bottom:8rpx;
+}
+
+.info_txt .info_num {
+  color:#da3b31;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  height:120rpx;
+  border-bottom-style: solid;
+  border-bottom-width: 1rpx;
+  border-bottom-color: #ebebeb;
+  font-size:23rpx;
+  padding:30rpx 0 30rpx 40rpx;
+}
+
+.item_txt {
+  margin-left:35rpx;
+}
+
+.item_time {
+  font-size: 28rpx;
+  margin-top:1rpx;
+}
+
+.item_des {
+  margin-top:8rpx;
+  font-size: 25rpx;
+}
+
+.item_red {
+  color:#e93b3b;
+  font-weight: 600;
+}
+
+.item_green {
+  color:#5fb157;
+}
+
+.item_btn {
+  margin:40rpx 40rpx 0 auto;
+}
+
+.item_btn button{
+  height: 45rpx;
+  width: 160rpx;
+  line-height: 45rpx;
+  font-size: 25rpx;
+  background-color: #5fb157;
+  color: white;
+}
+
+.item_nosch {
+  height: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #a4a7aa;
+  padding-top: 200rpx;
+}
+
+.item_nosch image {
+  margin-bottom: 40rpx;
+}
+
+.select_mf {
+  display: flex;
+  justify-content: center;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.select_txt {
+  margin: 10rpx 0 0 10rpx;
+}
+
+.register{
+  width: 100%;
+  height: 1334rpx;
+  overflow: hidden;
+  background-color: #f0eff4;
+}
+
+.hint_icon{
+  height: 445rpx;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 200rpx;
+}
+
+.hint_icon image{
+  display: block;
+  margin-top: 58rpx;
+  width: 170rpx;
+  height: 155rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hint_icon .hint_content view{
+  /*word-break: break-all;*/
+  /*text-indent:25px;*/
+  /*letter-spacing:0rpx;*/
+  font-size: 30rpx;
+  margin-top: 36rpx;
+  color: #6e6e6b;
+}

@@ -1,0 +1,35 @@
+<!--user_center.wxml-->
+<view class="content_wrap">
+    <view class="banner_wrap">
+        <image class="banner_img" mode="widthFix" src="../../../images/wrap_img.jpg"> </image>
+        <view class="msg_wrap">
+            <image class="head_icon" mode="widthFix" src="{{myinfo.avatarUrl}}"></image>
+            <!-- <label class="earnings_cnt" wx:if="{{manager.main == 1}}">￥{{earningsCnt}}</label> -->
+            <label class="earnings_cnt" >{{manager.name}}</label>
+            <view class="operate" wx:if="{{manager.main == 1}}">
+                <view bindtap='toWalletDetail'>查看收益明细</view>
+            </view>
+        </view>
+    </view>
+    <view class="ul">
+      <view class="item" data-url='/pages/user/member_center/member_center' bindtap='toUrl'>
+            资料
+            <image class="arrow" mode="widthFix" src="../../../images/arrow.png"></image>
+        </view>
+
+        <!-- <view class="item" data-url='/pages/user/time_manager/time_manager' bindtap='toUrl'>
+            时间
+            <image class="arrow" mode="widthFix" src="../../../images/arrow.png"></image>
+        </view> -->
+
+        <view class="item" data-url='/pages/user/matched_teacher/matched_teacher' bindtap='toUrl'>
+            教师
+            <image class="arrow" mode="widthFix" src="../../../images/arrow.png"></image>
+        </view>
+
+        <view wx:if="{{manager.main == 1}}" class="item" data-url='/pages/user/worker_manager/worker_manager' bindtap='toUrl'>
+            授权
+            <image class="arrow" mode="widthFix" src="../../../images/arrow.png"></image>
+        </view>
+    </view>
+</view>

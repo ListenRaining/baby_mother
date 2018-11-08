@@ -1,0 +1,29 @@
+<!--pages/user/matched_teacher/matched_teacher.wxml-->
+
+<view wx:if="{{list.length>0}}" class='content_pane' wx:for="{{list}}" wx:key="teacher">
+  <view class='lists_panel'>
+    <image wx:if="{{item.avatar != ''}}" src='{{item_url}}{{item.avatar}}'></image>  
+    <image wx:else src='../../../images/schedule/icon.png'></image>
+    <view class='left_info'>
+      <text>姓名</text>
+      <text>教师id</text>
+      <text>绑定班级</text>
+    </view>
+    <view class='right_info'>
+      <view class='name'>{{item.name}}
+        <view class='star_panel'>
+          <image wx:for="{{starArr}}" wx:key="star" wx:for-index="key" wx:if="{{key <= item.level}}" src='../../../images/star.png'></image>
+        </view>
+      </view>
+      <text>{{item.teacher_id}}</text>
+      <text wx:for="{{item.class}}" wx:key="class_id" wx:for-item="class_id">{{class_id}}</text>
+    </view>
+    <view class='contact' data-mobile="{{item.mobile}}" bindtap='call'>联络教师</view>
+  </view>
+</view>
+
+
+<view class="item_nosch" wx:if="{{list.length == 0}}">
+    <image src="../../../images/schedule.png" style="width:142rpx; height:149rpx;"></image>
+    <view>暂无匹配的老师</view>
+  </view>

@@ -1,0 +1,34 @@
+<view wx:if="{{length>0}}" class="my_wrap">
+    <view class="content_wrap" wx:for="{{list}}" wx:key="mykey">
+        <scroll-view scroll-y enable-back-to-top="true" class="content_scroll">
+            <view wx:if="{{item.type == 1}}" class="content_main content_main1" bindtap="toast" data-out_trade_no="{{item.out_trade_no}}" data-type="{{item.type}}">
+                <view class='content_flex1'><image src="{{item.index_image}}"></image></view>
+                <view class='content_flex2'>
+                    <view class="used">活动</view>
+                    <view class='txt1'>{{item.name}}</view>
+                    <view class='txt1'>报名时间：{{item.ctime}}</view>
+                </view>
+            </view>
+
+            <view wx:if="{{item.type == 2}}" class="content_main content_main1" bindtap="toast"  data-type="{{item.type}}" data-oid="{{item.oid}}">
+                <view class='content_flex1'><image src="{{item_url}}{{item.pic}}"></image></view>
+                <view class='content_flex2'>
+                    <view class="used">产品</view>
+                    <view class='txt1'>{{item.name}}</view>
+                    <view class='txt1'>购买时间：{{item.ctime}}</view>
+                    <view class='txt1' wx:if="{{item.buyer}}">有效期30天</view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+
+<view wx:else class="register">
+    <view class="hint_icon">
+        <image src="../../../image/no_open_new.jpg"></image>
+        <view class="hint_content">
+            <view class="c1">很抱歉！现在还没有参与任何活动</view>
+            <view class="c2">赶快去报名吧.....</view>
+        </view>
+    </view>
+</view>

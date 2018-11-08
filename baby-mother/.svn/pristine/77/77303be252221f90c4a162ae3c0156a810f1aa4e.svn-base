@@ -1,0 +1,7 @@
+<view class="content_wrap">
+    <view class="item" wx:for="{{list}}" wx:key="{{list}}" bindtap="click" data-index= "{{index}}">
+        <image class= "icon" mode= "widthFix" src="{{rootRelativePath+ item.icon}}"></image>
+        <label class= "title">{{item.title}}</label>
+        <image class="arrow" mode= "widthFix" src="{{rootRelativePath+ 'image/arrow.png'}}"></image>
+    </view>
+</view>

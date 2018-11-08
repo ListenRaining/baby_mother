@@ -1,0 +1,29 @@
+<view class='bag'>
+    <view class="content">
+        <image class="content_icon" src="{{rootRelativePath+ 'image/gold.png'}}"></image>
+        <label class="title">我的乐币</label>
+        <view class="gold"><label>{{userinfo.all_balance}}</label></view>
+    </view>
+
+    <view class="operate">
+        <view class="item">
+            <label class="money">可提现金额</label>
+            <label class="je">¥ {{userinfo.balance}}</label>
+        </view>
+
+        <view class="item2">
+            <label class='money'>待结算金额</label>
+            <label class="jet">¥ {{userinfo.frozen_money}}</label>
+        </view>
+    </view>
+</view>
+
+<button bindtap="goWithdraw">提现</button>
+
+<view class="detail">
+    <label bindtap="withdrawalDetail">提现明细</label>
+    <label class='question'>|</label>
+    <!-- <label class='question' bindtap="frozen">待结算明细</label>
+    <label class='question'>|</label> -->
+    <label class='question' bindtap="rules">提现说明</label>
+</view>

@@ -1,0 +1,78 @@
+/* pages/activity/activity_manager/activity_manager.wxss */
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: solid 5rpx #f2f2f2;
+}
+
+.tab {
+  height: 80rpx;
+  width: 140rpx;
+  font-size: 30rpx;
+  color: #5fb157;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  /* XXX 两个像素的偏差，不然有视觉误差*/
+  margin-bottom: -3rpx;
+  justify-content: space-around;
+}
+
+.underline {
+  border-bottom: solid 5rpx #5fb157;
+}
+
+.activity_row {
+  height: 206rpx;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+  line-height: 34rpx;
+  border-bottom: solid #f2f2f2 1rpx;
+}
+
+.activity_row image {
+  margin-left: 34rpx;
+  margin-right: 20rpx;
+  width: 245rpx;
+  height: 153rpx;
+  border-radius: 9rpx;
+}
+
+.info_row {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail {
+  color: white;
+  border-radius: 10rpx;
+  background-color: rgb(56, 181, 73);
+  width: 150rpx;
+  height: 45rpx;
+  margin-top: 8rpx;
+  text-align: center;
+  line-height: 45rpx;
+}
+
+.info_row text{
+  margin-top:4rpx;
+}
+
+.staclo{
+  color: #d93389;
+}
+
+.item_nosch {
+  height: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #a4a7aa;
+  padding-top: 200rpx;
+}
+
+.item_nosch image {
+  margin-bottom: 40rpx;
+}

@@ -1,0 +1,52 @@
+<view>
+    <form bindsubmit="formSubmit">
+        <view class='con'>
+            <view class='con_list'>
+                <label class='label_chose'>迟到早退：</label>
+                <radio-group name="belate" class="con_radiogroup">
+                    <label><radio class='con_radio' checked="true" value="1"/>无</label>
+                    <label><radio class='con_radio' value="2"/>迟到</label>
+                    <label><radio class='con_radio' value="3"/>早退</label>
+                </radio-group>
+            </view>
+            <view class='con_list'>
+                <label class='label_chose'>有趣生动：</label>
+                <radio-group name="vivid" class="con_radiogroup">
+                    <label><radio class='rar' checked="true" value="1"/>是</label>
+                    <label><radio class='rar' value="2"/>否</label>
+                </radio-group>
+            </view>
+            <view class='con_list'>
+                <label class='label_chose'>课后作业：</label>
+                <radio-group name="homework" class="con_radiogroup">
+                    <label><radio class='rar' checked="true" value="1"/>有</label>
+                    <label><radio class='rar' value="2"/>无</label>
+                </radio-group>
+            </view>
+            <view class='con_list'>
+                <label class='label_chose'>家长沟通：</label>
+                <radio-group name="communicate" class="con_radiogroup">
+                    <label><radio class='rar' checked="true" value="1"/>有</label>
+                    <label><radio class='rar' value="2"/>无</label>
+                </radio-group>
+            </view>
+        </view>
+
+        <view class="sum">
+            <textarea class="sum_js" name="parent_comment" placeholder='意见或建议' placeholder-style='color:#a6a4a4' />
+        </view>
+
+        <view class="com">
+            <view class="com_list">综合评价
+                <label class="com_img">
+                    <image bindtap='support' wx:for="{{star}}" wx:key="star" wx:if="{{item<=zonghe}}" data-key="{{item}}" src="../../../image/comment_icon.png" class="info_bg"></image>
+                    <image bindtap='support' wx:for="{{star}}" wx:key="star" wx:if="{{item>zonghe}}" data-key="{{item}}" src="../../../image/comment_icon2.png" class="info_bg"></image>
+                </label>
+            </view>
+        </view>
+
+        <view>
+            <button class="btn" formType="submit">提交</button>
+        </view>
+    </form>
+</view>

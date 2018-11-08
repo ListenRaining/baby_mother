@@ -1,0 +1,18 @@
+<view class="content">
+    <view class="describe">
+        <label class="confirm">确认提现账户信息(如信息存在异常，请提交反馈)</label>
+        <label class="info">到账银行账户：{{insInfo.bank_account}}</label>
+        <label class="info">到账银行账户名：{{insInfo.bank_account_name}}</label>
+        <label class="info">到账银行开户行：{{insInfo.bank_open_account}}</label>
+    </view>
+    <view class="money">
+        <label class="txt">提现金额</label>
+        <label class="num">¥ {{info.balance}}</label>
+    </view>
+    <view class="btn">
+        <button class='impower' disabled='true'>申请提现</button>
+    </view>
+    <view class="btn_des">
+        每月20日至次月1日可申请提现，提现申请通过后2-3个工作日内到帐
+    </view>
+</view>

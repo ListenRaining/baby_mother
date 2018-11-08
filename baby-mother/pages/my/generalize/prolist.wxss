@@ -1,0 +1,45 @@
+/* pages/activity/activity_manager/activity_manager.wxss */
+.con {
+  background-color: white;
+  border-top:1rpx solid #f0f0f0;
+  height: 100%;
+}
+
+.activity_row {
+  height: 206rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 34rpx;
+}
+
+.activity_row image {
+  margin-right: 40rpx;
+  width: 245rpx;
+  height: 153rpx;
+  border-radius: 9rpx;
+}
+
+.activity_radio {
+  margin:0 40rpx
+}
+
+.info_row {
+  display: flex;
+  flex-direction: column;
+}
+
+.info_row text{
+  margin-top:4rpx;
+}
+
+.fbtn button {
+  height:80rpx;
+  background:#27a938;
+  color:#fff;
+  font-size: 30rpx;
+  position: absolute;
+  bottom:20rpx;
+  margin:0 20rpx;
+  width: 710rpx;
+}

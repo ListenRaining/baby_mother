@@ -1,0 +1,24 @@
+<view class="association" wx:if="{{length>0}}">
+    <view class="li" wx:for="{{infors}}" wx:key="{{infors}}">
+        <image class="headIcon" mode= "widthFix" src="{{item.avatar}}"></image>
+        <view class="msg">
+             <label class="name">{{item.name}}
+                <view wx:if="{{memberTypeColorTB[item.level]}}" class="type" style="background-color:{{memberTypeColorTB[item.level]}}">{{item.level}}</view>
+            </label>
+            <label class="phoneNum">{{item.mobile}}</label>
+            <label class="addFrom">{{item.ins_name}}</label>
+            <label class="time">{{item.vtime}}</label>
+        </view>
+        <view class="associationCntdis" wx:if="{{item.associateCount == 0}}">{{item.associateCount}}人</view>
+        <view class="associationCnt" data-id="{{item.uid}}" data-name="{{item.name}}" bindtap="touch" wx:else>{{item.associateCount}}人</view>
+    </view>
+</view>
+
+ <view wx:if="{{length == 0}}" class="register">
+    <view class="hint_icon">
+        <image src="{{'../../../image/no_open_new.jpg'}}"></image>
+            <view class="hint_content">
+            <view class="c1">您暂时还没有社群信息，赶快去邀请好友加入您的社群吧！</view>
+        </view>
+    </view>
+</view> 

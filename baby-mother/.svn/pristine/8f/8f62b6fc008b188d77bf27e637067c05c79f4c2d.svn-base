@@ -1,0 +1,89 @@
+//乐币明细
+var app = getApp()
+
+Page({
+
+    /**
+    * 页面的初始数据
+    */
+    data: {
+        uid:0,
+        lastPageIndex:1,
+        list:[]
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        var that = this;
+        wx.getStorage({
+            key: 'userinfo',
+            success: function (res) {
+              var timestamp = app.createTimeStamp()
+              var str = "uid=" + res.data.uid + '&p=' + that.data.lastPageIndex + '&timestamp=' + timestamp
+              var signature = app.createSignatureStr(str);
+
+                wx.request({
+                    url: app.globalData.baseUrl + 'little/operate/walletlist',
+                    data: {
+                        uid: res.data.uid,
+                        p:that.data.lastPageIndex,
+                        timestamp: timestamp,
+                        signature: signature
+                    },
+                    success: function (_data) {
+                      console.log(_data);
+                        wx.setStorage({
+                            key: 'walletlist',
+                            data: _data.data.info,
+                        })
+
+                        that.setData({
+                            list: _data.data.info,
+                            uid: res.data.uid
+                        })
+                    },
+                })
+            }
+        })
+    },
+
+    /**
+    * 上拉刷新
+    */
+    onReachBottom: function () {
+        var that = this
+        var lastPageIndex = that.data.lastPageIndex+1;
+        var timestamp = app.createTimeStamp()
+        var str = "uid=" + that.data.uid + '&p=' + lastPageIndex + '&timestamp=' + timestamp
+        var signature = app.createSignatureStr(str);
+        wx.request({
+            url: app.globalData.baseUrl + 'little/operate/walletlist',
+            data: {
+                uid: that.data.uid,
+                p:lastPageIndex,
+                timestamp: timestamp,
+                signature: signature
+            },
+            success: function (res) {
+                if (res.data.info.length>0){
+                    wx.getStorage({
+                        key: 'walletlist',
+                        success: function (index) {
+                            var list = index.data.concat(res.data.info)
+                            wx.setStorage({
+                                key: 'walletlist',
+                                data: list,
+                            })
+                            that.setData({
+                                lastPageIndex: lastPageIndex,
+                                list: list,
+                            })
+                        },
+                    })
+                }
+            },
+        })
+    }
+})

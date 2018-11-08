@@ -1,0 +1,8 @@
+<view class="image">
+    <image src="{{rootRelativePath+ 'image/success.jpg'}}"></image>
+</view>
+<view class="text">报名成功</view>
+
+<view class="code" wx:if="{{act_id==19}}">电子兑换码：{{code}}</view>
+
+<button class='submit_form' bindtap="toast">查看订单</button>

@@ -1,0 +1,31 @@
+
+
+
+<!-- bindsubmit="submitChangePhoneNum" -->
+
+<form >
+    <view class="content">
+
+
+     <view class="top_text">个人基本信息</view>
+
+        <view class="li verificationLi">
+                <label class= "title">联系人</label>
+                <input class= "Number" placeholder="请输入6个字符以内的字符" name= "code" />
+        </view>
+
+        <view class="li phoneNumLi" wx:if="{{info.mobile && is_authorise!=2}}">
+            <label class="title">联系电话</label>
+            <input class="Number" type="number" placeholder-style="color:#88878f" value="{{info.mobile}}" />
+        </view>
+
+     
+
+       
+
+
+
+
+         <button class='button' formType="submit">提交</button>
+    </view>
+</form>

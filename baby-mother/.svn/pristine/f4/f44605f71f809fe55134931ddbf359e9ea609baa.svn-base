@@ -1,0 +1,90 @@
+//我的
+var app= getApp();
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        rootRelativePath: '../../../../',
+        info:[]
+    },
+    //个人信息
+    goUserInfo: function () {
+        wx.navigateTo({
+            url: '../user/user'
+        })
+    },
+    //参与的活动
+    goToMyact: function () {
+      var that= this;
+      wx.getStorage({
+        key: 'userinfo',
+        success: function(res) {
+          console.log(res)
+          wx.navigateTo({
+              url: that.data.rootRelativePath+ 'pages/activity/orderlist/orderlist?uid=' + res.data.uid
+          })
+        },
+      })
+    },
+    //绑定手机
+    goChangePhoneNum:function()
+    {
+        wx.navigateTo({
+            url: '../mobile_change/mobile_change',
+        })
+    },
+    //宝宝列表或添加宝宝
+    goBabyList: function () {
+      var _url = '../memberinfo/memberinfo';
+      if (this.data.info.count > 0)
+      {
+          _url = '../memberlist/memberlist';
+      }
+      wx.navigateTo({
+          url: _url,
+      })
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        var that = this;
+        wx.getStorage({
+            key: 'userinfo',
+            success: function (info) {
+                if(info.data.uid) {
+                  //拼装验证参数
+                  var timestamp = app.createTimeStamp()
+                  var str = "uid=" + info.data.uid + '&timestamp=' + timestamp;
+                  var signature = app.createSignatureStr(str);
+                    wx.request({
+                        url: app.globalData.baseUrl + 'api/member/getuserinfo',
+                        data: {
+                            uid: info.data.uid,
+                            timestamp: timestamp,
+                            signature: signature,
+                        },
+                        header: {
+                            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                        },
+                        success: function (res) {
+                            if (res.data.result == 'fail') {
+                                wx.showToast({
+                                    title: res.data.reason
+                                })
+                                return false;
+                            } else {
+                                that.setData({
+                                    info: res.data.info
+                                })
+                            }
+                        }
+                    })
+                }
+            },
+        })
+    },
+})

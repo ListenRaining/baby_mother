@@ -1,0 +1,57 @@
+<view>
+    <view class="head">
+        <view class="head_cnt">
+            <view>累计获得</view>
+            <view class="cnt_num">{{cardCount}}张</view>
+            <view>音乐能量卡</view>
+        </view>
+        <image mode="widthFix" src="../../../image/task_banner.png"></image>
+    </view>
+
+    <view class="prog">
+        <view class="prog_date">{{info.datesort}}</view>
+        <view class="prog_img" wx:if="{{info.sum==0}}"><image mode="widthFix" src="../../../image/prog0.png"></image></view>
+        <view class="prog_img" wx:elif="{{info.sum==1}}"><image mode="widthFix" src="../../../image/prog1.png"></image></view>
+        <view class="prog_img" wx:elif="{{info.sum==2}}"><image mode="widthFix" src="../../../image/prog2.png"></image></view>
+        <view class="prog_img" wx:elif="{{info.sum==3}}"><image mode="widthFix" src="../../../image/prog3.png"></image></view>
+        <view class="prog_img" wx:else><image mode="widthFix" src="../../../image/prog4.png"></image></view>
+        <view class="prog_cnt">{{info.sum}}/4</view>
+    </view>
+
+    <view class="task">
+      <view class='qinzi'>
+        <view class="task_bg">
+          <view class='t1_title'>亲子音乐时光</view>
+          <view class='t1_more' wx:if="{{info.homework.length>2}}" bindtap='getMore'>查看更多></view>
+        </view>
+        <view class="task_nece" wx:for="{{info.homework}}" wx:key="home" wx:if="{{index < more}}">
+            <view class="nece_info" wx:for="{{item}}" wx:key="work" wx:for-index="in" wx:for-item="ii" data-key='{{ii.id}}' data-status="{{ii.complete}}" bindtap='toDo'>
+              <view wx:if="{{ii.complete == 1}}" style='background-color:#d5d5d5;'>
+                <view>{{ii.lesson}}</view>
+                <view>{{ii.status}}</view>
+              </view>
+              <view wx:else>
+                <view>{{ii.lesson}}</view>
+                <view>{{ii.status}}</view>
+              </view>
+            </view>
+        </view>
+      </view>
+      <view>
+        <view class="task_bg">
+          <view class='t1_title'>勇闯音乐岛 · 第{{key*2}}关</view>
+        </view>
+        <view class='games'>
+             <image class='img' wx:if="{{info.game.pyp == 1}}" src='../../../image/pyp.png'></image> 
+             <image class='img_n' wx:else src='../../../image/pyp_n.png'></image> 
+             <image class='img' wx:if="{{info.game.listen == 1}}" src='../../../image/listen.png'></image> 
+             <image class='img_n' wx:else src='../../../image/listen_n.png'></image> 
+             <image class='img' wx:if="{{info.game.qyq == 1}}" src='../../../image/qyq.png'></image> 
+             <image class='img_n' wx:else src='../../../image/qyq_n.png'></image> 
+             <image class='img' wx:if="{{info.game.tyt == 1}}" src='../../../image/tyt.png'></image> 
+             <image class='img_n' wx:else src='../../../image/tyt_n.png'></image> 
+        </view>
+      </view>
+    </view>
+
+</view>

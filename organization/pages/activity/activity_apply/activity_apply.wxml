@@ -1,0 +1,73 @@
+<import src="../../../utils/wxParse/wxParse.wxml" />
+
+<view class="content_wrap">
+    <view class="activity_wrap">
+        <view class="item act_type">
+            选择活动方案:
+            <picker mode='selector' range="{{act_name}}" value="{{Index}}" bindchange='chooseAct'>
+                <view class="picker">
+                    {{act_name[Index]}}
+                    <image class="arrow" mode="widthFix" src="../../../images/arrow_bottom.png"></image>
+                </view>
+            </picker>
+        </view>
+        <input name="act_id" hidden='true' value='{{act_id[Index]}}'></input>
+        <label class="item site_desc">需求场地大小:{{siteDesc}}</label>
+        <label class="item peo_cnt">最大可参与人数:{{act_list[Index]['max_num']}}人/场次</label>
+    </view>
+
+    <view class='content' wx:if="{{actIsFold}}">
+        <image class='img' src="{{item_url}}{{info.title_image}}"></image>
+        <view><template is="wxParse" data="{{wxParseData:contents.nodes}}"/></view>
+    </view>
+
+    <view class="fold_controller" bindtap='switchs'>
+        <label wx:if="{{actIsFold}}">收起活动方案</label>
+        <label wx:else>查看活动方案</label>
+        <image class="arrow" mode="widthFix" src="{{actIsFold?'../../../images/arrow_top.png':'../../../images/arrow_bottom.png'}}"></image>
+    </view>
+
+    <view class="form">
+        <form bindsubmit='formSubmit'>
+            机构活动信息
+            <view class='menu'>
+                <view class="item item_link">
+                    <input name="date" type='text' disabled value='{{act_date}}'></input>
+                </view>
+            </view>
+
+            <view class='menu'>
+                <view class="item item_link" >
+                    <input name="location" type='text' disabled value='{{location}}' placeholder='选择活动场地' bindtap='getAddress'></input>
+                </view>
+                <image class="arrow_right" mode="widthFix" src="../../../images/gray_arrow.png"></image>
+            </view>
+
+            <view class='menu'>
+                <view class="item item_link">
+                    <input name="limit_num" type='text' value='{{limit_num}}' placeholder='请输入参与的最大人数'></input>
+                </view>
+            </view>
+
+            <view class='menu'>
+                <picker class="item item_picker" mode='selector' range="{{purpose_type}}" value="{{ptype_index}}" bindchange='chooseType'>
+                    <view class="picker">
+                        {{purpose_type[ptype_index]}}
+                    </view>
+                </picker>
+                <image class="arrow" mode="widthFix" src="../../../images/arrow_bottom.png"></image>
+            </view>
+
+            <view class='menu'>
+                <picker class="item item_picker" mode='selector' range="{{purpose_num}}" value="{{pnum_index}}" bindchange='chooseNum'>
+                    <view class="picker">
+                        {{purpose_num[pnum_index]}}
+                    </view>
+                </picker>
+                <image class="arrow" mode="widthFix" src="../../../images/arrow_bottom.png"></image>
+            </view>
+            <textarea name="apply_comment" placeholder="备注"></textarea>
+            <button form-type="submit">提交审核</button>
+        </form>
+    </view>
+</view>

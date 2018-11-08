@@ -1,0 +1,112 @@
+/* my_info.wxss */
+
+page{
+  background-color: #f0eff4;
+}
+
+.contentImage image{
+  width: 100%;
+  height: 287rpx;
+}
+
+.content{
+  margin-top: 30rpx;
+  box-sizing:border-box;
+  width: 100%;
+  padding: 46rpx  34rpx;
+  background-color: #fff;
+  padding-bottom: 88rpx;
+}
+
+
+.head {
+  width: 100%;
+  position: absolute;
+  top: 55rpx;
+  font-size: 25rpx;
+  color: #fff;
+  /*left:50%;*/
+  /*margin-left:-61rpx;*/
+  text-align: center;
+}
+
+.head .name{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.head .headIcon{
+  display: block;
+  width: 122rpx;
+  height: 120rpx;
+  margin-bottom: 23rpx;
+  border-radius:60rpx;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+.li{
+  display: flex;
+  align-items: center;
+  /*font-weight: 900;*/
+  border-bottom: solid 1px #d5d5d5;
+  font-size: 30rpx;
+  padding: 30rpx 0;
+}
+
+.li .btn {
+  width: 18rpx;
+  height: 30rpx;
+  float: right;
+  /*margin-left: 20rpx;*/
+  padding-left: 20rpx;
+}
+
+/*.l4{
+  border: none;
+}*/
+
+
+.li label{
+  margin-left: auto;
+  color: #cdcdcd;
+}
+
+.myInfoBtn, .acitvity{
+  margin-left: auto;
+}
+
+
+
+/*
+.li{
+  font-weight: 900;
+  border-bottom: solid 1px #d5d5d5;
+  font-size: 30rpx;
+  padding: 30rpx 0;
+}
+.l4{
+  border: 0;
+}
+
+.li .btn {
+  padding: 0;
+  margin: 0;
+  display: block;
+  float: left;
+  margin-left: 672rpx;
+  margin-top: -30rpx;
+  width: 18rpx;
+  height: 30rpx;
+
+}
+
+.li label{
+  color: #cdcdcd;
+  float: right;
+  margin-right: 28rpx;
+}*/
+
+
+
+

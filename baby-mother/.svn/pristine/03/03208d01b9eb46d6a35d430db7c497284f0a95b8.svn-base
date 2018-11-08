@@ -1,0 +1,151 @@
+/* mother_info.wxss */
+page{
+  background-color: #f0eff4;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+}
+
+.li{
+  display: flex;
+  align-items: center;
+  /* box-sizing:border-box; */
+  padding: 35rpx 33rpx;
+  border-bottom: solid 1rpx #d5d5d5;
+}
+.li .title{
+  display: block;
+  font-size: 29rpx;
+}
+
+.lil{
+  display: flex;
+  align-items: center;
+  /* box-sizing:border-box; */
+  padding: 35rpx 33rpx;
+}
+.lil .title{
+  display: block;
+  font-size: 29rpx;
+}
+
+input{
+  font-size: 29rpx;
+  width: 250rpx;
+  height: 29rpx;
+  line-height: 29rpx;
+  color: #88878f;
+  /* border: solid 1px #3db049 */
+}
+
+.phoneNum{
+  margin-left: 76rpx;
+}
+
+.hasbeen{
+  margin-left: 46rpx;
+}
+
+.verification{
+  margin-left: 43rpx;
+}
+
+.getVerification{
+  margin-left: auto;
+  width: 200rpx;
+  height: 60rpx;
+  font-size: 25rpx;
+
+  border-radius:10rpx;
+  text-align:center;
+  line-height: 60rpx;
+}
+
+.button{
+  width: 90%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top: 45rpx;
+  background-color: #3db049;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.phoneNumLi button{
+  width:380rpx;
+  height:50rpx;
+  font-size:29rpx;
+  border:none;
+  backgrodund:none;
+  line-height:50rpx;
+  color:#00a63b;
+  border-rdius:4px;
+  border:1px solid #00a63b;
+  margin-right: 118rpx;
+}
+
+/*  .li{
+  box-sizing:border-box;
+  padding: 35rpx 33rpx;
+  overflow: hidden;
+  border-bottom: solid 1rpx #d5d5d5;
+}
+
+.li .title{
+  display: block;
+  float: left;
+  font-size: 29rpx;
+}
+
+.li .input{
+  display: block;
+  float: left;
+  font-size: 29rpx;
+  height: 29rpx;
+  line-height: 29rpx;
+  color: #88878f;
+}
+
+.phoneNumLi{
+  padding: 20rpx 33rpx;
+}
+
+.phoneNumLi .title{
+  height: 64rpx;
+  line-height: 64rpx;
+}
+
+.phoneNumLi .phoneNum{
+  height: 64rpx;
+  line-height: 64rpx;
+  margin-top: 0rpx;
+  margin-left: 90rpx;
+}
+
+.verification{
+  margin-left: 43rpx;
+  margin-top: -2rpx;
+}
+
+
+.getVerification{
+    display: block;
+    float: right;
+    width: 200rpx;
+    height: 60rpx;
+    font-size: 25rpx;
+
+    border-radius:6px;
+    text-align:center;
+    line-height: 60rpx;
+}
+
+button{
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top: 45rpx;
+  background-color: #3db049;
+  color: #fff;
+  font-size: 32rpx;
+} */

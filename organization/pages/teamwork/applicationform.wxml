@@ -1,0 +1,81 @@
+<view  class="register">
+      <view>
+         <view class="top_text">只需要完成以下步骤，就可以给您的机构排课喽</view>
+
+         <!-- 个人信息 -->
+         <view class='top_person' bindtap='checkComplete' data-types='personal'>
+            <view class='top_person_1'>
+               <view class='top_person_1_flex1'>
+                  <image src="../../images/icon-play/person.png"></image>
+               </view>
+               <view class='top_person_1_flex2'>个人信息</view>
+            </view>
+
+            <view class='top_person_2' >
+                  <view class='top_person_2_flex1 right_distance'>
+                    <image src="../../images/icon-play/arrow.png"></image>
+                  </view>
+                  <view class='top_person_2_flex2'>{{sign_personal =='1' ? '已录入' : sign_personal =='2' ? '待完善' : '待录入' }}</view>
+                  <view class='top_person_2_flex1 left_distance'>
+                    <block wx:if="{{sign_personal =='1'}}">
+                      <image src="../../images/icon-play/good.png"></image>
+                    </block>
+                  </view>
+              </view>
+          </view>
+
+        <!-- 机构信息 -->
+         <view class='middle_person' bindtap='checkComplete' data-types='organization'>
+            <view class='top_person_1'>
+               <view class='top_person_1_flex1'>
+                  <image src="../../images/icon-play/organization.png"></image>
+               </view>
+               <view class='top_person_1_flex2'>机构信息</view>
+            </view>
+
+            <view class='top_person_2'>
+             
+                  <view class='top_person_2_flex1 right_distance'>
+                    <image src="../../images/icon-play/arrow.png"></image>
+                  </view>
+                  <view class='top_person_2_flex2'>{{sign_organization =='1' ? '已录入' : sign_organization =='2' ? '待完善' : '待录入' }}</view>
+                  <view class='top_person_2_flex1 left_distance'>
+                  
+                  <block wx:if="{{sign_organization =='1'}}">
+                    <image src="../../images/icon-play/good.png"></image>
+                  </block>
+
+                  </view>
+             
+              </view>
+          </view>
+          
+       <!-- 周边信息 -->
+         <view class='middle_person' bindtap='checkComplete' data-types='periphery'>
+            <view class='top_person_1'>
+               <view class='top_person_1_flex1'>
+                  <image src="../../images/icon-play/rim.png"></image>
+               </view>
+               <view class='top_person_1_flex2'>周边信息</view>
+            </view>
+
+            <view class='top_person_2'>
+             
+                  <view class='top_person_2_flex1 right_distance'>
+                    <image src="../../images/icon-play/arrow.png"></image>
+                  </view>
+                  <view class='top_person_2_flex2'>{{sign_periphery =='1' ? '已录入' : sign_periphery =='2' ? '待完善' : '待录入' }}</view>
+                  <view class='top_person_2_flex1 left_distance'>
+                  <block wx:if="{{sign_periphery =='1'}}">
+                    <image src="../../images/icon-play/good.png"></image>
+                  </block>
+                  </view>
+             
+              </view>
+          </view>
+      
+
+         <button class='button' formType="submit" bindtap="formSubmit">提交</button>
+
+      </view>  
+</view>

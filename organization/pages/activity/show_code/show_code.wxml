@@ -1,0 +1,3 @@
+<view>
+    <image class='code' src='{{qrcode}}'></image>
+</view>

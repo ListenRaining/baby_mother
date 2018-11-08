@@ -1,0 +1,18 @@
+<!--integral.wxml-->
+<view class="content">
+  <view class="head">
+    <text class="text">我的积分</text>
+    <text class="integral">{{info.sum}}</text>
+  </view>
+  <view class="center">
+    <view class="button" bindtap="detail">
+      <text>积分规则</text>
+      <image class="icon" src="../../../image/direction.png"></image>
+    </view>
+  </view>
+  <view wx:for="{{info.list}}" wx:key="{{detail}}">
+    <view class="record" >
+      <text bindtap="toDetail" id="{{item.cid}}">{{item.comment}}</text>
+    </view>
+  </view>
+</view>

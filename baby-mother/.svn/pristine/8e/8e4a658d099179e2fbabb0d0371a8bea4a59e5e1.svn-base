@@ -1,0 +1,139 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.2",
+	"appid": "wx1707b532f7440c4e",
+	"projectname": "%E5%AE%9D%E5%A6%88%E6%AD%A3%E5%BC%8F%E7%AB%AF",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 16,
+			"list": [
+				{
+					"id": 1,
+					"name": "魔法乐理服务协议",
+					"pathName": "pages/product/agree",
+					"query": "id=3"
+				},
+				{
+					"id": 2,
+					"name": "魔法乐理下单",
+					"pathName": "pages/product/buy",
+					"query": "price=9000&id=6258&is_gift=0&is_activity=1&activity_puid=0"
+				},
+				{
+					"id": 2,
+					"name": "99元活动下单",
+					"pathName": "pages/activity/order/order",
+					"query": "act_id=19&quan=0&price=99"
+				},
+				{
+					"id": 3,
+					"name": "活动详情页",
+					"pathName": "pages/activity/activityinfo/activityinfo",
+					"query": "act_id=19&price=0.1"
+				},
+				{
+					"id": 5,
+					"name": "订单详情页",
+					"pathName": "pages/my/orderinfo/orderinfo",
+					"query": "orderid=20180816143053853781"
+				},
+				{
+					"id": 6,
+					"name": "成功",
+					"pathName": "pages/activity/success/success",
+					"query": "act_id=19&code=879116"
+				},
+				{
+					"id": 6,
+					"name": "活动详情页",
+					"pathName": "pages/product/introduce",
+					"query": "id=3&is_activity=1"
+				},
+				{
+					"id": -1,
+					"name": "选班",
+					"pathName": "pages/product/class",
+					"query": "type=1&class_from=1"
+				},
+				{
+					"id": 8,
+					"name": "合伙人经营管理",
+					"pathName": "pages/my/business/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "用户管理",
+					"pathName": "pages/my/business/userList",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "成长收益",
+					"pathName": "pages/my/business/earnings",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "我的",
+					"pathName": "pages/my/my/my",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "我的钱包",
+					"pathName": "pages/my/wallet/wallet/wallet",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "外访",
+					"pathName": "pages/my/outboundv10/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "外访",
+					"pathName": "pages/my/outbound/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "外访",
+					"pathName": "pages/my/outboundv10/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "外访",
+					"pathName": "pages/my/outboundv10/list"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,203 @@
+
+  <view class="content_wrap">
+    <form class="fromHe" bindsubmit='formSubmit' >
+      <view class="top_text_1">预约外访时间：2018年10月15日 9:00</view>
+      
+      <view class='for-out' bindtap='turnTodetails'>
+            <view class="two-imgshow3" > 
+             <label class= "title1">长歌行艺术馆</label>
+              <label class= "title2">（刘老师:18723232323）</label>
+              <image class="address"  src="../../../image/icon-play/location.png"></image>
+               <label class= "title3">
+                 北京市 朝阳区 康惠园2号楼9号楼3层
+                 </label>
+            </view>
+
+           <view class="two-no-go-2" > 
+              <image src="../../../image/icon-play/arrow.png"></image>
+           </view>
+       </view>
+  
+      <view class="top_text">备注：这里是回访人员备注的信息，可参考此信息去和机构谈合作</view>
+ <!--------以下是上传照片部分----------->
+      <view class="upphoto">
+
+            <view class="addImg_wrap">
+                 <view class="image_wrap">
+                    <block  wx:if="{{doorImg_localPath}}">
+                      <image clas="addImg_item" src="{{doorImg_localPath}}">
+                          <icon type="clear" size="20" color="gray" bindtap='delDoorImg' />
+                      </image>
+                    </block>
+                    <block wx:else>
+                      <image bindtap='addDoorImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                    </block>
+                 </view>
+              <view class="image_wrap_text" >机构门头照片</view> 
+            </view>
+
+            <view class="addImg_wrap">
+                <view class="image_wrap image_right">
+                    <block wx:if="{{receptionImg_localPath}}">
+                      <image clas="addImg_item" src="{{receptionImg_localPath}}">
+                          <icon type="clear" size="20" color="gray" bindtap='delReceptionImg' />
+                      </image>
+                    </block>
+                    <block wx:else>
+                      <image bindtap='addReceptionImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+                    </block>
+
+              </view>
+              <view class="image_right_text_right" >机构前台照片</view> 
+            </view>
+
+
+      </view>
+<!-- //选择教室 -->
+      <view class='room'>
+            <label class= "title">匹配教室</label>
+            <picker class="Number" placeholder="请选择有无匹配教室" bindchange="bindRoomChange" value="{{ins_room[RoomIndex]}}" name="network" range="{{ins_room}}">
+                <view class="picker">{{ins_room[RoomIndex]}}</view>
+             </picker>
+             <view class='top_person_2_flex1'>
+                 <image src="../../../image/icon-play/arrow.png"></image>
+              </view>
+         
+        </view>
+
+ <!-- 照片2。。。。。。。。。。。。。。。。。。 -->
+         <view class="upphoto">
+         <view class="addImg_wrap add3">
+                <view class="image_wrap add">
+                    <image clas="addImg_item" src="{{insDoorVal}}" wx:if="{{insDoorVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delClassroomImg' />
+                    </image>
+                    <image bindtap='addClassroomImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+              </view>
+              <view class="image_wrap_text add2" >匹配教室照片</view> 
+            </view>
+      
+      </view>
+
+      <!-- 照片3。。。。。。。。。。。。。。。。。。。 -->
+      <view class="upphoto">
+         <view class="addImg_wrap">
+                <view class="image_wrap">
+                    <image clas="addImg_item" src="{{insDoorVal}}" wx:if="{{insDoorVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delSurroundingImg' />
+                    </image>
+                    <image bindtap='addSurroundingImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+              </view>
+              <view class="image_wrap_text" >周围环境照片</view> 
+            </view>
+
+            <view class="addImg_wrap">
+                <view class="image_wrap image_right">
+                    <image clas="addImg_item" src="{{insDoorVal}}" wx:if="{{insDoorVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delGroupphotoImg' />
+                    </image>
+                    <image bindtap='addGroupphotoImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+              </view>
+              <view class="image_right_text_right" >与负责人合影</view> 
+            </view>
+      
+      </view>
+
+<!-- //审核结果 -->
+      <view class='room'>
+            <label class= "title">审核结果</label>
+            <picker class="Number" placeholder="请选择审核结果" bindchange="bindAuditChange" value="{{ins_audit[auditIndex]}}" name="network" range="{{ins_audit}}">
+                <view class="picker">{{ins_audit[auditIndex]}}</view>
+             </picker>
+             <view class='top_person_2_flex1'>
+                 <image src="../../../image/icon-play/arrow.png"></image>
+              </view>
+         
+        </view>
+
+        <!-- //审核结果 原因。。。。。。。。-->
+      <view class='audit'>
+            <label class= "title">未通过原因</label>
+            <textarea class= "Number-result" placeholder-class="phcolor"  placeholder="请输入审核结果"  minlength="{{min}}" maxlength="{{max}}" bindinput="inputs"> 
+
+        <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+        <!-- <text class="hint">{{texts}}</text>   -->
+    </textarea>
+    </view>
+        
+        <!-- //补充信息 -->
+
+         <view class="top_text">补充信息(选填)</view>
+
+ <!-- 照片4。。。。。。。。。。。。。。。。。。。 -->
+      <view class="upphoto">
+         <view class="addImg_wrap">
+                <view class="image_wrap">
+                    <image clas="addImg_item" src="{{insDoorVal}}" wx:if="{{insDoorVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delIdfronttoImg' />
+                    </image>
+                    <image bindtap='addIdfronttoImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+              </view>
+              <view class="image_wrap_text-4" >负责人身份证（正面）</view> 
+            </view>
+
+            <view class="addImg_wrap">
+                <view class="image_wrap image_right">
+                    <image clas="addImg_item" src="{{insDoorVal}}" wx:if="{{insDoorVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delIdcontrarytoImg' />
+                    </image>
+                    <image bindtap='addIdcontrarytoImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+              </view>
+              <view class="image_right_text_right-4" >负责人身份证（反面）</view> 
+            </view>
+      
+      </view>
+
+      <!-- 照片5。。。。。。。。。。。。。。。。。。 -->
+         <view class="upphoto">
+         <view class="addImg_wrap add3">
+                <view class="image_wrap add">
+                    <image clas="addImg_item" src="{{insDoorVal}}" wx:if="{{insDoorVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delChartertoImg' />
+                    </image>
+                    <image bindtap='addChartertoImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+              </view>
+              <view class="image_wrap_text add5-1" >营业执照</view> 
+            </view>
+      
+      </view>
+
+       <!-- 照片6。。。。。。。。。。。。。。。。。。 -->
+         <view class="upphoto">
+         <view class="addImg_wrap add3">
+                <view class="image_wrap add">
+                    <image clas="addImg_item" src="{{insDoorVal}}" wx:if="{{insDoorVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delProvetoImg' />
+                    </image>
+                    <image bindtap='addProvetoImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/icon-play/addImage.png"></image>
+              </view>
+              <view class="image_wrap_text add6-1" >场地合法使用证明</view> 
+            </view>
+      
+      </view>
+
+ <!-- 负责人资源。。。。。。。。。。。。。。。。。。 -->
+ <view class='audit'>
+            <label class= "title8-1">负责人所有资源</label>
+            <textarea class= "Number-result" placeholder-class="phcolor"  placeholder="请输入资源信息"  minlength="{{min}}" maxlength="{{max}}" bindinput="resource"> 
+
+        <text class="currentWordNumber">{{resource|0}}/{{max}}</text>
+        <!-- <text class="hint">{{texts}}</text>   -->
+    </textarea>
+    </view>
+
+     <view class='bottom'>
+      <button class='button' form-type='submit'>保存并提交</button>
+     </view>
+     
+        
+       
+    </form>
+    
+</view>
+ 

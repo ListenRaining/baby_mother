@@ -1,0 +1,56 @@
+<form bindsubmit="formSubmit">
+    <view class="main">
+        <view class="content">
+            <view class='content_head'>
+                <image wx:if="{{img}}" name='icon' bindtap="change_icon" src="{{img}}"></image>
+                <image wx:if="{{img==''}}" name='icon' bindtap="change_icon" src="{{rootRelativePath +'image/peo_img.png'}}"></image>
+                <input hidden="true" name='avatar' value='{{avatar}}'/>
+            </view>
+
+            <view class="item_content">
+                <view class='name'>姓名</view>
+                <input class="item1" value="{{name}}" placeholder="请输入宝宝姓名" name="baby_name" />
+            </view>
+
+            <view class="item_content">
+                <view class='name'>性别</view>
+                <picker bindchange="bindGenderChange" name="baby_gender" value="{{gender}}" range="{{gender}}" class='picker_con'>
+                    <view class="picker">{{gender[genderIndex]}}</view>
+                </picker>
+            </view>
+
+            <view class="item_content">
+                <view class='name'>出生年月</view>
+                <picker class='date' mode="date" name="baby_date" value="{{dateValue}}" start="2010-01-01" end="2017-12-12" bindchange="datePickerBindchange">
+                    <view class="date_font">{{dateValue}}</view>
+                </picker>
+            </view>
+
+            <view class="item_content">
+                <view class='name'>兴趣爱好</view>
+                <checkbox-group name='hobby' class="hobby">
+                    <view wx:for="{{lists}}" wx:key="list">
+                        <view class="check_view">
+                            <checkbox class="checked" checked="{{item.checked}}" value="{{index}}" /><text>{{item.name}}</text>
+                        </view>
+                    </view>
+                </checkbox-group>
+            </view>
+
+            <view style="border:0" class="item_content">
+                <view class='name'></view>
+                <checkbox-group name='is_class' class="is_class">
+                    <view class="check_view1">
+                        <checkbox wx:if="{{is_class == 1}}" class="checked" checked="true" value="1" />
+                        <checkbox wx:else class="checked" value="1" />
+                        <text>设置为上课宝宝</text>
+                    </view>
+                </checkbox-group>
+            </view>
+        </view>
+    </view>
+
+    <view class='submit_form'>
+        <button formType="submit">保存</button>
+    </view>
+</form>

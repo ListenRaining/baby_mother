@@ -1,0 +1,85 @@
+<import src="../../../utils/wxParse/wxParse.wxml" />
+<view class="main">
+  <view class="head">
+    <image class="icon" src="{{info.user.avatar}}">
+    </image>
+    <view class="infor">
+      <view class="name">
+        <label style="color:#09bb05">{{info.user.username}}</label>
+        <view class="official_icon">官方</view>
+      </view>
+      <view class="infor_text">
+        {{info.ctime}} {{info.read_num}}人阅读
+      </view>
+    </view>
+
+    <view  class="admire" catchtap="swallowTouch">
+        <image catchtap="clickAdmire" data-index="{{arrIndex}}" class= "admire_icon"  animation="{{animation}}" mode="widthFix" src="{{info.is_zan?(rootRelativePath+ 'image/icon/admire_red.png'):(rootRelativePath+ 'image/icon/admire_gray.png')}}"></image>
+        <label class="admire_cnt">{{info.zan_num}}</label>
+    </view>
+  </view>
+
+  <view class="title_panel">
+    <text id="title">{{info.title}}</text>
+  </view>
+  <view class="main_panel">
+    <view wx:if="{{info.video_url}}" class="list-item">
+      <video class="vid" objectFit="cover" src="{{baseurl}}{{info.video_url}}"></video>
+    </view>
+    <view wx:if="{{info.img}}" wx:for="{{info.img}}" class="list-item" wx:key="index">
+      <view class="image">
+        <image src="{{baseurl}}{{item}}" mode="widthFix"></image>
+      </view>
+    </view>
+    <label class="content"><template is="wxParse" data="{{wxParseData:content.nodes}}"/></label>
+  </view>
+
+
+    <!--删除评论
+    <view class="comment">
+    <view class="comment_item" wx:for="{{info.comment}}" wx:for-index= "commentIndex" wx:key="{{info}}">
+        <image class= "head_icon" src="{{info.comment[commentIndex].comment_avatar}}"></image>
+        <view class="content">
+            <view class="content_1">
+                <view class="title">
+                    <label class="name">{{info.comment[commentIndex].comment_name}}</label>
+                    <label class="time">{{info.comment[commentIndex].ctime}}</label>
+                </view>
+                <text  catchtap="clickComment" data-findex="{{commentIndex}}">{{info.comment[commentIndex].content}}</text> 
+            </view>
+
+              <view class="replyDiv" wx:if="{{info.comment[commentIndex].reply != null && info.comment[commentIndex].reply.length != 0}}">
+                <image mode="widthFix" class="triangle" src="{{rootRelativePath+ 'image/triangle.png'}}"></image>
+                <view class="reply">
+                    <view class="replyItem" wx:for="{{info.comment[commentIndex].reply}}" wx:for-index= "replyIndex" wx:key="{{infokey}}">
+                        <view class="title">
+                            <label class="name">{{info.comment[commentIndex].reply[replyIndex].interaction}}：</label>
+                            <label class="time">{{info.comment[commentIndex].reply[replyIndex].ctime}}</label>
+                        </view>
+                        <text catchtap="clickComment" data-findex="{{commentIndex}}" data-cindex="{{replyIndex}}">{{info.comment[commentIndex].reply[replyIndex].content}}</text>
+                    </view>
+                </view> 
+             </view> 
+        </view>
+    </view>
+  </view>
+
+    <form style="display:{{textareaShowFlag?'block':'none'}}" bindsubmit="publishComment">
+        <view class="publish_comment">
+            <image src="{{rootRelativePath+ 'image/icon/publish_comment.png'}}"></image>
+            <textarea focus="{{focus}}" value="{{value}}" class="input" bindinput="textInput" bindblur="bindTextAreaBlur" auto-height placeholder="{{placeText}}" fixed="true" name="content" placeholder-style="color:#dddde7; font-size:30rpx;"/>
+            <input style="display:{{!textareaShowFlag?'block':'none'}}"class="input" placeholder="{{placeText}}" placeholder-style="color:#dddde7; font-size:30rpx;"/>
+            <button formType="submit" style=" background-color:{{pCommentBtnColor}};color:{{pCommentBtnFontColor}}" >发送</button>
+        </view>
+    </form>
+
+<import src="../../../pages/components/action_sheet/action_sheet.wxml"/>
+<template is="action_sheet" data="{{...actionSheetData}}"/>
+-->
+</view>
+
+<view class="zhezhao" style='display:{{display}}'></view>
+<view class="show" style='display:{{display}}'>
+    <view class='txt'>授权后才可以进行操作哦!</view>
+    <button open-type="getUserInfo" bindgetuserinfo="getuser" class="authorization">微信一键登录</button>
+</view>

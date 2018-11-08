@@ -1,0 +1,217 @@
+<view class="content_wrap">
+    <form bindsubmit='formSubmit'>
+      <view class="top_text">机构基本信息</view>
+ 
+          <view class="li verificationLi">
+            <label class= "title">机构名称</label>
+            <input class= "Number" placeholder="请输入机构名称" name="ins_name" value="{{ins_name}}"/>
+          </view>
+           <view class="li verificationLi">
+                <label class= "title">机构类型</label>
+                <input class= "Number" placeholder="请输入机构类型" name= "code" />
+          </view>
+
+       
+
+
+
+
+
+        <view class="menu_wrap">
+            <view class="item">
+                <label class='label' bindtap="getAddress">获取定位</label><label class='mandatory'>*</label>
+                <input class="content" name="ins_address" value="{{ins_address}}" placeholder-style='color:#C4C4C4' placeholder="请输入机构地址" />
+            </view>
+
+            <view class="item">
+                机构名称<label class='mandatory'>*</label>
+                <input class="content" name="ins_name" value="{{ins_name}}" placeholder="请输入机构名称" placeholder-style='color:#C4C4C4'/>
+            </view>
+
+            <view class="item">
+                机构所在城市<label class='mandatory'>*</label>
+                <picker class="content_picker" bindchange="bindCityChange" value="{{cityIndex}}" name="cityid" range="{{citylist}}">
+                    <view class="picker">{{citylist[cityIndex]}}</view>
+                </picker>
+            </view>
+
+            <view class="item">
+                机构所在区域<label class='mandatory'>*</label>
+                <input class="content" name="ins_area" value="{{ins_area}}" placeholder="请输入机构所在区域" placeholder-style='color:#C4C4C4'/>
+            </view>
+
+            <view class="item">
+                经营年限
+                <input class="content" value="{{ins_years}}" name="ins_years" placeholder="请填写经营年限" placeholder-style='color:#C4C4C4'/>
+            </view>
+
+            <view class="item">
+                机构性质
+                <radio-group name="ins_category" class="category">
+                    <label wx:for="{{category}}" wx:key="{{category}}">
+                        <label wx:if="{{item == ins_category}}">
+                            <radio checked="true" value="{{item}}"/>{{item}}
+                        </label>
+                        <label wx:else>
+                            <radio value="{{item}}" />{{item}}
+                        </label>
+                    </label>
+                </radio-group>
+            </view>
+
+            <view class="item">
+                机构面积
+                <picker class="content_picker" bindchange="bindProportionChange" value="{{proportionIndex}}" name="ins_proportion" range="{{proportion}}">
+                    <view class="picker">{{proportion[proportionIndex]}}</view>
+                </picker>
+            </view>
+
+            <view class="item">
+                机构现有学员数量
+                <input type="number" class="content" value="{{ins_students}}" name="ins_students" placeholder="请填写现有生源数量" placeholder-style='color:#C4C4C4'/>
+            </view>
+
+            <view class="item">
+                学员年龄段
+                <input class="content" value="{{students_age}}" name="students_age" placeholder="请填写学员年龄段" placeholder-style='color:#C4C4C4'/>
+            </view>
+
+            <view class="item">
+                教室长度
+                <input class="content" value="{{room_long}}" name="room_long" placeholder="请填写教室长度" placeholder-style='color:#C4C4C4'/>
+            </view>
+
+            <view class="item">
+                教室宽度
+                <input class="content" value="{{room_wide}}" name="room_wide" placeholder="请填写教室宽度" placeholder-style='color:#C4C4C4'/>
+            </view>
+
+            <view class="item">
+                教室房高
+                <input class="content" value="{{room_height}}" name="room_height" placeholder="请填写教室房高" placeholder-style='color:#C4C4C4'/>
+            </view>
+
+            <view class="item">
+                是否有实体墙
+                <radio-group name="ins_wall" class="category">
+                    <label wx:for="{{wall}}" wx:key="{{wall}}">
+                        <label wx:if="{{item == ins_wall}}">
+                            <radio checked="true" value="{{item}}"/>{{item}}
+                        </label>
+                        <label wx:else>
+                            <radio value="{{item}}" />{{item}}
+                        </label>
+                    </label>
+                </radio-group>
+            </view>
+
+            <view class="item">
+                是否有50~100M网络
+                <radio-group name="ins_network" class="category">
+                    <label wx:for="{{network}}" wx:key="{{network}}">
+                        <label wx:if="{{item == ins_network}}">
+                            <radio checked="true" value="{{item}}"/>{{item}}
+                        </label>
+                        <label wx:else>
+                            <radio value="{{item}}" />{{item}}
+                        </label>
+                    </label>
+                </radio-group>
+            </view>
+
+            <view class="item">
+                是否有匹配教室
+                <radio-group name="ins_matching" class="category">
+                    <label wx:for="{{matching}}" wx:key="{{matching}}">
+                        <label wx:if="{{item == ins_matching}}">
+                            <radio checked="true" value="{{item}}"/>{{item}}
+                        </label>
+                        <label wx:else>
+                            <radio value="{{item}}" />{{item}}
+                        </label>
+                    </label>
+                </radio-group>
+            </view>
+
+            <view class="item">
+                合作意愿
+                <radio-group name="ins_cooperation" class="category">
+                    <label wx:for="{{cooperation}}" wx:key="{{cooperation}}">
+                        <label wx:if="{{item == ins_cooperation}}">
+                            <radio checked="true" value="{{item}}"/>{{item}}
+                        </label>
+                        <label wx:else>
+                            <radio value="{{item}}" />{{item}}
+                        </label>
+                    </label>
+                </radio-group>
+            </view>
+
+            <view class="item">
+                负责人所有资源
+                <textarea class="js" name="head_resources" value="{{head_resources}}" placeholder-style='color:#C4C4C4' />
+            </view>
+
+            <view class="item">
+                周边情况汇总（周边商场、幼儿园、社区数量）
+                <textarea class="js" name="summary" value="{{summary}}" placeholder-style='color:#C4C4C4' />
+            </view>
+
+            <view class="item">
+                合作建议
+                <textarea class="js" name="advice" value="{{advice}}" placeholder-style='color:#C4C4C4' />
+            </view>
+
+            <view class="addImg_wrap">
+                <view class="image_wrap">
+                    <image clas="addImg_item" src="{{insDoorVal}}" wx:if="{{insDoorVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delDoorImg' />
+                    </image>
+                    <image bindtap='addDoorImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
+              </view>
+              机构门头照片（一张）
+            </view>
+
+            <view class="addImg_wrap">
+                <view class="image_wrap">
+                    <image clas="addImg_item" src="{{insSurroundingVal}}" wx:if="{{insSurroundingVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delSurroundingImg' />
+                    </image>
+                    <image bindtap='addSurroundingImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
+              </view>
+              周边环境照片（一张）
+            </view>
+
+            <view class="addImg_wrap">
+                <view class="image_wrap">
+                    <image clas="addImg_item" src="{{insReceptionVal}}" wx:if="{{insReceptionVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delReceptionImg' />
+                    </image>
+                    <image bindtap='addReceptionImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
+              </view>
+              机构前台照片（一张）
+            </view>
+
+            <view class="addImg_wrap">
+                <view class="image_wrap">
+                    <image clas="addImg_item" src="{{insClassroomVal}}" wx:if="{{insClassroomVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delClassroomImg' />
+                    </image>
+                    <image bindtap='addClassroomImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
+              </view>
+              匹配教室照片（一张）
+            </view>
+
+            <view class="addImg_wrap">
+                <view class="image_wrap">
+                    <image clas="addImg_item" src="{{insGroupphotoVal}}" wx:if="{{insGroupphotoVal}}">
+                        <icon type="clear" size="20" color="gray" bindtap='delGroupphotoImg' />
+                    </image>
+                    <image bindtap='addGroupphotoImg' clas="addImg_item" mode="aspectFit" class="add_image" src="../../../image/addImage.png"></image>
+              </view>
+              与负责人合影照片（一张）
+            </view>
+        </view>
+        <button form-type='submit'>提交</button>
+    </form>
+</view>

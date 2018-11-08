@@ -1,0 +1,136 @@
+page {
+  background-color: white;
+  height: 100%;
+}
+
+.head_cnt {
+  position: absolute;
+  width: 100%;
+  color: white;
+  top: 40rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.cnt_num {
+  font-size: 40rpx;
+  font-weight: 800;
+}
+
+.head_cnt view {
+  margin-bottom: 10rpx;
+}
+
+.head image{
+  width: 100%;
+}
+
+.prog {
+  text-align: center;
+  margin: 30rpx 0 30rpx 0;
+  font-size: 28rpx;
+}
+
+.prog_img {
+  padding:0 50rpx;
+}
+
+.prog image {
+  width: 100%;
+  height: 25rpx;
+  margin:20rpx 0;
+}
+
+.task {
+  font-size: 28rpx;
+}
+
+.task_bg {
+  width: 100%;
+  height: 25rpx;
+  background-color: #ebebeb;
+}
+
+.task_date {
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+.task_nece {
+  padding: 20rpx 50rpx;
+  text-align: left;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+.nece_info image {
+  width: 52rpx;
+  height: 52rpx;
+  margin:0 0 0 auto;
+}
+
+.nece_info {
+  line-height: 52rpx;
+  display: flex;
+}
+
+.nece_des {
+  font-size: 23rpx;
+  background-color: #ebebeb;
+  text-align: left;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.task_arrow {
+  margin-top:10rpx;
+  height: 30rpx;
+  padding-left: 410rpx;
+}
+
+.task_arrow image {
+  width: 64rpx;
+  height: 30rpx;
+}
+
+.task_select {
+  font-size: 25rpx;
+  padding: 20rpx 50rpx;
+  text-align: left;
+}
+
+.select_head {
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+}
+
+.select_info {
+  display: flex;
+  line-height: 22rpx;
+  margin-bottom: 25rpx;
+}
+
+.task_select .select_01 {
+  width: 30rpx;
+  height: 22rpx;
+  margin: 0 7rpx 0 auto;
+}
+
+.task_select .select_03 {
+  width: 29rpx;
+  height: 29rpx;
+  margin: 0 7rpx 0 auto;
+}
+
+.item_nosch {
+  height: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  color: #a4a7aa;
+  padding-top: 200rpx;
+}
+
+.item_nosch image {
+  margin-bottom: 40rpx;
+}

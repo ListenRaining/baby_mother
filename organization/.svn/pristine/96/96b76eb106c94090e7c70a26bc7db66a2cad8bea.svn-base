@@ -1,0 +1,77 @@
+
+<view  class="register">
+      <view>
+         <view class="top_text">只需要完成以下步骤，就可以给您的机构排课喽</view>
+
+         <!-- 个人信息 -->
+         <view class='top_person' bindtap="toPreson">
+            <view class='top_person_1'>
+               <view class='top_person_1_flex1'>
+                  <image src="../../../image/icon-play/person.png"></image>
+               </view>
+               <view class='top_person_1_flex2'>个人信息</view>
+            </view>
+
+            <view class='top_person_2'>
+             
+                  <view class='top_person_2_flex1 right_distance'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+                  <view class='top_person_2_flex2'>已录入</view>
+                  <view class='top_person_2_flex1 left_distance'>
+                     <image src="../../../image/icon-play/good.png"></image>
+                  </view>
+             
+              </view>
+          </view>
+
+        <!-- 机构信息 -->
+         <view class='middle_person' bindtap="toOrganization">
+            <view class='top_person_1'>
+               <view class='top_person_1_flex1'>
+                  <image src="../../../image/icon-play/organization.png"></image>
+               </view>
+               <view class='top_person_1_flex2'>机构信息</view>
+            </view>
+
+            <view class='top_person_2'>
+             
+                  <view class='top_person_2_flex1 right_distance'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+                  <view class='top_person_2_flex2'>待完善</view>
+                  <view class='top_person_2_flex1 left_distance'>
+                     <!-- <image src="../../../image/icon-play/good.png"></image> -->
+                  </view>
+             
+              </view>
+          </view>
+          
+       <!-- 周边信息 -->
+         <view class='middle_person' bindtap="toRim">
+            <view class='top_person_1'>
+               <view class='top_person_1_flex1'>
+                  <image src="../../../image/icon-play/rim.png"></image>
+               </view>
+               <view class='top_person_1_flex2'>周边信息</view>
+            </view>
+
+            <view class='top_person_2'>
+             
+                  <view class='top_person_2_flex1 right_distance'>
+                    <image src="../../../image/icon-play/arrow.png"></image>
+                  </view>
+                  <view class='top_person_2_flex2'>未录入</view>
+                  <view class='top_person_2_flex1 left_distance'>
+                     <!-- <image src="../../../image/icon-play/good.png"></image> -->
+                  </view>
+             
+              </view>
+          </view>
+      
+
+
+         <button class='button' formType="submit">提交</button>
+
+      </view>  
+</view>

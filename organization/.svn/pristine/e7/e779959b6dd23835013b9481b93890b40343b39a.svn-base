@@ -1,0 +1,881 @@
+// pages/teamwork/information.js
+var app = getApp()
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    typeIndex: 0,
+    typeSelect: ["请选择机构类型", "艺术培训机构", "亲子早教机构", "综合培训中心", "其他"],  //机构类型
+    province: [],//地区选择
+    customItem: '全部',
+    ins_areaIndex:0,
+    ins_areaSelect: ["请选择机构总面积", "100㎡以下", "100-200㎡", "200-300㎡", "300㎡以上"],  //机构面积
+    site_propertiesIndex:0,
+    site_propertiesSelect: ["请选择场地性质", "自有", "租赁"],  //场地类型
+    invoice_typeIndex:0,
+    invoice_typeSelect: ["请选择发票类型", "增值税专用发票", "增值税普通发票"],  //发票类型
+    operateyearIndex:0,
+    operateyearSelect: ["请选择经营年限", "1年以内", "1-3年", "3-5年", "5年以上"],  //经营年限
+    edu_numIndex: 0,
+    edu_numSelect: ["请选择教务或市场人数", "3人以下", "3-5人", "5-10人", "10人以上"],  //教务
+    agestrIndex:0,
+    agestrSelect: ["请选择生源年龄段", "0-3岁", "3-6岁", "6-12岁", "12岁以上"],  //年龄段
+    studentsIndex:0,
+    studentsSelect: ["请选择学员人数", "50人以下", "50-100人", "100-200人", "200人以上"],  //人数
+    classroom_numIndex:0,
+    classroom_numSelect: ["请选择教室数量", "3间以下", "4间", "5间", "5间以上"],  //教室数量
+    ins_wallIndex:0,
+    ins_wallSelect: ["请选择承重墙类型", "实体墙", "隔断墙有龙骨", "隔断墙无龙骨"],  //承重墙
+    networkIndex:0,
+    networkSelect: ["请选择网络类型", "有线网络", "无线网络", "有线无线都有", "没有网络"],  //网络
+    idle_timeIndex:0,
+    idle_timeSelect: ["请选择教室闲置时间段", "周一至周五全天", "周一至周五下午", "周末全天", "没有闲置时间"],  //闲置
+    //周边
+    transportIndex: 0,
+    transportSelect: ["请输入实际交通状况", "地铁站附近", "公交站附近", "地铁公交都很近", "公共交通距离远"],  //交通状况
+    infrastructureIndex:0,
+    infrastructureSelect: ["请输入周边基础设施", "大型商场附近", "社区广场附近", "写字楼附近", "学校附近"],  //基础设施
+    communityIndex:0,
+    communitySelect: ["请选择周边社区情况", "超大社区", "4-6个普通社区", "1-3个普通社区", "没有社区"],  //社区
+    inhabitantIndex:0,
+    inhabitantSelect: ["请选择合适人口范围", "5万人以下", "5-10万人", "10万人以上"],
+    //租赁期默认不显示
+    show_leasehold:false,
+    show_network: false
+  },
+
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this
+    that.setData({
+      types: options.types
+    })
+
+    if (that.data.types == 'personal') {
+      wx.setNavigationBarTitle({
+        title: "个人信息"//页面标题为路由参数
+      })
+    } else if (that.data.types == 'organization') {
+      wx.setNavigationBarTitle({
+        title: "机构信息"//页面标题为路由参数
+      })
+    } else if (that.data.types == 'periphery') {
+      wx.setNavigationBarTitle({
+        title: "周边信息"//页面标题为路由参数
+      })
+    }
+    
+    //获取登陆时缓存手机号
+    wx.getStorage({
+      key: 'manager',
+      success: function (res) {
+        that.setData({
+          mobile: res.data.mobile
+        });
+      },
+    })
+
+    //请求获取申请合作用户填写数据
+    wx.getStorage({
+      key: 'userinfo',
+      success: function (res) {
+        wx.request({
+          url: app.globalData.baseUrl + 'little/institution/checkApplyV10',
+          data: {
+            unionId: res.data.unionId,
+            types: options.types
+          },
+          success: function (result) {
+              that.setData({
+                info: result.data.info,
+              })
+            if (options.types == 'organization') {
+              console.log(result.data.info.ins_wall);
+              that.setData({
+                typeIndex: result.data.info.type ? that.findindexof(that.data.typeSelect, result.data.info.type) : 0,
+                ins_areaIndex: result.data.info.ins_area ? that.findindexof(that.data.ins_areaSelect, result.data.info.ins_area) : 0 ,
+                site_propertiesIndex: result.data.info.site_properties ? that.findindexof(that.data.site_propertiesSelect, result.data.info.site_properties) :0,
+                invoice_typeIndex: result.data.info.invoice_type ? result.data.info.invoice_type :0,
+                operateyearIndex: result.data.info.operateyear ? that.findindexof(that.data.operateyearSelect, result.data.info.operateyear) :0,
+                edu_numIndex: result.data.info.edu_num ? that.findindexof(that.data.edu_numSelect, result.data.info.edu_num) : 0,
+                agestrIndex: result.data.info.agestr ? that.findindexof(that.data.agestrSelect, result.data.info.agestr) :0,
+                studentsIndex: result.data.info.students ? that.findindexof(that.data.studentsSelect, result.data.info.students) : 0,
+                classroom_numIndex: result.data.info.classroom_num ? that.findindexof(that.data.classroom_numSelect, result.data.info.classroom_num) :0,
+                ins_wallIndex: result.data.info.ins_wall ? that.findindexof(that.data.ins_wallSelect, result.data.info.ins_wall) :0,
+                networkIndex: result.data.info.network ? that.findindexof(that.data.networkSelect, result.data.info.network) :0,
+                idle_timeIndex: result.data.info.idle_time ? that.findindexof(that.data.idle_timeSelect, result.data.info.idle_time) :0
+              })
+            } else if (options.types == 'periphery'){
+              that.setData({
+                transportIndex: result.data.info.transport ? that.findindexof(that.data.transportSelect, result.data.info.transport) : 0,
+                infrastructureIndex: result.data.info.infrastructure ? that.findindexof(that.data.infrastructureSelect, result.data.info.infrastructure) : 0,
+                communityIndex: result.data.info.community ? that.findindexof(that.data.communitySelect, result.data.info.community) : 0,
+                inhabitantIndex: result.data.info.inhabitant ? that.findindexof(that.data.inhabitantSelect, result.data.info.inhabitant) :0,
+              })
+            }
+          }
+
+        })
+      },
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    //this.clickBack();
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+  /*
+  ########以下是自定义函数/方法部分##################################
+  */
+
+   /*
+    选择机构所在城市
+   */
+  bindCityChange: function (e) {
+    this.setData({
+      typeIndex: e.detail.value
+
+    })
+  },
+
+  /*
+   选择机构类型
+  */
+  bindTypeChange: function (e) {
+    var typeIndex = e.detail.value;
+    var typeName = this.data.typeSelect[typeIndex];
+    this.setData({
+      typeIndex: typeIndex,
+      typeName: typeName
+    })
+  },
+
+   /*
+     选择地区选择
+   */
+  bindProvinceChange: function (e) {
+    var  province= e.detail.value
+    this.setData({
+      province: province
+    })
+  },
+   /*
+    选择机构面积
+   */
+  bindAreaChange: function (e) {
+    var ins_areaIndex = e.detail.value;
+    var ins_areaName = this.data.ins_areaSelect[ins_areaIndex];
+    this.setData({
+      ins_areaIndex: ins_areaIndex,
+      ins_areaName: ins_areaName
+    })
+  },
+
+  /*
+   选择场地性质
+  */
+  bindSitepropertiesChange: function (e) {
+    var site_propertiesIndex = e.detail.value;
+    var site_propertiesName = this.data.site_propertiesSelect[site_propertiesIndex];
+    this.setData({
+      site_propertiesIndex: site_propertiesIndex,
+      site_propertiesName: site_propertiesName
+    })
+    if(site_propertiesName =='租赁'){
+      this.setData({
+        show_leasehold: true,
+      })
+    }else{
+      this.setData({
+        show_leasehold: false,
+      })
+    }
+  },
+
+   /*
+    选择发票类型
+   */
+  bindInvoiceChange: function (e) {
+    var invoice_typeIndex = e.detail.value;
+    var invoice_typeName = this.data.invoice_typeSelect[invoice_typeIndex];
+    this.setData({
+      invoice_typeIndex: invoice_typeIndex,
+      invoice_typeName: invoice_typeName
+    })
+  },
+   /*
+    选择经营年限
+   */
+  bindOperateyearChange: function (e) {
+    var operateyearIndex = e.detail.value;
+    var operateyearName = this.data.operateyearSelect[operateyearIndex];
+    this.setData({
+      operateyearIndex: operateyearIndex,
+      operateyearName: operateyearName
+    })
+  },
+
+  /*
+   选择教务人数
+  */
+  bindEduNumChange: function (e) {
+    var edu_numIndex = e.detail.value;
+    var edu_numName = this.data.operateyearSelect[edu_numIndex];
+    this.setData({
+      edu_numIndex: edu_numIndex,
+      edu_numName: edu_numName
+    })
+  },
+
+  /*
+   选择年龄段
+  */
+  bindAgestrChange: function (e) {
+    var agestrIndex = e.detail.value;
+    var agestrName = this.data.agestrSelect[agestrIndex];
+    this.setData({
+      agestrIndex: agestrIndex,
+      agestrName: agestrName
+    })
+  },
+
+  /*
+    选择学员人数
+  */
+  bindStudentsChange: function (e) {
+    var studentsIndex = e.detail.value;
+    var studentsName = this.data.agestrSelect[studentsIndex];
+    this.setData({
+      studentsIndex: studentsIndex,
+      studentsName: studentsName
+    })
+  },
+
+  /*
+    选择教室数量
+  */
+  bindClassRoomnumChange: function (e) {
+    var classroom_numIndex = e.detail.value;
+    var classroom_numName = this.data.classroom_numSelect[classroom_numIndex];
+    this.setData({
+      classroom_numIndex: classroom_numIndex,
+      classroom_numName: classroom_numName
+    })
+  },
+   /*
+    选择承重墙
+   */
+  bindInswalllChange: function (e) {
+    var ins_wallIndex = e.detail.value;
+    var ins_wallName = this.data.ins_wallSelect[ins_wallIndex];
+    this.setData({
+      ins_wallIndex: ins_wallIndex,
+      ins_wallName: ins_wallName
+    })
+  },
+  /*
+   选择网络
+  */
+  bindNetworkChange: function (e) {
+    var networkIndex = e.detail.value;
+    var networkName = this.data.networkSelect[networkIndex];
+    this.setData({
+      networkIndex: networkIndex,
+      //networkName: networkName
+    })
+
+    if (networkName != '没有网络') {
+      this.setData({
+        show_network: true,
+      })
+    } else {
+      this.setData({
+        show_network: false,
+      })
+    }
+
+  },
+
+  /*
+   选择闲置时间
+  */
+  bindIdletimeChange: function (e) {
+    var idle_timeIndex = e.detail.value;
+    //var idle_timeName = this.data.networkSelect[idle_timeIndex];
+    this.setData({
+      idle_timeIndex: idle_timeIndex,
+      //idle_timeName: idle_timeName
+    })
+  },
+
+  //周边信息部分
+  /*
+    选择交通状况
+  */
+  bindTransportChange: function (e) {
+    var transportIndex = e.detail.value;
+    //var transportName = this.data.networkSelect[transportIndex];
+    this.setData({
+      transportIndex: transportIndex,
+      //transportName: transportName
+    })
+  },
+  /*
+   选择基础设施
+  */
+  bindInfrastructureChange: function (e) {
+    var infrastructureIndex = e.detail.value;
+    //var infrastructureName = this.data.networkSelect[infrastructureIndex];
+    this.setData({
+      infrastructureIndex: infrastructureIndex,
+      //infrastructureName: infrastructureName
+    })
+  },
+
+   /*
+   选择社区
+   */
+  bindCommunityChange: function (e) {
+    var communityIndex = e.detail.value;
+    //var communityName = this.data.networkSelect[communityIndex];
+    this.setData({
+      communityIndex: communityIndex,
+      //communityName: communityName
+    })
+  },
+
+  /*
+   选择常住人口
+  */
+  bindInhabitantChange: function (e) {
+    var inhabitantIndex = e.detail.value;
+    //var inhabitantName = this.data.networkSelect[inhabitantIndex];
+    this.setData({
+      inhabitantIndex: inhabitantIndex,
+      //inhabitantName: inhabitantName
+    })
+  },
+
+  /*
+   选择机构面积
+  */
+  bindProportionChange: function (e) {
+    this.setData({
+      proportionIndex: e.detail.value
+    })
+  },
+
+  /*
+   #######+++++以下是自定义函数部分+++++##################################
+  */
+
+  /**
+   * 保存信息
+   */
+  formSubmit: function (e) {
+    var that = this
+    //console.log('表单提交信息', e)
+    var formId = e.detail.formId
+
+    if (that.data.types == 'personal') {
+      //个人信息
+      var username = e.detail.value.username //联系人
+      var mobile = e.detail.value.mobile//联系电话
+
+      if (!username) {
+        wx.showModal({
+          title: '联系人不能为空！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+
+      if (username.length >6) {
+        wx.showModal({
+          title: '联系人字符不得超过6个！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      wx.getStorage({
+        key: 'userinfo',
+        success: function (res) {
+          wx.request({
+            url: app.globalData.baseUrl + 'little/institution/applyV10',
+            data: {
+              unionId: res.data.unionId,
+              openId: res.data.openId,
+              formId: formId,
+              submittype: that.data.types,
+              //个人信息参数
+              username: username,
+              mobile: mobile,
+
+            },
+            success: function (result) {
+              //console.log(result);
+              if (result.data.result == 'succ') {
+                wx.showModal({
+                  title: '个人信息保存成功!',
+                  showCancel: false,
+                  success(res) {
+                    if (res.confirm) {
+                      wx.redirectTo({
+                        url: '/pages/teamwork/applicationform'
+                      })
+                    }
+                  }
+                })
+              } else {
+                wx.showModal({
+                  title: '个人信息保存失败!',
+                  showCancel: false
+                })
+              }
+            },
+          })
+        }
+      })
+
+    } else if (that.data.types == 'organization') {
+      //机构基本信息
+      var ins_name = e.detail.value.ins_name //机构名称
+      var types = e.detail.value.types   //机构类型
+      var province = e.detail.value.province //所在地区
+      var address = e.detail.value.address //详细地址
+      var ins_high = e.detail.value.ins_high //机构层高
+      var ins_area = e.detail.value.ins_area //总面积
+      var site_properties = e.detail.value.site_properties //场地性质
+      var leasehold = e.detail.value.leasehold//租赁期
+      var invoice_type = e.detail.value.invoice_type//发票类型
+      var operateyear = e.detail.value.operateyear//经营年限
+      //---------------------------
+      var edu_num = e.detail.value.edu_num //教务人数
+      //---------------------------
+      var agestr = e.detail.value.agestr //年龄段
+      var students = e.detail.value.students //学员人数
+      //---------------------------
+      var classroom_num = e.detail.value.classroom_num //教室数量
+      var room_floor = e.detail.value.room_floor//所在楼层
+      var room_long = e.detail.value.room_long //教室长
+      var room_wide = e.detail.value.room_wide//教室宽
+      var ins_wall = e.detail.value.ins_wall//承重墙
+      var network = e.detail.value.network//网络
+      var broadband = e.detail.value.broadband//带宽
+      var idle_time = e.detail.value.idle_time//闲置时间
+
+
+      if (!ins_name) {
+        wx.showModal({
+          title: '机构名称不能为空！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+     
+      if (that.findindexof(that.data.typeSelect, types) =='0') {
+        wx.showModal({
+          title: '请选择机构类型！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+     
+      if (province === undefined || province.length == 0) {
+        wx.showModal({
+          title: '请选择机所在地区！',
+          showCancel: false,
+        })
+        return false;
+       }
+      
+
+      if (!address) {
+        wx.showModal({
+          title: '详细地址不能为空！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+
+      if (!ins_high) {
+        wx.showModal({
+          title: '机构层高不能为空！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.ins_areaSelect, ins_area) == '0') {
+        wx.showModal({
+          title: '请选择机构总面积！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.site_propertiesSelect, site_properties) == '0') {
+        wx.showModal({
+          title: '请选择场地性质！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (site_properties=='租赁' && !leasehold) {
+        wx.showModal({
+          title: '租赁期不能为空！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.invoice_typeSelect, invoice_type) == '0') {
+        wx.showModal({
+          title: '请选择发票类型！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.operateyearSelect, operateyear) == '0') {
+        wx.showModal({
+          title: '请选择经营年限！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.edu_numSelect, edu_num) == '0') {
+        wx.showModal({
+          title: '请选择教务人数！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.agestrSelect, agestr) == '0') {
+        wx.showModal({
+          title: '请选择年龄段！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.studentsSelect, students) == '0') {
+        wx.showModal({
+          title: '请选择学员人数！',
+          showCancel: false,
+        })
+        return false;
+      }
+      
+      if (that.findindexof(that.data.classroom_numSelect, classroom_num) == '0') {
+        wx.showModal({
+          title: '请选择教室数量！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (!room_floor) {
+        wx.showModal({
+          title: '所在楼层不能为空！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (!room_long) {
+        wx.showModal({
+          title: '教室长不能为空！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+
+      if (!room_wide) {
+        wx.showModal({
+          title: '教室宽不能为空！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.ins_wallSelect, ins_wall) == '0') {
+        wx.showModal({
+          title: '请选择承重墙！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.networkSelect, network) == '0') {
+        wx.showModal({
+          title: '请选择网络！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+
+      if (network != '没有网络' && broadband < 1) {
+        wx.showModal({
+          title: '宽带不能小于1MB！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.idle_timeSelect, idle_time) == '0') {
+        wx.showModal({
+          title: '请选择闲置时间！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      wx.getStorage({
+        key: 'userinfo',
+        success: function (res) {
+          wx.request({
+            url: app.globalData.baseUrl + 'little/institution/applyV10',
+            data: {
+              unionId: res.data.unionId,
+              openId: res.data.openId,
+              formId: formId,
+              submittype: that.data.types,
+              //机构信息参数
+              ins_name: ins_name,
+              types: types,
+              province: province,
+              address: address,
+              ins_high: ins_high,
+              ins_area: ins_area,
+              site_properties: site_properties,
+              leasehold: site_properties =='租赁' ? leasehold : '0',
+              invoice_type: invoice_type,
+              operateyear: operateyear,
+              edu_num: edu_num,
+              agestr: agestr,
+              students: students,
+              classroom_num: classroom_num,
+              room_floor: room_floor,
+              room_long: room_long,
+              room_wide: room_wide,
+              ins_wall: ins_wall,
+              network: network,
+              broadband: network !='没有网络' ? broadband : '0',
+              idle_time: idle_time
+            },
+            success: function (result) {
+              if (result.data.result == 'succ') {
+
+                wx.showModal({
+                  title: '机构信息保存成功!',
+                  showCancel: false,
+                  success(res) {
+                    if (res.confirm) {
+                      wx.redirectTo({
+                        url: '/pages/teamwork/applicationform'
+                      })
+                    }
+                  }
+                })
+              } else {
+                wx.showModal({
+                  title: '机构信息保存失败!',
+                  showCancel: false
+                })
+              }
+            },
+          })
+        }
+      })
+
+    } else if (that.data.types == 'periphery'){
+      
+      //周边信息
+      var transport = e.detail.value.transport //交通状况
+      var infrastructure = e.detail.value.infrastructure  //基础设施
+      var community = e.detail.value.community  //周边社区
+      var inhabitant = e.detail.value.inhabitant  //常住人口
+      var peer_group = e.detail.value.peer_group ? e.detail.value.peer_group :0 //同类机构
+      var kindergarten = e.detail.value.kindergarten ? e.detail.value.kindergarten :0//幼儿园
+
+     if(that.findindexof(that.data.transportSelect, transport) == '0') {
+        wx.showModal({
+          title: '请选择交通状况！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if(that.findindexof(that.data.infrastructureSelect, infrastructure) == '0') {
+        wx.showModal({
+          title: '请选择基础设施！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if(that.findindexof(that.data.communitySelect, community) == '0') {
+        wx.showModal({
+          title: '请选择周边社区！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      if (that.findindexof(that.data.inhabitantSelect, inhabitant) == '0') {
+        wx.showModal({
+          title: '请选择常住人口！',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      wx.getStorage({
+        key: 'userinfo',
+        success: function (res) {
+          wx.request({
+            url: app.globalData.baseUrl + 'little/institution/applyV10',
+            data: {
+              unionId: res.data.unionId,
+              openId: res.data.openId,
+              formId: formId,
+              submittype: that.data.types,
+              //周边信息参数
+              transport: transport,
+              infrastructure: infrastructure,
+              community: community,
+              inhabitant: inhabitant,
+              peer_group: peer_group,
+              kindergarten: kindergarten
+            },
+            success: function (result) {
+              if (result.data.result == 'succ') {
+                //缓存标记个人信息完善情况
+                if (transport && infrastructure && community && inhabitant && peer_group && kindergarten) {
+                  wx.setStorage({
+                    key: 'sign_periphery',
+                    data: '1' //1 已录入
+                  })
+                } else if (transport || infrastructure || community || inhabitant || peer_group || kindergarten) {
+                  wx.setStorage({
+                    key: 'sign_periphery',
+                    data: '2' //2 待完善
+                  })
+                } else {
+                  wx.setStorage({
+                    key: 'sign_periphery',
+                    data: '3' //2 待录入
+                  })
+                }
+                wx.showModal({
+                  title: '周边信息保存成功!',
+                  showCancel: false,
+                  success(res) {
+                    if (res.confirm) {
+                      wx.redirectTo({
+                        url: '/pages/teamwork/applicationform'
+                      })
+                    }
+                  }
+                })
+              } else {
+                wx.showModal({
+                  title: '周边信息保存失败!',
+                  showCancel: false
+                })
+              }
+            },
+          })
+        }
+      })
+    }
+  },
+  
+  //通过value查找该值的key
+  findindexof: function (arr, value) {
+    if (arr.length == 0) {
+      return false;
+    }
+    for (var i = 0; i <= arr.length; i++) {
+      if (arr[i] === value) {
+        return i;
+      }
+    }
+  },
+
+  //点击返回提示用户是否需要保存数据
+  clickBack: function () {
+    wx.showModal({
+      title: '提示!',
+      content: '保存信息后再退出？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+})

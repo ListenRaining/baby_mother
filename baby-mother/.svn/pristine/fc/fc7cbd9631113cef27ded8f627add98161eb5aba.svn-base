@@ -1,0 +1,140 @@
+/* baby.wxss */
+
+page {
+  background-color: #efeff6;
+  text-align: center;
+}
+
+.main {
+  margin-top: 41rpx;
+  text-align: center;
+}
+
+.content {
+  width: 91.5%;
+  margin: 0 auto;
+}
+
+.content_head {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.content_head image {
+  width: 132rpx;
+  height: 132rpx;
+  border-radius: 50%;
+  margin-bottom: 33rpx;
+}
+
+.item_content {
+  padding-top: 35rpx;
+  padding-bottom: 35rpx;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid #dededc;
+  overflow: hidden;
+}
+
+.name {
+  font-size: 29rpx;
+  line-height: 29rpx;
+  width: 194rpx;
+  text-align: left;
+}
+
+.item_content input {
+  vertical-align: middle;
+  height: 29rpx;
+  margin-right: 0;
+  font-size: 29rpx;
+  text-align: left;
+  line-height: 29rpx;
+  color: #000;
+  /* min-height: 29rpx; */
+}
+.item1{
+  max-width: 256rpx;
+  margin-top: -10rpx;
+}
+.picker_con {
+  font-size: 29rpx;
+  line-height: 29rpx;
+  text-align: left;
+}
+
+.date {
+  text-align: left;
+}
+
+.date_font {
+  font-size: 29rpx;
+  color: #807c79;
+  line-height: 29rpx;
+}
+
+.hobby {
+  margin-top: -14rpx;
+  width: 492rpx;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.hobby text {
+  font-size: 23rpx;
+  margin-left: -9rpx;
+  color: #807c79;
+  text-align: left;
+}
+
+.font {
+  font-size: 29rpx;
+  color: #807c79;
+  line-height: 29rpx;
+}
+
+.sex_font {
+  font-size: 29rpx;
+  color: #807c79;
+  line-height: 29rpx;
+}
+
+.checked {
+  transform: scale(0.58);
+  margin-left: -15rpx;
+}
+
+.submit_form {
+  box-sizing: border-box;
+  height: 302rpx;
+  margin-top: 36rpx;
+}
+
+ .submit_form button {
+  background-color: #28a938;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  width: 686rpx;
+  margin: 0 auto;
+  padding: 0;
+} 
+
+
+.picker {
+  height: 20rpx;
+  font-size: 29rpx;
+  line-height: 29rpx;
+  float: left;
+  color: #807c79;
+  position: absolute;
+}
+
+.check_view {
+  min-width: 90rpx;
+  text-align: left;
+  display: inline-block;
+  margin-right: 20rpx;
+}

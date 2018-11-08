@@ -1,0 +1,22 @@
+<view>
+    <form bindsubmit="formSubmit">
+        <view class='title'>
+            <label>机构名称：{{info.ins_name}}</label>
+        </view>
+        <view class='title'>
+            <label>机构地址：{{info.address}}</label>
+        </view>
+        <view class='title'>
+            <label>补课课时：{{info.number}}</label>
+        </view>
+        <view class='title'>
+            <label>补课时间：{{lessonStudent.repair_time}}</label>
+        </view>
+        <view class='title status' wx:if="{{lessonStudent.is_repair==1}}">
+            <label>补课状态：补课时间已确认</label>
+        </view>
+        <view>
+            <button class="btn" wx:if="{{lessonStudent.is_repair==0}}" form-type='submit'>确认时间</button>
+        </view>
+    </form>
+</view>

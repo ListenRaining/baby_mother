@@ -1,0 +1,104 @@
+<view wx:if="{{list!=''}}" class="backg">
+    <view wx:if="{{type == 1}}" class='nav'>
+        <view class='tab underline'>潜在人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='2'>强度人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='3'>一度关系</view>
+        <view class='tab' bindtap='switchChoose' data-type='4'>二度关系</view>
+    </view>
+    <view wx:if="{{type == 2}}" class='nav'>
+        <view class='tab' bindtap='switchChoose' data-type='1'>潜在人脉</view>
+        <view class='tab underline'>强度人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='3'>一度关系</view>
+        <view class='tab' bindtap='switchChoose' data-type='4'>二度关系</view>
+    </view>
+    <view wx:if="{{type == 3}}" class='nav'>
+        <view class='tab' bindtap='switchChoose' data-type='1'>潜在人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='2'>强度人脉</view>
+        <view class='tab underline'>一度关系</view>
+        <view class='tab' bindtap='switchChoose' data-type='4'>二度关系</view>
+    </view>
+    <view wx:if="{{type == 4}}" class='nav'>
+        <view class='tab' bindtap='switchChoose' data-type='1'>潜在人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='2'>强度人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='3'>一度关系</view>
+        <view class='tab underline'>二度关系</view>
+    </view>
+    <view wx:for="{{list}}" wx:key="{{list}}" class="infor">
+        <view class="panel">
+            <view class="infor">
+                <view class="head_wrap">
+                    <image wx:if="{{item.avatar}}" src="{{item.avatar}}"></image>
+                    <image wx:else src="{{rootRelativePath +'image/peo_img.png'}}"></image>
+                </view>
+
+                <view class="text_panel1" wx:if="{{type==1}}">
+                    <view class="uname">{{item.username}}</view>
+                    <view class="time">产生时间：{{item.renmai_time}}</view>
+                </view>
+
+                <view class="text_panel2" wx:if="{{type==2}}">
+                    <view class="uname">{{item.username}} ({{item.child_name}} {{item.child_age}}岁)</view>
+                    <view class="time">手机号码：{{item.mobile}}</view>
+                    <view class="time">产生时间：{{item.qiang_time}}</view>
+                    <view class="time">释放时间：{{item.release_time}}</view>
+                </view>
+
+                <view class="text_panel2" wx:if="{{type==3}}">
+                    <view class="uname4" wx:if="{{item.level==4}}">
+                        <lable>{{item.username}}</lable>
+                        <lable class="identity">美乐合伙人</lable>
+                    </view>
+                    <view class="uname" wx:if="{{item.level!=4}}">{{item.username}} ({{item.child_name}} {{item.child_age}}岁)</view>
+                    <view class="time">手机号码：{{item.mobile}}</view>
+                    <view class="time">加入时间：{{item.vtime}}</view>
+                    <view class="time" wx:if="{{item.level!=4 && item.ins_name}}">上课机构：{{item.ins_name}} {{item.times}}</view>
+                </view>
+
+                <view class="item_btn" wx:if="{{type==3}}">
+                    <button bindtap='goOffline' wx:if="{{item.bisCount>0}}" data-uid="{{item.uid}}">{{item.bisCount}}</button>
+                    <button wx:elif="{{item.bisCount==0}}">{{item.bisCount}}</button>
+                </view>
+
+                <view class="text_panel1" wx:if="{{type==4}}">
+                    <view class="uname">{{item.username}}</view>
+                    <view class="time">产生时间：{{item.vtime}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view wx:else class="backg">
+    <view wx:if="{{type == 1}}" class='nav'>
+        <view class='tab underline'>潜在人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='2'>强度人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='3'>一度关系</view>
+        <view class='tab' bindtap='switchChoose' data-type='4'>二度关系</view>
+    </view>
+    <view wx:if="{{type == 2}}" class='nav'>
+        <view class='tab' bindtap='switchChoose' data-type='1'>潜在人脉</view>
+        <view class='tab underline'>强度人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='3'>一度关系</view>
+        <view class='tab' bindtap='switchChoose' data-type='4'>二度关系</view>
+    </view>
+    <view wx:if="{{type == 3}}" class='nav'>
+        <view class='tab' bindtap='switchChoose' data-type='1'>潜在人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='2'>强度人脉</view>
+        <view class='tab underline'>一度关系</view>
+        <view class='tab' bindtap='switchChoose' data-type='4'>二度关系</view>
+    </view>
+    <view wx:if="{{type == 4}}" class='nav'>
+        <view class='tab' bindtap='switchChoose' data-type='1'>潜在人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='2'>强度人脉</view>
+        <view class='tab' bindtap='switchChoose' data-type='3'>一度关系</view>
+        <view class='tab underline'>二度关系</view>
+    </view>
+    <view class="hint_icon">
+        <image src="../../../image/no_open_new.jpg"></image>
+        <view class="hint_content">
+            <view wx:if="{{type==1}}">您暂时没有潜在人脉关系</view>
+            <view wx:elif="{{type==2}}">您暂时没有强度人脉关系</view>
+            <view wx:elif="{{type==3}}">您暂时没有一度人脉关系</view>
+            <view wx:elif="{{type==4}}">您暂时没有二度人脉关系</view>
+      </view>
+    </view>
+</view>

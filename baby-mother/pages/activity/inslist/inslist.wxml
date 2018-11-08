@@ -1,0 +1,56 @@
+<view class="container" wx:if="{{is_banci == 1}}">
+    <radio-group class="radio-group" bindchange="radioChange">
+        <view class="content_wrap" wx:for="{{list}}" wx:key="ins_list">
+            <view class="content_main">
+                <view class='content_flex1' wx:if="{{item.img}}">
+                    <image src="{{item.img}}"></image>
+                </view>
+                <view class='content_flex1' wx:else>
+                    <image src="../../../image/img.jpg"></image>
+                </view>
+                <view class='content_flex2'>
+                    <view class='txt1'>{{item.ins_name}}</view>
+                    <view class='txt3'>{{item.address}}</view>
+                    <view class='txt2' wx:if="{{item.distance != 0}}">
+                        <image wx:if="{{index===0}}" class="activity_icon" src="../../../image/distance_icon1.jpg"></image>
+                        <image wx:else class="activity_icon" src="../../../image/distance_icon1.jpg"></image>
+                        {{item.distance}}
+                    </view>
+                </view>
+            </view>
+            <view class='chooseClass'>
+                <view class='classinfo' wx:for="{{item.timelist}}" wx:for-index="idx" wx:for-item="c" wx:key="timelist">
+                    <radio value="{{item.id}}--{{item.ins_name}}--{{idx}}" disabled="{{c.is_no}}" />{{c.time}} ({{c.buy_count}}/{{c.inventory}})
+                </view>
+            </view>
+        </view>
+    </radio-group>
+    <view hidden='{{showbutton}}' class='publish_comment'>
+        <button class='button' bindtap="beConfirm">确认</button>
+        <button class='button red' bindtap="cancel">取消</button>
+    </view>
+</view>
+
+<view class="container" wx:else>
+    <view class="content_wrap" wx:for="{{list}}" wx:key="ins_list">
+        <scroll-view scroll-y enable-back-to-top="true" class="content_scroll">
+            <view class="content_main" bindtap="toast" data-id="{{item.id}}" data-ins_name="{{item.ins_name}}" data-ins_id="{{item.ins_id}}">
+                <view class='content_flex1' wx:if="{{item.img}}">
+                    <image src="{{item.img}}"></image>
+                </view>
+                <view class='content_flex1' wx:else>
+                    <image src="../../../image/img.jpg"></image>
+                </view>
+                <view class='content_flex2'>
+                    <view class='txt1'>{{item.ins_name}}</view>
+                    <view class='txt3'>{{item.address}}</view>
+                    <view class='txt2' wx:if="{{item.distance != 0}}">
+                        <image wx:if="{{index===0}}" class="activity_icon" src="../../../image/distance_icon1.jpg"></image>
+                        <image wx:else class="activity_icon" src="../../../image/distance_icon1.jpg"></image>
+                        {{item.distance}}
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

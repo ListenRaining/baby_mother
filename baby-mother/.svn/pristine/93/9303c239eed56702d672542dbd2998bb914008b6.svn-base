@@ -1,0 +1,408 @@
+//发现
+var app = getApp();
+
+Page({
+
+    data: {
+        display: 'none',
+        list: null,
+        focus_id: 0,
+        top_image: null,
+        baseurl: app.globalData.baseUrl,
+        page: 1,
+        uid: 0,     //用户id
+        zan_id: 0,
+
+        rootRelativePath: '../../../',
+        imageClassName: ['image1', 'image2', 'image3'],
+        mediaClassName: ['media1', 'media2', 'media3'],
+        user_level: 0,
+
+        isAdmire: false,
+        animationArr: [],
+    },
+
+    onLoad: function (options) {
+
+        if (options.puid) {
+            wx.setStorage({
+                key: 'puid',
+                data: options.puid,
+            })
+        }
+
+        var that = this
+        wx.getStorage({
+            key: 'userinfo',
+            success: function (user) {
+                //拼装验证参数
+                var timestamp = app.createTimeStamp()
+                var str = "uid=" + user.data.uid + '&timestamp=' + timestamp;
+                var signature = app.createSignatureStr(str);
+                wx.request({
+                    url: app.globalData.baseUrl + 'little/operate/index',
+                    data: {
+                        uid: user.data.uid,
+                        timestamp: timestamp,
+                        signature: signature
+                    },
+                    success: function (res) {
+                        console.log('data', res);
+                        wx.setStorage({
+                            key: 'indexContent',
+                            data: res.data.info.list,
+                        })
+                        that.setData({
+                            uid: user.data.uid,
+                            list: res.data.info.list,
+                            focus: res.data.info.focus
+                        })
+                        that.initAnimationArr();
+                    }
+                })
+            },
+            //首次不标识用户，默认全都是未点赞
+            fail: function () {
+                //拼装验证参数
+                var timestamp = app.createTimeStamp()
+                var str = "flag=randparams" + '&timestamp=' + timestamp;
+                var signature = app.createSignatureStr(str);
+                wx.request({
+                    url: app.globalData.baseUrl + 'little/operate/index',
+                    data: {
+                        flag: 'randparams',
+                        timestamp: timestamp,
+                        signature: signature
+                    },
+                    success: function (res) {
+                        wx.setStorage({
+                            key: 'indexContent',
+                            data: res.data.info.list,
+                        })
+                        that.setData({
+                            list: res.data.info.list,
+                            focus: res.data.info.focus
+                        })
+                        that.initAnimationArr();
+                    }
+                })
+            }
+        })
+    },
+
+    /**
+     * 发现页的+号按钮,默认不显示;当用户授权后,用户级别是缴费会员才则显示
+     */
+    onShow: function () {
+        var that = this
+        wx.getStorage({
+            key: 'userinfo',
+            success: function (user) {
+                //拼装验证参数
+                var timestamp = app.createTimeStamp()
+                var str = "uid=" + user.data.uid + '&timestamp=' + timestamp;
+                var signature = app.createSignatureStr(str);
+                wx.request({
+                    url: app.globalData.baseUrl + 'little/operate/getUserInfo',
+                    data: {
+                        uid: user.data.uid,
+                        timestamp: timestamp,
+                        signature: signature,
+                    },
+                    success: function (res2) {
+                        that.setData({
+                            uid: user.data.uid,
+                            user_level: res2.data.info.level
+                        })
+
+                        //拼装验证参数
+                        var timestamp = app.createTimeStamp()
+                        var str = "uid=" + user.data.uid + '&timestamp=' + timestamp;
+                        var signature = app.createSignatureStr(str);
+                        wx.getStorage({
+                            key: 'reload',
+                            success: function (res) {
+                                if (res.data == 1) {
+                                    wx.request({
+                                        url: app.globalData.baseUrl + 'little/operate/index',
+                                        data: {
+                                            uid: user.data.uid,
+                                            timestamp: timestamp,
+                                            signature: signature
+                                        },
+                                        success: function (res) {
+                                            wx.setStorage({
+                                                key: 'indexContent',
+                                                data: res.data.info.list,
+                                            })
+                                            that.setData({
+                                                list: res.data.info.list,
+                                                focus: res.data.info.focus,
+                                            })
+                                            that.initAnimationArr();
+                                        }
+                                    })
+                                    wx.removeStorage({
+                                        key: 'reload',
+                                    })
+                                }
+                            },
+                            fail: function () {
+                                //点赞变化
+                                wx.getStorage({
+                                    key: 'indexContent',
+                                    success: function (res) {
+                                        that.setData({
+                                            list: res.data
+                                        })
+                                    },
+                                })
+                            }
+                        })
+                    }
+                })
+            },
+        })
+    },
+
+    initAnimationArr: function () {
+        var newAnimationArr = this.data.animationArr;
+        var list = this.data.list;
+        var startIndex = (newAnimationArr.length == 0) ? 0 : (newAnimationArr.length);
+        for (var i = startIndex; i < list.length; i++) {
+            newAnimationArr.push({
+                ani: null
+            });
+            this.setData({
+                animationArr: newAnimationArr
+            });
+        }
+    },
+
+    clickAdmireEffect: function (_index) {
+        var newAnimation = wx.createAnimation({
+            duration: 1000,
+            timingFunction: 'ease',
+        })
+        newAnimation.scale(3, 3).rotate(90).step();
+        var newAnimationArr = this.data.animationArr;
+        newAnimationArr[_index].ani = newAnimation.export();
+
+        this.setData({
+            //输出动画
+            animationArr: newAnimationArr
+        })
+
+        setTimeout(function () {
+            newAnimation.scale(1, 1).rotate(0).step()
+
+            var newAnimationArr = this.data.animationArr;
+            newAnimationArr[_index].ani = newAnimation.export();
+
+            this.setData({
+                animationArr: newAnimationArr
+            })
+        }.bind(this), 150)
+    },
+
+    //授权操作
+    getuser: function (e) {
+
+        //隐藏遮罩层
+        this.setData({
+            'display': 'none'
+        })
+
+        if (e.detail.encryptedData) {
+            app.getUserInfoNew(e.detail.encryptedData, e.detail.iv, '/pages/find/index/index');
+        } else {
+            console.log('拒绝授权');
+        }
+    },
+
+    clickAdmire: function (_e) {
+
+        var that = this;
+
+        if (that.data.uid == 0) {
+            that.setData({
+                display: 'block'
+            })
+            return false;
+        }
+
+        var index = _e.currentTarget.dataset.index;
+        var data = this.data.list[index];
+        var newZanNum = data.zan_num;
+        var newIsZan = !data.is_zan;
+        var newList = this.data.list;
+
+        newIsZan ? newZanNum++ : newZanNum--;
+        newList[index].is_zan = newIsZan;
+        newList[index].zan_num = newZanNum;
+        this.setData({
+            list: newList
+        });
+        newIsZan ? this.clickAdmireEffect(index) : null;
+
+        //点赞，取消点赞首页的变化
+        if (index != null) {
+            wx.getStorage({
+                key: 'indexContent',
+                success: function (res) {
+                    var list = res.data
+                    list[index]['is_zan'] = newIsZan
+                    list[index]['zan_num'] = newZanNum
+                    console.log(list)
+                    wx.setStorage({
+                        key: 'indexContent',
+                        data: list,
+                    })
+                }
+            })
+        }
+
+        var _url = newIsZan ? "little/operate/agree" : "little/operate/disagree"
+        wx.request({
+            url: app.globalData.baseUrl + _url,
+            data: {
+                uid: that.data.uid,
+                cid: newList[index].id
+            },
+            success: function (res2) {
+                if (res2.data.result == "fail") {
+                    wx.showModal({
+                        title: res2.data.reason,
+                        showCancel: false,
+                    })
+                    return false;
+                }
+            }
+        })
+    },
+
+    /**
+     * 我发表的内容列表
+     */
+    toMycontent: function (e) {
+        var author = e.currentTarget.dataset.author;
+        var user_type = e.currentTarget.dataset.user_type;
+        var username = e.currentTarget.dataset.username;
+        wx.navigateTo({
+            url: '/pages/find/mycontent/mycontent?author=' + author + '&user_type=' + user_type + '&username=' + username,
+        })
+    },
+
+    /**
+     * 发表内容
+     */
+    publish: function () {
+        wx.navigateTo({
+            url: '../publish_article/publish_article',
+        })
+    },
+
+    /**
+     * 下拉刷新
+     */
+    onPullDownRefresh: function () {
+        wx.stopPullDownRefresh()
+        //拼装验证参数
+        var timestamp = app.createTimeStamp()
+        var str = "uid=" + this.data.uid + '&timestamp=' + timestamp;
+        var signature = app.createSignatureStr(str);
+        var that = this
+        wx.request({
+            url: app.globalData.baseUrl + 'little/operate/index',
+            data: {
+                uid: that.data.uid,
+                timestamp: timestamp,
+                signature: signature
+            },
+            success: function (res) {
+                console.log(res)
+                wx.setStorage({
+                    key: 'indexContent',
+                    data: res.data.info.list,
+                })
+                that.setData({
+                    page: 1,
+                    list: res.data.info.list,
+                    focus: res.data.info.focus
+                })
+                that.initAnimationArr();
+            }
+        })
+    },
+
+    /**
+     * 上拉刷新
+     */
+    onReachBottom: function () {
+        var that = this
+        var page = that.data.page + 1;
+
+        //拼装验证参数
+        var timestamp = app.createTimeStamp()
+        var str = "uid=" + that.data.uid + '&p=' + page + '&timestamp=' + timestamp;
+        var signature = app.createSignatureStr(str);
+        wx.request({
+            url: app.globalData.baseUrl + 'little/operate/index',
+            data: {
+                uid: that.data.uid,
+                p: page,
+                timestamp: timestamp,
+                signature: signature
+            },
+            success: function (res) {
+                console.log(res)
+                if (res.data.info.list.length > 0) {
+                    wx.getStorage({
+                        key: 'indexContent',
+                        success: function (index) {
+                            var list = index.data.concat(res.data.info.list)
+                            wx.setStorage({
+                                key: 'indexContent',
+                                data: list,
+                            })
+                            that.setData({
+                                page: res.data.p,
+                                list: list,
+                                focus: res.data.info.focus
+                            })
+                            that.initAnimationArr();
+                        }
+                    })
+                }
+            }
+        })
+    },
+
+    /**
+     * 跳转详情页面
+     */
+    toDetail: function (e) {
+        var id = e.currentTarget.id
+        var user_type = e.currentTarget.dataset.user_type
+        var key = e.currentTarget.dataset.key
+        if (user_type == 0) {
+            wx.navigateTo({
+                url: '/pages/find/UGC_details/UGC_details?id=' + id + '&key=' + key,
+            })
+        } else {
+            wx.navigateTo({
+                url: '/pages/find/PGC_details/PGC_details?id=' + id + '&key=' + key,
+            })
+        }
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+        return {
+            title: '菲蓓尔+：让人人懂音乐',
+            path: '/pages/find/index/index?puid=' + this.data.uid
+        }
+    }
+})

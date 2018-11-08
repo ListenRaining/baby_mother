@@ -1,0 +1,10 @@
+<view class="image" wx:if="{{code==1}}">
+    <image src="{{rootRelativePath+ 'image/success.jpg'}}"></image>
+</view>
+<view class="text">{{msg}}</view>
+<button class="submit_form" wx:if="{{code==0}}" bindtap="go2order" id="{{id}}">
+马上去报名
+</button>
+<button class='submit_form' bindtap="toast">
+    返回首页
+</button>

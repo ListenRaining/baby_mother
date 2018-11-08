@@ -1,0 +1,5 @@
+<!--pages/user/show_code/show_code.wxml-->
+<view class='show'>
+<image class='code' src='{{qrcode}}'></image>
+
+</view>

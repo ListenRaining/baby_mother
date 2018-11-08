@@ -1,0 +1,36 @@
+<!--my_info.wxml-->
+<view class="contentImage">
+    <image src="{{rootRelativePath+ 'image/my_img.jpg'}}"></image>
+    <view class="head">
+        <image class="headIcon" src="{{info.avatar}}"></image>
+        <view wx:if="{{info.username}}">
+            {{info.username}}
+        </view>
+
+        <view wx:else>
+            {{info.nickname}}
+        </view>
+    </view>
+</view>
+
+<view class="content">
+    <view class="li l1" bindtap="goUserInfo">
+        个人信息
+        <image class="btn myInfoBtn" src="{{rootRelativePath+ 'image/go_btn.jpg'}}"></image>
+    </view>
+    <view class="li l2" bindtap="goBabyList">
+        宝宝信息
+        <label class= "babyCnt" wx:if="{{info.count == 0}}"></label>
+        <label class= "babyCnt" wx:else>{{info.count}}个宝宝</label>
+        <image class="btn childInfoBtn" src="{{rootRelativePath+ 'image/go_btn.jpg'}}"></image>
+    </view>
+    <view class="li l3" bindtap="goChangePhoneNum">
+        绑定手机
+        <label class= "phoneNum">{{info.mobile}}</label>
+        <image class="btn bindPhoneNum" src="{{rootRelativePath+ 'image/go_btn.jpg'}}"></image>
+    </view>
+    <view class="li l4" bindtap="goToMyact">
+        参与的活动
+        <image  class="btn acitvity" src="{{rootRelativePath+ 'image/go_btn.jpg'}}"></image>
+    </view>
+</view>

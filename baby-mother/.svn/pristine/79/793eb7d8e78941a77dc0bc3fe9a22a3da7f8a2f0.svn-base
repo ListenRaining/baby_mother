@@ -1,0 +1,78 @@
+<!--publish_article.wxml-->
+<form bindsubmit="formSubmit">
+<view class="content">
+    <textarea maxlength="-1" bindblur="is_csign" name="content" value="{{mycontent}}"  placeholder="分享孩子的表现吧...."/>
+     <view hidden='true'>
+       <view class="contribute">
+          <checkbox-group bindchange="checkboxChange">
+            <label class="checkbox">
+              <checkbox value="contribute" name="csign" value="1" checked='{{csign}}'/>
+            </label>
+          <label>任务</label>
+          </checkbox-group>
+          <picker mode="selector" wx:if="{{csign == 1}}" bindchange="bindPickerChange" value="{{mission_index}}" range="{{mission_type}}">
+            <view class="picker">
+              {{mission_type[mission_index]}}
+              <image class="arrow" mode="widthFix" src="../../../image/arrow_down.png"></image>
+
+            </view>
+          </picker>
+       </view>   
+    </view>
+
+
+    <!--如果不选任务，发图文或者视频  -->
+    <view class='imageNode' wx:if="{{add == 2}}">
+        <view class="imageView" wx:for="{{imageArr}}" wx:key="img">
+            <image mode="aspectFit"  src="{{item}}">
+            </image>
+            <icon type="clear" bindtap="removeImage" size="20" data-index="{{index}}"/>
+        </view>
+        <view wx:if="{{src}}">
+            <video src='{{src}}'></video>
+        </view>
+        
+        <picker mode="selector" bindchange="choosecontent" value="" range="{{content_type}}">
+            <view>
+              <image class=""  src="{{rootRelativePath+ 'image/addImage.png'}}"  bindtap="">+</image>
+            </view>
+        </picker>
+    </view>
+
+    <!--如果选择图文内容  -->
+    <view wx:if="{{add==0}}">
+      <view class="imageNode" wx:if="{{imageArr.length%imageCntMax != 1}}">
+          <view class="imageView" wx:for="{{imageArr}}" wx:key="img">
+              <image mode="aspectFit"  src="{{item}}">
+              </image>
+              <icon type="clear" bindtap="removeImage" size="20" data-index="{{index}}"/>
+          </view>
+          <image class="addImage"  src="{{rootRelativePath+ 'image/addImage.png'}}"  bindtap="chooseImage">+</image>
+      </view> 
+
+      <view class="imageNodeOther" wx:else>
+          <view class="imageView" wx:for="{{imageArr}}" wx:key="imgl">
+              <image mode="aspectFit"  src="{{item}}">
+              </image>
+              <icon type="clear" bindtap="removeImage" size="20" data-index="{{index}}"/>
+          </view>
+          <image class="addImageOther"  src="{{rootRelativePath+ 'image/addImage.png'}}"    bindtap="chooseImage">+</image>
+      </view>
+    </view>
+
+    <!--如果选择视频任务  -->
+    <view wx:if="{{add==1}}">
+      <view class="imageNode" wx:if="{{imageArr.length%imageCntMax != 1}}">
+          <view wx:if="{{src}}" class="imageView">
+              <video mode="aspectFit" src="{{src}}">
+              </video>
+          </view>
+          <image class="addImage"  src="{{rootRelativePath+ 'image/addImage.png'}}"  bindtap="chooseVideo">+</image>
+          
+      </view> 
+    </view>
+    
+    <button wx:if="{{disabled}}" class="submit" form-type="submit" disabled>发布</button>
+    <button wx:else class="submit" form-type="submit">发布</button>
+</view>
+</form>

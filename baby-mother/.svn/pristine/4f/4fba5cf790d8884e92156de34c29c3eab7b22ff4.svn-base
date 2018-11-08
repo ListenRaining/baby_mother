@@ -1,0 +1,262 @@
+//我的
+var app = getApp()
+
+Page({
+
+  data: {
+      is_login:0,
+      display:'none',
+      new_renmai:0,
+      new_shequn:0,
+      new_jifen:0,
+      new_wallet:0,
+      class_id:0,        //班级id
+      info:'',           //用户信息
+      rootRelativePath: '../../../',
+      type:0,            //选择班级类型
+      list:[
+            {
+                icon: "image/icon/contacts.png",
+                title: "人脉",
+                link: "pages/my/contacts/contacts",
+                linkInconIsPoint:false
+            },
+            {
+                icon: "image/icon/wallet.png",
+                title: "钱包",
+                cnt: "",
+                link: "pages/my/wallet/wallet/wallet",
+                linkInconIsPoint: false
+            },
+            {
+                icon: "image/icon/activity.png",
+                title: "订单",
+                link: "pages/my/orderlist/orderlist"
+            },
+            {
+              icon: "image/icon/cardbox.png",
+              title: "卡券",
+              link: "pages/my/send/send"
+            },
+      ],
+
+      list2: [
+          {
+              icon: "image/icon/info.png",
+              title: "基本信息",
+              link: "pages/my/myinfo/user/user"
+          },
+          {
+              icon: "image/icon/phone.png",
+              title: "绑定手机",
+              titleArr: ["绑定手机", "换绑手机"],
+              cnt: "",
+              link: "pages/my/myinfo/mobile_change/mobile_change",
+          },
+          {
+              icon: "image/icon/baby.png",
+              title: "我的宝宝",
+              cnt: "",
+              link: "pages/my/myinfo/memberinfo/memberinfo",
+              linkArr: ["pages/my/myinfo/memberinfo/memberinfo", "pages/my/myinfo/memberlist/memberlist"]
+          },
+          {
+              icon: "image/icon/activity.png",
+              title: "我的订单",
+              link: "pages/my/orderlist/orderlist"
+          }
+      ]
+  },
+
+  onShow: function () {
+      var that = this;
+      wx.getStorage({
+          key: 'userinfo',
+          success: function (info) {
+            var timestamp = app.createTimeStamp()
+            var str = "uid=" + info.data.uid + '&timestamp=' + timestamp
+            var signature = app.createSignatureStr(str);
+              wx.request({
+                  url: app.globalData.baseUrl + 'little/operate/getUserInfo',
+                  data: {
+                      uid:info.data.uid,
+                      timestamp:timestamp,
+                      getMore:1,
+                      signature:signature
+                  },
+                  success: function (res) {
+                      if (res.data.result == 'fail') {
+                          wx.showToast({
+                              title: res.data.reason
+                          })
+                          return false;
+                      } else {
+                          var list3Cnt = res.data.info.balance + '乐币';
+                          if (res.data.info.balance == 0) {
+                              list3Cnt = "";
+                          }
+
+                          var babyLink = that.data.list2[2].link;
+                          var babyCnt= "";
+                          if (res.data.info.baby_count != null && res.data.info.baby_count > 0) {
+                              babyLink = that.data.list2[2].linkArr[1];
+                              babyCnt = res.data.info.baby_count+"个宝宝"
+                          }
+
+                          var mobile="";
+                          var phoneTitle = that.data.list2[1].title;
+                          if (res.data.info.mobile != null && res.data.info.mobile != "")
+                          {
+                              mobile = res.data.info.mobile;
+                              phoneTitle = that.data.list2[1].titleArr[1];
+                          }
+
+                          var activityLink = that.data.list2[3].link + "?uid = " + info.data.uid;
+
+                          that.setData({
+                              info: res.data.info,
+                              'list[1].cnt': list3Cnt,
+                              'list2[2].link': babyLink,
+                              'list2[2].cnt': babyCnt,
+                              'list2[1].cnt': mobile,
+                              'list2[1].title': phoneTitle,
+                              'list2[3].link': activityLink,
+                              class_id:res.data.class_id,
+                              type:res.data.info.type,
+                              is_outbound:res.data.is_outbound,    //外访机构人员
+                              test_coupons:res.data.test_coupons,  //活动验券人员
+                              is_login:1
+                          })
+
+                          /**
+                           * 人脉更新
+                           */
+                          wx.getStorage({
+                            key: 'renmaitime',
+                            success: function(time) {
+                              if (res.data.info.renmai > time.data) {
+                                that.setData({
+                                  'list[0].linkInconIsPoint': true
+                                })
+                              } else {
+                                that.setData({
+                                  'list[0].linkInconIsPoint': false
+                                })
+                              }
+                               
+                            },
+                            fail: function () {
+                              wx.setStorage({
+                                key: 'renmaitime',
+                                data: 0,
+                              })
+                            }
+                          })
+
+                          /**
+                           * 钱包更新
+                           */
+                          wx.getStorage({
+                            key: 'wallettime',
+                            success: function (time) {
+                              if (res.data.info.wallet > time.data) {
+                                that.setData({
+                                  'list[1].linkInconIsPoint': true
+                                })
+                              } else {
+                                that.setData({
+                                  'list[1].linkInconIsPoint': false
+                                })
+                              }
+                            },
+                            fail: function () {
+                              wx.setStorage({
+                                key: 'wallettime',
+                                data: 0,
+                              })
+                            }
+                          })
+                      }
+                  }
+              })
+          }
+      })
+  },
+
+    goMyInfo:function(){
+        wx.navigateTo({
+            url: '../myinfo/myinfo2/myinfo2',
+        })
+    },
+
+    click:function(_e){
+        if(this.data.is_login == 0){
+            this.setData({
+                display:'block'
+            })
+        }else{
+            var index = _e.currentTarget.dataset.index;
+            var list = this.data.list;
+
+            if (this.data.info.level <= 0)
+            {
+                list = this.data.list2;
+            }
+            var link = list[index]["link"];
+            if (link)
+            {
+                wx.navigateTo({
+                    url: this.data.rootRelativePath + link
+                })
+            }
+        }
+    },
+
+    //宝妈点击班级到班级列表
+    clickactivity:function () {
+        wx.navigateTo({
+            url: '/pages/my/class/classlist'
+        })
+    },
+
+    gotosign:function (e) {
+      var sign_flag = e.currentTarget.dataset.id
+      if (sign_flag == 3){
+        var url = '/pages/product/signsuccess';
+      }else{
+        var url = '/pages/product/sign';
+      }
+        wx.navigateTo({
+          url: url
+        })
+    },
+
+    //外访机构信息采集
+    clickOutbound:function () {
+        wx.navigateTo({
+            url: '/pages/my/outbound/list'
+        })
+    },
+
+    //活动验券
+    clickCoupons:function () {
+        wx.navigateTo({
+            url: '/pages/my/outbound/coupons'
+        })
+    },
+
+    //授权操作
+    getuser:function (e) {
+
+        //隐藏遮罩层
+        this.setData({
+            'display':'none'
+        })
+
+        if(e.detail.encryptedData){
+            app.getUserInfoNew(e.detail.encryptedData,e.detail.iv,'/pages/my/my/my');
+        }else{
+            console.log('拒绝授权');
+        }
+    }
+})

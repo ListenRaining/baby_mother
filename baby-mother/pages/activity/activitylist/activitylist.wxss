@@ -1,0 +1,133 @@
+.list_warp {
+  width: 98%;
+  padding: 0 1%;
+  background: #efeff4;
+  height: 100%;
+  overflow: hidden;
+  font-family: "iconfont" !important;
+}
+
+.img_ctn, .img_ctn image {
+  width: 100%;
+  margin-bottom:8rpx;
+  /* height: 175px; */
+}
+
+.content_main {
+  width: 100%;
+  height: 95px;
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+  padding: 12px 12px;
+  box-sizing: border-box;
+}
+
+.content_main .content_flex1 {
+  flex: 25%;
+  width: 74px;
+  height: 74px;
+  font-size: 11px;
+  color: #858585;
+}
+
+.content_main .content_flex1 image {
+  width: 74px;
+  height: 74px;
+  border-radius: 4px;
+}
+
+.content_main .content_flex2 {
+  flex: 70%;
+  font-size: 10px;
+  padding: 2px 5px;
+  color: #6c6c6c;
+}
+
+.content_flex2 .txt1 {
+  color: #040504;
+  font-size: 27rpx;
+  margin-bottom: 5px;
+}
+
+.content_flex2 .txt2 {
+  margin-right: 0px;
+  display: flex;
+  color: #787878;
+  margin: 10px 0;
+}
+
+.content_flex2 .txt2 .txt2_time {
+  flex: 70%;
+}
+
+.content_flex2 .txt2 .txt2_state {
+  flex: 30%;
+  text-align: right;
+  color: #95ca78;
+}
+
+.content_flex2 .txt3 {
+  margin: 5px 0 0 0px;
+  color: #787878;
+  display: flex;
+}
+
+.content_flex2 .txt3 .txt3_submit {
+  flex: 80%;
+}
+
+.content_flex2 .txt3 .txt3_price {
+  flex: 25%;
+  color: #df3b3c;
+  text-align: right;
+
+}
+.content_flex2 .txt3 .txt3_price_free {
+  flex: 25%;
+  border-radius: 4px;
+  border: 1px solid #96ca78;
+  color: #df3b3c;
+  text-align: center;
+}
+.content_flex2 .txt3 .txt3_price_ori {
+  flex: 25%;
+  color: #787878;
+  text-align: center;
+  text-decoration: line-through;
+}
+
+.register {
+  width: 100%;
+  height: 1334rpx;
+  overflow: hidden;
+  background-color: #f0eff4;
+}
+
+.hint_icon {
+  height: 445rpx;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hint_icon image {
+  display: block;
+  margin-top: 58rpx;
+  width: 170rpx;
+  height: 155rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hint_icon .hint_content {
+  padding: 0 210rpx;
+}
+
+.hint_icon .hint_content view {
+  /*word-break: break-all;*//*text-indent:25px;*//*letter-spacing:0rpx;*/
+  font-size: 30rpx;
+  margin-top: 36rpx;
+  color: #6e6e6b;
+}

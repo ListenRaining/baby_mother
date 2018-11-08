@@ -1,0 +1,6 @@
+<view class="image">
+  <image src="{{rootRelativePath+ 'image/success.jpg'}}"></image>
+</view>
+
+<view wx:if="{{state == true}}" class="text">提交成功，请等待{{cityname}}城市运营中心审核</view>
+<view wx:if="{{state == false}}" class="text">{{cityname}}城市运营中心审核中，请等待短信通知</view>

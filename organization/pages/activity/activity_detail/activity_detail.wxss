@@ -1,0 +1,190 @@
+/* pages/schedule_manager_offline/schedule_manager_offline.wxss */
+
+.activity_row {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: solid #f2f2f2 1rpx;
+  display: flex;
+}
+
+.activity_row_line {
+  height: 220rpx;
+  width: 660rpx;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+
+.activity_row image {
+  margin-right: 20rpx;
+  width: 250rpx;
+  height: 153rpx;
+  border-radius: 10rpx;
+}
+
+.info_row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 155rpx;
+}
+
+.detail {
+  color: white;
+  border-radius: 10rpx;
+  background-color: rgb(56, 181, 73);
+  width: 150rpx;
+  height: 45rpx;
+  margin-top: 8rpx;
+  text-align: center;
+  line-height: 45rpx;
+}
+
+.students_info_panel {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+}
+
+.student_bottom_line {
+  width: 100%;
+  border-bottom: solid #f2f2f2 1rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.student_info {
+  height: 82rpx;
+  width: 600rpx;
+  display: flex;
+  font-size: 28rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.get {
+  background-color: rgb(56, 181, 73);
+  border-radius: 10rpx;
+  width: 106rpx;
+  height: 35rpx;
+  color: white;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 35rpx;
+}
+
+.detail {
+  margin-top: 88rpx;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.detail_btn {
+  border-radius: 10rpx;
+  background-color: rgb(56, 181, 73);
+  width: 662rpx;
+  height: 45rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 45rpx;
+  color: white;
+}
+
+.sign_in {
+  width: 315rpx;
+  height: 45rpx;
+  border: solid 1rpx rgb(56, 181, 73);
+  border-radius: 8rpx;
+  color: rgb(56, 181, 73);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* search */
+
+.search_flex {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.search_panel {
+  height: 54rpx;
+  margin-bottom: 20rpx;
+  width: 620rpx;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+}
+
+/* 由于input的高度设置无效，加了层div做输入框显示 */
+
+.input_bg {
+  width: 390rpx;
+  height: 45rpx;
+  border: 1rpx solid #f2f2f2;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_panel input {
+  width: 390rpx;
+  max-height: 45rpx;
+  padding-left: 10rpx;
+}
+
+.search_btn {
+  width: 170rpx;
+  border: 1rpx solid #f2f2f2;
+  height: 100%;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  margin-left: 30rpx;
+  border-radius: 10rpx;
+  font-size: 20rpx;
+  background-color: transparent;
+}
+
+
+.students_info_panel_signed {
+  color: #606060;
+}
+
+.signed {
+  color: black;
+  background-color: rgb(215, 215, 215);
+  border-radius: 10rpx;
+  width: 106rpx;
+  height: 35rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 35rpx;
+}
+
+.name {
+  width: 110rpx;
+}
+
+.age {
+  width: 100rpx;
+}
+.gender {
+  width:75rpx;
+}
+.mobile {
+  width: 203rpx;
+}
+
+.actname{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:clip;
+}

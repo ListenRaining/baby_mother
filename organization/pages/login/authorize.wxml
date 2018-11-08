@@ -1,0 +1,9 @@
+<view class='content_wrap'>
+    <view class='content_head'>
+        <view class='content_logo'>
+            <image mode="widthFix" class="img" src="../../images/logo.png"></image>
+        </view>
+    </view>
+
+    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">去授权</button>
+</view>

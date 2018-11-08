@@ -1,0 +1,40 @@
+<form bindsubmit="submitChangePhoneNum">
+    <view class="content">
+
+        <view class="li phoneNumLi" wx:if="{{info.mobile && is_authorise!=2}}">
+            <label class="title">已绑手机号</label>
+            <input class="input hasbeen" type="number" placeholder-style="color:#88878f" value="{{info.mobile}}" />
+        </view>
+
+        <!--显示授权按钮-->
+        <view class="lil phoneNumLi" wx:if="{{is_authorise == 1}}">
+            <label class= "title">手机号</label>
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击获取微信绑定的手机</button>
+        </view>
+
+        <!--允许授权-->
+        <view class="lil phoneNumLi" wx:elif="{{is_authorise == 2}}">
+            <label class= "title">手机号</label>
+            <input class= "input phoneNum" type= "number" bindinput="mobileInputEvent" value="{{info.mobile}}" placeholder-style="color:#88878f" placeholder="请输入手机号" name="mobile" disabled="true" />
+        </view>
+
+        <!--不显示授权按钮,则显示表单-->
+        <view wx:else>
+            <view class="li phoneNumLi">
+                <label class="title" wx:if="{{info.mobile && is_authorise!=2}}">新手机号</label>
+                <label class="title" wx:else>手机号</label>
+                <input class="input phoneNum" type="number" bindinput="mobileInputEvent" placeholder-style="color:#88878f" placeholder="请输入手机号" name= "mobile"/>
+                <view class="getVerification" bindtap="getVcode" style="border:2px solid {{getVcodeBtnColor}}; color:{{getVcodeBtnColor}};">
+                    {{vCodeMsg}}
+                </view>
+            </view>
+            <view class="li verificationLi">
+                <label class= "title">短信验证码</label>
+                <input class= "input verification" placeholder="请输入验证码" name= "code" />
+            </view>
+        </view>
+
+        <input hidden="true" name="is_authorise" value="{{is_authorise}}" />
+        <button class='button' wx:if="{{is_authorise!=1}}" formType="submit">绑定手机号</button>
+    </view>
+</form>

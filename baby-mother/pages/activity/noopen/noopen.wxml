@@ -1,0 +1,48 @@
+<view class="register">
+    <view class="hint_icon">
+        <image src="{{rootRelativePath+ 'image/no_open_new.jpg'}}"></image>
+        <view class="hint_content" wx:if="{{is_post==0}}">
+            <view class="c1">很抱歉！您所在的城市还没有开放教室哦</view>
+            <view class="c2">您可以填写以下信息，我们会提供给您更多服务</view>
+        </view>
+
+        <view class="hint_content" wx:else>
+            <view class="c1">您已提交信息，会员中心开放，会第一时间通知您！</view>
+        </view>
+    </view>
+
+    <form bindsubmit="formSubmit">
+        <view class="content" wx:if="{{is_post==0}}">
+              <view class="li name">
+                <label>宝宝姓名</label>
+                <input placeholder="请输入宝宝姓名" name="baby_name" class="item1"/>
+              </view>
+              <view class="li sex">
+                <label>宝宝性别</label>
+                <picker bindchange="bindGenderChange" name="baby_gender" value="{{genderIndex}}" range="{{gender}}" class='picker_con'>
+                    <view class="picker" style="color:{{sexColor}}">
+                      {{gender[genderIndex]}}
+                    </view>
+                </picker>
+              </view>
+
+              <view class="li age">
+                <label>宝宝年龄</label>
+                <picker bindchange="bindAgeChange" name="baby_age" value="{{ageIndex}}"  range="{{age}}" class='picker_con'>
+                    <view class="picker"  style="color:{{ageColor}}">
+                      {{age[ageIndex]}}
+                    </view>
+                </picker>
+              </view>
+
+             <view class="li phoneNum">
+                <label>手机号</label>
+                <input placeholder="请输入手机号" name="mobile" maxlength="11" class="item1" />
+              </view>
+        </view>
+        <view class='submit_form' wx:if="{{is_post==0}}">
+          <input hidden="true" name="cityname" value="{{cityname}}" />
+          <button class='button' formType="submit" disabled="{{disBtn}}">提交</button>
+        </view>
+    </form>
+</view>

@@ -1,0 +1,32 @@
+<view class='content_wrap'>
+    <view class='content_head'>
+        <view class='content_logo'>
+            <image mode="widthFix" class="img" src="../../images/logo.png"></image>
+        </view>
+        <view class='content_txt'>会员中心管理系统</view>
+    </view>
+
+    <form bindsubmit='formSubmit'>
+        <view class='form'>
+            <view class='input_panel'>
+                <input class='mobile' bindinput='mobileInputEvent' name="mobile" type='number' placeholder='请输入手机号'></input>
+            </view>
+            <view class='input_code'>
+                <view class='input_panel2'>
+                    <input class='code' name="code" type='text' placeholder='验证码'></input>
+                </view>
+                <view class="getcode getVerification" bindtap="getVcode">{{vCodeMsg}}</view>
+            </view>
+            <button class='impower' form-type='submit'>登录</button>
+            <label class='form_txt'>
+                <navigator url="/pages/teamwork/agreement">申请会员中心合作</navigator>
+            </label>
+        </view>
+    </form>
+</view>
+
+<view class="zhezhao" style='display:{{display}}'></view>
+<view class="show" style='display:{{display}}'>
+    <view class='txt'>授权后才可以进行操作哦!</view>
+    <button open-type="getUserInfo" bindgetuserinfo="getuser" data-memberType='{{memberType}}' class="authorization">微信一键登录</button>
+</view>

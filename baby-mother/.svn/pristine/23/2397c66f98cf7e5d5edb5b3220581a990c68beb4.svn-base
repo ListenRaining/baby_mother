@@ -1,0 +1,106 @@
+<view class='box'>
+    <view class='header'>
+        <!-- <view class='header_view'>
+            <view class='user_poster'>
+                <image wx:if="{{userinfo.avatar}}" src="{{userinfo.avatar}}"></image>
+                <image wx:else src="{{rootRelativePath+'image/peo_img.png'}}"></image>
+            </view>
+            <text>{{userinfo.mobile}}</text>
+        </view> -->
+
+        <view class='img_money'>
+            <view class='img_bor'>
+                <view class='img_box'>
+                    <image wx:if="{{userinfo.level==1}}" src='../../../image/icon/vip_month.png'></image>    <!-- 月度会员 -->
+                    <image wx:elif="{{userinfo.level==5}}" src='../../../image/icon/vip_year.png'></image>  <!-- 年度会员 -->
+                    <image wx:elif="{{userinfo.level==4}}" src='../../../image/icon/partner.png'></image> <!-- 合伙人 -->
+                </view>
+            </view>
+            <view class='money' bindtap='goEarning'>您已赚了{{userinfo.allthaw}}乐币</view>
+        </view>
+    </view>
+
+    <!-- 种子库 -->
+    <view class='section section1'>
+        <view class='title'>种子库</view>
+        <view class='section1_box'>
+            <view class="scroll_box">
+                <scroll-view class="scroll-view_x" scroll-x>
+                    <view class="item_lists" wx:for="{{seeds}}" wx:for-item="item" wx:key="seeds">
+                        <view class='item_book_imgs'>
+                            <image src="{{baseurl}}{{item.image}}" mode="aspectFill"></image>
+                            <view class='money'>¥{{item.price}}</view>
+                        </view>
+
+                        <view class='send'>
+                            <text>{{item.name}}</text>
+                            <text wx:if="{{userinfo.level==5}}">剩余次数：{{userinfo.use_num}}/{{userinfo.limit_num}}</text>
+                            <view wx:if="{{item.price > 0}}" bindtap='doShare' data-share_id="{{item.id}}" data-share_type="{{item.share_type}}" data-share_name="{{item.name}}" data-share_image="{{baseurl}}{{item.image}}">分享好友</view>
+
+                            <view wx:else bindtap='doShare' data-share_id="{{item.id}}" data-share_type="{{item.share_type}}" data-share_name="{{item.name}}" data-share_image="{{baseurl}}{{item.image}}">送好友</view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 数据统计 -->
+    <view class='section section2'>
+        <view class='title'>数据统计</view>
+        <view class='tab'>
+            <view class="{{statis_type==1?'active':''}}" id='1' bindtap='doTab'>7天</view>
+            <view class="{{statis_type==2?'active':''}}" id='2' bindtap='doTab'>30天</view>
+            <view class="{{statis_type==3?'active':''}}" id='3' bindtap='doTab'>半年</view>
+        </view>
+        <view class='legend'>
+          <view><text></text>新用户</view>
+          <view><text></text>意向用户</view>
+          <view><text></text>一级会员</view>
+          <view><text></text>二级会员</view>
+        </view>
+        <view class="{{isShow?'none':'echarts_box'}}">
+            <canvas canvas-id="echarts-indexs" class="canvas" data-id="0" bindtouchstart="touchHandler" bindtouchmove="touchHandler" style='width:100%;height:500rpx;'></canvas>
+        </view>
+    </view>
+
+    <view class='section section3'>
+        <view class='item item_after' bindtap='toUserList'>
+            <image src='../../../image/icon/business_icon1.png' class='img1'></image>
+            <view style='font-size:26rpx;'>用户管理</view>
+        </view>
+        <view class='item' bindtap='goEarning'>
+            <image src='../../../image/icon/business_icon2.png' class='img2'></image>
+            <view style='font-size:26rpx;'>成长收益</view>
+        </view>
+        <!-- 知识库显示的话，给成长收益的盒子添加 item_after class类 -->
+        <!-- <view class='item'>
+            <image src='../../../image/icon/business_icon3.png' class='img3'></image>
+            <view>知识库</view>
+        </view> -->
+    </view>
+
+    <!-- 点击分享好友弹窗 -->
+    <view class="{{isShow?'alert':'none'}}">
+        <view class='alert_item'>
+            <button class='alert_box' open-type='share'>
+                <image src='../../../image/icon/weixin_icon.png' class='alert_img1'></image>
+            </button>
+            <view class='t_view'>
+                <view>微信好友</view>
+            </view>
+        </view>
+
+        <view class='alert_item' bindtap='goUserList'>
+            <button class='alert_box'>
+                <image src='../../../image/icon/logo.png' class='alert_img2'></image>
+            </button>
+            <view class='t_view'>
+                <view>平台用户</view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 全局阴影 -->
+    <view class="{{isShow?'shadow':'none'}}" bindtap='doClose'></view>
+</view> 

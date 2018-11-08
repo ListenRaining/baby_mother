@@ -1,0 +1,96 @@
+<form bindsubmit="submitSelect">
+    <view class="content_wrap">
+        <view class="head_wrap">
+            <view wx:if="{{type==1}}" class="head_item head_magic">
+                <view class="icon"></view>
+                魔法乐理
+            </view>
+            <view wx:else class="head_item" bindtap="toggle" data-type="1">
+                <view class="icon"></view>
+                魔法乐理
+            </view>
+
+            <view wx:if="{{type==2}}" class="head_item head_experience">
+                <view class="tyb_icon"></view>
+                体验包
+            </view>
+            <view wx:else class="head_item" bindtap="toggle" data-type="2">
+                <view class="tyb_icon"></view>
+                体验包
+            </view>
+
+            <view wx:if="{{type==3}}" class="head_item head_activity">
+                <view class="hdicon"></view>
+                活动
+            </view>
+            <view wx:else class="head_item" bindtap="toggle" data-type="3">
+                <view class="hdicon"></view>
+                活动
+            </view>
+        </view>
+
+        <view class="time_wrap">
+            <view class="date_wrap">
+                <picker bindchange="bindDateChange" value="{{date}}" range="{{datelist}}">
+                    <view class="head">{{datelist[date]}}</view>
+                  </picker>
+                <view class="time" wx:for="{{timeArr}}" wx:key="{{timeArr}}">{{item}}</view>
+            </view>
+
+            <view class="day_wrap">
+
+                <!--一周时间配置-->
+                <view class="head">
+                    <view class="day" wx:for="{{dayArr}}" wx:key="{{dayArr}}">{{item}}</view>
+                </view>
+
+                <view class="pos_item" wx:for="{{list}}" wx:key="{{list}}" wx:for-index="idx" wx:for-item="ivalue">
+                    <view wx:for="{{ivalue}}" wx:key="{{ivalue}}" wx:for-index="idxs" wx:for-item="ival">
+                        <!--魔法乐理灰色区域-->
+                        <view class="pos gray" wx:if="{{ival.status==1}}"></view>
+                        <!--可以选择的单元格-->
+                        <view class="pos bs" wx:elif="{{ival.status==3}}" bindtap="clickView" data-status="{{ival.status}}" data-type="{{ival.type}}" data-mark="{{ival.mark}}" data-datetime="{{ival.datetime}}" data-time_period="{{ival.time_period}}" data-time_period_index="{{ival.time_period_index}}" data-week="{{ival.week}}"></view>
+
+                        <!--魔法乐理(已创建班级)-->
+                        <view class="pos mfyl" wx:elif="{{ival.type==1 && ival.status==2 && ival.do_cancel==0}}">
+                            <view class="block" wx:if="{{ival.number==1 && ival.class_status==1}}" style="background-color:'#d93389';display:'flex';" data-class_id="{{ival.class_id}}" data-type="{{ival.type}}" bindtap="goClassDetail">预约成功</view>
+                            <view class="block" wx:elif="{{ival.number==1 && ival.class_status==2}}" style="background-color:'#d93389';display:'flex';" data-class_id="{{ival.class_id}}" data-type="{{ival.type}}" bindtap="goClassDetail">招生中</view>
+                            <view class="block" wx:elif="{{ival.number==1 && ival.class_status==3}}" style="background-color:'#d93389';display:'flex';" data-class_id="{{ival.class_id}}" data-type="{{ival.type}}" bindtap="goClassDetail">已开班</view>
+                            <view class="block" wx:elif="{{ival.number==1}}" style="background-color:'#d93389';display:'flex';" data-class_id="{{ival.class_id}}" data-type="{{ival.type}}" bindtap="goClassDetail">预约成功</view>
+                        </view>
+                        <!--魔法乐理(临时勾选)-->
+                        <view class="pos mfyl" wx:elif="{{ival.type==1 && ival.status==2 && ival.do_cancel==1}}" bindtap="clickView" data-status="{{ival.status}}" data-type="{{ival.type}}" data-mark="{{ival.mark}}" data-datetime="{{ival.datetime}}" data-time_period="{{ival.time_period}}" data-time_period_index="{{ival.time_period_index}}" data-week="{{ival.week}}">
+                        </view>
+
+                        <!--体验课(已创建班级)-->
+                        <view class="pos tyk" wx:elif="{{ival.type==2 && ival.status==2 && ival.do_cancel==0}}" data-class_id="{{ival.class_id}}" data-type="{{ival.type}}" bindtap="goClassDetail">
+                            已预约
+                        </view>
+                        <!--体验课(临时勾选)-->
+                        <view class="pos tyk" wx:elif="{{ival.type==2 && ival.status==2 && ival.do_cancel==1}}" bindtap="clickView" data-status="{{ival.status}}" data-type="{{ival.type}}" data-mark="{{ival.mark}}" data-datetime="{{ival.datetime}}" data-time_period="{{ival.time_period}}" data-time_period_index="{{ival.time_period_index}}" data-week="{{ival.week}}">
+                        </view>
+
+                        <!--活动(已创建班级)-->
+                        <view class="pos hd" wx:elif="{{ival.type==3 && ival.status==2 && ival.do_cancel==0}}" data-ins_act_id="{{ival.ins_act_id}}" data-is_online="{{ival.is_online}}" data-type="{{ival.type}}" bindtap="goClassDetail"></view>
+                        <!--活动(临时勾选)-->
+                        <view class="pos hd" wx:elif="{{ival.type==3 && ival.status==2 && ival.do_cancel==1}}" bindtap="clickView" data-status="{{ival.status}}" data-type="{{ival.type}}" data-mark="{{ival.mark}}" data-datetime="{{ival.datetime}}" data-time_period="{{ival.time_period}}" data-time_period_index="{{ival.time_period_index}}" data-week="{{ival.week}}">
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="appoint_wrap">
+            <view class="appoint" wx:for="{{appointArr}}" wx:key="{{appointArr}}" bindtap="delSelect" data-item="{{item}}">
+                {{item}}
+                <image class="close" src="../../../images/close_icon.png"></image>
+            </view>
+        </view>
+
+        <view class="submit">
+            <button class='button' wx:if="{{type==1 && selectLength==2}}" formType="submit">确认选择</button>
+            <button class='button' wx:elif="{{type!=1 && selectLength==1}}" formType="submit">确认选择</button>
+            <button class='button2' wx:else disabled="1">确认选择</button>
+        </view>
+    </view>
+</form>

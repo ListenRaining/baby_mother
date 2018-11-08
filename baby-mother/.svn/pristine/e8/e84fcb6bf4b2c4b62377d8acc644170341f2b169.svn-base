@@ -1,0 +1,32 @@
+/* gold_detail.wxss */
+page{
+  background-color: #f0eff4;
+}
+
+.item{
+    box-sizing: border-box;
+    width: 750rpx;
+    padding: 28rpx 32rpx;
+    border-bottom:solid 1rpx #d7d7d7;
+}
+
+.content_1, .content_2{
+    display: flex;
+}
+
+.content_1
+{
+    font-size: 30rpx;
+}
+
+.content_2
+{
+    font-size: 25rpx;
+    color: #7e7d85;
+    margin-top: 14rpx;
+}
+
+
+.goldDeal, .goldRemain{
+    margin-left: auto
+}

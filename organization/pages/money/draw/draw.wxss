@@ -1,0 +1,57 @@
+page {
+  height: 100%;
+  background-color: #ebebeb;
+}
+
+.content {
+  margin-top:35rpx;
+  padding:30rpx 40rpx;
+  height: 520rpx;
+  background-color: white;
+}
+
+.describe label{
+  display: flex;
+  padding-bottom: 10rpx;
+}
+
+.describe .confirm {
+  font-size: 26rpx;
+}
+
+.describe .info {
+  font-size:24rpx;
+  color:#c3c0c0;
+}
+
+.money {
+  border-bottom: solid 1rpx #f3f3f3;
+  padding-top:60rpx;
+  padding-bottom:18rpx;
+  align-items: center;
+}
+
+.money .txt {
+  font-size: 22rpx;
+}
+
+.money .num {
+  font-size:50rpx;
+  color:#5fb157;
+  float: right;
+}
+
+.btn button {
+  margin-top:50rpx;
+  height: 80rpx;
+  background-color:#5fb157;
+  color:white;
+  font-size: 28rpx;
+}
+
+.btn_des {
+  font-size:20rpx;
+  text-align: center;
+  padding-top:30rpx;
+  color:#c3c0c0;
+}

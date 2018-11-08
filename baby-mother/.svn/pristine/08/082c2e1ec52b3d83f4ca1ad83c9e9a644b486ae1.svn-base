@@ -1,0 +1,265 @@
+@import "../../../pages/components/action_sheet/action_sheet.wxss";
+
+page {
+  background-color: #eff0f5;
+}
+
+.main {
+  margin-top: 31rpx;
+  background-color: #fff;
+  padding: 0 auto;
+}
+
+.head {
+  height: 125rpx;
+  width: 100%;
+  border-bottom: 1px solid #f0eff4;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.icon {
+  /* margin-left: 20rpx; */
+  margin-right: 16rpx;
+  width: 79rpx;
+  height: 79rpx;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+}
+
+.infor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 62rpx;
+  /* width: 537rpx; */
+}
+
+.infor_name {
+  font-size: 28rpx;
+  line-height: 28rpx;
+}
+
+.infor_text {
+  font-size: 25rpx;
+  line-height: 25rpx;
+  color: #a3a3a3;
+}
+
+.contect {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 13rpx;
+  justify-content: center;
+}
+
+.image {
+  margin-top: 13rpx;
+  width: 700rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image image {
+  width: 100%;
+  margin-bottom: 13rpx;
+}
+
+#text {
+  font-size: 32rpx;
+  line-height: 40rpx;
+  color: #4c4a4b;
+  padding: 13rpx 37rpx 50rpx 37rpx;
+}
+
+.del {
+  width: 68rpx;
+  height: 27rpx;
+  /* margin-bottom: 38rpx; */
+  border-width: 1rpx;
+  border-color: rgb(163, 163, 163);
+  border-style: solid;
+  border-radius: 10px;
+  font-size: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 40rpx;
+  color: rgb(163, 163, 163);
+  margin: 20rpx;
+}
+
+.admire, .comment_hint{
+    display: flex;
+    height: 100rpx;
+    justify-content:flex-end;
+    align-items: center;
+} 
+
+
+.admire_icon, .comment_hint_icon {
+    width: 30rpx;
+    margin-left: 15rpx;
+    margin-right: 10rpx;
+}
+
+.admire_cnt, .comment_hint_cnt{
+    color: #a3a3a3;
+}
+
+.admire, .comment_hint{
+    display: flex;
+    /* width: 100rpx;
+    height: 100rpx; */
+    justify-content:flex-end;
+    align-items: center;
+    /* margin-top: -40rpx; */
+
+}
+.admire{
+    margin-left: auto;
+    margin-right: 10rpx;
+}
+
+
+
+.comment{
+    /* margin: 0 24rpx; */
+    /* border-top: solid 1rpx #efeef4; */
+    padding-bottom: 100rpx;
+}
+.comment_item {
+    padding: 32rpx 24rpx;
+    border-top: solid 1rpx #efeef4;
+    display: flex;
+    align-items: flex-start;
+}
+.comment_item .head_icon{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+}
+
+
+.comment_item .content{
+    margin-left: 27rpx;
+    display: flex; 
+    flex-direction: column;
+    flex: 1;
+    color: #7c7c7c;
+}
+
+.content .title{
+    display: flex;
+    justify-content: space-between;
+    font-size: 25rpx;
+}
+.content .title .name{
+    /* margin-top: 10rpx; */
+    font-size: 28rpx;
+    color: #4c4a4b;
+}
+
+.content text{
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+
+.content_1{
+    display: flex;
+    flex-direction: column;
+     justify-content: space-between;
+}
+
+.replyDiv{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25rpx;
+    margin-bottom: 25rpx;
+}
+
+.reply{
+    background-color: #f7f7f7;
+}
+.replyItem{
+    display: flex;
+    padding: 20rpx;
+    flex-direction: column;
+    border-bottom: solid 1rpx #efeef4;
+}
+
+.replyItem .title{
+    display: flex;
+    color: #bdbdbd;
+    justify-content:space-between;
+    align-items: center;
+    font-size: 23rpx;
+}
+.replyItem .title .name{
+    font-size: 27rpx;
+}
+
+.replyItem text{
+    margin-top: 20rpx;
+    line-height: 40rpx;
+    font-size: 27rpx;
+}
+
+.publish_comment{
+    position:fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* margin-top: 120rpx; */
+    padding: 23rpx 40rpx;
+    background-color: #f2f2f2;
+    bottom: -1rpx;  
+    box-sizing:border-box;
+    /* margin-bottom: 120rpx; */
+    /* margin-left: 24rpx; */
+    /* top: 200rpx; */
+}
+
+.publish_comment image{
+    width: 54rpx;
+    height: 53rpx;
+}
+
+.publish_comment .input{
+    margin-left: 38rpx;
+    margin-right: 20rpx;
+    background-color: #fff;
+    width: 450rpx;
+    height: 55rpx;
+    padding: 15rpx 10rpx;
+    border-radius: 10rpx;
+}
+
+.publish_comment button
+{
+    padding: 0;
+    width: 100rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    font-size: 30rpx;
+    margin-left: auto;
+}
+
+.triangle{
+    width: 36rpx;
+    /* margin-top: 50rpx; */
+    margin-left: 60rpx;
+}
+
+.video {
+  width:740rpx;
+  height:460rpx;
+}

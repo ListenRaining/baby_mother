@@ -1,0 +1,54 @@
+page {
+  background-color: #efeff4;
+}
+
+.con {
+  padding: 0 25rpx 20rpx 25rpx;
+}
+
+.pro {
+  background-color: white;
+  margin-top: 20rpx;
+  border-radius: 13px;
+}
+
+.pro image {
+  width: 100%;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px; 
+  display: block;
+}
+
+.pro_des {
+  display: flex;
+}
+
+.pro_info {
+  margin: 20rpx 28rpx;
+}
+
+.pro_name {
+  font-size: 35rpx;
+  font-weight: 500;
+  margin-bottom: 10rpx;
+}
+
+.pro_price {
+  margin: auto 20rpx auto auto;
+  width: 150rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  border-radius: 20px;
+  border: solid 1rpx #39b54a;
+  text-align: center;
+  color: #39b54a;
+  font-size: 25rpx;
+  
+}
+
+.cost {
+  text-decoration: line-through;
+  color: #000000;
+  border: solid 1rpx #777777;
+  margin-right: -130rpx;
+}
